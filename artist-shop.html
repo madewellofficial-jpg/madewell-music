@@ -94,6 +94,68 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
 .teal-divider{height:1px;background:linear-gradient(to right,transparent,rgba(95,200,215,.1) 20%,rgba(95,200,215,.22) 50%,rgba(95,200,215,.1) 80%,transparent);margin:0 72px}
 @media(max-width:768px){.teal-divider{margin:0 28px}}
 
+/* ── ALBUM CATALOG ── */
+.catalog-section{padding:72px 72px 56px}
+.catalog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:44px;max-width:600px}
+.catalog-card{position:relative;overflow:hidden;cursor:pointer;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.02);transition:border-color .3s,transform .3s}
+.catalog-card:hover{border-color:rgba(95,200,215,.32);transform:translateY(-5px)}
+.catalog-cover{width:100%;aspect-ratio:1;background-size:cover;background-position:center top;position:relative}
+.catalog-cover::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(5,14,18,.88) 0%,transparent 55%);transition:opacity .3s}
+.catalog-status{position:absolute;top:10px;left:10px;font-size:7.5px;font-weight:700;letter-spacing:.2em;padding:3px 10px;text-transform:uppercase;z-index:2}
+.catalog-status.preorder{background:rgba(65,168,182,.9);color:#040e12;animation:pulse 1.8s ease-in-out infinite}
+.catalog-status.available{background:rgba(255,255,255,.1);color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.16)}
+.catalog-status.soldout{background:rgba(255,255,255,.04);color:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.07)}
+.catalog-info{padding:16px 18px 18px}
+.catalog-num{font-size:7.5px;font-weight:700;letter-spacing:.26em;color:rgba(95,200,215,.45);text-transform:uppercase;margin-bottom:6px}
+.catalog-title-el{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(18px,2vw,24px);color:#fff;margin-bottom:4px;line-height:1.05}
+.catalog-title-el em{font-style:italic;color:rgba(95,200,215,.8)}
+.catalog-year{font-size:8.5px;color:rgba(255,255,255,.2);letter-spacing:.16em;margin-bottom:16px}
+.catalog-cta{display:block;text-align:center;font-size:9.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;padding:12px 16px;background:rgba(65,168,182,.12);border:1px solid rgba(65,168,182,.35);color:rgba(95,200,215,.85);transition:background .2s,color .2s,border-color .2s}
+.catalog-card:hover .catalog-cta{background:rgba(65,168,182,.22);border-color:rgba(95,200,215,.7);color:#fff}
+@media(max-width:768px){.catalog-section{padding:56px 28px 44px}.catalog-grid{gap:12px}}
+@media(max-width:420px){.catalog-grid{grid-template-columns:1fr}}
+
+/* ── PROGRESS TRACKER ── */
+.progress-section{padding:64px 72px;background:linear-gradient(180deg,rgba(5,14,18,0) 0%,rgba(52,138,150,.06) 100%);border-top:1px solid rgba(255,255,255,.05)}
+@media(max-width:768px){.progress-section{padding:52px 28px}}
+.progress-label{font-size:9px;font-weight:700;letter-spacing:.36em;text-transform:uppercase;color:rgba(95,200,215,.5);margin-bottom:10px;transition:color .5s}
+.progress-label.urgent{color:rgba(255,140,80,.75);animation:pulse 1.8s ease-in-out infinite}
+.progress-headline{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(22px,2.8vw,38px);color:#fff;margin-bottom:6px;line-height:1.1}
+.progress-headline em{font-style:italic;color:rgba(95,200,215,.8)}
+.progress-headline em.hot{color:rgba(255,160,60,.9)}
+.progress-subtitle{font-size:11.5px;color:rgba(255,255,255,.3);margin-bottom:40px;font-weight:300;line-height:1.8}
+/* 퍼센트 카운터 */
+.progress-counter{display:flex;align-items:baseline;gap:4px;margin-bottom:10px}
+.progress-pct{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(64px,8vw,100px);color:#fff;line-height:1;letter-spacing:-.02em}
+.progress-pct-sign{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(32px,4vw,52px);color:rgba(255,255,255,.55);line-height:1.1;margin-left:2px}
+.progress-remaining{font-size:11px;font-weight:500;letter-spacing:.12em;color:rgba(255,255,255,.28);margin-bottom:28px;text-transform:uppercase}
+.progress-remaining strong{color:rgba(95,200,215,.75);font-weight:600}
+.progress-remaining.few{color:rgba(255,140,80,.5)}
+.progress-remaining.few strong{color:rgba(255,140,80,.9)}
+/* 바 */
+.progress-bar-wrap{position:relative;height:5px;background:rgba(255,255,255,.07);overflow:visible;margin-bottom:8px}
+.progress-bar-fill{height:100%;background:linear-gradient(to right,rgba(65,168,182,.7),rgba(95,200,215,1));transition:width 1.4s cubic-bezier(.22,1,.36,1);position:relative}
+.progress-bar-fill::after{content:'';position:absolute;right:-1px;top:50%;transform:translateY(-50%);width:10px;height:10px;background:rgba(95,200,215,1);border-radius:50%;box-shadow:0 0 12px rgba(95,200,215,.9),0 0 28px rgba(95,200,215,.45)}
+.progress-bar-fill.hot{background:linear-gradient(to right,rgba(65,168,182,.7),rgba(255,160,60,1))}
+.progress-bar-fill.hot::after{background:rgba(255,160,60,1);box-shadow:0 0 12px rgba(255,160,60,.9),0 0 28px rgba(255,160,60,.4)}
+/* 마일스톤 */
+.progress-milestones{display:flex;gap:0;margin-top:28px;border:1px solid rgba(255,255,255,.05);overflow:hidden}
+.progress-milestone{flex:1;padding:16px 18px;border-right:1px solid rgba(255,255,255,.05);position:relative;transition:background .3s}
+.progress-milestone:last-child{border-right:none}
+.progress-milestone.reached{background:rgba(52,138,150,.08)}
+.progress-milestone.reached .ms-num{color:rgba(95,200,215,.9)}
+.progress-milestone.reached .ms-check{opacity:1}
+.ms-num{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(16px,1.8vw,22px);color:rgba(255,255,255,.18);margin-bottom:4px;transition:color .3s}
+.ms-desc{font-size:9.5px;color:rgba(255,255,255,.3);letter-spacing:.08em;line-height:1.5;font-weight:400}
+.ms-perk{font-size:9px;color:rgba(95,200,215,.4);margin-top:4px;font-weight:300}
+.ms-check{font-size:10px;margin-bottom:4px;opacity:0;transition:opacity .4s}
+@media(max-width:640px){.progress-milestones{flex-direction:column}.progress-milestone{border-right:none;border-bottom:1px solid rgba(255,255,255,.05)}.progress-milestone:last-child{border-bottom:none}}
+
+/* ── ALBUM HERO (프리오더 섹션 상단) ── */
+.preorder-hero{display:grid;grid-template-columns:160px 1fr;gap:40px;align-items:start;margin-bottom:44px}
+.preorder-hero-cover{aspect-ratio:1;background-size:cover;background-position:center top;border:1px solid rgba(255,255,255,.08)}
+@media(max-width:640px){.preorder-hero{grid-template-columns:1fr}.preorder-hero-cover{max-width:140px}}
+
 /* ── PAYMENT STEPS ── */
 .payment-section{padding:80px 72px;background:rgba(52,138,150,.03);border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)}
 @media(max-width:768px){.payment-section{padding:60px 28px}}
@@ -178,15 +240,99 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
   <div class="banner-date" id="banner-date">PRE-ORDER OPEN · MAY 8 — CLOSE MAY 20</div>
 </div>
 
+<!-- ─── ALBUM CATALOG ─── -->
+<section class="catalog-section">
+  <div class="section-label" id="cat-label">Shop</div>
+  <h2 class="section-title" id="cat-title">앨범 <em>둘러보기</em></h2>
+  <p class="section-sub" id="cat-sub">구매하고 싶은 앨범을 선택하세요.</p>
+
+  <div class="catalog-grid">
+
+    <!-- 3집 MAMA — 프리오더 -->
+    <div class="catalog-card" onclick="document.getElementById('preorder-section').scrollIntoView({behavior:'smooth'})">
+      <div class="catalog-cover" style="background-image:url('images/MAMA앨범 컨셉사진들/메인자켓 1.png')">
+        <div class="catalog-status preorder" id="cs1">PRE-ORDER</div>
+      </div>
+      <div class="catalog-info">
+        <div class="catalog-num" id="cn1">3RD SOLO ALBUM</div>
+        <div class="catalog-title-el" id="ct1">MAMA</div>
+        <div class="catalog-year" id="cy1">2026 · MAY 8 – 20</div>
+        <div class="catalog-cta" id="cc1">선주문하기 →</div>
+      </div>
+    </div>
+
+    <!-- 2집 Still UNFINISHED — 잔여 수량 -->
+    <div class="catalog-card" onclick="document.getElementById('su-section').scrollIntoView({behavior:'smooth'})">
+      <div class="catalog-cover" style="background-image:url('images/STILL UNFINIHSED 앨범자료/앨범표지.jpg')">
+        <div class="catalog-status available" id="cs2">Available</div>
+      </div>
+      <div class="catalog-info">
+        <div class="catalog-num" id="cn2">2ND SOLO ALBUM</div>
+        <div class="catalog-title-el" id="ct2">Still <em>UNFINISHED</em></div>
+        <div class="catalog-year" id="cy2">2025 · 잔여 수량 한정</div>
+        <div class="catalog-cta" id="cc2">구매하기 →</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── PROGRESS TRACKER ─── -->
+<div class="progress-section">
+  <div class="progress-label" id="pg-label">PRE-ORDER PROGRESS</div>
+  <h2 class="progress-headline" id="pg-title">목표까지 <em>지금 여기</em></h2>
+  <p class="progress-subtitle" id="pg-sub">매일 업데이트 됩니다. 50% 달성 시 제작 확정.</p>
+
+  <div class="progress-counter">
+    <div class="progress-pct" id="pg-pct">20</div>
+    <div class="progress-pct-sign">%</div>
+  </div>
+  <div class="progress-remaining" id="pg-remaining">
+    Remaining <strong id="pg-left">80</strong> / 100 copies
+  </div>
+
+  <div class="progress-bar-wrap">
+    <div class="progress-bar-fill" id="pg-bar" style="width:0%"></div>
+  </div>
+
+  <div class="progress-milestones">
+    <div class="progress-milestone" id="ms-a">
+      <div class="ms-check" id="ms-a-check">✓</div>
+      <div class="ms-num" id="ms-a-num">50장</div>
+      <div class="ms-desc" id="ms-a-desc">제작 확정 공지</div>
+      <div class="ms-perk" id="ms-a-perk">공식 포스팅</div>
+    </div>
+    <div class="progress-milestone" id="ms-b">
+      <div class="ms-check" id="ms-b-check">✓</div>
+      <div class="ms-num" id="ms-b-num">70장</div>
+      <div class="ms-desc" id="ms-b-desc">디지털 배경화면 팩</div>
+      <div class="ms-perk" id="ms-b-perk">전원 무료 공유</div>
+    </div>
+    <div class="progress-milestone" id="ms-c">
+      <div class="ms-check" id="ms-c-check">✓</div>
+      <div class="ms-num" id="ms-c-num">100장</div>
+      <div class="ms-desc" id="ms-c-desc">레코딩 비하인드 영상</div>
+      <div class="ms-perk" id="ms-c-perk">완판 기념 릴리즈</div>
+    </div>
+  </div>
+</div>
+
+<div class="teal-divider"></div>
+
 <!-- ─── TIERS ─── -->
-<section class="section">
-  <div class="section-label" id="pre-label">Pre-Order</div>
-  <h2 class="section-title" id="pre-title">선주문 <em>티어</em></h2>
-  <p class="section-sub" id="pre-sub">
-    생산 수량 100장 한정. 최소 50장 선주문 확보 후 제작 시작.<br/>
-    선주문 마감 5월 20일 · 발송 6월 6일 예정.<br/>
-    <span style="color:rgba(95,200,215,.6);font-size:11px">1장 기준 ₩35,000 (국내) / $25 (해외)</span>
-  </p>
+<section class="section" id="preorder-section">
+  <div class="preorder-hero">
+    <div class="preorder-hero-cover" style="background-image:url('images/MAMA앨범 컨셉사진들/메인자켓 1.png')"></div>
+    <div>
+      <div class="section-label" id="pre-label">Pre-Order</div>
+      <h2 class="section-title" id="pre-title">선주문 <em>티어</em></h2>
+      <p class="section-sub" id="pre-sub">
+        생산 수량 100장 한정. 최소 50장 선주문 확보 후 제작 시작.<br/>
+        선주문 마감 5월 20일 · 발송 6월 6일 예정.<br/>
+        <span style="color:rgba(95,200,215,.6);font-size:11px">1장 기준 ₩35,000 (국내) / $25 (해외)</span>
+      </p>
+    </div>
+  </div>
 
   <div class="tiers-grid">
 
@@ -318,7 +464,7 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
 
 <!-- ─── STILL UNFINISHED ─── -->
 <div class="teal-divider" style="margin:0"></div>
-<section class="section">
+<section class="section" id="su-section">
   <div class="section-label" id="su-label">Previous Album</div>
   <h2 class="section-title" id="su-title">2집 <em>Still UNFINISHED</em></h2>
   <p class="section-sub" id="su-sub">
@@ -413,6 +559,91 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
 </div>
 
 <script>
+/* ─────────────────────────────────────────
+   ★ 매일 이 숫자 하나만 바꾸고 git push!
+   ───────────────────────────────────────── */
+const PREORDER_COUNT = 20;   /* ← 현재 선주문 수량 */
+const PREORDER_GOAL  = 100;  /* 총 목표 수량 */
+
+/* ── 단계별 카피 (자동 전환) ─────────────────────────
+   Phase 1  0–49%  : 중립 — 지금 여기
+   Phase 2 50–69%  : 제작 확정! 🔥 — 절반 돌파
+   Phase 3 70–89%  : ⚡ Urgency — 얼마 안 남았어요
+   Phase 4 90–99%  : 🚨 High urgency — 거의 완판
+   Phase 5 100%    : 🎉 완판
+─────────────────────────────────────────────────── */
+const PHASE_COPY = {
+  ko: [
+    { label:'PRE-ORDER PROGRESS', title:'목표까지 <em>지금 여기</em>',    sub:'매일 업데이트 됩니다. 50% 달성 시 제작 확정.' },
+    { label:'🔥 제작 확정!',       title:'절반 <em>돌파했습니다</em>',     sub:'50% 달성 — 제작이 확정됩니다. 지금 참여해주세요.' },
+    { label:'⚡ 얼마 안 남았어요', title:'자리가 <em>줄어들고 있어요</em>', sub:'이미 많은 분들이 함께하고 있습니다.' },
+    { label:'🚨 거의 완판',        title:'지금 아니면 <em>못 살 수도</em>', sub:'잔여 수량이 거의 없습니다. 서둘러 주세요.' },
+    { label:'🎉 완판',             title:'100% <em>완판되었습니다</em>',    sub:'성원에 감사드립니다. 제작에 들어갑니다.' },
+  ],
+  en: [
+    { label:'PRE-ORDER PROGRESS',  title:'Where We Are <em>Right Now</em>',  sub:'Updated daily. Production confirmed at 50%.' },
+    { label:'🔥 HALFWAY THERE!',   title:'Past the <em>halfway point</em>',   sub:'50% reached — production is now confirmed. Join us.' },
+    { label:'⚡ ALMOST GONE',      title:'Spots are <em>filling up fast</em>', sub:'A lot of people are already in. Don\'t miss out.' },
+    { label:'🚨 NEARLY SOLD OUT',  title:'Last chance <em>to get yours</em>',  sub:'Very limited copies remaining. Act now.' },
+    { label:'🎉 SOLD OUT',         title:'100% <em>Sold Out</em>',             sub:'Thank you all. Production begins now.' },
+  ],
+  ja: [
+    { label:'PRE-ORDER PROGRESS',  title:'目標まで <em>いまここ</em>',          sub:'毎日更新。50%達成で制作確定。' },
+    { label:'🔥 折り返し達成！',   title:'半分を <em>超えました</em>',           sub:'50%達成 — 制作確定です。今すぐご参加ください。' },
+    { label:'⚡ 残りわずか',        title:'枠が <em>埋まっています</em>',         sub:'多くの方がすでにご参加中です。お見逃しなく。' },
+    { label:'🚨 ほぼ完売',         title:'今が <em>ラストチャンス</em>',          sub:'残り枚数がわずかです。お急ぎください。' },
+    { label:'🎉 完売',             title:'100% <em>完売しました</em>',           sub:'ご支援ありがとうございます。制作に入ります。' },
+  ],
+};
+
+function getPhase(pct) {
+  if (pct >= 100) return 4;
+  if (pct >= 90)  return 3;
+  if (pct >= 70)  return 2;
+  if (pct >= 50)  return 1;
+  return 0;
+}
+
+function initProgress() {
+  const pct      = Math.min(Math.round(PREORDER_COUNT / PREORDER_GOAL * 100), 100);
+  const remaining = Math.max(PREORDER_GOAL - PREORDER_COUNT, 0);
+  const phase    = getPhase(pct);
+  const isHot    = phase >= 2;
+
+  // 퍼센트 & remaining
+  document.getElementById('pg-pct').textContent  = pct;
+  document.getElementById('pg-left').textContent = remaining;
+
+  // remaining 카피 — 70% 이상이면 urgency 어조로
+  const remEl = document.getElementById('pg-remaining');
+  const remCopy = {
+    ko: isHot ? `<strong id="pg-left">${remaining}</strong>장밖에 안 남았어요!` : `Remaining <strong id="pg-left">${remaining}</strong> / 100장`,
+    en: isHot ? `Only <strong id="pg-left">${remaining}</strong> copies left!`   : `Remaining <strong id="pg-left">${remaining}</strong> / 100 copies`,
+    ja: isHot ? `残り<strong id="pg-left">${remaining}</strong>枚のみ！`          : `残り<strong id="pg-left">${remaining}</strong> / 100枚`,
+  };
+  remEl.innerHTML = remCopy[currentLang] || remCopy.en;
+  if (isHot) remEl.classList.add('few'); else remEl.classList.remove('few');
+
+  // 단계별 headline / label
+  const copy = PHASE_COPY[currentLang]?.[phase] || PHASE_COPY.en[phase];
+  document.getElementById('pg-label').textContent = copy.label;
+  document.getElementById('pg-title').innerHTML   = copy.title;
+  document.getElementById('pg-sub').textContent   = copy.sub;
+  if (isHot) {
+    document.getElementById('pg-label').classList.add('urgent');
+    document.getElementById('pg-bar').classList.add('hot');
+  }
+
+  // 바 애니메이션
+  setTimeout(() => { document.getElementById('pg-bar').style.width = pct + '%'; }, 300);
+
+  // 마일스톤
+  if (PREORDER_COUNT >= 50)  document.getElementById('ms-a').classList.add('reached');
+  if (PREORDER_COUNT >= 70)  document.getElementById('ms-b').classList.add('reached');
+  if (PREORDER_COUNT >= 100) document.getElementById('ms-c').classList.add('reached');
+}
+document.addEventListener('DOMContentLoaded', initProgress);
+
 /* PayPal 링크 — 티어별로 링크 넣으면 됩니다 */
 const PAYPAL_LINKS = [
   'https://www.paypal.com/ncp/payment/VMV5VZ3UUASTW', /* 1장 With Love */
@@ -467,6 +698,12 @@ document.getElementById('payment-modal').addEventListener('click', function(e) {
 
 const T = {
   ko:{
+    'ms-a-num':'50%','ms-a-desc':'제작 확정 공지','ms-a-perk':'공식 포스팅',
+    'ms-b-num':'70%','ms-b-desc':'디지털 배경화면 팩','ms-b-perk':'전원 무료 공유',
+    'ms-c-num':'100%','ms-c-desc':'레코딩 비하인드 영상','ms-c-perk':'완판 기념 릴리즈',
+    'cat-label':'Shop','cat-title':'앨범 <em>둘러보기</em>','cat-sub':'구매하고 싶은 앨범을 선택하세요.',
+    'cs1':'PRE-ORDER','cn1':'3RD SOLO ALBUM','ct1':'MAMA','cy1':'2026 · 5월 8 – 20일','cc1':'선주문하기 →',
+    'cs2':'Available','cn2':'2ND SOLO ALBUM','ct2':'Still <em>UNFINISHED</em>','cy2':'2025 · 잔여 수량 한정','cc2':'구매하기 →',
     'banner-msg':'선주문 오픈 — 5월 8일 어버이날',
     'banner-date':'PRE-ORDER OPEN · MAY 8 — CLOSE MAY 20',
     'pre-label':'Pre-Order','pre-title':'선주문 <em>티어</em>',
@@ -506,6 +743,12 @@ const T = {
     'tb1':'선주문하기','tb2':'선주문하기','tb3':'선주문하기','tb4':'선주문하기','tb5':'선주문하기',
   },
   en:{
+    'ms-a-num':'50%','ms-a-desc':'Production Confirmed','ms-a-perk':'Official Announcement',
+    'ms-b-num':'70%','ms-b-desc':'Digital Wallpaper Pack','ms-b-perk':'Free for all buyers',
+    'ms-c-num':'100%','ms-c-desc':'Recording Behind-the-Scenes','ms-c-perk':'Sellout celebration',
+    'cat-label':'Shop','cat-title':'Browse <em>Albums</em>','cat-sub':'Select an album to purchase.',
+    'cs1':'PRE-ORDER','cn1':'3RD SOLO ALBUM','ct1':'MAMA','cy1':'2026 · MAY 8 – 20','cc1':'Pre-Order →',
+    'cs2':'Available','cn2':'2ND SOLO ALBUM','ct2':'Still <em>UNFINISHED</em>','cy2':'2025 · Limited remaining stock','cc2':'Buy Now →',
     'banner-msg':'Pre-Order Opens — May 8, Parents\' Day',
     'banner-date':'PRE-ORDER OPEN · MAY 8 — CLOSE MAY 20',
     'pre-label':'Pre-Order','pre-title':'Pre-Order <em>Tiers</em>',
@@ -545,6 +788,12 @@ const T = {
     'tb1':'Pre-Order','tb2':'Pre-Order','tb3':'Pre-Order','tb4':'Pre-Order','tb5':'Pre-Order',
   },
   ja:{
+    'ms-a-num':'50%','ms-a-desc':'制作確定告知','ms-a-perk':'公式ポスト',
+    'ms-b-num':'70%','ms-b-desc':'デジタル壁紙パック','ms-b-perk':'全員無料配布',
+    'ms-c-num':'100%','ms-c-desc':'レコーディング密着映像','ms-c-perk':'完売記念リリース',
+    'cat-label':'Shop','cat-title':'アルバム <em>一覧</em>','cat-sub':'購入したいアルバムを選んでください。',
+    'cs1':'先行予約','cn1':'3RD SOLO ALBUM','ct1':'MAMA','cy1':'2026 · 5月8日 – 20日','cc1':'先行予約する →',
+    'cs2':'在庫あり','cn2':'2ND SOLO ALBUM','ct2':'Still <em>UNFINISHED</em>','cy2':'2025 · 残在庫限定','cc2':'購入する →',
     'banner-msg':'先行予約スタート — 5月8日 母の日',
     'banner-date':'予約受付 5月8日〜20日 · 発送 6月6日予定',
     'pre-label':'先行予約','pre-title':'予約 <em>ティア</em>',
@@ -593,6 +842,8 @@ function setLang(lang) {
   });
   const t = T[lang]||T.ko;
   Object.keys(t).forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML=t[id];});
+  // progress 카피도 언어에 맞게 리렌더
+  initProgress();
 }
 (function(){
   let saved='ko';try{saved=localStorage.getItem('mw-lang')||'ko';}catch(e){}
