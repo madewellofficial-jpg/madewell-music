@@ -1,0 +1,11 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
+logs/*.md
+!logs/.gitkeep
+handoff/*.md
+!handoff/.gitkeep
+memory/profile.json
