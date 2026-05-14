@@ -205,6 +205,8 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
 .modal-price-sub{font-size:15px;color:rgba(255,255,255,.4);margin-bottom:32px;font-weight:300}
 .modal-paypal-btn{display:block;text-align:center;padding:17px;background:rgba(65,168,182,.9);color:#040e12;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-bottom:32px;transition:background .2s}
 .modal-paypal-btn:hover{background:rgba(80,185,200,1)}
+.modal-booth-btn{display:none;text-align:center;padding:14px;background:rgba(255,100,130,.08);color:rgba(255,140,160,.85);font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-top:-20px;margin-bottom:28px;border:1px solid rgba(255,100,130,.28);transition:all .25s}
+.modal-booth-btn:hover{background:rgba(255,100,130,.18);color:rgba(255,170,190,1);border-color:rgba(255,100,130,.5)}
 .modal-after{border-top:1px solid rgba(255,255,255,.07);padding-top:24px}
 .modal-after-title{font-size:9px;font-weight:700;letter-spacing:.22em;color:rgba(255,255,255,.28);text-transform:uppercase;margin-bottom:14px}
 .modal-after-desc{font-size:11.5px;color:rgba(255,255,255,.38);line-height:2.1;font-weight:300}
@@ -541,8 +543,11 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
     <div class="modal-tier" id="modal-tier-name"></div>
     <div class="modal-qty-price" id="modal-qty"></div>
     <div class="modal-price-sub" id="modal-price"></div>
-    <a id="modal-paypal-btn" href="#" target="_blank" class="modal-paypal-btn" id="modal-pay-btn">
+    <a id="modal-paypal-btn" href="#" target="_blank" class="modal-paypal-btn">
       PayPal로 바로 결제하기 →
+    </a>
+    <a id="modal-booth-btn" href="https://madewellmusic.booth.pm/" target="_blank" class="modal-booth-btn">
+      BOOTHで購入する →
     </a>
     <div class="modal-after">
       <div class="modal-after-title" id="modal-after-title">결제 후 아래로 주문 정보를 보내주세요</div>
@@ -842,6 +847,16 @@ function setLang(lang) {
   });
   const t = T[lang]||T.ko;
   Object.keys(t).forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML=t[id];});
+  // 부스 버튼 — 일본어 모드에서만 표시
+  const boothBtn = document.getElementById('modal-booth-btn');
+  if(boothBtn) boothBtn.style.display = lang==='ja' ? 'block' : 'none';
+  // 페이팔 버튼 텍스트 언어 처리
+  const paypalBtn = document.getElementById('modal-paypal-btn');
+  if(paypalBtn){
+    if(lang==='ja') paypalBtn.textContent = 'PayPalで決済する →';
+    else if(lang==='en') paypalBtn.textContent = 'Pay with PayPal →';
+    else paypalBtn.textContent = 'PayPal로 바로 결제하기 →';
+  }
   // progress 카피도 언어에 맞게 리렌더
   initProgress();
 }
