@@ -125,6 +125,7 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
   <button onclick="setLang('ko')" class="on">KO</button>
   <button onclick="setLang('en')">EN</button>
   <button onclick="setLang('ja')">JP</button>
+  <button onclick="setLang('zh')">ZH</button>
 </div>
 
 <!-- TAB NAV -->
@@ -319,6 +320,18 @@ const T = {
     'stat1':'KOMCA登録曲','stat2':'オリコン ソロ','stat3':'日本ライブ','stat4':'年のキャリア',
     'bio-timeline':'<div class="bio-tl-row"><div class="bio-tl-year">2007</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>タカオン</strong> — 3人組アイドル メインボーカルデビュー</div></div></div><div class="bio-tl-row"><div class="bio-tl-year">2011</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>エントレイン</strong> — 5人組アイドル リーダー・ボーカルデビュー</div></div></div><div class="bio-tl-row"><div class="bio-tl-year">2014</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>BIGFLO</strong> — 6人組アイドル リーダー・メインボーカル・プロデューサーデビュー</div></div></div><div class="bio-tl-row"><div class="bio-tl-year">2018</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>スタジオJ2K株式会社</strong> — 設立</div></div></div><div class="bio-tl-row"><div class="bio-tl-year">2020</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>MADEWELL MUSIC株式会社</strong> — 法人設立・代表プロデューサー</div><div class="bio-tl-sub">スタジオオープン・ソウル 江南区 驛三洞</div></div></div><div class="bio-tl-row"><div class="bio-tl-year">2023</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>WE:A（元BIGFLO）</strong> — 結成・リーダー・メインボーカル</div><div class="bio-tl-sub">1stシングル &amp; Japanシングル「24/7」発売</div></div></div><div class="bio-tl-row"><div class="bio-tl-year">2025</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>Still UNFINISHED</strong> — 日本ソロ正規2集</div><div class="bio-tl-sub">ソロコンサート・100枚完売</div></div></div><div class="bio-tl-row"><div class="bio-tl-year">2026</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>MAMA : THE ETERNAL LOVE</strong> — 3rdソロアルバム</div><div class="bio-tl-sub">発売予定 2026.06</div></div></div>',
     'fl-insta':'Instagram','fl-studio':'スタジオ','fl-lesson':'レッスン','fl-home':'ホーム',
+  },
+  zh:{
+    'h-eyebrow':'MADEWELL · 第3張個人專輯 · 2026',
+    'h-album-tag':'3RD SOLO ALBUM',
+    'h-line1':'MAMA','h-line2':'THE ETERNAL LOVE',
+    'h-cta-1':'立即預購 →','h-cta-2':'曲目列表',
+    'bio-title':'MADEWELL',
+    'bio-role':'Music Producer · Artist · Engineer',
+    'bio-tags':'<span class="bio-tag">作曲</span><span class="bio-tag">編曲</span><span class="bio-tag">作詞</span><span class="bio-tag">鋼琴</span><span class="bio-tag">吉他</span><span class="bio-tag">貝斯</span><span class="bio-tag">鼓組</span><span class="bio-tag">JLPT N1</span>',
+    'stat1':'KOMCA登錄曲','stat2':'Oricon個人榜','stat3':'日本演唱會','stat4':'年資歷',
+    'bio-timeline':'<div class="bio-tl-row"><div class="bio-tl-year">2007</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>Takeon</strong> — 3人組偶像團體 主唱出道</div></div></div><div class="bio-tl-row"><div class="bio-tl-year">2011</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>Entrain</strong> — 5人組偶像團體 隊長・主唱出道</div></div></div><div class="bio-tl-row"><div class="bio-tl-year">2014</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>BIGFLO</strong> — 6人組偶像團體 隊長・主唱・製作人出道</div></div></div><div class="bio-tl-row"><div class="bio-tl-year">2018</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>Studio J2K有限公司</strong> — 成立</div></div></div><div class="bio-tl-row"><div class="bio-tl-year">2020</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>MADEWELL MUSIC有限公司</strong> — 成立・首席製作人</div><div class="bio-tl-sub">錄音室開業・首爾 江南區 驛三洞</div></div></div><div class="bio-tl-row"><div class="bio-tl-year">2023</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>WE:A（前BIGFLO）</strong> — 成立・隊長・主唱</div><div class="bio-tl-sub">1st Single &amp; Japan Single「24/7」發行</div></div></div><div class="bio-tl-row"><div class="bio-tl-year">2025</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>Still UNFINISHED</strong> — 日本個人正規2輯</div><div class="bio-tl-sub">日本單獨演唱會 · 100張完售</div></div></div><div class="bio-tl-row"><div class="bio-tl-year">2026</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>MAMA : THE ETERNAL LOVE</strong> — 第3張個人專輯</div><div class="bio-tl-sub">預計2026.06發行</div></div></div>',
+    'fl-insta':'Instagram','fl-studio':'錄音室','fl-lesson':'音樂課程','fl-home':'首頁',
   }
 };
 let currentLang = 'ko';
@@ -326,7 +339,9 @@ function setLang(lang) {
   currentLang = lang;
   try{localStorage.setItem('mw-lang', lang);}catch(e){}
   document.querySelectorAll('.lang-bar button').forEach(b=>{
-    b.classList.toggle('on', b.textContent.trim().toLowerCase()===lang||(lang==='ja'&&b.textContent.trim()==='JP'));
+    const btnLang = b.textContent.trim().toLowerCase();
+    const mapped = btnLang === 'jp' ? 'ja' : btnLang;
+    b.classList.toggle('on', mapped === lang);
   });
   const t = T[lang]||T.ko;
   Object.keys(t).forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML=t[id];});
