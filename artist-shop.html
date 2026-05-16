@@ -224,6 +224,7 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
   <button onclick="setLang('ko')" class="on">KO</button>
   <button onclick="setLang('en')">EN</button>
   <button onclick="setLang('ja')">JP</button>
+  <button onclick="setLang('zh')">ZH</button>
 </div>
 
 <!-- TAB NAV -->
@@ -599,6 +600,13 @@ const PHASE_COPY = {
     { label:'🚨 ほぼ完売',         title:'今が <em>ラストチャンス</em>',          sub:'残り枚数がわずかです。お急ぎください。' },
     { label:'🎉 完売',             title:'100% <em>完売しました</em>',           sub:'ご支援ありがとうございます。制作に入ります。' },
   ],
+  zh: [
+    { label:'PRE-ORDER PROGRESS',  title:'目標進度 <em>目前狀況</em>',          sub:'每日更新。達50%後確定製作。' },
+    { label:'🔥 達成一半！',        title:'突破 <em>一半了</em>',                sub:'50%達成，製作確定！請加入我們。' },
+    { label:'⚡ 快售完了',          title:'名額 <em>快滿了</em>',                sub:'已有很多人加入，不要錯過。' },
+    { label:'🚨 快售罄',           title:'最後機會 <em>把握現在</em>',           sub:'剩餘數量極少，請盡快預購。' },
+    { label:'🎉 售罄',             title:'100% <em>已售罄</em>',                sub:'感謝大家的支持，製作開始。' },
+  ],
 };
 
 function getPhase(pct) {
@@ -625,6 +633,7 @@ function initProgress() {
     ko: isHot ? `<strong id="pg-left">${remaining}</strong>장밖에 안 남았어요!` : `Remaining <strong id="pg-left">${remaining}</strong> / 100장`,
     en: isHot ? `Only <strong id="pg-left">${remaining}</strong> copies left!`   : `Remaining <strong id="pg-left">${remaining}</strong> / 100 copies`,
     ja: isHot ? `残り<strong id="pg-left">${remaining}</strong>枚のみ！`          : `残り<strong id="pg-left">${remaining}</strong> / 100枚`,
+    zh: isHot ? `只剩<strong id="pg-left">${remaining}</strong>張了！`            : `剩餘<strong id="pg-left">${remaining}</strong> / 100張`,
   };
   remEl.innerHTML = remCopy[currentLang] || remCopy.en;
   if (isHot) remEl.classList.add('few'); else remEl.classList.remove('few');
@@ -662,11 +671,13 @@ const tierPrices = {
   ko:['₩35,000','₩105,000','₩175,000','₩350,000','₩700,000'],
   en:['$25','$75','$125','$250','$500'],
   ja:['$25','$75','$125','$250','$500'],
+  zh:['$25','$75','$125','$250','$500'],
 };
 const tierQtys = {
   ko:['1장','3장','5장','10장','20장'],
   en:['1 copy','3 copies','5 copies','10 copies','20 copies'],
   ja:['1枚','3枚','5枚','10枚','20枚'],
+  zh:['1張','3張','5張','10張','20張'],
 };
 const tierNames = ['With Love','My Mama','Eternal ⭐','Be My Mama Again','Forever Mama'];
 
@@ -679,8 +690,8 @@ function openPayment(tier) {
   document.getElementById('modal-qty').textContent = tierQtys[currentLang][idx];
   document.getElementById('modal-price').textContent = tierPrices[currentLang][idx];
   const btn = document.getElementById('modal-paypal-btn');
-  const payBtnText = {ko:'PayPal로 바로 결제하기 →', en:'Pay with PayPal →', ja:'PayPalで決済する →'};
-  const payBtnLoading = {ko:'결제 링크 준비 중...', en:'Payment link coming soon...', ja:'決済リンク準備中...'};
+  const payBtnText = {ko:'PayPal로 바로 결제하기 →', en:'Pay with PayPal →', ja:'PayPalで決済する →', zh:'以PayPal付款 →'};
+  const payBtnLoading = {ko:'결제 링크 준비 중...', en:'Payment link coming soon...', ja:'決済リンク準備中...', zh:'付款連結準備中...'};
   if (link) {
     btn.href = link;
     btn.style.opacity = '1';
@@ -836,14 +847,61 @@ const T = {
     'modal-after-desc':'📱 Instagram DM: <strong style="color:rgba(95,200,215,.8)">@madewellmusic_official</strong><br/>📧 Email: <strong style="color:rgba(95,200,215,.8)">madewellofficial@gmail.com</strong>',
     'modal-info-list':'お名前 · 決済金額 · 配送先住所 · 国<br/><span style="color:rgba(95,200,215,.45)">送料は別途リンクでご請求します。</span>',
     'tb1':'先行予約する','tb2':'先行予約する','tb3':'先行予約する','tb4':'先行予約する','tb5':'先行予約する',
-  }
+  },
+  zh:{
+    'ms-a-num':'50%','ms-a-desc':'製作確定公告','ms-a-perk':'官方公告',
+    'ms-b-num':'70%','ms-b-desc':'數位桌布組','ms-b-perk':'所有購買者免費',
+    'ms-c-num':'100%','ms-c-desc':'錄音幕後花絮','ms-c-perk':'完售紀念發布',
+    'cat-label':'商店','cat-title':'瀏覽 <em>專輯</em>','cat-sub':'請選擇要購買的專輯。',
+    'cs1':'預購','cn1':'3RD SOLO ALBUM','ct1':'MAMA','cy1':'2026 · 5月8日 – 20日','cc1':'立即預購 →',
+    'cs2':'現貨','cn2':'2ND SOLO ALBUM','ct2':'Still <em>UNFINISHED</em>','cy2':'2025 · 剩餘庫存有限','cc2':'立即購買 →',
+    'banner-msg':'預購開始 — 5月8日 母親節',
+    'banner-date':'預購期間 5月8日 – 20日 · 預計6月6日發貨',
+    'pre-label':'預購','pre-title':'預購 <em>方案</em>',
+    'pre-sub':'限量100張。達50張預購後開始製作。<br/>預購截止：5月20日 · 預計發貨：6月6日<br/><span style="color:rgba(95,200,215,.6);font-size:11px">1張：₩35,000（韓國）/ $25（海外）</span>',
+    't1-name':'With Love','t1-qty':'1張',
+    't1-perks':'<li>專輯CD × 1張</li><li>普通小卡</li><li>親筆迷你信</li><li>THANKS語音訊息QR</li>',
+    't2-name':'My Mama','t2-qty':'3張',
+    't2-perks':'<li>專輯CD × 3張</li><li>全套小卡</li><li>親簽拍立得</li><li>姓名標籤（銀色）</li><li>親筆迷你信</li><li>THANKS語音QR</li>',
+    't3-name':'Eternal ⭐','t3-qty':'5張','rec-badge':'推薦',
+    't3-perks':'<li>專輯CD × 5張</li><li>全套小卡</li><li>親簽拍立得</li><li>姓名標籤（銀色）</li><li>限定未公開小卡</li><li>個人語音訊息（2分鐘）QR</li><li>親筆個人信</li>',
+    't4-name':'Be My Mama Again','t4-qty':'10張','t4-limit':'限前5名',
+    't4-perks':'<li>專輯CD × 10張</li><li>全套小卡</li><li>親簽拍立得</li><li>未公開小卡</li><li>個人影片訊息QR</li><li>全曲解說音檔</li><li>親簽迷你海報A3</li><li>親筆個人信</li><li class="gold">第1張個人專輯UNFINISHED（未拆封）<br/>+ 2026年親筆簽名 &amp; 訊息</li>',
+    't5-name':'Forever Mama','t5-qty':'20張','t5-limit':'限前3名',
+    't5-perks':'<li>專輯CD × 20張</li><li>全套小卡</li><li>親簽拍立得</li><li>未公開小卡</li><li>個人影片訊息QR</li><li>全曲解說音檔</li><li>親簽迷你海報A3</li><li>親筆個人信</li><li class="gold">第1張個人專輯UNFINISHED（未拆封）<br/>+ 2026年親筆簽名 &amp; 訊息</li><li class="dinner">私人晚餐邀請<br/>與MADEWELL共度的夜晚</li>',
+    'pay-label':'付款說明','pay-title':'點擊 → 直接付款',
+    'pay-sub':'不需要PayPal帳號，可直接以信用卡付款。全球粉絲皆適用。',
+    'ps1-title':'選擇方案後付款',
+    'ps1-desc':'點擊方案按鈕即可直接前往付款頁面。<br/><strong>不需要PayPal帳號</strong>，信用卡即可付款。',
+    'ps2-title':'付款後請DM或傳送Email',
+    'ps2-desc':'付款完成後，請將訂購資訊傳至：<br/>📱 <strong>@madewellmusic_official</strong><br/>📧 <strong>madewellofficial@gmail.com</strong>',
+    'ps3-title':'請提供以下資訊',
+    'ps3-desc':'姓名 · 付款金額 · 配送地址 · 國家<br/>運費確認後將透過<strong>另一付款連結</strong>收取。',
+    'ps4-title':'配送','ps4-desc':'運費付款完成後，預計<strong>6月6日</strong>發貨。',
+    'pay-note':'💡 <strong>費用：</strong> PayPal手續費（約3-4%）已含在價格中。<br/>📦 <strong>運費：</strong> 所有訂單另行收費（透過DM或Email通知）。',
+    'su-label':'前一張專輯','su-title':'第2張專輯 <em>Still UNFINISHED</em>',
+    'su-sub':'2025年在日本發行的第2張個人正規專輯。限量100張，已售罄。僅剩少量現貨。<br/><span style="color:rgba(95,200,215,.5);font-size:11px">請點擊下方按鈕直接購買。</span>',
+    'su-album-desc':'東京，以及那些未竟的感情。TOKYO TOWER這首歌的起源。<br/>MAMA的前傳，兩張專輯世界觀相連的起點。',
+    'su-btn':'立即購買 →','su-note':'剩餘庫存有限 · 購買後將通知配送資訊',
+    'ms-title':'達成目標特典',
+    'ms1-num':'50張','ms1-label':'製作確定公告','ms1-perk':'官方公告',
+    'ms2-num':'70張','ms2-label':'數位桌布組','ms2-perk':'所有購買者免費',
+    'ms3-num':'100張','ms3-label':'錄音幕後花絮','ms3-perk':'完售紀念發布',
+    'fl-insta':'Instagram','fl-studio':'錄音室','fl-lesson':'音樂課程','fl-home':'首頁',
+    'modal-after-title':'付款後請傳送訂購資訊',
+    'modal-after-desc':'📱 Instagram DM: <strong style="color:rgba(95,200,215,.8)">@madewellmusic_official</strong><br/>📧 Email: <strong style="color:rgba(95,200,215,.8)">madewellofficial@gmail.com</strong>',
+    'modal-info-list':'姓名 · 付款金額 · 配送地址 · 國家<br/><span style="color:rgba(95,200,215,.45)">運費將透過另一付款連結另行收取。</span>',
+    'tb1':'立即預購','tb2':'立即預購','tb3':'立即預購','tb4':'立即預購','tb5':'立即預購',
+  },
 };
 
 function setLang(lang) {
   currentLang = lang;
   try{localStorage.setItem('mw-lang', lang);}catch(e){}
   document.querySelectorAll('.lang-bar button').forEach(b=>{
-    b.classList.toggle('on', b.textContent.trim().toLowerCase()===lang||(lang==='ja'&&b.textContent.trim()==='JP'));
+    const btnLang = b.textContent.trim().toLowerCase();
+    const mapped = btnLang === 'jp' ? 'ja' : btnLang;
+    b.classList.toggle('on', mapped === lang);
   });
   const t = T[lang]||T.ko;
   Object.keys(t).forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML=t[id];});
@@ -855,6 +913,7 @@ function setLang(lang) {
   if(paypalBtn){
     if(lang==='ja') paypalBtn.textContent = 'PayPalで決済する →';
     else if(lang==='en') paypalBtn.textContent = 'Pay with PayPal →';
+    else if(lang==='zh') paypalBtn.textContent = '以PayPal付款 →';
     else paypalBtn.textContent = 'PayPal로 바로 결제하기 →';
   }
   // progress 카피도 언어에 맞게 리렌더
