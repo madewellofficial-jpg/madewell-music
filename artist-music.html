@@ -118,6 +118,7 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
   <button onclick="setLang('ko')" class="on">KO</button>
   <button onclick="setLang('en')">EN</button>
   <button onclick="setLang('ja')">JP</button>
+  <button onclick="setLang('zh')">ZH</button>
 </div>
 
 <!-- TAB NAV -->
@@ -446,6 +447,21 @@ const T = {
     'tl2-label':'2ndアルバム','tl2-meta':'12曲 · 日本 2025 · 完売',
     'tl3-label':'1stアルバム','tl3-meta':'6曲 · 2016年',
     'fl-insta':'Instagram','fl-studio':'スタジオ','fl-lesson':'レッスン','fl-home':'ホーム',
+  },
+  zh:{
+    'ph-eyebrow':'MADEWELL · DISCOGRAPHY',
+    'ph-title':'Music &amp; <em>Albums</em>',
+    'disco-label':'唱片目錄','disco-title':'<em>專輯</em>',
+    'dc1-soon':'即將發行','dc1-type':'第3張個人專輯 · 2026.06',
+    'dc2-type':'第2張個人專輯 · 售罄','dc3-type':'第1張個人專輯',
+    'tl1-label':'第3張個人專輯','tl1-meta':'11首曲目 · 3首主打歌',
+    'unreleased-msg':'預計2026.06發行 — 預購開始 5月8日',
+    'title-badge':'主打','title-badge2':'主打','title-badge3':'主打',
+    'title-badge4':'主打','title-sub1':'主打歌',
+    'jp-sub':'日文歌曲',
+    'tl2-label':'第2張專輯','tl2-meta':'12首曲目 · 日本 2025 · 售罄',
+    'tl3-label':'第1張專輯','tl3-meta':'6首曲目 · 2016',
+    'fl-insta':'Instagram','fl-studio':'錄音室','fl-lesson':'音樂課程','fl-home':'首頁',
   }
 };
 let currentLang='ko';
@@ -453,7 +469,9 @@ function setLang(lang){
   currentLang=lang;
   try{localStorage.setItem('mw-lang',lang);}catch(e){}
   document.querySelectorAll('.lang-bar button').forEach(b=>{
-    b.classList.toggle('on',b.textContent.trim().toLowerCase()===lang||(lang==='ja'&&b.textContent.trim()==='JP'));
+    const btnLang = b.textContent.trim().toLowerCase();
+    const mapped = btnLang === 'jp' ? 'ja' : btnLang;
+    b.classList.toggle('on', mapped === lang);
   });
   const t=T[lang]||T.ko;
   Object.keys(t).forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML=t[id];});
