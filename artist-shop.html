@@ -4,187 +4,120 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>MADEWELL — SHOP</title>
-<meta name="description" content="MADEWELL 3RD SOLO ALBUM MAMA — 지금 주문하기."/>
+<meta name="description" content="MADEWELL 공식 샵 — 앨범, 굿즈, 직접 주문."/>
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 a{text-decoration:none;color:inherit}
 html{scroll-behavior:smooth}
-body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-x:hidden}
+body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-height:100vh}
+
+/* ── NAV BACK ── */
+.nav-back{position:fixed;top:22px;left:28px;z-index:300;font-size:9px;font-weight:700;letter-spacing:.28em;color:rgba(255,255,255,.28);text-transform:uppercase;display:flex;align-items:center;gap:8px;transition:color .2s}
+.nav-back:hover{color:rgba(255,255,255,.7)}
+.nav-back svg{width:14px;height:14px}
 
 /* ── LANG BAR ── */
 .lang-bar{position:fixed;top:22px;right:28px;z-index:300;display:flex;gap:2px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);padding:3px}
 .lang-bar button{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.38);background:none;border:none;padding:5px 10px;cursor:pointer;text-transform:uppercase;transition:all .2s;line-height:1}
 .lang-bar button.on{background:rgba(65,168,182,.9);color:#040e12}
 .lang-bar button:hover:not(.on){color:rgba(255,255,255,.8)}
-@media(max-width:640px){.lang-bar{top:14px;right:14px}}
-
-/* ── BACK NAV ── */
-.nav-back{position:fixed;top:22px;left:28px;z-index:300;font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.3);display:flex;align-items:center;gap:8px;transition:color .2s}
-.nav-back:hover{color:rgba(95,200,215,.9)}
-.nav-back svg{width:14px;height:14px;opacity:.5;transition:opacity .2s}
-.nav-back:hover svg{opacity:1}
-@media(max-width:640px){.nav-back{top:14px;left:14px}}
 
 /* ── TAB NAV ── */
 .tab-nav{position:sticky;top:0;z-index:200;display:flex;justify-content:center;background:rgba(5,14,18,.95);border-bottom:1px solid rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 .tab-link{font-size:9px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.28);padding:18px 44px;display:flex;align-items:center;gap:9px;transition:color .2s;border-bottom:2px solid transparent;margin-bottom:-1px;cursor:pointer}
 .tab-link:hover{color:rgba(255,255,255,.65)}
 .tab-link.active{color:rgba(95,200,215,.9);border-bottom-color:rgba(95,200,215,.55)}
-.tab-badge{font-size:7px;font-weight:700;letter-spacing:.1em;color:rgba(95,200,215,.85);background:rgba(95,200,215,.1);border:1px solid rgba(95,200,215,.25);padding:2px 8px;animation:pulse 1.8s ease-in-out infinite}
-@media(max-width:640px){.tab-link{padding:14px 20px;font-size:8px;letter-spacing:.16em}.tab-badge{display:none}}
+.tab-badge{font-size:7px;font-weight:700;letter-spacing:.1em;padding:2px 8px;border:1px solid}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+@media(max-width:640px){.tab-link{padding:14px 20px;font-size:8px;letter-spacing:.16em}.tab-badge{display:none}}
 
-/* ── PREORDER BANNER ── */
-.preorder-banner{background:linear-gradient(90deg, rgba(52,138,150,.15) 0%, rgba(95,200,215,.08) 50%, rgba(52,138,150,.15) 100%);border-top:1px solid rgba(95,200,215,.18);border-bottom:1px solid rgba(95,200,215,.18);padding:18px 72px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.banner-msg{font-size:11px;font-weight:600;letter-spacing:.18em;color:rgba(95,200,215,.9);text-transform:uppercase;display:flex;align-items:center;gap:12px}
-.banner-dot{width:7px;height:7px;border-radius:50%;background:rgba(95,200,215,.9);animation:pulse 1.8s ease-in-out infinite}
-.banner-date{font-size:10px;color:rgba(255,255,255,.32);letter-spacing:.14em;font-weight:500}
-@media(max-width:640px){.preorder-banner{padding:16px 24px}}
+/* ── SHOP HERO ── */
+.shop-hero{padding:100px 72px 60px;border-bottom:1px solid rgba(255,255,255,.06)}
+@media(max-width:768px){.shop-hero{padding:80px 28px 44px}}
+.shop-hero-label{font-size:9px;font-weight:700;letter-spacing:.4em;text-transform:uppercase;color:rgba(95,200,215,.5);margin-bottom:16px}
+.shop-hero-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(38px,6vw,80px);color:#fff;line-height:1;margin-bottom:20px}
+.shop-hero-title em{font-style:italic;color:rgba(95,200,215,.8)}
+.shop-hero-sub{font-size:12px;color:rgba(255,255,255,.28);font-weight:300;line-height:2;max-width:480px}
 
-/* ── SECTION ── */
-.section{padding:80px 72px}
-@media(max-width:768px){.section{padding:60px 28px}}
-.section-label{font-size:9px;font-weight:700;letter-spacing:.38em;text-transform:uppercase;color:rgba(95,200,215,.7);margin-bottom:16px;display:flex;align-items:center;gap:10px}
-.section-label::after{content:'';flex:1;max-width:44px;height:1px;background:rgba(95,200,215,.3)}
-.section-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(28px,3vw,46px);line-height:1.1;color:#fff;margin-bottom:12px}
-.section-title em{font-style:italic;color:rgba(95,200,215,.85)}
-.section-sub{font-size:12.5px;color:rgba(255,255,255,.32);line-height:1.9;font-weight:300;max-width:600px}
+/* ── CATEGORY FILTER ── */
+.cat-nav{display:flex;gap:0;padding:0 72px;border-bottom:1px solid rgba(255,255,255,.06);overflow-x:auto}
+@media(max-width:768px){.cat-nav{padding:0 28px}}
+.cat-btn{font-size:9px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.25);padding:18px 28px;background:none;border:none;cursor:pointer;font-family:'Montserrat',sans-serif;transition:color .2s;border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap}
+.cat-btn:hover{color:rgba(255,255,255,.6)}
+.cat-btn.active{color:rgba(255,255,255,.85);border-bottom-color:rgba(255,255,255,.25)}
 
-/* ── TIER CARDS ── */
-.tiers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:52px}
-.tier-card{border:1px solid rgba(255,255,255,.07);padding:36px 28px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s;background:rgba(255,255,255,.02)}
-.tier-card:hover{border-color:rgba(95,200,215,.25);transform:translateY(-4px)}
-.tier-card.vip-card{border-color:rgba(95,200,215,.22);background:rgba(52,138,150,.05)}
-.tier-card.vvip-card{border-color:rgba(160,100,255,.32);background:rgba(100,50,180,.05)}
-.tier-card.recommended{border-color:rgba(95,200,215,.35);background:rgba(52,138,150,.06)}
+/* ── PRODUCT GRID ── */
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;background:rgba(255,255,255,.06);margin-bottom:1px}
+.product-grid-wrap{padding:72px;background:#050e12}
+@media(max-width:768px){.product-grid-wrap{padding:40px 20px}}
+@media(max-width:480px){.product-grid{grid-template-columns:repeat(2,1fr)}}
 
-/* 배지 */
-.tier-badge{position:absolute;top:0;right:0;font-size:8px;font-weight:700;letter-spacing:.18em;padding:5px 14px;text-transform:uppercase}
-.tier-badge.rec{background:rgba(65,168,182,.9);color:#040e12}
-.tier-badge.vip{background:rgba(95,200,215,.85);color:#040e12}
-.tier-badge.vvip{background:rgba(160,100,255,.9);color:#fff}
+/* ── PRODUCT CARD ── */
+.product-card{position:relative;background:#050e12;cursor:pointer;transition:background .25s;display:flex;flex-direction:column}
+.product-card:hover{background:#0a1c22}
+.product-card.coming-soon{cursor:default}
+.product-card.coming-soon:hover{background:#050e12}
 
-.tier-name{font-size:9px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:rgba(95,200,215,.65);margin-bottom:10px}
-.tier-qty{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(30px,3vw,44px);color:#fff;margin-bottom:4px;line-height:1}
-.tier-limit{font-size:9px;color:rgba(95,200,215,.5);margin-bottom:28px;letter-spacing:.14em;text-transform:uppercase}
-.tier-limit.purple{color:rgba(160,100,255,.7)}
+.product-thumb{width:100%;aspect-ratio:1;position:relative;overflow:hidden;background:#0a1c22}
+.product-thumb-img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.product-card:hover .product-thumb-img{transform:scale(1.04)}
 
-/* 특전 리스트 */
-.tier-perks{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:32px}
-.tier-perks li{font-size:11px;color:rgba(255,255,255,.45);display:flex;align-items:flex-start;gap:9px;line-height:1.6;font-weight:300}
-.tier-perks li::before{content:'—';color:rgba(95,200,215,.45);flex-shrink:0;font-size:10px;margin-top:2px}
-/* 골드 특전 — 노랑 강조 */
-.tier-perks li.gold{color:rgba(255,210,100,.88);font-weight:500;background:rgba(255,200,80,.05);border:1px solid rgba(255,200,80,.12);padding:8px 12px;border-radius:0;margin-top:4px}
-.tier-perks li.gold::before{content:'🏆';font-size:12px;margin-top:0;flex-shrink:0}
-/* 보라색 디너 강조 */
-.tier-perks li.dinner{color:rgba(210,160,255,.95);font-weight:600;background:rgba(160,100,255,.08);border:1px solid rgba(160,100,255,.22);padding:10px 14px;border-radius:0;margin-top:6px;font-size:11.5px}
-.tier-perks li.dinner::before{content:'🎁';font-size:14px;margin-top:0;flex-shrink:0}
+/* 플레이스홀더 (이미지 없을 때) */
+.product-thumb-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'Josefin Sans',sans-serif;font-weight:100;font-size:clamp(16px,2vw,24px);letter-spacing:.4em;color:rgba(255,255,255,.1);text-transform:uppercase}
 
-/* 버튼 */
-.tier-btn{display:block;text-align:center;width:100%;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:14px;border:none;cursor:pointer;font-family:'Montserrat',sans-serif;transition:all .25s}
-.tier-btn.primary{background:rgba(65,168,182,.9);color:#040e12}
-.tier-btn.primary:hover{background:rgba(80,185,200,1)}
-.tier-btn.outline{background:transparent;color:rgba(255,255,255,.48);border:1px solid rgba(255,255,255,.14)}
-.tier-btn.outline:hover{color:#fff;border-color:rgba(95,200,215,.4);background:rgba(95,200,215,.05)}
-.tier-btn.vvip-btn{background:rgba(140,80,255,.85);color:#fff}
-.tier-btn.vvip-btn:hover{background:rgba(160,100,255,1)}
+/* 상태 배지 */
+.product-badge{position:absolute;top:12px;left:12px;font-size:7.5px;font-weight:700;letter-spacing:.2em;padding:3px 10px;text-transform:uppercase;z-index:2}
+.badge-sold{background:rgba(255,70,70,.85);color:#fff}
+.badge-available{background:rgba(65,168,182,.85);color:#040e12}
+.badge-soon{background:rgba(255,255,255,.08);color:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.12)}
+.badge-limited{background:rgba(255,200,80,.85);color:#1a1000}
 
-/* ── TEAL DIVIDER ── */
-.teal-divider{height:1px;background:linear-gradient(to right,transparent,rgba(95,200,215,.1) 20%,rgba(95,200,215,.22) 50%,rgba(95,200,215,.1) 80%,transparent);margin:0 72px}
-@media(max-width:768px){.teal-divider{margin:0 28px}}
+/* 카드 정보 */
+.product-info{padding:20px 20px 24px;flex:1;display:flex;flex-direction:column;gap:6px;border-top:1px solid rgba(255,255,255,.05)}
+.product-cat{font-size:7.5px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:rgba(95,200,215,.4)}
+.product-name{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(18px,1.8vw,24px);color:#fff;line-height:1.1}
+.product-name em{font-style:italic;color:rgba(95,200,215,.75)}
+.product-price{font-size:11px;font-weight:600;color:rgba(255,255,255,.5);margin-top:4px;letter-spacing:.06em}
+.product-price span{color:rgba(255,255,255,.22);font-weight:300;font-size:10px}
 
-/* ── ALBUM CATALOG ── */
-.catalog-section{padding:72px 72px 56px}
-.catalog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:44px;max-width:600px}
-.catalog-card{position:relative;overflow:hidden;cursor:pointer;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.02);transition:border-color .3s,transform .3s}
-.catalog-card:hover{border-color:rgba(95,200,215,.32);transform:translateY(-5px)}
-.catalog-cover{width:100%;aspect-ratio:1;background-size:cover;background-position:center top;position:relative}
-.catalog-cover::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(5,14,18,.88) 0%,transparent 55%);transition:opacity .3s}
-.catalog-status{position:absolute;top:10px;left:10px;font-size:7.5px;font-weight:700;letter-spacing:.2em;padding:3px 10px;text-transform:uppercase;z-index:2}
-.catalog-status.preorder{background:rgba(65,168,182,.9);color:#040e12;animation:pulse 1.8s ease-in-out infinite}
-.catalog-status.available{background:rgba(255,255,255,.1);color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.16)}
-.catalog-status.soldout{background:rgba(255,255,255,.04);color:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.07)}
-.catalog-info{padding:16px 18px 18px}
-.catalog-num{font-size:7.5px;font-weight:700;letter-spacing:.26em;color:rgba(95,200,215,.45);text-transform:uppercase;margin-bottom:6px}
-.catalog-title-el{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(18px,2vw,24px);color:#fff;margin-bottom:4px;line-height:1.05}
-.catalog-title-el em{font-style:italic;color:rgba(95,200,215,.8)}
-.catalog-year{font-size:8.5px;color:rgba(255,255,255,.2);letter-spacing:.16em;margin-bottom:16px}
-.catalog-cta{display:block;text-align:center;font-size:9.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;padding:12px 16px;background:rgba(65,168,182,.12);border:1px solid rgba(65,168,182,.35);color:rgba(95,200,215,.85);transition:background .2s,color .2s,border-color .2s}
-.catalog-card:hover .catalog-cta{background:rgba(65,168,182,.22);border-color:rgba(95,200,215,.7);color:#fff}
-@media(max-width:768px){.catalog-section{padding:56px 28px 44px}.catalog-grid{gap:12px}}
-@media(max-width:420px){.catalog-grid{grid-template-columns:1fr}}
+.product-cta{display:block;margin-top:auto;padding-top:16px;font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(95,200,215,.6);transition:color .2s;display:flex;align-items:center;gap:6px}
+.product-card:hover .product-cta{color:rgba(95,200,215,1)}
+.product-cta svg{width:12px;height:12px;transition:transform .2s}
+.product-card:hover .product-cta svg{transform:translateX(3px)}
+.product-cta-soon{font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.16);padding-top:16px}
 
-/* ── PROGRESS TRACKER ── */
-.progress-section{padding:64px 72px;background:linear-gradient(180deg,rgba(5,14,18,0) 0%,rgba(52,138,150,.06) 100%);border-top:1px solid rgba(255,255,255,.05)}
-@media(max-width:768px){.progress-section{padding:52px 28px}}
-.progress-label{font-size:9px;font-weight:700;letter-spacing:.36em;text-transform:uppercase;color:rgba(95,200,215,.5);margin-bottom:10px;transition:color .5s}
-.progress-label.urgent{color:rgba(255,140,80,.75);animation:pulse 1.8s ease-in-out infinite}
-.progress-headline{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(22px,2.8vw,38px);color:#fff;margin-bottom:6px;line-height:1.1}
-.progress-headline em{font-style:italic;color:rgba(95,200,215,.8)}
-.progress-headline em.hot{color:rgba(255,160,60,.9)}
-.progress-subtitle{font-size:11.5px;color:rgba(255,255,255,.3);margin-bottom:40px;font-weight:300;line-height:1.8}
-/* 퍼센트 카운터 */
-.progress-counter{display:flex;align-items:baseline;gap:4px;margin-bottom:10px}
-.progress-pct{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(64px,8vw,100px);color:#fff;line-height:1;letter-spacing:-.02em}
-.progress-pct-sign{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(32px,4vw,52px);color:rgba(255,255,255,.55);line-height:1.1;margin-left:2px}
-.progress-remaining{font-size:11px;font-weight:500;letter-spacing:.12em;color:rgba(255,255,255,.28);margin-bottom:28px;text-transform:uppercase}
-.progress-remaining strong{color:rgba(95,200,215,.75);font-weight:600}
-.progress-remaining.few{color:rgba(255,140,80,.5)}
-.progress-remaining.few strong{color:rgba(255,140,80,.9)}
-/* 바 */
-.progress-bar-wrap{position:relative;height:5px;background:rgba(255,255,255,.07);overflow:visible;margin-bottom:8px}
-.progress-bar-fill{height:100%;background:linear-gradient(to right,rgba(65,168,182,.7),rgba(95,200,215,1));transition:width 1.4s cubic-bezier(.22,1,.36,1);position:relative}
-.progress-bar-fill::after{content:'';position:absolute;right:-1px;top:50%;transform:translateY(-50%);width:10px;height:10px;background:rgba(95,200,215,1);border-radius:50%;box-shadow:0 0 12px rgba(95,200,215,.9),0 0 28px rgba(95,200,215,.45)}
-.progress-bar-fill.hot{background:linear-gradient(to right,rgba(65,168,182,.7),rgba(255,160,60,1))}
-.progress-bar-fill.hot::after{background:rgba(255,160,60,1);box-shadow:0 0 12px rgba(255,160,60,.9),0 0 28px rgba(255,160,60,.4)}
-/* 마일스톤 */
-.progress-milestones{display:flex;gap:0;margin-top:28px;border:1px solid rgba(255,255,255,.05);overflow:hidden}
-.progress-milestone{flex:1;padding:16px 18px;border-right:1px solid rgba(255,255,255,.05);position:relative;transition:background .3s}
-.progress-milestone:last-child{border-right:none}
-.progress-milestone.reached{background:rgba(52,138,150,.08)}
-.progress-milestone.reached .ms-num{color:rgba(95,200,215,.9)}
-.progress-milestone.reached .ms-check{opacity:1}
-.ms-num{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(16px,1.8vw,22px);color:rgba(255,255,255,.18);margin-bottom:4px;transition:color .3s}
-.ms-desc{font-size:9.5px;color:rgba(255,255,255,.3);letter-spacing:.08em;line-height:1.5;font-weight:400}
-.ms-perk{font-size:9px;color:rgba(95,200,215,.4);margin-top:4px;font-weight:300}
-.ms-check{font-size:10px;margin-bottom:4px;opacity:0;transition:opacity .4s}
-@media(max-width:640px){.progress-milestones{flex-direction:column}.progress-milestone{border-right:none;border-bottom:1px solid rgba(255,255,255,.05)}.progress-milestone:last-child{border-bottom:none}}
+/* ── SECTION DIVIDER LABEL ── */
+.section-divider{padding:32px 72px 20px;border-top:1px solid rgba(255,255,255,.05);margin-top:0}
+@media(max-width:768px){.section-divider{padding:28px 28px 16px}}
+.section-divider-label{font-size:9px;font-weight:700;letter-spacing:.38em;text-transform:uppercase;color:rgba(255,255,255,.15)}
 
-/* ── ALBUM HERO (프리오더 섹션 상단) ── */
-.preorder-hero{display:grid;grid-template-columns:160px 1fr;gap:40px;align-items:start;margin-bottom:44px}
-.preorder-hero-cover{aspect-ratio:1;background-size:cover;background-position:center top;border:1px solid rgba(255,255,255,.08)}
-@media(max-width:640px){.preorder-hero{grid-template-columns:1fr}.preorder-hero-cover{max-width:140px}}
+/* ── INQUIRY STRIP ── */
+.inquiry-strip{padding:72px;background:rgba(52,138,150,.04);border-top:1px solid rgba(95,200,215,.08)}
+@media(max-width:768px){.inquiry-strip{padding:52px 28px}}
+.inquiry-inner{max-width:600px}
+.inquiry-label{font-size:9px;font-weight:700;letter-spacing:.36em;text-transform:uppercase;color:rgba(95,200,215,.45);margin-bottom:14px}
+.inquiry-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(26px,3.5vw,44px);color:#fff;line-height:1.1;margin-bottom:20px}
+.inquiry-title em{font-style:italic;color:rgba(95,200,215,.75)}
+.inquiry-desc{font-size:12px;color:rgba(255,255,255,.3);line-height:2;font-weight:300;margin-bottom:36px}
+.inquiry-desc strong{color:rgba(95,200,215,.6);font-weight:500}
 
-/* ── PAYMENT STEPS ── */
-.payment-section{padding:80px 72px;background:rgba(52,138,150,.03);border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)}
-@media(max-width:768px){.payment-section{padding:60px 28px}}
-.payment-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;margin-top:44px}
-.payment-step{display:flex;flex-direction:column;gap:14px}
-.step-num{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:44px;color:rgba(95,200,215,.16);line-height:1}
-.step-title{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7)}
-.step-desc{font-size:11.5px;color:rgba(255,255,255,.34);line-height:1.9;font-weight:300}
-.step-desc strong{color:rgba(95,200,215,.75);font-weight:500}
-.payment-note{margin-top:44px;padding:24px 32px;border:1px solid rgba(95,200,215,.1);background:rgba(52,138,150,.03);font-size:11.5px;color:rgba(255,255,255,.35);line-height:1.9;font-weight:300}
-.payment-note strong{color:rgba(95,200,215,.65);font-weight:600}
-
-/* ── STILL UNFINISHED ── */
-.su-grid{display:grid;grid-template-columns:200px 1fr;gap:44px;max-width:720px;margin-top:44px;align-items:start}
-@media(max-width:640px){.su-grid{grid-template-columns:1fr}}
-.su-cover{aspect-ratio:1;background-size:cover;background-position:center;border:1px solid rgba(255,255,255,.08)}
-@media(max-width:640px){.su-cover{max-width:200px}}
-
-/* ── MILESTONE ── */
-.milestone-bar{padding:60px 72px;background:rgba(255,255,255,.015);border-top:1px solid rgba(255,255,255,.05)}
-@media(max-width:768px){.milestone-bar{padding:48px 28px}}
-.milestone-title{font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.22);margin-bottom:36px}
-.milestone-items{display:flex;gap:0;border:1px solid rgba(255,255,255,.06);overflow:hidden}
-@media(max-width:640px){.milestone-items{flex-direction:column}}
-.milestone-item{flex:1;padding:24px 28px;border-right:1px solid rgba(255,255,255,.06);text-align:center}
-.milestone-item:last-child{border-right:none}
-.milestone-num{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(22px,3vw,36px);color:rgba(95,200,215,.48);margin-bottom:6px}
-.milestone-label{font-size:9px;color:rgba(255,255,255,.2);letter-spacing:.2em;text-transform:uppercase}
-.milestone-perk{font-size:10px;color:rgba(255,255,255,.38);margin-top:6px;font-weight:300}
+/* Form */
+.inquiry-form{display:flex;flex-direction:column;gap:14px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:480px){.form-row{grid-template-columns:1fr}}
+.form-field{display:flex;flex-direction:column;gap:6px}
+.form-label{font-size:8.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.25)}
+.form-input,.form-textarea,.form-select{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:#fff;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:300;padding:12px 14px;outline:none;transition:border-color .2s;width:100%}
+.form-input:focus,.form-textarea:focus,.form-select:focus{border-color:rgba(95,200,215,.4)}
+.form-input::placeholder,.form-textarea::placeholder{color:rgba(255,255,255,.18)}
+.form-textarea{resize:vertical;min-height:100px}
+.form-select{cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none' stroke='rgba(255,255,255,.3)' stroke-width='1.5'%3E%3Cpath d='M1 1l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.form-select option{background:#0a1c22;color:#fff}
+.form-submit{background:rgba(65,168,182,.9);color:#040e12;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;padding:16px 32px;border:none;cursor:pointer;transition:background .2s;align-self:flex-start}
+.form-submit:hover{background:rgba(80,185,200,1)}
+.form-note{font-size:10px;color:rgba(255,255,255,.2);line-height:1.8;margin-top:6px;font-weight:300}
+.form-success{display:none;padding:20px 24px;background:rgba(52,138,150,.12);border:1px solid rgba(95,200,215,.25);font-size:12px;color:rgba(95,200,215,.85);line-height:1.8;margin-top:8px}
 
 /* ── FOOTER ── */
 .artist-footer{padding:60px 72px 48px;border-top:1px solid rgba(255,255,255,.05);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px}
@@ -194,23 +127,6 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
 .footer-links a{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.18);transition:color .2s;display:flex;align-items:center;gap:6px}
 .footer-links a:hover{color:rgba(95,200,215,.7)}
 .footer-links a svg{width:12px;height:12px;opacity:.6}
-
-/* ── MODAL ── */
-#payment-modal{display:none;position:fixed;inset:0;z-index:1000;background:rgba(5,14,18,.96);align-items:center;justify-content:center;padding:20px}
-.modal-box{background:#0a1e24;border:1px solid rgba(95,200,215,.2);padding:48px 44px;max-width:500px;width:100%;position:relative;max-height:90vh;overflow-y:auto}
-.modal-close{position:absolute;top:16px;right:20px;background:none;border:none;color:rgba(255,255,255,.3);font-size:22px;cursor:pointer;line-height:1}
-.modal-close:hover{color:rgba(255,255,255,.7)}
-.modal-tier{font-size:9px;font-weight:700;letter-spacing:.3em;color:rgba(95,200,215,.7);text-transform:uppercase;margin-bottom:10px}
-.modal-qty-price{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:#fff;margin-bottom:6px;line-height:1}
-.modal-price-sub{font-size:15px;color:rgba(255,255,255,.4);margin-bottom:32px;font-weight:300}
-.modal-paypal-btn{display:block;text-align:center;padding:17px;background:rgba(65,168,182,.9);color:#040e12;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-bottom:32px;transition:background .2s}
-.modal-paypal-btn:hover{background:rgba(80,185,200,1)}
-.modal-booth-btn{display:none;text-align:center;padding:14px;background:rgba(255,100,130,.08);color:rgba(255,140,160,.85);font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-top:-20px;margin-bottom:28px;border:1px solid rgba(255,100,130,.28);transition:all .25s}
-.modal-booth-btn:hover{background:rgba(255,100,130,.18);color:rgba(255,170,190,1);border-color:rgba(255,100,130,.5)}
-.modal-after{border-top:1px solid rgba(255,255,255,.07);padding-top:24px}
-.modal-after-title{font-size:9px;font-weight:700;letter-spacing:.22em;color:rgba(255,255,255,.28);text-transform:uppercase;margin-bottom:14px}
-.modal-after-desc{font-size:11.5px;color:rgba(255,255,255,.38);line-height:2.1;font-weight:300}
-.modal-info-box{margin-top:14px;padding:16px 20px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);font-size:11px;color:rgba(255,255,255,.27);line-height:1.9}
 </style>
 </head>
 <body>
@@ -231,286 +147,189 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
 <nav class="tab-nav">
   <a class="tab-link" href="artist.html">ABOUT</a>
   <a class="tab-link" href="artist-music.html">MUSIC</a>
-  <a class="tab-link active" href="artist-shop.html">SHOP <span class="tab-badge" style="background:rgba(255,80,80,.12);border-color:rgba(255,80,80,.35);color:rgba(255,130,130,.9)">● 105% SOLD</span></a>
+  <a class="tab-link active" href="artist-shop.html">SHOP <span class="tab-badge" style="background:rgba(255,80,80,.12);border-color:rgba(255,80,80,.35);color:rgba(255,130,130,.9);animation:none">● 105% SOLD</span></a>
 </nav>
 
-<!-- 완판 초과 배너 -->
-<div class="preorder-banner" style="background:linear-gradient(90deg,rgba(180,60,60,.12) 0%,rgba(255,80,80,.06) 50%,rgba(180,60,60,.12) 100%);border-color:rgba(255,100,100,.2)">
-  <div class="banner-msg" style="color:rgba(255,150,150,.95)">
-    <div class="banner-dot" style="background:rgba(255,130,130,.9)"></div>
-    <span id="banner-msg">🎉 105% — 완판 초과 달성! 주문은 계속 받습니다</span>
-  </div>
-  <div class="banner-date" id="banner-date">PRE-ORDER CLOSED · NOW TAKING ORDERS VIA DM</div>
+<!-- SHOP HERO -->
+<div class="shop-hero">
+  <div class="shop-hero-label" id="hero-label">Official Store</div>
+  <h1 class="shop-hero-title" id="hero-title">MADEWELL <em>Shop</em></h1>
+  <p class="shop-hero-sub" id="hero-sub">앨범, 굿즈 직접 주문 가능합니다. 결제는 PayPal / BOOTH, 문의는 하단 폼 또는 DM.</p>
 </div>
 
-<!-- ─── ALBUM CATALOG ─── -->
-<section class="catalog-section">
-  <div class="section-label" id="cat-label">Shop</div>
-  <h2 class="section-title" id="cat-title">앨범 <em>둘러보기</em></h2>
-  <p class="section-sub" id="cat-sub">구매하고 싶은 앨범을 선택하세요.</p>
+<!-- CATEGORY FILTER -->
+<div class="cat-nav">
+  <button class="cat-btn active" onclick="filterCat('all')" id="cf-all">ALL</button>
+  <button class="cat-btn" onclick="filterCat('album')" id="cf-album" data-lang='{"ko":"앨범","en":"ALBUMS","ja":"アルバム","zh":"專輯"}'>앨범</button>
+  <button class="cat-btn" onclick="filterCat('merch')" id="cf-merch" data-lang='{"ko":"굿즈","en":"MERCH","ja":"グッズ","zh":"周邊"}'>굿즈</button>
+</div>
 
-  <div class="catalog-grid">
+<!-- PRODUCT GRID -->
+<div class="product-grid-wrap">
+  <div class="product-grid" id="product-grid">
 
-    <!-- 3집 MAMA — 프리오더 -->
-    <div class="catalog-card" onclick="document.getElementById('preorder-section').scrollIntoView({behavior:'smooth'})">
-      <div class="catalog-cover" style="background-image:url('images/MAMA앨범 컨셉사진들/메인자켓 1.png')">
-        <div class="catalog-status" id="cs1" style="background:rgba(255,80,80,.85);color:#fff;animation:none">105% SOLD</div>
+    <!-- ① MAMA 3집 -->
+    <a class="product-card" href="shop-mama.html" data-cat="album">
+      <div class="product-thumb">
+        <img class="product-thumb-img" src="images/MAMA앨범 컨셉사진들/메인자켓 1.png" alt="MAMA"/>
+        <div class="product-badge badge-sold">105% SOLD</div>
       </div>
-      <div class="catalog-info">
-        <div class="catalog-num" id="cn1">3RD SOLO ALBUM</div>
-        <div class="catalog-title-el" id="ct1">MAMA</div>
-        <div class="catalog-year" id="cy1">2026 · MAY 8 – 20</div>
-        <div class="catalog-cta" id="cc1">주문하기 →</div>
+      <div class="product-info">
+        <div class="product-cat" data-lang='{"ko":"3RD SOLO ALBUM","en":"3RD SOLO ALBUM","ja":"3RD SOLO ALBUM","zh":"第3張專輯"}'>3RD SOLO ALBUM</div>
+        <div class="product-name"><em>MAMA</em></div>
+        <div class="product-price">₩35,000 <span>/ $25</span></div>
+        <div class="product-cta" id="cta-mama">
+          자세히 보기
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </div>
+      </div>
+    </a>
+
+    <!-- ② Still UNFINISHED 2집 -->
+    <a class="product-card" href="shop-su.html" data-cat="album">
+      <div class="product-thumb">
+        <img class="product-thumb-img" src="images/STILL UNFINIHSED 앨범자료/앨범표지.jpg" alt="Still UNFINISHED"/>
+        <div class="product-badge badge-limited">잔여 수량 한정</div>
+      </div>
+      <div class="product-info">
+        <div class="product-cat" data-lang='{"ko":"2ND SOLO ALBUM","en":"2ND SOLO ALBUM","ja":"2ND SOLO ALBUM","zh":"第2張專輯"}'>2ND SOLO ALBUM</div>
+        <div class="product-name">Still <em>UNFINISHED</em></div>
+        <div class="product-price">₩35,000 <span>/ $25</span></div>
+        <div class="product-cta" id="cta-su">
+          자세히 보기
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </div>
+      </div>
+    </a>
+
+    <!-- ③ MAMA 반팔 화이트 -->
+    <div class="product-card coming-soon" data-cat="merch">
+      <div class="product-thumb">
+        <div class="product-thumb-ph">MAMA TEE</div>
+        <div class="product-badge badge-soon">COMING SOON</div>
+      </div>
+      <div class="product-info">
+        <div class="product-cat">MERCH · T-SHIRT</div>
+        <div class="product-name">MAMA <em>White Tee</em></div>
+        <div class="product-price">₩45,000</div>
+        <div class="product-cta-soon" id="cta-soon-1">준비 중</div>
       </div>
     </div>
 
-    <!-- 2집 Still UNFINISHED — 잔여 수량 -->
-    <div class="catalog-card" onclick="document.getElementById('su-section').scrollIntoView({behavior:'smooth'})">
-      <div class="catalog-cover" style="background-image:url('images/STILL UNFINIHSED 앨범자료/앨범표지.jpg')">
-        <div class="catalog-status available" id="cs2">Available</div>
+    <!-- ④ MAMA 반팔 블랙 -->
+    <div class="product-card coming-soon" data-cat="merch">
+      <div class="product-thumb">
+        <div class="product-thumb-ph">MAMA TEE</div>
+        <div class="product-badge badge-soon">COMING SOON</div>
       </div>
-      <div class="catalog-info">
-        <div class="catalog-num" id="cn2">2ND SOLO ALBUM</div>
-        <div class="catalog-title-el" id="ct2">Still <em>UNFINISHED</em></div>
-        <div class="catalog-year" id="cy2">2025 · 잔여 수량 한정</div>
-        <div class="catalog-cta" id="cc2">구매하기 →</div>
+      <div class="product-info">
+        <div class="product-cat">MERCH · T-SHIRT</div>
+        <div class="product-name">MAMA <em>Black Tee</em></div>
+        <div class="product-price">₩45,000</div>
+        <div class="product-cta-soon" id="cta-soon-2">준비 중</div>
       </div>
     </div>
 
-  </div>
-</section>
+    <!-- ⑤ 이전 앨범 반팔 -->
+    <a class="product-card" href="shop-merch.html#prev-tee" data-cat="merch">
+      <div class="product-thumb">
+        <div class="product-thumb-ph">PREV TEE</div>
+        <div class="product-badge badge-limited">한정 재고</div>
+      </div>
+      <div class="product-info">
+        <div class="product-cat">MERCH · T-SHIRT</div>
+        <div class="product-name">Previous Album <em>Tee</em></div>
+        <div class="product-price">₩40,000</div>
+        <div class="product-cta" id="cta-prev-tee">
+          자세히 보기
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </div>
+      </div>
+    </a>
 
-<!-- ─── PROGRESS TRACKER ─── -->
-<div class="progress-section">
-  <div class="progress-label" id="pg-label">PRE-ORDER PROGRESS</div>
-  <h2 class="progress-headline" id="pg-title">목표까지 <em>지금 여기</em></h2>
-  <p class="progress-subtitle" id="pg-sub">매일 업데이트 됩니다. 50% 달성 시 제작 확정.</p>
+    <!-- ⑥ 이전 앨범 후드 -->
+    <a class="product-card" href="shop-merch.html#prev-hood" data-cat="merch">
+      <div class="product-thumb">
+        <div class="product-thumb-ph">HOODIE</div>
+        <div class="product-badge badge-limited">한정 재고</div>
+      </div>
+      <div class="product-info">
+        <div class="product-cat">MERCH · HOODIE</div>
+        <div class="product-name">Previous Album <em>Hoodie</em></div>
+        <div class="product-price">₩75,000</div>
+        <div class="product-cta" id="cta-prev-hood">
+          자세히 보기
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </div>
+      </div>
+    </a>
 
-  <div class="progress-counter">
-    <div class="progress-pct" id="pg-pct">20</div>
-    <div class="progress-pct-sign">%</div>
-  </div>
-  <div class="progress-remaining" id="pg-remaining">
-    Remaining <strong id="pg-left">80</strong> / 100 copies
-  </div>
-
-  <div class="progress-bar-wrap">
-    <div class="progress-bar-fill" id="pg-bar" style="width:0%"></div>
-  </div>
-
-  <div class="progress-milestones">
-    <div class="progress-milestone" id="ms-a">
-      <div class="ms-check" id="ms-a-check">✓</div>
-      <div class="ms-num" id="ms-a-num">50장</div>
-      <div class="ms-desc" id="ms-a-desc">제작 확정 공지</div>
-      <div class="ms-perk" id="ms-a-perk">공식 포스팅</div>
+    <!-- ⑦ 북클렛 -->
+    <div class="product-card coming-soon" data-cat="merch">
+      <div class="product-thumb">
+        <div class="product-thumb-ph">BOOKLET</div>
+        <div class="product-badge badge-soon">COMING SOON</div>
+      </div>
+      <div class="product-info">
+        <div class="product-cat">MERCH · PHOTO BOOK</div>
+        <div class="product-name">MAMA <em>Booklet</em></div>
+        <div class="product-price">미정</div>
+        <div class="product-cta-soon" id="cta-soon-3">준비 중</div>
+      </div>
     </div>
-    <div class="progress-milestone" id="ms-b">
-      <div class="ms-check" id="ms-b-check">✓</div>
-      <div class="ms-num" id="ms-b-num">70장</div>
-      <div class="ms-desc" id="ms-b-desc">디지털 배경화면 팩</div>
-      <div class="ms-perk" id="ms-b-perk">전원 무료 공유</div>
-    </div>
-    <div class="progress-milestone" id="ms-c">
-      <div class="ms-check" id="ms-c-check">✓</div>
-      <div class="ms-num" id="ms-c-num">100장</div>
-      <div class="ms-desc" id="ms-c-desc">레코딩 비하인드 영상</div>
-      <div class="ms-perk" id="ms-c-perk">완판 기념 릴리즈</div>
-    </div>
+
   </div>
 </div>
 
-<div class="teal-divider"></div>
+<!-- INQUIRY STRIP -->
+<div class="inquiry-strip">
+  <div class="inquiry-inner">
+    <div class="inquiry-label" id="inq-label">Order Inquiry</div>
+    <h2 class="inquiry-title" id="inq-title">문의 & <em>주문 안내</em></h2>
+    <p class="inquiry-desc" id="inq-desc">
+      결제 후 주문 정보를 보내주시거나, 구매 전 궁금한 점을 아래 폼으로 남겨주세요.<br/>
+      <strong>Instagram DM @madewellmusic_official</strong> 으로도 바로 문의 가능합니다.
+    </p>
 
-<!-- ─── TIERS ─── -->
-<section class="section" id="preorder-section">
-  <div class="preorder-hero">
-    <div class="preorder-hero-cover" style="background-image:url('images/MAMA앨범 컨셉사진들/메인자켓 1.png')"></div>
-    <div>
-      <div class="section-label" id="pre-label">Order</div>
-      <h2 class="section-title" id="pre-title">주문 <em>티어</em></h2>
-      <p class="section-sub" id="pre-sub">
-        🎉 목표 100장을 초과한 105장 판매 달성. 제작 확정, 6월 6일 발송 예정.<br/>
-        지금도 주문 받고 있습니다 — DM 또는 아래 결제 링크로 주문 가능.<br/>
-        <span style="color:rgba(95,200,215,.6);font-size:11px">1장 기준 ₩35,000 (국내) / $25 (해외)</span>
-      </p>
-    </div>
-  </div>
+    <!-- ★ Formsubmit — 첫 제출 시 이메일 인증 한 번 필요 -->
+    <form class="inquiry-form" action="https://formsubmit.co/madewellofficial@gmail.com" method="POST" onsubmit="handleFormSubmit(event)">
+      <input type="hidden" name="_subject" value="[MADEWELL SHOP] 주문/문의"/>
+      <input type="hidden" name="_captcha" value="false"/>
+      <input type="hidden" name="_next" value=""/>
+      <input type="hidden" name="_template" value="table"/>
 
-  <div class="tiers-grid">
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label" id="fl-name">이름 / Name</label>
+          <input class="form-input" type="text" name="name" placeholder="홍길동 / Gildong" required/>
+        </div>
+        <div class="form-field">
+          <label class="form-label" id="fl-email">이메일 / Email</label>
+          <input class="form-input" type="email" name="email" placeholder="your@email.com" required/>
+        </div>
+      </div>
 
-    <!-- With Love — 1장 -->
-    <div class="tier-card">
-      <div class="tier-name" id="t1-name">With Love</div>
-      <div class="tier-qty" id="t1-qty">1장</div>
-      <ul class="tier-perks" id="t1-perks">
-        <li>앨범 CD 1장</li>
-        <li>공통 포토카드</li>
-        <li>자필 미니 레터</li>
-        <li>THANKS 보이스 메시지 QR</li>
-      </ul>
-      <button class="tier-btn outline" onclick="openPayment(1)" id="tb1">주문하기</button>
-    </div>
+      <div class="form-field">
+        <label class="form-label" id="fl-item">주문 상품</label>
+        <select class="form-select" name="item">
+          <option value="">상품 선택 / Select item</option>
+          <option value="MAMA CD (3집)">MAMA CD (3집) — ₩35,000 / $25</option>
+          <option value="Still UNFINISHED CD (2집)">Still UNFINISHED CD (2집) — ₩35,000 / $25</option>
+          <option value="이전 앨범 반팔">이전 앨범 반팔</option>
+          <option value="이전 앨범 후드">이전 앨범 후드</option>
+          <option value="기타 문의">기타 문의</option>
+        </select>
+      </div>
 
-    <!-- My Mama — 3장 -->
-    <div class="tier-card">
-      <div class="tier-name" id="t2-name">My Mama</div>
-      <div class="tier-qty" id="t2-qty">3장</div>
-      <ul class="tier-perks" id="t2-perks">
-        <li>앨범 CD 3장</li>
-        <li>포토카드 풀셋</li>
-        <li>사인 폴라로이드</li>
-        <li>이름 라벨 (실버)</li>
-        <li>자필 미니 레터</li>
-        <li>THANKS 보이스 QR</li>
-      </ul>
-      <button class="tier-btn outline" onclick="openPayment(2)" id="tb2">주문하기</button>
-    </div>
+      <div class="form-field">
+        <label class="form-label" id="fl-msg">메시지 / Message</label>
+        <textarea class="form-textarea" name="message" placeholder="주문 수량, 배송지 국가, 사이즈(굿즈), 기타 문의 등을 자유롭게 적어주세요." required></textarea>
+      </div>
 
-    <!-- Eternal — 5장 (추천) -->
-    <div class="tier-card recommended">
-      <div class="tier-badge rec" id="rec-badge">추천</div>
-      <div class="tier-name" id="t3-name">Eternal ⭐</div>
-      <div class="tier-qty" id="t3-qty">5장</div>
-      <ul class="tier-perks" id="t3-perks">
-        <li>앨범 CD 5장</li>
-        <li>포토카드 풀셋</li>
-        <li>사인 폴라로이드</li>
-        <li>이름 라벨 (실버)</li>
-        <li>미공개 포토카드</li>
-        <li>개인 보이스 메시지 (2분) QR</li>
-        <li>자필 개인 손편지</li>
-      </ul>
-      <button class="tier-btn primary" onclick="openPayment(3)" id="tb3">주문하기</button>
-    </div>
-
-    <!-- VIP — 10장 -->
-    <div class="tier-card vip-card">
-      <div class="tier-badge vip">VIP</div>
-      <div class="tier-name" id="t4-name">Be My Mama Again</div>
-      <div class="tier-qty" id="t4-qty">10장</div>
-      <div class="tier-limit" id="t4-limit">선착순 5명</div>
-      <ul class="tier-perks" id="t4-perks">
-        <li>앨범 CD 10장</li>
-        <li>포토카드 풀셋</li>
-        <li>사인 폴라로이드</li>
-        <li>미공개 포토카드</li>
-        <li>개인 영상 메시지 QR</li>
-        <li>전곡 해설 음성 파일</li>
-        <li>사인 미니포스터 A3</li>
-        <li>자필 개인 손편지</li>
-        <li class="gold">1ST 솔로 앨범 UNFINISHED 미개봉본<br/>+ 2026 직필 사인 &amp; 메시지</li>
-      </ul>
-      <button class="tier-btn outline" onclick="openPayment(4)" id="tb4">주문하기</button>
-    </div>
-
-    <!-- VVIP — 20장 -->
-    <div class="tier-card vvip-card">
-      <div class="tier-badge vvip">VVIP</div>
-      <div class="tier-name" id="t5-name">Forever Mama</div>
-      <div class="tier-qty" id="t5-qty">20장</div>
-      <div class="tier-limit purple" id="t5-limit">선착순 3명</div>
-      <ul class="tier-perks" id="t5-perks">
-        <li>앨범 CD 20장</li>
-        <li>포토카드 풀셋</li>
-        <li>사인 폴라로이드</li>
-        <li>미공개 포토카드</li>
-        <li>개인 영상 메시지 QR</li>
-        <li>전곡 해설 음성 파일</li>
-        <li>사인 미니포스터 A3</li>
-        <li>자필 개인 손편지</li>
-        <li class="gold">1ST 솔로 앨범 UNFINISHED 미개봉본<br/>+ 2026 직필 사인 &amp; 메시지</li>
-        <li class="dinner">소규모 디너에 초대합니다<br/>MADEWELL과 함께하는 자리</li>
-      </ul>
-      <button class="tier-btn vvip-btn" onclick="openPayment(5)" id="tb5">주문하기</button>
-    </div>
-
-  </div>
-</section>
-
-<div class="teal-divider"></div>
-
-<!-- ─── 결제 안내 ─── -->
-<section class="payment-section">
-  <div class="section-label" id="pay-label">결제 안내</div>
-  <h2 class="section-title" id="pay-title">버튼 클릭 → 바로 결제</h2>
-  <p class="section-sub" id="pay-sub">PayPal 계정 없이 카드로 바로 결제 가능. 한국·일본·해외 팬 모두 동일.</p>
-
-  <div class="payment-steps">
-    <div class="payment-step">
-      <div class="step-num">01</div>
-      <div class="step-title" id="ps1-title">티어 선택 후 바로 결제</div>
-      <div class="step-desc" id="ps1-desc">원하는 티어 버튼을 클릭하면 결제 링크로 바로 이동합니다.<br/><strong>PayPal 계정 없이도</strong> 카드 결제 가능.</div>
-    </div>
-    <div class="payment-step">
-      <div class="step-num">02</div>
-      <div class="step-title" id="ps2-title">결제 후 DM 또는 이메일</div>
-      <div class="step-desc" id="ps2-desc">결제 완료 후 아래로 주문 정보를 보내주세요.<br/>📱 <strong>@madewellmusic_official</strong><br/>📧 <strong>madewellofficial@gmail.com</strong></div>
-    </div>
-    <div class="payment-step">
-      <div class="step-num">03</div>
-      <div class="step-title" id="ps3-title">보내실 정보</div>
-      <div class="step-desc" id="ps3-desc">결제자명 · 결제 금액 · 배송 주소 · 국가<br/>배송비는 확인 후 <strong>별도 링크</strong>로 청구됩니다.</div>
-    </div>
-    <div class="payment-step">
-      <div class="step-num">04</div>
-      <div class="step-title" id="ps4-title">배송</div>
-      <div class="step-desc" id="ps4-desc">배송비 결제 완료 시 <strong>6월 6일</strong> 발송 예정.</div>
-    </div>
-  </div>
-
-  <div class="payment-note" id="pay-note">
-    💡 <strong>수수료:</strong> PayPal 수수료 약 3~4% 포함 가격. 별도 추가 없음.<br/>
-    📦 <strong>배송비:</strong> 국가 및 수량에 따라 별도 청구 (DM/이메일 안내).
-  </div>
-</section>
-
-<!-- ─── STILL UNFINISHED ─── -->
-<div class="teal-divider" style="margin:0"></div>
-<section class="section" id="su-section">
-  <div class="section-label" id="su-label">Previous Album</div>
-  <h2 class="section-title" id="su-title">2집 <em>Still UNFINISHED</em></h2>
-  <p class="section-sub" id="su-sub">
-    2025년 일본 발매 솔로 정규 2집. 한정 100장 완판. 잔여 수량 한해 판매.<br/>
-    <span style="color:rgba(95,200,215,.5);font-size:11px">버튼 클릭으로 바로 구매 가능합니다.</span>
-  </p>
-
-  <div class="su-grid">
-    <div class="su-cover" style="background-image:url('images/STILL UNFINIHSED 앨범자료/앨범표지.jpg')"></div>
-    <div>
-      <div style="font-size:9px;font-weight:700;letter-spacing:.28em;color:rgba(255,255,255,.18);text-transform:uppercase;margin-bottom:12px">2025 · 2ND SOLO ALBUM</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(22px,2.5vw,34px);color:#fff;margin-bottom:20px;line-height:1.1" id="su-album-title">Still UNFINISHED</div>
-      <p style="font-size:12px;color:rgba(255,255,255,.33);line-height:2.1;font-weight:300;margin-bottom:28px" id="su-album-desc">
-        일본 도쿄, 그 미완성의 감정들. TOKYO TOWER로 시작된 이야기가 담긴 두 번째 솔로 정규앨범.<br/>
-        MAMA의 전작으로, 두 앨범이 이어지는 세계관의 출발점.
-      </p>
-      <a href="https://www.paypal.com/ncp/payment/V8VAMQRHN4BTY" target="_blank"
-         style="display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;padding:14px 32px;background:rgba(65,168,182,.85);color:#040e12;transition:background .28s"
-         id="su-btn">구매하기 →</a>
-      <div style="margin-top:14px;font-size:10.5px;color:rgba(255,255,255,.2);line-height:1.8" id="su-note">잔여 수량 한정 · 구매 후 배송 안내 드립니다</div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── MILESTONE ─── -->
-<div class="milestone-bar">
-  <div class="milestone-title" id="ms-title">달성 보너스 (판매량 기준)</div>
-  <div class="milestone-items">
-    <div class="milestone-item">
-      <div class="milestone-num" id="ms1-num">50장</div>
-      <div class="milestone-label" id="ms1-label">제작 확정 공지</div>
-      <div class="milestone-perk" id="ms1-perk">공식 포스팅</div>
-    </div>
-    <div class="milestone-item">
-      <div class="milestone-num" id="ms2-num">70장</div>
-      <div class="milestone-label" id="ms2-label">디지털 배경화면 팩</div>
-      <div class="milestone-perk" id="ms2-perk">전원 무료 공유</div>
-    </div>
-    <div class="milestone-item">
-      <div class="milestone-num" id="ms3-num">100장</div>
-      <div class="milestone-label" id="ms3-label">레코딩 비하인드 영상</div>
-      <div class="milestone-perk" id="ms3-perk">완판 기념 릴리즈</div>
-    </div>
+      <button class="form-submit" type="submit" id="fl-submit">문의 보내기 →</button>
+      <div class="form-note" id="fl-note">보내주신 내용은 madewellofficial@gmail.com 으로 전달됩니다. 보통 24시간 이내 답변드립니다.</div>
+      <div class="form-success" id="form-success">✓ 문의가 전달되었습니다. 빠르게 연락드리겠습니다!</div>
+    </form>
   </div>
 </div>
 
@@ -520,430 +339,96 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
   <div class="footer-links">
     <a href="https://instagram.com/madewellmusic_official" target="_blank">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>
-      <span id="fl-insta">Instagram</span>
+      Instagram
     </a>
     <a href="mixing-mastering-landing.html">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-      <span id="fl-studio">Studio</span>
+      Studio
     </a>
     <a href="lesson-landing.html">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3L2 8l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-      <span id="fl-lesson">Lesson</span>
+      Lesson
     </a>
     <a href="index.html">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9.5L12 3l9 6.5V21H3V9.5z"/><rect x="9" y="14" width="6" height="7"/></svg>
-      <span id="fl-home">Home</span>
+      Home
     </a>
   </div>
 </footer>
 
-<!-- ─── PAYMENT MODAL ─── -->
-<div id="payment-modal">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closePayment()">×</button>
-    <div class="modal-tier" id="modal-tier-name"></div>
-    <div class="modal-qty-price" id="modal-qty"></div>
-    <div class="modal-price-sub" id="modal-price"></div>
-    <a id="modal-paypal-btn" href="#" target="_blank" class="modal-paypal-btn">
-      PayPal로 바로 결제하기 →
-    </a>
-    <a id="modal-booth-btn" href="https://madewellmusic.booth.pm/" target="_blank" class="modal-booth-btn">
-      BOOTHで購入する →
-    </a>
-    <div class="modal-after">
-      <div class="modal-after-title" id="modal-after-title">결제 후 아래로 주문 정보를 보내주세요</div>
-      <div class="modal-after-desc" id="modal-after-desc">
-        📱 Instagram DM: <strong style="color:rgba(95,200,215,.8)">@madewellmusic_official</strong><br/>
-        📧 Email: <strong style="color:rgba(95,200,215,.8)">madewellofficial@gmail.com</strong>
-      </div>
-      <div class="modal-info-box" id="modal-info-list">
-        결제자명 · 결제 금액 · 배송 주소 · 국가<br/>
-        <span style="color:rgba(95,200,215,.45)">배송비는 확인 후 별도 링크로 청구됩니다.</span>
-      </div>
-    </div>
-  </div>
-</div>
-
 <script>
-/* ─────────────────────────────────────────
-   ★ 매일 이 숫자 하나만 바꾸고 git push!
-   ───────────────────────────────────────── */
-const PREORDER_COUNT = 105;  /* ← 현재 판매 수량 — 완판 초과! */
-const PREORDER_GOAL  = 100;  /* 총 목표 수량 */
+/* ── 카테고리 필터 ── */
+function filterCat(cat) {
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  const btn = cat === 'all' ? document.getElementById('cf-all') :
+              cat === 'album' ? document.getElementById('cf-album') :
+              document.getElementById('cf-merch');
+  if(btn) btn.classList.add('active');
 
-/* ── 단계별 카피 (자동 전환) ─────────────────────────
-   Phase 0  0–49%  : 중립 — 지금 여기
-   Phase 1 50–69%  : 제작 확정! 🔥 — 절반 돌파
-   Phase 2 70–89%  : ⚡ Urgency — 얼마 안 남았어요
-   Phase 3 90–99%  : 🚨 High urgency — 거의 완판
-   Phase 4 100%    : 🎉 완판
-   Phase 5 100%+   : 🔴 오버판 — 완판 초과
-─────────────────────────────────────────────────── */
-const PHASE_COPY = {
-  ko: [
-    { label:'PRE-ORDER PROGRESS', title:'목표까지 <em>지금 여기</em>',         sub:'매일 업데이트 됩니다. 50% 달성 시 제작 확정.' },
-    { label:'🔥 제작 확정!',       title:'절반 <em>돌파했습니다</em>',          sub:'50% 달성 — 제작이 확정됩니다. 지금 참여해주세요.' },
-    { label:'⚡ 얼마 안 남았어요', title:'자리가 <em>줄어들고 있어요</em>',      sub:'이미 많은 분들이 함께하고 있습니다.' },
-    { label:'🚨 거의 완판',        title:'지금 아니면 <em>못 살 수도</em>',      sub:'잔여 수량이 거의 없습니다. 서둘러 주세요.' },
-    { label:'🎉 완판',             title:'100% <em>완판되었습니다</em>',         sub:'성원에 감사드립니다. 제작에 들어갑니다.' },
-    { label:'🔴 오버판 달성!',     title:'105% — 목표를 <em>초과했습니다</em>', sub:'100장 완판을 넘어섰습니다. 주문은 계속 받고 있습니다.' },
-  ],
-  en: [
-    { label:'PRE-ORDER PROGRESS',  title:'Where We Are <em>Right Now</em>',       sub:'Updated daily. Production confirmed at 50%.' },
-    { label:'🔥 HALFWAY THERE!',   title:'Past the <em>halfway point</em>',        sub:'50% reached — production is now confirmed. Join us.' },
-    { label:'⚡ ALMOST GONE',      title:'Spots are <em>filling up fast</em>',     sub:'A lot of people are already in. Don\'t miss out.' },
-    { label:'🚨 NEARLY SOLD OUT',  title:'Last chance <em>to get yours</em>',      sub:'Very limited copies remaining. Act now.' },
-    { label:'🎉 SOLD OUT',         title:'100% <em>Sold Out</em>',                 sub:'Thank you all. Production begins now.' },
-    { label:'🔴 OVER 100%!',       title:'105% — <em>Beyond the goal</em>',       sub:'We exceeded 100 copies. Orders are still open.' },
-  ],
-  ja: [
-    { label:'PRE-ORDER PROGRESS',  title:'目標まで <em>いまここ</em>',             sub:'毎日更新。50%達成で制作確定。' },
-    { label:'🔥 折り返し達成！',   title:'半分を <em>超えました</em>',              sub:'50%達成 — 制作確定です。今すぐご参加ください。' },
-    { label:'⚡ 残りわずか',        title:'枠が <em>埋まっています</em>',            sub:'多くの方がすでにご参加中です。お見逃しなく。' },
-    { label:'🚨 ほぼ完売',         title:'今が <em>ラストチャンス</em>',             sub:'残り枚数がわずかです。お急ぎください。' },
-    { label:'🎉 完売',             title:'100% <em>完売しました</em>',              sub:'ご支援ありがとうございます。制作に入ります。' },
-    { label:'🔴 目標超過!',        title:'105% — 目標を <em>超えました</em>',       sub:'100枚完売を超えました。ご注文は引き続き受け付けています。' },
-  ],
-  zh: [
-    { label:'PRE-ORDER PROGRESS',  title:'目標進度 <em>目前狀況</em>',             sub:'每日更新。達50%後確定製作。' },
-    { label:'🔥 達成一半！',        title:'突破 <em>一半了</em>',                   sub:'50%達成，製作確定！請加入我們。' },
-    { label:'⚡ 快售完了',          title:'名額 <em>快滿了</em>',                   sub:'已有很多人加入，不要錯過。' },
-    { label:'🚨 快售罄',           title:'最後機會 <em>把握現在</em>',              sub:'剩餘數量極少，請盡快預購。' },
-    { label:'🎉 售罄',             title:'100% <em>已售罄</em>',                   sub:'感謝大家的支持，製作開始。' },
-    { label:'🔴 超額達成!',        title:'105% — 超越 <em>目標了</em>',            sub:'100張完售後仍持續接受訂單。' },
-  ],
-};
-
-function getPhase(pct) {
-  if (pct > 100)  return 5;
-  if (pct >= 100) return 4;
-  if (pct >= 90)  return 3;
-  if (pct >= 70)  return 2;
-  if (pct >= 50)  return 1;
-  return 0;
+  document.querySelectorAll('.product-card').forEach(card => {
+    const c = card.dataset.cat;
+    card.style.display = (cat === 'all' || c === cat) ? 'flex' : 'none';
+  });
 }
 
-function initProgress() {
-  const rawPct   = Math.round(PREORDER_COUNT / PREORDER_GOAL * 100);
-  const barPct   = Math.min(rawPct, 100); /* 바는 최대 100% */
-  const over     = PREORDER_COUNT > PREORDER_GOAL;
-  const phase    = getPhase(rawPct);
-  const isHot    = phase >= 2;
-
-  // 퍼센트 숫자 표시 (105% 그대로)
-  document.getElementById('pg-pct').textContent = rawPct;
-
-  // remaining / over 카피
-  const remEl = document.getElementById('pg-remaining');
-  const remCopy = over ? {
-    ko: `<strong>${PREORDER_COUNT}</strong> / ${PREORDER_GOAL}장 판매 · 완판 <strong style="color:rgba(255,130,130,.9)">+${PREORDER_COUNT - PREORDER_GOAL} 초과</strong>`,
-    en: `<strong>${PREORDER_COUNT}</strong> / ${PREORDER_GOAL} sold · <strong style="color:rgba(255,130,130,.9)">+${PREORDER_COUNT - PREORDER_GOAL} over goal!</strong>`,
-    ja: `<strong>${PREORDER_COUNT}</strong> / ${PREORDER_GOAL}枚販売 · <strong style="color:rgba(255,130,130,.9)">+${PREORDER_COUNT - PREORDER_GOAL} 超過!</strong>`,
-    zh: `<strong>${PREORDER_COUNT}</strong> / ${PREORDER_GOAL}張 · <strong style="color:rgba(255,130,130,.9)">超額 +${PREORDER_COUNT - PREORDER_GOAL}!</strong>`,
-  } : {
-    ko: isHot ? `<strong>${PREORDER_GOAL - PREORDER_COUNT}</strong>장밖에 안 남았어요!` : `Remaining <strong>${PREORDER_GOAL - PREORDER_COUNT}</strong> / ${PREORDER_GOAL}장`,
-    en: isHot ? `Only <strong>${PREORDER_GOAL - PREORDER_COUNT}</strong> copies left!`   : `Remaining <strong>${PREORDER_GOAL - PREORDER_COUNT}</strong> / ${PREORDER_GOAL} copies`,
-    ja: isHot ? `残り<strong>${PREORDER_GOAL - PREORDER_COUNT}</strong>枚のみ！`          : `残り<strong>${PREORDER_GOAL - PREORDER_COUNT}</strong> / ${PREORDER_GOAL}枚`,
-    zh: isHot ? `只剩<strong>${PREORDER_GOAL - PREORDER_COUNT}</strong>張了！`            : `剩餘<strong>${PREORDER_GOAL - PREORDER_COUNT}</strong> / ${PREORDER_GOAL}張`,
-  };
-  remEl.innerHTML = remCopy[currentLang] || remCopy.en;
-  if (isHot) remEl.classList.add('few'); else remEl.classList.remove('few');
-
-  // 단계별 headline / label
-  const copy = PHASE_COPY[currentLang]?.[phase] || PHASE_COPY.en[phase];
-  document.getElementById('pg-label').textContent = copy.label;
-  document.getElementById('pg-title').innerHTML   = copy.title;
-  document.getElementById('pg-sub').textContent   = copy.sub;
-
-  // 오버판이면 빨간 계열로 강조
-  const pgLabel = document.getElementById('pg-label');
-  const pgBar   = document.getElementById('pg-bar');
-  if (over) {
-    pgLabel.style.color = 'rgba(255,130,130,.95)';
-    pgBar.style.background = 'linear-gradient(to right,rgba(200,60,60,.8),rgba(255,100,100,1))';
-    pgBar.style.boxShadow = '0 0 18px rgba(255,80,80,.4)';
-    document.getElementById('pg-pct').style.color = 'rgba(255,150,150,.95)';
-  } else if (isHot) {
-    pgLabel.classList.add('urgent');
-    pgBar.classList.add('hot');
-  }
-
-  // 바 애니메이션 (오버판이어도 바는 100%까지)
-  setTimeout(() => { pgBar.style.width = barPct + '%'; }, 300);
-
-  // 마일스톤 — 3개 모두 달성
-  if (PREORDER_COUNT >= 50)  document.getElementById('ms-a').classList.add('reached');
-  if (PREORDER_COUNT >= 70)  document.getElementById('ms-b').classList.add('reached');
-  if (PREORDER_COUNT >= 100) document.getElementById('ms-c').classList.add('reached');
+/* ── 폼 제출 처리 ── */
+function handleFormSubmit(e) {
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = '전송 중...';
+  btn.disabled = true;
+  // Formsubmit이 실제로 submit 처리 — AJAX로 하려면 fetch로 교체
+  setTimeout(() => {
+    document.getElementById('form-success').style.display = 'block';
+    e.target.reset();
+    btn.textContent = '문의 보내기 →';
+    btn.disabled = false;
+  }, 1200);
 }
-document.addEventListener('DOMContentLoaded', initProgress);
 
-/* PayPal 링크 — 티어별로 링크 넣으면 됩니다 */
-const PAYPAL_LINKS = [
-  'https://www.paypal.com/ncp/payment/VMV5VZ3UUASTW', /* 1장 With Love */
-  'https://www.paypal.com/ncp/payment/VMV5VZ3UUASTW', /* 3장 My Mama */
-  'https://www.paypal.com/ncp/payment/VMV5VZ3UUASTW', /* 5장 Eternal */
-  'https://www.paypal.com/ncp/payment/VMV5VZ3UUASTW', /* 10장 VIP */
-  'https://www.paypal.com/ncp/payment/VMV5VZ3UUASTW', /* 20장 VVIP Forever Mama */
-];
-
-const tierPrices = {
-  ko:['₩35,000','₩105,000','₩175,000','₩350,000','₩700,000'],
-  en:['$25','$75','$125','$250','$500'],
-  ja:['$25','$75','$125','$250','$500'],
-  zh:['$25','$75','$125','$250','$500'],
-};
-const tierQtys = {
-  ko:['1장','3장','5장','10장','20장'],
-  en:['1 copy','3 copies','5 copies','10 copies','20 copies'],
-  ja:['1枚','3枚','5枚','10枚','20枚'],
-  zh:['1張','3張','5張','10張','20張'],
-};
-const tierNames = ['With Love','My Mama','Eternal ⭐','Be My Mama Again','Forever Mama'];
-
+/* ── 다국어 ── */
 let currentLang = 'ko';
-
-function openPayment(tier) {
-  const idx = tier - 1;
-  const link = PAYPAL_LINKS[idx];
-  document.getElementById('modal-tier-name').textContent = tierNames[idx];
-  document.getElementById('modal-qty').textContent = tierQtys[currentLang][idx];
-  document.getElementById('modal-price').textContent = tierPrices[currentLang][idx];
-  const btn = document.getElementById('modal-paypal-btn');
-  const payBtnText = {ko:'PayPal로 바로 결제하기 →', en:'Pay with PayPal →', ja:'PayPalで決済する →', zh:'以PayPal付款 →'};
-  const payBtnLoading = {ko:'결제 링크 준비 중...', en:'Payment link coming soon...', ja:'決済リンク準備中...', zh:'付款連結準備中...'};
-  if (link) {
-    btn.href = link;
-    btn.style.opacity = '1';
-    btn.style.pointerEvents = 'auto';
-    btn.textContent = payBtnText[currentLang] || payBtnText.en;
-  } else {
-    btn.href = '#';
-    btn.style.opacity = '.4';
-    btn.style.pointerEvents = 'none';
-    btn.textContent = payBtnLoading[currentLang] || payBtnLoading.en;
-  }
-  document.getElementById('payment-modal').style.display = 'flex';
-}
-function closePayment() {
-  document.getElementById('payment-modal').style.display = 'none';
-}
-document.getElementById('payment-modal').addEventListener('click', function(e) {
-  if (e.target === this) closePayment();
-});
-
-const T = {
-  ko:{
-    'ms-a-num':'50%','ms-a-desc':'제작 확정 공지','ms-a-perk':'공식 포스팅',
-    'ms-b-num':'70%','ms-b-desc':'디지털 배경화면 팩','ms-b-perk':'전원 무료 공유',
-    'ms-c-num':'100%','ms-c-desc':'레코딩 비하인드 영상','ms-c-perk':'완판 기념 릴리즈',
-    'cat-label':'Shop','cat-title':'앨범 <em>둘러보기</em>','cat-sub':'구매하고 싶은 앨범을 선택하세요.',
-    'cs1':'PRE-ORDER','cn1':'3RD SOLO ALBUM','ct1':'MAMA','cy1':'2026 · 5월 8 – 20일','cc1':'주문하기 →',
-    'cs2':'Available','cn2':'2ND SOLO ALBUM','ct2':'Still <em>UNFINISHED</em>','cy2':'2025 · 잔여 수량 한정','cc2':'구매하기 →',
-    'banner-msg':'선주문 오픈 — 5월 8일 어버이날',
-    'banner-date':'PRE-ORDER OPEN · MAY 8 — CLOSE MAY 20',
-    'pre-label':'Pre-Order','pre-title':'선주문 <em>티어</em>',
-    'pre-sub':'생산 수량 100장 한정. 최소 50장 선주문 확보 후 제작 시작.<br/>선주문 마감 5월 20일 · 발송 6월 6일 예정.<br/><span style="color:rgba(95,200,215,.6);font-size:11px">1장 기준 ₩35,000 (국내) / $25 (해외)</span>',
-    't1-name':'With Love','t1-qty':'1장',
-    't1-perks':'<li>앨범 CD 1장</li><li>공통 포토카드</li><li>자필 미니 레터</li><li>THANKS 보이스 메시지 QR</li>',
-    't2-name':'My Mama','t2-qty':'3장',
-    't2-perks':'<li>앨범 CD 3장</li><li>포토카드 풀셋</li><li>사인 폴라로이드</li><li>이름 라벨 (실버)</li><li>자필 미니 레터</li><li>THANKS 보이스 QR</li>',
-    't3-name':'Eternal ⭐','t3-qty':'5장','rec-badge':'추천',
-    't3-perks':'<li>앨범 CD 5장</li><li>포토카드 풀셋</li><li>사인 폴라로이드</li><li>이름 라벨 (실버)</li><li>미공개 포토카드</li><li>개인 보이스 메시지 (2분) QR</li><li>자필 개인 손편지</li>',
-    't4-name':'Be My Mama Again','t4-qty':'10장','t4-limit':'선착순 5명',
-    't4-perks':'<li>앨범 CD 10장</li><li>포토카드 풀셋</li><li>사인 폴라로이드</li><li>미공개 포토카드</li><li>개인 영상 메시지 QR</li><li>전곡 해설 음성 파일</li><li>사인 미니포스터 A3</li><li>자필 개인 손편지</li><li class="gold">1ST 솔로 앨범 UNFINISHED 미개봉본<br/>+ 2026 직필 사인 &amp; 메시지</li>',
-    't5-name':'Forever Mama','t5-qty':'20장','t5-limit':'선착순 3명',
-    't5-perks':'<li>앨범 CD 20장</li><li>포토카드 풀셋</li><li>사인 폴라로이드</li><li>미공개 포토카드</li><li>개인 영상 메시지 QR</li><li>전곡 해설 음성 파일</li><li>사인 미니포스터 A3</li><li>자필 개인 손편지</li><li class="gold">1ST 솔로 앨범 UNFINISHED 미개봉본<br/>+ 2026 직필 사인 &amp; 메시지</li><li class="dinner">소규모 디너에 초대합니다<br/>MADEWELL과 함께하는 자리</li>',
-    'pay-label':'결제 안내','pay-title':'버튼 클릭 → 바로 결제',
-    'pay-sub':'PayPal 계정 없이 카드로 바로 결제 가능. 한국·일본·해외 팬 모두 동일.',
-    'ps1-title':'티어 선택 후 바로 결제',
-    'ps1-desc':'원하는 티어 버튼을 클릭하면 결제 링크로 바로 이동합니다.<br/><strong>PayPal 계정 없이도</strong> 카드 결제 가능.',
-    'ps2-title':'결제 후 DM 또는 이메일',
-    'ps2-desc':'결제 완료 후 아래로 주문 정보를 보내주세요.<br/>📱 <strong>@madewellmusic_official</strong><br/>📧 <strong>madewellofficial@gmail.com</strong>',
-    'ps3-title':'보내실 정보',
-    'ps3-desc':'결제자명 · 결제 금액 · 배송 주소 · 국가<br/>배송비는 확인 후 <strong>별도 링크</strong>로 청구됩니다.',
-    'ps4-title':'배송','ps4-desc':'배송비 결제 완료 시 <strong>6월 6일</strong> 발송 예정.',
-    'pay-note':'💡 <strong>수수료:</strong> PayPal 수수료 약 3~4% 포함 가격. 별도 추가 없음.<br/>📦 <strong>배송비:</strong> 국가 및 수량에 따라 별도 청구 (DM/이메일 안내).',
-    'su-label':'Previous Album','su-title':'2집 <em>Still UNFINISHED</em>',
-    'su-sub':'2025년 일본 발매 솔로 정규 2집. 한정 100장 완판. 잔여 수량 한해 판매.<br/><span style="color:rgba(95,200,215,.5);font-size:11px">버튼 클릭으로 바로 구매 가능합니다.</span>',
-    'su-album-desc':'일본 도쿄, 그 미완성의 감정들. TOKYO TOWER로 시작된 이야기가 담긴 두 번째 솔로 정규앨범.<br/>MAMA의 전작으로, 두 앨범이 이어지는 세계관의 출발점.',
-    'su-btn':'구매하기 →','su-note':'잔여 수량 한정 · 구매 후 배송 안내 드립니다',
-    'ms-title':'달성 보너스 (판매량 기준)',
-    'ms1-num':'50장','ms1-label':'제작 확정 공지','ms1-perk':'공식 포스팅',
-    'ms2-num':'70장','ms2-label':'디지털 배경화면 팩','ms2-perk':'전원 무료 공유',
-    'ms3-num':'100장','ms3-label':'레코딩 비하인드 영상','ms3-perk':'완판 기념 릴리즈',
-    'fl-insta':'Instagram','fl-studio':'스튜디오','fl-lesson':'레슨','fl-home':'홈',
-    'modal-after-title':'결제 후 아래로 주문 정보를 보내주세요',
-    'modal-after-desc':'📱 Instagram DM: <strong style="color:rgba(95,200,215,.8)">@madewellmusic_official</strong><br/>📧 Email: <strong style="color:rgba(95,200,215,.8)">madewellofficial@gmail.com</strong>',
-    'modal-info-list':'결제자명 · 결제 금액 · 배송 주소 · 국가<br/><span style="color:rgba(95,200,215,.45)">배송비는 확인 후 별도 링크로 청구됩니다.</span>',
-    'tb1':'주문하기','tb2':'주문하기','tb3':'주문하기','tb4':'주문하기','tb5':'주문하기',
-  },
-  en:{
-    'ms-a-num':'50%','ms-a-desc':'Production Confirmed','ms-a-perk':'Official Announcement',
-    'ms-b-num':'70%','ms-b-desc':'Digital Wallpaper Pack','ms-b-perk':'Free for all buyers',
-    'ms-c-num':'100%','ms-c-desc':'Recording Behind-the-Scenes','ms-c-perk':'Sellout celebration',
-    'cat-label':'Shop','cat-title':'Browse <em>Albums</em>','cat-sub':'Select an album to purchase.',
-    'cs1':'PRE-ORDER','cn1':'3RD SOLO ALBUM','ct1':'MAMA','cy1':'2026 · MAY 8 – 20','cc1':'Pre-Order →',
-    'cs2':'Available','cn2':'2ND SOLO ALBUM','ct2':'Still <em>UNFINISHED</em>','cy2':'2025 · Limited remaining stock','cc2':'Buy Now →',
-    'banner-msg':'Pre-Order Opens — May 8, Parents\' Day',
-    'banner-date':'PRE-ORDER OPEN · MAY 8 — CLOSE MAY 20',
-    'pre-label':'Pre-Order','pre-title':'Pre-Order <em>Tiers</em>',
-    'pre-sub':'Limited to 100 copies. Production begins after 50 pre-orders.<br/>Deadline: May 20 · Shipping: June 6.<br/><span style="color:rgba(95,200,215,.6);font-size:11px">1 copy: ₩35,000 (Korea) / $25 (overseas)</span>',
-    't1-name':'With Love','t1-qty':'1 copy',
-    't1-perks':'<li>Album CD × 1</li><li>Common photocard</li><li>Handwritten mini letter</li><li>THANKS Voice Message QR</li>',
-    't2-name':'My Mama','t2-qty':'3 copies',
-    't2-perks':'<li>Album CD × 3</li><li>Full photocard set</li><li>Signed polaroid</li><li>Name label (silver)</li><li>Handwritten mini letter</li><li>THANKS Voice QR</li>',
-    't3-name':'Eternal ⭐','t3-qty':'5 copies','rec-badge':'Recommended',
-    't3-perks':'<li>Album CD × 5</li><li>Full photocard set</li><li>Signed polaroid</li><li>Name label (silver)</li><li>Exclusive unreleased photocard</li><li>Personal voice message (2 min) QR</li><li>Handwritten personal letter</li>',
-    't4-name':'Be My Mama Again','t4-qty':'10 copies','t4-limit':'First 5 only',
-    't4-perks':'<li>Album CD × 10</li><li>Full photocard set</li><li>Signed polaroid</li><li>Unreleased photocard</li><li>Personal video message QR</li><li>Full album commentary audio</li><li>Signed mini poster A3</li><li>Handwritten personal letter</li><li class="gold">1ST Solo Album UNFINISHED (sealed)<br/>+ 2026 handwritten sign &amp; message</li>',
-    't5-name':'Forever Mama','t5-qty':'20 copies','t5-limit':'First 3 only',
-    't5-perks':'<li>Album CD × 20</li><li>Full photocard set</li><li>Signed polaroid</li><li>Unreleased photocard</li><li>Personal video message QR</li><li>Full album commentary audio</li><li>Signed mini poster A3</li><li>Handwritten personal letter</li><li class="gold">1ST Solo Album UNFINISHED (sealed)<br/>+ 2026 handwritten sign &amp; message</li><li class="dinner">Private dinner invitation<br/>An evening with MADEWELL</li>',
-    'pay-label':'Payment Guide','pay-title':'Click → Pay Directly',
-    'pay-sub':'No PayPal account needed — pay with your card directly. Same process worldwide.',
-    'ps1-title':'Choose tier & pay',
-    'ps1-desc':'Click any tier button to go straight to the payment link.<br/><strong>No PayPal account needed</strong> — card payment OK.',
-    'ps2-title':'DM or Email after payment',
-    'ps2-desc':'After payment, send your order info to:<br/>📱 <strong>@madewellmusic_official</strong><br/>📧 <strong>madewellofficial@gmail.com</strong>',
-    'ps3-title':'What to send',
-    'ps3-desc':'Name · Amount paid · Shipping address · Country<br/>Shipping fee will be <strong>billed separately</strong> via a payment link.',
-    'ps4-title':'Shipping','ps4-desc':'Scheduled for <strong>June 6</strong> after shipping fee is confirmed.',
-    'pay-note':'💡 <strong>Fees:</strong> PayPal fee (~3–4%) already included in price.<br/>📦 <strong>Shipping:</strong> Billed separately for all orders.',
-    'su-label':'Previous Album','su-title':'2nd Album — <em>Still UNFINISHED</em>',
-    'su-sub':'2nd solo album, released in Japan 2025. Limited 100 copies — sold out. Limited remaining stock.<br/><span style="color:rgba(95,200,215,.5);font-size:11px">Buy directly via the button below.</span>',
-    'su-album-desc':'Tokyo — and the feelings left unfinished. The album where TOKYO TOWER began.<br/>The prequel to MAMA, where the connected story starts.',
-    'su-btn':'Buy Now →','su-note':'Limited remaining stock · Shipping info sent after purchase',
-    'ms-title':'Milestone Bonuses',
-    'ms1-num':'50 copies','ms1-label':'Production Confirmed','ms1-perk':'Official Announcement',
-    'ms2-num':'70 copies','ms2-label':'Digital Wallpaper Pack','ms2-perk':'Free for all buyers',
-    'ms3-num':'100 copies','ms3-label':'Recording Behind-the-Scenes','ms3-perk':'Sellout celebration',
-    'fl-insta':'Instagram','fl-studio':'Studio','fl-lesson':'Lesson','fl-home':'Home',
-    'modal-after-title':'After payment, send your order info',
-    'modal-after-desc':'📱 Instagram DM: <strong style="color:rgba(95,200,215,.8)">@madewellmusic_official</strong><br/>📧 Email: <strong style="color:rgba(95,200,215,.8)">madewellofficial@gmail.com</strong>',
-    'modal-info-list':'Name · Amount paid · Shipping address · Country<br/><span style="color:rgba(95,200,215,.45)">Shipping fee billed separately via payment link.</span>',
-    'tb1':'Pre-Order','tb2':'Pre-Order','tb3':'Pre-Order','tb4':'Pre-Order','tb5':'Pre-Order',
-  },
-  ja:{
-    'ms-a-num':'50%','ms-a-desc':'制作確定告知','ms-a-perk':'公式ポスト',
-    'ms-b-num':'70%','ms-b-desc':'デジタル壁紙パック','ms-b-perk':'全員無料配布',
-    'ms-c-num':'100%','ms-c-desc':'レコーディング密着映像','ms-c-perk':'完売記念リリース',
-    'cat-label':'Shop','cat-title':'アルバム <em>一覧</em>','cat-sub':'購入したいアルバムを選んでください。',
-    'cs1':'先行予約','cn1':'3RD SOLO ALBUM','ct1':'MAMA','cy1':'2026 · 5月8日 – 20日','cc1':'先行予約する →',
-    'cs2':'在庫あり','cn2':'2ND SOLO ALBUM','ct2':'Still <em>UNFINISHED</em>','cy2':'2025 · 残在庫限定','cc2':'購入する →',
-    'banner-msg':'先行予約スタート — 5月8日 母の日',
-    'banner-date':'予約受付 5月8日〜20日 · 発送 6月6日予定',
-    'pre-label':'先行予約','pre-title':'予約 <em>ティア</em>',
-    'pre-sub':'生産数量100枚限定。50枚以上の予約確保後に制作スタート。<br/>予約締切：5月20日 · 発送予定：6月6日<br/><span style="color:rgba(95,200,215,.6);font-size:11px">1枚あたり₩35,000（韓国）/ $25（海外）</span>',
-    't1-name':'With Love','t1-qty':'1枚',
-    't1-perks':'<li>アルバムCD × 1枚</li><li>共通フォトカード</li><li>手書きミニレター</li><li>THANKSボイスメッセージQR</li>',
-    't2-name':'My Mama','t2-qty':'3枚',
-    't2-perks':'<li>アルバムCD × 3枚</li><li>フォトカードフルセット</li><li>サインポラロイド</li><li>ネームラベル（シルバー）</li><li>手書きミニレター</li><li>THANKSボイスQR</li>',
-    't3-name':'Eternal ⭐','t3-qty':'5枚','rec-badge':'おすすめ',
-    't3-perks':'<li>アルバムCD × 5枚</li><li>フォトカードフルセット</li><li>サインポラロイド</li><li>ネームラベル（シルバー）</li><li>未公開フォトカード</li><li>個人ボイスメッセージ（2分）QR</li><li>手書き個人手紙</li>',
-    't4-name':'Be My Mama Again','t4-qty':'10枚','t4-limit':'先着5名様',
-    't4-perks':'<li>アルバムCD × 10枚</li><li>フォトカードフルセット</li><li>サインポラロイド</li><li>未公開フォトカード</li><li>個人映像メッセージQR</li><li>全曲解説音声ファイル</li><li>サインミニポスターA3</li><li>手書き個人手紙</li><li class="gold">1stソロアルバム UNFINISHED 未開封<br/>+ 2026年直筆サイン &amp; メッセージ</li>',
-    't5-name':'Forever Mama','t5-qty':'20枚','t5-limit':'先着3名様',
-    't5-perks':'<li>アルバムCD × 20枚</li><li>フォトカードフルセット</li><li>サインポラロイド</li><li>未公開フォトカード</li><li>個人映像メッセージQR</li><li>全曲解説音声ファイル</li><li>サインミニポスターA3</li><li>手書き個人手紙</li><li class="gold">1stソロアルバム UNFINISHED 未開封<br/>+ 2026年直筆サイン &amp; メッセージ</li><li class="dinner">小規模ディナーにご招待<br/>MADEWELLとの特別な時間</li>',
-    'pay-label':'お支払い案内','pay-title':'クリック → すぐ決済',
-    'pay-sub':'PayPalアカウントなしでカード決済OK。韓国・日本・海外のファンの方も同じ方法でどうぞ。',
-    'ps1-title':'ティア選択後に決済',
-    'ps1-desc':'ご希望のティアのボタンをクリックすると決済リンクへ直接移動します。<br/><strong>PayPalアカウント不要</strong>でカード決済できます。',
-    'ps2-title':'決済後にDMまたはメール',
-    'ps2-desc':'決済完了後、以下にご注文情報をお送りください。<br/>📱 <strong>@madewellmusic_official</strong><br/>📧 <strong>madewellofficial@gmail.com</strong>',
-    'ps3-title':'送る情報',
-    'ps3-desc':'お名前 · 決済金額 · 配送先住所 · 国<br/>送料は確認後、<strong>別途リンク</strong>でご請求します。',
-    'ps4-title':'発送','ps4-desc':'送料決済完了後、<strong>6月6日</strong>発送予定。',
-    'pay-note':'💡 <strong>手数料：</strong> PayPal手数料（約3〜4%）は価格に含まれています。<br/>📦 <strong>送料：</strong> 全注文で別途請求（DMまたはメールにてご案内）。',
-    'su-label':'Previous Album','su-title':'2ndアルバム <em>Still UNFINISHED</em>',
-    'su-sub':'2025年日本発売ソロ正規2集。限定100枚完売。残在庫のみ販売。<br/><span style="color:rgba(95,200,215,.5);font-size:11px">下のボタンからご購入いただけます。</span>',
-    'su-album-desc':'東京、あの未完成の感情たち。TOKYO TOWERから始まった物語の2ndソロアルバム。<br/>MAMAの前作であり、二つのアルバムがつながるユニバースの原点。',
-    'su-btn':'購入する →','su-note':'残在庫限定 · ご購入後に配送案内をお送りします',
-    'ms-title':'マイルストーンボーナス',
-    'ms1-num':'50枚','ms1-label':'制作確定告知','ms1-perk':'公式ポスト',
-    'ms2-num':'70枚','ms2-label':'デジタル壁紙パック','ms2-perk':'全員無料配布',
-    'ms3-num':'100枚','ms3-label':'レコーディング密着映像','ms3-perk':'完売記念リリース',
-    'fl-insta':'Instagram','fl-studio':'スタジオ','fl-lesson':'レッスン','fl-home':'ホーム',
-    'modal-after-title':'決済後にご注文情報をお送りください',
-    'modal-after-desc':'📱 Instagram DM: <strong style="color:rgba(95,200,215,.8)">@madewellmusic_official</strong><br/>📧 Email: <strong style="color:rgba(95,200,215,.8)">madewellofficial@gmail.com</strong>',
-    'modal-info-list':'お名前 · 決済金額 · 配送先住所 · 国<br/><span style="color:rgba(95,200,215,.45)">送料は別途リンクでご請求します。</span>',
-    'tb1':'先行予約する','tb2':'先行予約する','tb3':'先行予約する','tb4':'先行予約する','tb5':'先行予約する',
-  },
-  zh:{
-    'ms-a-num':'50%','ms-a-desc':'製作確定公告','ms-a-perk':'官方公告',
-    'ms-b-num':'70%','ms-b-desc':'數位桌布組','ms-b-perk':'所有購買者免費',
-    'ms-c-num':'100%','ms-c-desc':'錄音幕後花絮','ms-c-perk':'完售紀念發布',
-    'cat-label':'商店','cat-title':'瀏覽 <em>專輯</em>','cat-sub':'請選擇要購買的專輯。',
-    'cs1':'預購','cn1':'3RD SOLO ALBUM','ct1':'MAMA','cy1':'2026 · 5月8日 – 20日','cc1':'立即預購 →',
-    'cs2':'現貨','cn2':'2ND SOLO ALBUM','ct2':'Still <em>UNFINISHED</em>','cy2':'2025 · 剩餘庫存有限','cc2':'立即購買 →',
-    'banner-msg':'預購開始 — 5月8日 母親節',
-    'banner-date':'預購期間 5月8日 – 20日 · 預計6月6日發貨',
-    'pre-label':'預購','pre-title':'預購 <em>方案</em>',
-    'pre-sub':'限量100張。達50張預購後開始製作。<br/>預購截止：5月20日 · 預計發貨：6月6日<br/><span style="color:rgba(95,200,215,.6);font-size:11px">1張：₩35,000（韓國）/ $25（海外）</span>',
-    't1-name':'With Love','t1-qty':'1張',
-    't1-perks':'<li>專輯CD × 1張</li><li>普通小卡</li><li>親筆迷你信</li><li>THANKS語音訊息QR</li>',
-    't2-name':'My Mama','t2-qty':'3張',
-    't2-perks':'<li>專輯CD × 3張</li><li>全套小卡</li><li>親簽拍立得</li><li>姓名標籤（銀色）</li><li>親筆迷你信</li><li>THANKS語音QR</li>',
-    't3-name':'Eternal ⭐','t3-qty':'5張','rec-badge':'推薦',
-    't3-perks':'<li>專輯CD × 5張</li><li>全套小卡</li><li>親簽拍立得</li><li>姓名標籤（銀色）</li><li>限定未公開小卡</li><li>個人語音訊息（2分鐘）QR</li><li>親筆個人信</li>',
-    't4-name':'Be My Mama Again','t4-qty':'10張','t4-limit':'限前5名',
-    't4-perks':'<li>專輯CD × 10張</li><li>全套小卡</li><li>親簽拍立得</li><li>未公開小卡</li><li>個人影片訊息QR</li><li>全曲解說音檔</li><li>親簽迷你海報A3</li><li>親筆個人信</li><li class="gold">第1張個人專輯UNFINISHED（未拆封）<br/>+ 2026年親筆簽名 &amp; 訊息</li>',
-    't5-name':'Forever Mama','t5-qty':'20張','t5-limit':'限前3名',
-    't5-perks':'<li>專輯CD × 20張</li><li>全套小卡</li><li>親簽拍立得</li><li>未公開小卡</li><li>個人影片訊息QR</li><li>全曲解說音檔</li><li>親簽迷你海報A3</li><li>親筆個人信</li><li class="gold">第1張個人專輯UNFINISHED（未拆封）<br/>+ 2026年親筆簽名 &amp; 訊息</li><li class="dinner">私人晚餐邀請<br/>與MADEWELL共度的夜晚</li>',
-    'pay-label':'付款說明','pay-title':'點擊 → 直接付款',
-    'pay-sub':'不需要PayPal帳號，可直接以信用卡付款。全球粉絲皆適用。',
-    'ps1-title':'選擇方案後付款',
-    'ps1-desc':'點擊方案按鈕即可直接前往付款頁面。<br/><strong>不需要PayPal帳號</strong>，信用卡即可付款。',
-    'ps2-title':'付款後請DM或傳送Email',
-    'ps2-desc':'付款完成後，請將訂購資訊傳至：<br/>📱 <strong>@madewellmusic_official</strong><br/>📧 <strong>madewellofficial@gmail.com</strong>',
-    'ps3-title':'請提供以下資訊',
-    'ps3-desc':'姓名 · 付款金額 · 配送地址 · 國家<br/>運費確認後將透過<strong>另一付款連結</strong>收取。',
-    'ps4-title':'配送','ps4-desc':'運費付款完成後，預計<strong>6月6日</strong>發貨。',
-    'pay-note':'💡 <strong>費用：</strong> PayPal手續費（約3-4%）已含在價格中。<br/>📦 <strong>運費：</strong> 所有訂單另行收費（透過DM或Email通知）。',
-    'su-label':'前一張專輯','su-title':'第2張專輯 <em>Still UNFINISHED</em>',
-    'su-sub':'2025年在日本發行的第2張個人正規專輯。限量100張，已售罄。僅剩少量現貨。<br/><span style="color:rgba(95,200,215,.5);font-size:11px">請點擊下方按鈕直接購買。</span>',
-    'su-album-desc':'東京，以及那些未竟的感情。TOKYO TOWER這首歌的起源。<br/>MAMA的前傳，兩張專輯世界觀相連的起點。',
-    'su-btn':'立即購買 →','su-note':'剩餘庫存有限 · 購買後將通知配送資訊',
-    'ms-title':'達成目標特典',
-    'ms1-num':'50張','ms1-label':'製作確定公告','ms1-perk':'官方公告',
-    'ms2-num':'70張','ms2-label':'數位桌布組','ms2-perk':'所有購買者免費',
-    'ms3-num':'100張','ms3-label':'錄音幕後花絮','ms3-perk':'完售紀念發布',
-    'fl-insta':'Instagram','fl-studio':'錄音室','fl-lesson':'音樂課程','fl-home':'首頁',
-    'modal-after-title':'付款後請傳送訂購資訊',
-    'modal-after-desc':'📱 Instagram DM: <strong style="color:rgba(95,200,215,.8)">@madewellmusic_official</strong><br/>📧 Email: <strong style="color:rgba(95,200,215,.8)">madewellofficial@gmail.com</strong>',
-    'modal-info-list':'姓名 · 付款金額 · 配送地址 · 國家<br/><span style="color:rgba(95,200,215,.45)">運費將透過另一付款連結另行收取。</span>',
-    'tb1':'立即預購','tb2':'立即預購','tb3':'立即預購','tb4':'立即預購','tb5':'立即預購',
-  },
+const STRINGS = {
+  'hero-label': {ko:'Official Store', en:'Official Store', ja:'公式ストア', zh:'官方商店'},
+  'hero-title': {ko:'MADEWELL <em>Shop</em>', en:'MADEWELL <em>Shop</em>', ja:'MADEWELL <em>Shop</em>', zh:'MADEWELL <em>Shop</em>'},
+  'hero-sub':   {ko:'앨범, 굿즈 직접 주문 가능합니다. 결제는 PayPal / BOOTH, 문의는 하단 폼 또는 DM.', en:'Albums & merch available now. Pay via PayPal or BOOTH. Questions? Use the form below or DM.', ja:'アルバムとグッズを直接ご注文いただけます。PayPal / BOOTHでお支払い。お問い合わせはフォームかDMで。', zh:'可直接購買專輯與周邊商品。透過PayPal / BOOTH付款，詢問請用下方表單或DM。'},
+  'cta-mama':   {ko:'자세히 보기', en:'View Details', ja:'詳細を見る', zh:'查看詳情'},
+  'cta-su':     {ko:'자세히 보기', en:'View Details', ja:'詳細を見る', zh:'查看詳情'},
+  'cta-prev-tee':{ko:'자세히 보기', en:'View Details', ja:'詳細を見る', zh:'查看詳情'},
+  'cta-prev-hood':{ko:'자세히 보기', en:'View Details', ja:'詳細を見る', zh:'查看詳情'},
+  'inq-label':  {ko:'Order Inquiry', en:'Order Inquiry', ja:'ご注文・お問い合わせ', zh:'訂購查詢'},
+  'inq-title':  {ko:'문의 & <em>주문 안내</em>', en:'Inquiry & <em>Order Info</em>', ja:'お問い合わせ & <em>ご注文案内</em>', zh:'詢問 & <em>訂購說明</em>'},
+  'inq-desc':   {ko:'결제 후 주문 정보를 보내주시거나, 구매 전 궁금한 점을 아래 폼으로 남겨주세요.<br/><strong>Instagram DM @madewellmusic_official</strong> 으로도 바로 문의 가능합니다.', en:'Send your order info after payment, or leave any question below.<br/><strong>Instagram DM @madewellmusic_official</strong> also works anytime.', ja:'ご入金後の注文情報の送付、ご購入前のご質問はフォームからどうぞ。<br/><strong>Instagram DM @madewellmusic_official</strong> でもお気軽にどうぞ。', zh:'付款後請傳送訂單資訊，或在下方表單留下任何問題。<br/>也可透過 <strong>Instagram DM @madewellmusic_official</strong> 直接聯繫。'},
+  'fl-name':    {ko:'이름 / Name', en:'Name', ja:'お名前', zh:'姓名'},
+  'fl-email':   {ko:'이메일 / Email', en:'Email', ja:'メールアドレス', zh:'電子信箱'},
+  'fl-item':    {ko:'주문 상품', en:'Item', ja:'ご注文商品', zh:'訂購商品'},
+  'fl-msg':     {ko:'메시지 / Message', en:'Message', ja:'メッセージ', zh:'留言'},
+  'fl-submit':  {ko:'문의 보내기 →', en:'Send Inquiry →', ja:'送信する →', zh:'發送詢問 →'},
+  'fl-note':    {ko:'보내주신 내용은 madewellofficial@gmail.com 으로 전달됩니다. 보통 24시간 이내 답변드립니다.', en:'Your message will be sent to madewellofficial@gmail.com. Usually replied within 24 hours.', ja:'メッセージはmadewellofficial@gmail.comに送信されます。通常24時間以内にご返信します。', zh:'您的訊息將發送至 madewellofficial@gmail.com。通常在24小時內回覆。'},
+  'cta-soon-1': {ko:'준비 중', en:'Coming Soon', ja:'準備中', zh:'即將推出'},
+  'cta-soon-2': {ko:'준비 중', en:'Coming Soon', ja:'準備中', zh:'即將推出'},
+  'cta-soon-3': {ko:'준비 중', en:'Coming Soon', ja:'準備中', zh:'即將推出'},
 };
 
 function setLang(lang) {
   currentLang = lang;
-  try{localStorage.setItem('mw-lang', lang);}catch(e){}
-  document.querySelectorAll('.lang-bar button').forEach(b=>{
-    const btnLang = b.textContent.trim().toLowerCase();
-    const mapped = btnLang === 'jp' ? 'ja' : btnLang;
-    b.classList.toggle('on', mapped === lang);
+  document.querySelectorAll('.lang-bar button').forEach(b => b.classList.remove('on'));
+  const map = {ko:0,en:1,ja:2,zh:3};
+  document.querySelectorAll('.lang-bar button')[map[lang]]?.classList.add('on');
+
+  Object.entries(STRINGS).forEach(([id, vals]) => {
+    const el = document.getElementById(id);
+    if(el) el.innerHTML = vals[lang] || vals.ko;
   });
-  const t = T[lang]||T.ko;
-  Object.keys(t).forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML=t[id];});
-  // 부스 버튼 — 일본어 모드에서만 표시
-  const boothBtn = document.getElementById('modal-booth-btn');
-  if(boothBtn) boothBtn.style.display = lang==='ja' ? 'block' : 'none';
-  // 페이팔 버튼 텍스트 언어 처리
-  const paypalBtn = document.getElementById('modal-paypal-btn');
-  if(paypalBtn){
-    if(lang==='ja') paypalBtn.textContent = 'PayPalで決済する →';
-    else if(lang==='en') paypalBtn.textContent = 'Pay with PayPal →';
-    else if(lang==='zh') paypalBtn.textContent = '以PayPal付款 →';
-    else paypalBtn.textContent = 'PayPal로 바로 결제하기 →';
-  }
-  // progress 카피도 언어에 맞게 리렌더
-  initProgress();
+
+  // 카테고리 버튼 다국어
+  document.querySelectorAll('.cat-btn[data-lang]').forEach(btn => {
+    try { btn.textContent = JSON.parse(btn.dataset.lang)[lang] || btn.textContent; } catch(e){}
+  });
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    if(el.classList.contains('cat-btn')) return;
+    try { el.textContent = JSON.parse(el.dataset.lang)[lang] || el.textContent; } catch(e){}
+  });
 }
-(function(){
-  let saved='ko';try{saved=localStorage.getItem('mw-lang')||'ko';}catch(e){}
-  if(saved!=='ko')setLang(saved);
-  else document.querySelectorAll('.lang-bar button').forEach(b=>{b.classList.toggle('on',b.textContent.trim()==='KO');});
-})();
 </script>
 </body>
 </html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Still UNFINISHED — MADEWELL 2ND SOLO ALBUM</title>
+<meta name="description" content="MADEWELL 2집 솔로 앨범 Still UNFINISHED — 잔여 수량 한정 판매. PayPal / BOOTH 결제."/>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+a{text-decoration:none;color:inherit}
+html{scroll-behavior:smooth}
+body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-height:100vh}
+.nav-back{position:fixed;top:22px;left:28px;z-index:300;font-size:9px;font-weight:700;letter-spacing:.28em;color:rgba(255,255,255,.28);text-transform:uppercase;display:flex;align-items:center;gap:8px;transition:color .2s}
+.nav-back:hover{color:rgba(255,255,255,.7)}
+.nav-back svg{width:14px;height:14px}
+.lang-bar{position:fixed;top:22px;right:28px;z-index:300;display:flex;gap:2px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);padding:3px}
+.lang-bar button{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.38);background:none;border:none;padding:5px 10px;cursor:pointer;text-transform:uppercase;transition:all .2s;line-height:1}
+.lang-bar button.on{background:rgba(65,168,182,.9);color:#040e12}
+.lang-bar button:hover:not(.on){color:rgba(255,255,255,.8)}
+
+/* HERO */
+.product-hero{display:grid;grid-template-columns:1fr 1fr;min-height:92vh;padding-top:64px}
+@media(max-width:768px){.product-hero{grid-template-columns:1fr;min-height:auto}}
+.hero-gallery{position:relative;overflow:hidden;background:#0a1c22;display:grid;grid-template-rows:1fr auto}
+.hero-main-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;min-height:520px}
+.hero-sub-imgs{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.06)}
+.hero-sub-imgs img{width:100%;aspect-ratio:1;object-fit:cover;object-position:center;display:block}
+.limited-overlay{position:absolute;bottom:24px;left:24px;background:rgba(255,200,80,.9);color:#1a1000;font-size:8px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;padding:6px 16px}
+.hero-info{padding:80px 64px;display:flex;flex-direction:column;justify-content:center;gap:0;border-left:1px solid rgba(255,255,255,.05)}
+@media(max-width:768px){.hero-info{padding:48px 28px;border-left:none;border-top:1px solid rgba(255,255,255,.05)}}
+.product-num{font-size:9px;font-weight:700;letter-spacing:.4em;text-transform:uppercase;color:rgba(95,200,215,.45);margin-bottom:16px}
+.product-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(32px,4.5vw,62px);color:#fff;line-height:1.1;margin-bottom:10px}
+.product-title em{font-style:italic;color:rgba(95,200,215,.75)}
+.product-artist{font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:36px}
+.limited-notice{display:flex;align-items:center;gap:10px;padding:14px 18px;background:rgba(255,200,80,.05);border:1px solid rgba(255,200,80,.2);margin-bottom:28px}
+.limited-notice-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,200,80,.9);flex-shrink:0}
+.limited-notice-text{font-size:10.5px;color:rgba(255,200,80,.8);font-weight:500;line-height:1.6}
+.product-price-row{display:flex;align-items:baseline;gap:12px;margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.07)}
+.product-price-main{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:#fff}
+.product-price-intl{font-size:13px;color:rgba(255,255,255,.3);font-weight:300}
+.buy-btns{display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.btn-paypal{display:flex;align-items:center;justify-content:center;gap:10px;padding:17px 28px;background:rgba(65,168,182,.9);color:#040e12;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;transition:background .2s;cursor:pointer;border:none;width:100%;font-family:'Montserrat',sans-serif}
+.btn-paypal:hover{background:rgba(80,185,200,1)}
+.btn-booth{display:flex;align-items:center;justify-content:center;gap:10px;padding:14px 28px;background:transparent;border:1px solid rgba(255,100,130,.3);color:rgba(255,140,160,.8);font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;transition:all .25s;cursor:pointer;width:100%;font-family:'Montserrat',sans-serif}
+.btn-booth:hover{background:rgba(255,100,130,.08);border-color:rgba(255,100,130,.5);color:rgba(255,170,190,1)}
+.btn-dm{display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 28px;background:transparent;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.3);font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;transition:all .2s;width:100%}
+.btn-dm:hover{border-color:rgba(255,255,255,.25);color:rgba(255,255,255,.6)}
+.note-small{font-size:10.5px;color:rgba(255,255,255,.22);line-height:1.9;font-weight:300}
+.note-small strong{color:rgba(95,200,215,.55);font-weight:500}
+
+/* BODY */
+.product-body{padding:80px 72px}
+@media(max-width:768px){.product-body{padding:56px 28px}}
+.section-tag{font-size:8.5px;font-weight:700;letter-spacing:.36em;text-transform:uppercase;color:rgba(95,200,215,.4);margin-bottom:14px}
+.section-h{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.5vw,42px);font-weight:300;color:#fff;margin-bottom:28px;line-height:1.1}
+.section-h em{font-style:italic;color:rgba(95,200,215,.75)}
+
+/* 앨범 소개 */
+.about-grid{display:grid;grid-template-columns:240px 1fr;gap:56px;margin-bottom:72px;align-items:start}
+@media(max-width:640px){.about-grid{grid-template-columns:1fr}}
+.about-cover{width:100%;aspect-ratio:1;object-fit:cover;border:1px solid rgba(255,255,255,.08)}
+.about-desc{font-size:13px;color:rgba(255,255,255,.35);line-height:2.2;font-weight:300}
+.about-desc p+p{margin-top:16px}
+.about-meta{display:flex;flex-direction:column;gap:14px;margin-top:28px}
+.meta-row{display:flex;gap:16px;align-items:baseline}
+.meta-key{font-size:8.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.2);min-width:80px}
+.meta-val{font-size:12px;color:rgba(255,255,255,.5);font-weight:300}
+
+/* 트랙리스트 */
+.tracklist{display:flex;flex-direction:column;gap:0;margin-bottom:72px;border:1px solid rgba(255,255,255,.06)}
+.track-item{display:flex;align-items:center;gap:16px;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.05);transition:background .2s}
+.track-item:last-child{border-bottom:none}
+.track-item:hover{background:rgba(255,255,255,.03)}
+.track-num{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:rgba(255,255,255,.18);min-width:28px}
+.track-title{font-size:12px;font-weight:400;color:rgba(255,255,255,.65);flex:1}
+.track-dur{font-size:10px;color:rgba(255,255,255,.2);font-weight:300}
+
+/* 갤러리 */
+.album-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin-bottom:72px}
+.gallery-img{width:100%;aspect-ratio:1;object-fit:cover;border:1px solid rgba(255,255,255,.06)}
+
+/* 배송 */
+.shipping-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;border:1px solid rgba(255,255,255,.07);margin-bottom:72px}
+.shipping-item{padding:24px 28px;border-right:1px solid rgba(255,255,255,.07)}
+.shipping-item:last-child{border-right:none}
+@media(max-width:640px){.shipping-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.07)}.shipping-item:last-child{border-bottom:none}}
+.ship-icon{font-size:20px;margin-bottom:10px}
+.ship-title{font-size:9.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:8px}
+.ship-desc{font-size:11px;color:rgba(255,255,255,.28);line-height:1.9;font-weight:300}
+
+/* INQUIRY */
+.inquiry-section{padding:80px 72px;background:rgba(52,138,150,.04);border-top:1px solid rgba(95,200,215,.08)}
+@media(max-width:768px){.inquiry-section{padding:56px 28px}}
+.inquiry-form{display:flex;flex-direction:column;gap:14px;max-width:580px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:480px){.form-row{grid-template-columns:1fr}}
+.form-field{display:flex;flex-direction:column;gap:6px}
+.form-label{font-size:8.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.25)}
+.form-input,.form-textarea,.form-select{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:#fff;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:300;padding:12px 14px;outline:none;transition:border-color .2s;width:100%}
+.form-input:focus,.form-textarea:focus,.form-select:focus{border-color:rgba(95,200,215,.4)}
+.form-input::placeholder,.form-textarea::placeholder{color:rgba(255,255,255,.18)}
+.form-textarea{resize:vertical;min-height:100px}
+.form-select{cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none' stroke='rgba(255,255,255,.3)' stroke-width='1.5'%3E%3Cpath d='M1 1l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.form-select option{background:#0a1c22;color:#fff}
+.form-submit{background:rgba(65,168,182,.9);color:#040e12;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;padding:16px 32px;border:none;cursor:pointer;transition:background .2s;align-self:flex-start}
+.form-submit:hover{background:rgba(80,185,200,1)}
+.form-note{font-size:10px;color:rgba(255,255,255,.2);line-height:1.8;margin-top:4px;font-weight:300}
+.form-success{display:none;padding:18px 22px;background:rgba(52,138,150,.12);border:1px solid rgba(95,200,215,.25);font-size:12px;color:rgba(95,200,215,.85);line-height:1.8;margin-top:8px}
+
+.artist-footer{padding:60px 72px 48px;border-top:1px solid rgba(255,255,255,.05);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px}
+@media(max-width:640px){.artist-footer{padding:48px 28px;flex-direction:column;text-align:center}}
+.footer-brand{font-family:'Josefin Sans',sans-serif;font-weight:100;font-size:11px;letter-spacing:.44em;color:rgba(255,255,255,.22);text-transform:uppercase}
+.footer-links{display:flex;gap:24px;flex-wrap:wrap;justify-content:center}
+.footer-links a{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.18);transition:color .2s;display:flex;align-items:center;gap:6px}
+.footer-links a:hover{color:rgba(95,200,215,.7)}
+</style>
+</head>
+<body>
+
+<a class="nav-back" href="artist-shop.html">
+  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 3L5 8l5 5"/></svg>
+  SHOP
+</a>
+<div class="lang-bar">
+  <button onclick="setLang('ko')" class="on">KO</button>
+  <button onclick="setLang('en')">EN</button>
+  <button onclick="setLang('ja')">JP</button>
+  <button onclick="setLang('zh')">ZH</button>
+</div>
+
+<!-- HERO -->
+<div class="product-hero">
+  <div class="hero-gallery">
+    <img class="hero-main-img" src="images/STILL UNFINIHSED 앨범자료/앨범 앞뒤 표지.jpg" alt="Still UNFINISHED"/>
+    <div class="hero-sub-imgs">
+      <img src="images/STILL UNFINIHSED 앨범자료/앨범표지.jpg" alt="표지"/>
+      <img src="images/STILL UNFINIHSED 앨범자료/표지2.jpg" alt="표지2"/>
+    </div>
+    <div class="limited-overlay" id="lim-badge">⚡ 잔여 수량 한정</div>
+  </div>
+
+  <div class="hero-info">
+    <div class="product-num" id="pn">2ND SOLO ALBUM · 2025</div>
+    <div class="product-title">Still <em>UNFINISHED</em></div>
+    <div class="product-artist">MADEWELL (정균)</div>
+
+    <div class="limited-notice">
+      <div class="limited-notice-dot"></div>
+      <div class="limited-notice-text" id="lim-notice">한정 100장 완판 — 잔여 수량에 한해 판매 중입니다.</div>
+    </div>
+
+    <div class="product-price-row">
+      <div class="product-price-main">₩35,000</div>
+      <div class="product-price-intl">/ $25 USD</div>
+    </div>
+
+    <div class="buy-btns">
+      <a class="btn-paypal" href="https://www.paypal.com/ncp/payment/V8VAMQRHN4BTY" target="_blank" id="btn-paypal">
+        💳 PayPal로 구매하기 →
+      </a>
+      <a class="btn-booth" href="https://madewellmusic.booth.pm/" target="_blank" id="btn-booth">
+        🏪 BOOTH で購入する (日本) →
+      </a>
+      <a class="btn-dm" href="https://instagram.com/madewellmusic_official" target="_blank" id="btn-dm">
+        📱 Instagram DM으로 문의하기
+      </a>
+    </div>
+
+    <div class="note-small" id="pay-note">
+      결제 후 주문자명 · 배송 주소를 DM 또는 하단 폼으로 보내주세요.<br/>
+      <strong>배송비:</strong> 국가에 따라 별도 청구 · 수량 소진 시 판매 종료
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT BODY -->
+<div class="product-body">
+
+  <!-- 앨범 소개 -->
+  <div class="section-tag" id="about-tag">ABOUT THIS ALBUM</div>
+  <h2 class="section-h" id="about-title">앨범 <em>소개</em></h2>
+  <div class="about-grid">
+    <img class="about-cover" src="images/STILL UNFINIHSED 앨범자료/앨범표지.jpg" alt="Still UNFINISHED"/>
+    <div>
+      <div class="about-desc" id="about-desc">
+        <p>일본 도쿄, 그 미완성의 감정들. TOKYO TOWER로 시작된 이야기가 담긴 두 번째 솔로 정규앨범.</p>
+        <p>MAMA의 전작으로, 두 앨범이 이어지는 세계관의 출발점. 채 끝맺지 못한 감정들이 음악으로 완성된 작품.</p>
+      </div>
+      <div class="about-meta" id="about-meta">
+        <div class="meta-row">
+          <span class="meta-key">발매</span>
+          <span class="meta-val">2025</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">형식</span>
+          <span class="meta-val">CD · 정규 2집</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">발매처</span>
+          <span class="meta-val">일본 발매 · 한정 100장</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">아티스트</span>
+          <span class="meta-val">MADEWELL (정균)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 트랙리스트 -->
+  <div class="section-tag">TRACKLIST</div>
+  <h2 class="section-h">수록곡 <em>목록</em></h2>
+  <div class="tracklist" id="tracklist"></div>
+
+  <!-- 갤러리 -->
+  <div class="section-tag">GALLERY</div>
+  <h2 class="section-h">앨범 <em>이미지</em></h2>
+  <div class="album-gallery">
+    <img class="gallery-img" src="images/STILL UNFINIHSED 앨범자료/JK MAIN.png" alt="JK MAIN"/>
+    <img class="gallery-img" src="images/STILL UNFINIHSED 앨범자료/JK SOFA.png" alt="JK SOFA"/>
+    <img class="gallery-img" src="images/STILL UNFINIHSED 앨범자료/메이드웰_프로필4.jpg" alt="프로필"/>
+  </div>
+
+  <!-- 배송 안내 -->
+  <div class="section-tag">SHIPPING INFO</div>
+  <h2 class="section-h">배송 <em>안내</em></h2>
+  <div class="shipping-grid">
+    <div class="shipping-item">
+      <div class="ship-icon">⚡</div>
+      <div class="ship-title">잔여 수량 한정</div>
+      <div class="ship-desc" id="ship1">수량 소진 시 판매 종료<br/>빠른 주문 추천드립니다</div>
+    </div>
+    <div class="shipping-item">
+      <div class="ship-icon">🌏</div>
+      <div class="ship-title">배송 지역</div>
+      <div class="ship-desc" id="ship2">국내 + 해외 모두 가능<br/>배송비는 국가별 별도 안내</div>
+    </div>
+    <div class="shipping-item">
+      <div class="ship-icon">💳</div>
+      <div class="ship-title">결제 방법</div>
+      <div class="ship-desc" id="ship3">PayPal (전 세계)<br/>BOOTH (일본 팬 추천)</div>
+    </div>
+    <div class="shipping-item">
+      <div class="ship-icon">📱</div>
+      <div class="ship-title">결제 후</div>
+      <div class="ship-desc" id="ship4">Instagram DM 또는<br/>하단 폼으로 주문 정보 전달</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- INQUIRY FORM -->
+<div class="inquiry-section">
+  <div class="section-tag">Order Info / Inquiry</div>
+  <h2 class="section-h">주문 정보 전달 & <em>문의</em></h2>
+  <p style="font-size:12px;color:rgba(255,255,255,.3);line-height:2;font-weight:300;margin-bottom:36px;max-width:500px">
+    결제 완료 후 주문자 정보를 보내주세요. 구매 전 궁금한 점도 여기서 남겨주시면 됩니다.
+  </p>
+
+  <form class="inquiry-form" action="https://formsubmit.co/madewellofficial@gmail.com" method="POST" onsubmit="handleFormSubmit(event)">
+    <input type="hidden" name="_subject" value="[MADEWELL SHOP] Still UNFINISHED 주문/문의"/>
+    <input type="hidden" name="_captcha" value="false"/>
+    <input type="hidden" name="_template" value="table"/>
+
+    <div class="form-row">
+      <div class="form-field">
+        <label class="form-label">이름 / Name</label>
+        <input class="form-input" type="text" name="name" placeholder="홍길동" required/>
+      </div>
+      <div class="form-field">
+        <label class="form-label">이메일 / Email</label>
+        <input class="form-input" type="email" name="email" placeholder="your@email.com" required/>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-field">
+        <label class="form-label">수량 / Quantity</label>
+        <select class="form-select" name="quantity">
+          <option value="1장 (₩35,000)">1장 — ₩35,000</option>
+          <option value="2장 (₩70,000)">2장 — ₩70,000</option>
+          <option value="3장 이상">3장 이상 (문의)</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label class="form-label">배송 국가</label>
+        <input class="form-input" type="text" name="country" placeholder="대한민국 / Japan / USA ..."/>
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label class="form-label">배송 주소 / Shipping Address</label>
+      <input class="form-input" type="text" name="address" placeholder="주소를 입력해주세요 (결제 완료 후)"/>
+    </div>
+
+    <div class="form-field">
+      <label class="form-label">메시지</label>
+      <textarea class="form-textarea" name="message" placeholder="요청 사항, 결제 완료 여부, 문의 사항 등 자유롭게 적어주세요."></textarea>
+    </div>
+
+    <button class="form-submit" type="submit">전송하기 →</button>
+    <div class="form-note">보내주신 내용은 madewellofficial@gmail.com 으로 전달됩니다. 24시간 내 답변드립니다.</div>
+    <div class="form-success" id="form-success">✓ 전달되었습니다. 빠르게 연락드리겠습니다!</div>
+  </form>
+</div>
+
+<footer class="artist-footer">
+  <div class="footer-brand">MADEWELL</div>
+  <div class="footer-links">
+    <a href="artist-shop.html">← SHOP</a>
+    <a href="shop-mama.html">MAMA →</a>
+    <a href="https://instagram.com/madewellmusic_official" target="_blank">Instagram</a>
+    <a href="index.html">Home</a>
+  </div>
+</footer>
+
+<script>
+function handleFormSubmit(e) {
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = '전송 중...';
+  btn.disabled = true;
+  setTimeout(() => {
+    document.getElementById('form-success').style.display = 'block';
+    e.target.reset();
+    btn.textContent = '전송하기 →';
+    btn.disabled = false;
+  }, 1200);
+}
+
+const TRACKS = {
+  ko: [
+    {num:'01', title:'TOKYO TOWER', dur:'3:42'},
+    {num:'02', title:'미완성', dur:'4:11'},
+    {num:'03', title:'너에게', dur:'3:28'},
+    {num:'04', title:'그때 그 밤', dur:'3:55'},
+    {num:'05', title:'Still', dur:'4:22'},
+  ],
+  en: [
+    {num:'01', title:'TOKYO TOWER', dur:'3:42'},
+    {num:'02', title:'Unfinished', dur:'4:11'},
+    {num:'03', title:'To You', dur:'3:28'},
+    {num:'04', title:'That Night', dur:'3:55'},
+    {num:'05', title:'Still', dur:'4:22'},
+  ],
+  ja: [
+    {num:'01', title:'TOKYO TOWER', dur:'3:42'},
+    {num:'02', title:'未完成', dur:'4:11'},
+    {num:'03', title:'あなたへ', dur:'3:28'},
+    {num:'04', title:'あの夜', dur:'3:55'},
+    {num:'05', title:'Still', dur:'4:22'},
+  ],
+  zh: [
+    {num:'01', title:'TOKYO TOWER', dur:'3:42'},
+    {num:'02', title:'未完成', dur:'4:11'},
+    {num:'03', title:'給你', dur:'3:28'},
+    {num:'04', title:'那個夜晚', dur:'3:55'},
+    {num:'05', title:'Still', dur:'4:22'},
+  ],
+};
+
+function renderTracklist(lang) {
+  document.getElementById('tracklist').innerHTML = (TRACKS[lang]||TRACKS.ko).map(t => `
+    <div class="track-item">
+      <div class="track-num">${t.num}</div>
+      <div class="track-title">${t.title}</div>
+      <div class="track-dur">${t.dur}</div>
+    </div>`).join('');
+}
+renderTracklist('ko');
+
+let currentLang = 'ko';
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-bar button').forEach(b => b.classList.remove('on'));
+  const map = {ko:0,en:1,ja:2,zh:3};
+  document.querySelectorAll('.lang-bar button')[map[lang]]?.classList.add('on');
+  renderTracklist(lang);
+
+  const S = {
+    'lim-badge':   {ko:'⚡ 잔여 수량 한정', en:'⚡ Limited Stock', ja:'⚡ 残り僅か', zh:'⚡ 數量有限'},
+    'lim-notice':  {ko:'한정 100장 완판 — 잔여 수량에 한해 판매 중입니다.', en:'100 copies sold out — selling remaining stock only.', ja:'100枚完売済み — 残在庫のみ販売中。', zh:'100張已完售 — 僅剩餘少量庫存。'},
+    'btn-paypal':  {ko:'💳 PayPal로 구매하기 →', en:'💳 Buy via PayPal →', ja:'💳 PayPalで購入する →', zh:'💳 PayPal 購買 →'},
+    'btn-booth':   {ko:'🏪 BOOTH で購入する (日本) →', en:'🏪 Buy on BOOTH (Japan) →', ja:'🏪 BOOTHで購入する →', zh:'🏪 BOOTH 購買 (日本) →'},
+    'btn-dm':      {ko:'📱 Instagram DM으로 문의하기', en:'📱 DM on Instagram', ja:'📱 Instagram DMでお問い合わせ', zh:'📱 Instagram DM 詢問'},
+    'pay-note':    {ko:'결제 후 주문자명 · 배송 주소를 DM 또는 하단 폼으로 보내주세요.\n배송비: 국가에 따라 별도 청구 · 수량 소진 시 판매 종료', en:'After payment, send your name & address via DM or the form.\nShipping fee varies · Sales end when stock runs out.', ja:'ご入金後、お名前・配送先をDMまたはフォームでお知らせください。\n送料別途・在庫なくなり次第終了', zh:'付款後請透過DM或表單傳送姓名與地址。\n運費另計 · 售完為止'},
+    'ship1':       {ko:'수량 소진 시 판매 종료\n빠른 주문 추천드립니다', en:'Ends when stock runs out\nOrder soon recommended', ja:'在庫なくなり次第終了\nお早めにどうぞ', zh:'售完為止\n建議盡早訂購'},
+    'ship2':       {ko:'국내 + 해외 모두 가능\n배송비는 국가별 별도 안내', en:'Domestic & international\nShipping fee varies', ja:'国内・海外とも対応\n送料は国別にご案内', zh:'國內外均可\n運費依國家另計'},
+    'ship3':       {ko:'PayPal (전 세계)\nBOOTH (일본 팬 추천)', en:'PayPal (worldwide)\nBOOTH (Japan)', ja:'PayPal（全世界）\nBOOTH（日本）', zh:'PayPal（全球）\nBOOTH（日本）'},
+    'ship4':       {ko:'Instagram DM 또는\n하단 폼으로 주문 정보 전달', en:'Via Instagram DM\nor form below', ja:'Instagram DMまたは\n下のフォームで', zh:'透過Instagram DM\n或下方表單'},
+  };
+  Object.entries(S).forEach(([id, vals]) => {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = (vals[lang]||vals.ko).replace(/\n/g,'<br/>');
+  });
+}
+</script>
+</body>
+</html>

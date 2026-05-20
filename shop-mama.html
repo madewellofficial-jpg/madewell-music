@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MAMA — MADEWELL 3RD SOLO ALBUM</title>
+<meta name="description" content="MADEWELL 3집 솔로 앨범 MAMA — 직접 주문하기. PayPal / BOOTH 결제 지원."/>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+a{text-decoration:none;color:inherit}
+html{scroll-behavior:smooth}
+body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-height:100vh}
+
+.nav-back{position:fixed;top:22px;left:28px;z-index:300;font-size:9px;font-weight:700;letter-spacing:.28em;color:rgba(255,255,255,.28);text-transform:uppercase;display:flex;align-items:center;gap:8px;transition:color .2s}
+.nav-back:hover{color:rgba(255,255,255,.7)}
+.nav-back svg{width:14px;height:14px}
+.lang-bar{position:fixed;top:22px;right:28px;z-index:300;display:flex;gap:2px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);padding:3px}
+.lang-bar button{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.38);background:none;border:none;padding:5px 10px;cursor:pointer;text-transform:uppercase;transition:all .2s;line-height:1}
+.lang-bar button.on{background:rgba(65,168,182,.9);color:#040e12}
+.lang-bar button:hover:not(.on){color:rgba(255,255,255,.8)}
+
+/* ── PRODUCT HERO ── */
+.product-hero{display:grid;grid-template-columns:1fr 1fr;min-height:92vh;padding-top:64px}
+@media(max-width:768px){.product-hero{grid-template-columns:1fr;min-height:auto}}
+.hero-gallery{position:relative;overflow:hidden;background:#0a1c22}
+.hero-main-img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;min-height:520px}
+.sold-overlay{position:absolute;bottom:24px;left:24px;background:rgba(255,60,60,.9);color:#fff;font-size:8px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;padding:6px 16px}
+.hero-info{padding:80px 64px;display:flex;flex-direction:column;justify-content:center;gap:0;border-left:1px solid rgba(255,255,255,.05)}
+@media(max-width:768px){.hero-info{padding:48px 28px;border-left:none;border-top:1px solid rgba(255,255,255,.05)}}
+.product-num{font-size:9px;font-weight:700;letter-spacing:.4em;text-transform:uppercase;color:rgba(95,200,215,.45);margin-bottom:16px}
+.product-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(48px,6vw,80px);color:#fff;line-height:1;margin-bottom:24px}
+.product-artist{font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:36px}
+.product-price-row{display:flex;align-items:baseline;gap:12px;margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.07)}
+.product-price-main{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:#fff}
+.product-price-intl{font-size:13px;color:rgba(255,255,255,.3);font-weight:300}
+
+/* 주문 버튼 */
+.buy-btns{display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.btn-paypal{display:flex;align-items:center;justify-content:center;gap:10px;padding:17px 28px;background:rgba(65,168,182,.9);color:#040e12;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;transition:background .2s;cursor:pointer;border:none;width:100%;font-family:'Montserrat',sans-serif}
+.btn-paypal:hover{background:rgba(80,185,200,1)}
+.btn-booth{display:flex;align-items:center;justify-content:center;gap:10px;padding:14px 28px;background:transparent;border:1px solid rgba(255,100,130,.3);color:rgba(255,140,160,.8);font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;transition:all .25s;cursor:pointer;width:100%;font-family:'Montserrat',sans-serif}
+.btn-booth:hover{background:rgba(255,100,130,.08);border-color:rgba(255,100,130,.5);color:rgba(255,170,190,1)}
+.btn-dm{display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 28px;background:transparent;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.3);font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;transition:all .2s;width:100%}
+.btn-dm:hover{border-color:rgba(255,255,255,.25);color:rgba(255,255,255,.6)}
+
+.note-small{font-size:10.5px;color:rgba(255,255,255,.22);line-height:1.9;font-weight:300}
+.note-small strong{color:rgba(95,200,215,.55);font-weight:500}
+
+/* 진행률 */
+.progress-mini{margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.07)}
+.prog-label{font-size:8px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,130,130,.7);margin-bottom:8px}
+.prog-row{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.prog-num{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:rgba(255,150,150,.9)}
+.prog-sub{font-size:10px;color:rgba(255,255,255,.3);font-weight:300;line-height:1.6}
+.prog-bar-wrap{height:3px;background:rgba(255,255,255,.08);overflow:visible;position:relative}
+.prog-bar-fill{height:100%;background:linear-gradient(to right,rgba(200,60,60,.7),rgba(255,100,100,1));width:0%;transition:width 1.2s cubic-bezier(.22,1,.36,1)}
+
+/* ── PRODUCT DETAILS ── */
+.product-body{padding:80px 72px;max-width:1200px}
+@media(max-width:768px){.product-body{padding:56px 28px}}
+.section-tag{font-size:8.5px;font-weight:700;letter-spacing:.36em;text-transform:uppercase;color:rgba(95,200,215,.4);margin-bottom:14px}
+.section-h{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.5vw,42px);font-weight:300;color:#fff;margin-bottom:28px;line-height:1.1}
+.section-h em{font-style:italic;color:rgba(95,200,215,.75)}
+
+/* 특전 티어 */
+.tier-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:72px}
+.tier-card{border:1px solid rgba(255,255,255,.07);padding:28px 24px;position:relative;overflow:hidden;background:rgba(255,255,255,.02);transition:border-color .3s,transform .3s}
+.tier-card:hover{border-color:rgba(95,200,215,.22);transform:translateY(-3px)}
+.tier-card.rec{border-color:rgba(95,200,215,.3);background:rgba(52,138,150,.05)}
+.tier-tag{font-size:8px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:rgba(95,200,215,.55);margin-bottom:8px}
+.tier-qty{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:#fff;margin-bottom:4px;line-height:1}
+.tier-price{font-size:12px;color:rgba(255,255,255,.35);margin-bottom:20px}
+.tier-perks{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:24px}
+.tier-perks li{font-size:11px;color:rgba(255,255,255,.4);display:flex;align-items:flex-start;gap:8px;line-height:1.6;font-weight:300}
+.tier-perks li::before{content:'—';color:rgba(95,200,215,.4);flex-shrink:0;font-size:10px;margin-top:2px}
+.tier-perks li.hi{color:rgba(255,210,100,.88);font-weight:500}
+.tier-perks li.hi::before{content:'🏆'}
+.tier-btn-paypal{display:block;text-align:center;padding:13px;background:rgba(65,168,182,.85);color:#040e12;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;transition:background .2s;cursor:pointer;border:none;width:100%;font-family:'Montserrat',sans-serif;margin-bottom:8px}
+.tier-btn-paypal:hover{background:rgba(80,185,200,1)}
+.tier-btn-booth{display:block;text-align:center;padding:10px;background:transparent;border:1px solid rgba(255,100,130,.25);color:rgba(255,130,160,.7);font-size:8.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;transition:all .2s;cursor:pointer;width:100%;font-family:'Montserrat',sans-serif}
+.tier-btn-booth:hover{background:rgba(255,100,130,.08);border-color:rgba(255,100,130,.45)}
+.rec-badge{position:absolute;top:0;right:0;font-size:7.5px;font-weight:700;letter-spacing:.14em;padding:4px 12px;background:rgba(65,168,182,.9);color:#040e12;text-transform:uppercase}
+.vip-badge{position:absolute;top:0;right:0;font-size:7.5px;font-weight:700;letter-spacing:.14em;padding:4px 12px;background:rgba(95,200,215,.85);color:#040e12;text-transform:uppercase}
+
+/* 트랙리스트 */
+.tracklist{display:flex;flex-direction:column;gap:0;margin-bottom:72px;border:1px solid rgba(255,255,255,.06)}
+.track-item{display:flex;align-items:center;gap:16px;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.05);transition:background .2s}
+.track-item:last-child{border-bottom:none}
+.track-item:hover{background:rgba(255,255,255,.03)}
+.track-num{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:rgba(255,255,255,.18);min-width:28px}
+.track-title{font-size:12px;font-weight:400;color:rgba(255,255,255,.65);flex:1;letter-spacing:.02em}
+.track-feat{font-size:10px;color:rgba(95,200,215,.45);font-weight:300}
+.track-dur{font-size:10px;color:rgba(255,255,255,.2);font-weight:300}
+
+/* 갤러리 */
+.album-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin-bottom:72px}
+.gallery-img{width:100%;aspect-ratio:1;object-fit:cover;object-position:center;border:1px solid rgba(255,255,255,.06)}
+
+/* 배송 안내 */
+.shipping-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;border:1px solid rgba(255,255,255,.07);margin-bottom:72px}
+.shipping-item{padding:24px 28px;border-right:1px solid rgba(255,255,255,.07)}
+.shipping-item:last-child{border-right:none}
+@media(max-width:640px){.shipping-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.07)}.shipping-item:last-child{border-bottom:none}}
+.ship-icon{font-size:20px;margin-bottom:10px}
+.ship-title{font-size:9.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:8px}
+.ship-desc{font-size:11px;color:rgba(255,255,255,.28);line-height:1.9;font-weight:300}
+
+/* 문의 폼 */
+.inquiry-section{padding:80px 72px;background:rgba(52,138,150,.04);border-top:1px solid rgba(95,200,215,.08)}
+@media(max-width:768px){.inquiry-section{padding:56px 28px}}
+.inquiry-form{display:flex;flex-direction:column;gap:14px;max-width:580px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:480px){.form-row{grid-template-columns:1fr}}
+.form-field{display:flex;flex-direction:column;gap:6px}
+.form-label{font-size:8.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.25)}
+.form-input,.form-textarea,.form-select{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:#fff;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:300;padding:12px 14px;outline:none;transition:border-color .2s;width:100%}
+.form-input:focus,.form-textarea:focus,.form-select:focus{border-color:rgba(95,200,215,.4)}
+.form-input::placeholder,.form-textarea::placeholder{color:rgba(255,255,255,.18)}
+.form-textarea{resize:vertical;min-height:100px}
+.form-select{cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none' stroke='rgba(255,255,255,.3)' stroke-width='1.5'%3E%3Cpath d='M1 1l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.form-select option{background:#0a1c22;color:#fff}
+.form-submit{background:rgba(65,168,182,.9);color:#040e12;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;padding:16px 32px;border:none;cursor:pointer;transition:background .2s;align-self:flex-start}
+.form-submit:hover{background:rgba(80,185,200,1)}
+.form-note{font-size:10px;color:rgba(255,255,255,.2);line-height:1.8;margin-top:4px;font-weight:300}
+.form-success{display:none;padding:18px 22px;background:rgba(52,138,150,.12);border:1px solid rgba(95,200,215,.25);font-size:12px;color:rgba(95,200,215,.85);line-height:1.8;margin-top:8px}
+
+/* FOOTER */
+.artist-footer{padding:60px 72px 48px;border-top:1px solid rgba(255,255,255,.05);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px}
+@media(max-width:640px){.artist-footer{padding:48px 28px;flex-direction:column;text-align:center}}
+.footer-brand{font-family:'Josefin Sans',sans-serif;font-weight:100;font-size:11px;letter-spacing:.44em;color:rgba(255,255,255,.22);text-transform:uppercase}
+.footer-links{display:flex;gap:24px;flex-wrap:wrap;justify-content:center}
+.footer-links a{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.18);transition:color .2s;display:flex;align-items:center;gap:6px}
+.footer-links a:hover{color:rgba(95,200,215,.7)}
+.footer-links a svg{width:12px;height:12px;opacity:.6}
+</style>
+</head>
+<body>
+
+<a class="nav-back" href="artist-shop.html">
+  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 3L5 8l5 5"/></svg>
+  SHOP
+</a>
+<div class="lang-bar">
+  <button onclick="setLang('ko')" class="on">KO</button>
+  <button onclick="setLang('en')">EN</button>
+  <button onclick="setLang('ja')">JP</button>
+  <button onclick="setLang('zh')">ZH</button>
+</div>
+
+<!-- PRODUCT HERO -->
+<div class="product-hero">
+  <!-- 좌: 갤러리 -->
+  <div class="hero-gallery">
+    <img class="hero-main-img" src="images/MAMA앨범 컨셉사진들/메인자켓 1.png" alt="MAMA"/>
+    <div class="sold-overlay">🔴 105% SOLD · 주문 가능</div>
+  </div>
+
+  <!-- 우: 정보 + 주문 -->
+  <div class="hero-info">
+    <div class="product-num" id="pn">3RD SOLO ALBUM · 2026</div>
+    <div class="product-title">MAMA</div>
+    <div class="product-artist">MADEWELL (정균)</div>
+
+    <!-- 판매 진행률 -->
+    <div class="progress-mini">
+      <div class="prog-label" id="pg-label">🔴 오버판 달성</div>
+      <div class="prog-row">
+        <div class="prog-num">105%</div>
+        <div class="prog-sub" id="pg-sub">100장 목표 초과 달성<br/>주문은 계속 받고 있습니다</div>
+      </div>
+      <div class="prog-bar-wrap">
+        <div class="prog-bar-fill" id="pg-bar" style="width:0%"></div>
+      </div>
+    </div>
+
+    <div class="product-price-row">
+      <div class="product-price-main">₩35,000</div>
+      <div class="product-price-intl">/ $25 USD</div>
+    </div>
+
+    <!-- 주문 버튼 (1장 기본) -->
+    <div class="buy-btns">
+      <a class="btn-paypal" href="https://www.paypal.com/ncp/payment/VMV5VZ3UUASTW" target="_blank" id="btn-paypal">
+        💳 PayPal로 주문하기 →
+      </a>
+      <a class="btn-booth" href="https://madewellmusic.booth.pm/" target="_blank" id="btn-booth">
+        🏪 BOOTH で購入する (日本) →
+      </a>
+      <a class="btn-dm" href="https://instagram.com/madewellmusic_official" target="_blank" id="btn-dm">
+        📱 Instagram DM으로 문의하기
+      </a>
+    </div>
+
+    <div class="note-small" id="pay-note">
+      결제 후 주문자명 · 배송 주소 · 수량을 DM 또는 하단 폼으로 보내주세요.<br/>
+      <strong>배송비:</strong> 국가에 따라 별도 청구 · <strong>예상 발송:</strong> 2026년 6월 6일
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT BODY -->
+<div class="product-body">
+
+  <!-- 특전 티어 -->
+  <div class="section-tag" id="tier-tag">패키지 선택 / Choose Your Tier</div>
+  <h2 class="section-h" id="tier-title">주문 <em>티어</em></h2>
+
+  <div class="tier-grid">
+
+    <!-- With Love — 1장 -->
+    <div class="tier-card">
+      <div class="tier-tag">With Love</div>
+      <div class="tier-qty" id="t1-qty">1장</div>
+      <div class="tier-price" id="t1-price">₩35,000 / $25</div>
+      <ul class="tier-perks">
+        <li id="t1-p1">앨범 CD 1장</li>
+        <li id="t1-p2">공통 포토카드</li>
+        <li id="t1-p3">자필 미니 레터</li>
+        <li id="t1-p4">THANKS 보이스 메시지 QR</li>
+      </ul>
+      <a class="tier-btn-paypal" href="https://www.paypal.com/ncp/payment/VMV5VZ3UUASTW" target="_blank" id="tb1-pay">PayPal로 주문하기 →</a>
+      <a class="tier-btn-booth" href="https://madewellmusic.booth.pm/" target="_blank" id="tb1-booth">BOOTH (日本) →</a>
+    </div>
+
+    <!-- My Mama — 3장 -->
+    <div class="tier-card">
+      <div class="tier-tag">My Mama</div>
+      <div class="tier-qty" id="t2-qty">3장</div>
+      <div class="tier-price" id="t2-price">₩105,000 / $75</div>
+      <ul class="tier-perks">
+        <li id="t2-p1">앨범 CD 3장</li>
+        <li id="t2-p2">포토카드 풀셋</li>
+        <li id="t2-p3">사인 폴라로이드</li>
+        <li id="t2-p4">이름 라벨 (실버)</li>
+        <li id="t2-p5">자필 미니 레터</li>
+      </ul>
+      <a class="tier-btn-paypal" href="https://www.paypal.com/ncp/payment/VMV5VZ3UUASTW" target="_blank" id="tb2-pay">PayPal로 주문하기 →</a>
+      <a class="tier-btn-booth" href="https://madewellmusic.booth.pm/" target="_blank" id="tb2-booth">BOOTH (日本) →</a>
+    </div>
+
+    <!-- Eternal — 5장 (추천) -->
+    <div class="tier-card rec">
+      <div class="rec-badge">추천</div>
+      <div class="tier-tag">Eternal ⭐</div>
+      <div class="tier-qty" id="t3-qty">5장</div>
+      <div class="tier-price" id="t3-price">₩175,000 / $125</div>
+      <ul class="tier-perks">
+        <li id="t3-p1">앨범 CD 5장</li>
+        <li id="t3-p2">포토카드 풀셋</li>
+        <li id="t3-p3">사인 폴라로이드</li>
+        <li id="t3-p4">미공개 포토카드</li>
+        <li id="t3-p5">개인 보이스 메시지 (2분) QR</li>
+        <li id="t3-p6">자필 개인 손편지</li>
+      </ul>
+      <a class="tier-btn-paypal" href="https://www.paypal.com/ncp/payment/VMV5VZ3UUASTW" target="_blank" id="tb3-pay">PayPal로 주문하기 →</a>
+      <a class="tier-btn-booth" href="https://madewellmusic.booth.pm/" target="_blank" id="tb3-booth">BOOTH (日本) →</a>
+    </div>
+
+    <!-- VIP — 10장 -->
+    <div class="tier-card" style="border-color:rgba(95,200,215,.2);background:rgba(52,138,150,.05)">
+      <div class="vip-badge">VIP</div>
+      <div class="tier-tag">Be My Mama Again</div>
+      <div class="tier-qty" id="t4-qty">10장</div>
+      <div class="tier-price" id="t4-price">₩350,000 / $250</div>
+      <ul class="tier-perks">
+        <li id="t4-p1">앨범 CD 10장</li>
+        <li id="t4-p2">포토카드 풀셋</li>
+        <li id="t4-p3">사인 폴라로이드</li>
+        <li id="t4-p4">미공개 포토카드</li>
+        <li id="t4-p5">개인 영상 메시지 QR</li>
+        <li id="t4-p6">전곡 해설 음성 파일</li>
+        <li id="t4-p7">사인 미니포스터 A3</li>
+        <li class="hi" id="t4-p8">🏆 아티스트 친필 사인 앨범</li>
+      </ul>
+      <a class="tier-btn-paypal" href="https://www.paypal.com/ncp/payment/VMV5VZ3UUASTW" target="_blank" id="tb4-pay">PayPal로 주문하기 →</a>
+      <a class="tier-btn-booth" href="https://madewellmusic.booth.pm/" target="_blank" id="tb4-booth">BOOTH (日本) →</a>
+    </div>
+
+  </div>
+
+  <!-- 트랙리스트 -->
+  <div class="section-tag" id="tl-tag">TRACKLIST</div>
+  <h2 class="section-h" id="tl-title">수록곡 <em>목록</em></h2>
+  <div class="tracklist" id="tracklist">
+    <!-- JS가 언어별로 채움 -->
+  </div>
+
+  <!-- 앨범 갤러리 -->
+  <div class="section-tag" id="gal-tag">GALLERY</div>
+  <h2 class="section-h" id="gal-title">앨범 <em>이미지</em></h2>
+  <div class="album-gallery">
+    <img class="gallery-img" src="images/MAMA앨범 컨셉사진들/MAIN 1.png" alt="MAMA MAIN"/>
+    <img class="gallery-img" src="images/MAMA앨범 컨셉사진들/CONCEPT IMAGE.jpg" alt="MAMA Concept"/>
+    <img class="gallery-img" src="images/MAMA앨범 컨셉사진들/후회 .png" alt="MAMA 후회"/>
+  </div>
+
+  <!-- 배송 안내 -->
+  <div class="section-tag" id="ship-tag">SHIPPING INFO</div>
+  <h2 class="section-h" id="ship-title">배송 <em>안내</em></h2>
+  <div class="shipping-grid">
+    <div class="shipping-item">
+      <div class="ship-icon">📦</div>
+      <div class="ship-title" id="ship1-title">예상 발송일</div>
+      <div class="ship-desc" id="ship1-desc">2026년 6월 6일 예정<br/>주문 순서대로 발송합니다</div>
+    </div>
+    <div class="shipping-item">
+      <div class="ship-icon">🌏</div>
+      <div class="ship-title" id="ship2-title">배송 지역</div>
+      <div class="ship-desc" id="ship2-desc">국내 + 해외 모두 가능<br/>배송비는 국가별 별도 안내</div>
+    </div>
+    <div class="shipping-item">
+      <div class="ship-icon">💳</div>
+      <div class="ship-title" id="ship3-title">결제 방법</div>
+      <div class="ship-desc" id="ship3-desc">PayPal (전 세계)<br/>BOOTH (일본 팬 추천)</div>
+    </div>
+    <div class="shipping-item">
+      <div class="ship-icon">📱</div>
+      <div class="ship-title" id="ship4-title">결제 후</div>
+      <div class="ship-desc" id="ship4-desc">Instagram DM 또는<br/>하단 폼으로 주문 정보 전달</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- INQUIRY FORM -->
+<div class="inquiry-section">
+  <div class="section-tag" id="inq-tag">Order Info / Inquiry</div>
+  <h2 class="section-h" id="inq-title">주문 정보 전달 & <em>문의</em></h2>
+  <p style="font-size:12px;color:rgba(255,255,255,.3);line-height:2;font-weight:300;margin-bottom:36px;max-width:500px" id="inq-desc">
+    결제 완료 후 주문자 정보를 보내주세요. 구매 전 궁금한 점도 여기서 남겨주시면 됩니다.
+  </p>
+
+  <form class="inquiry-form" action="https://formsubmit.co/madewellofficial@gmail.com" method="POST" onsubmit="handleFormSubmit(event)">
+    <input type="hidden" name="_subject" value="[MADEWELL SHOP] MAMA 앨범 주문/문의"/>
+    <input type="hidden" name="_captcha" value="false"/>
+    <input type="hidden" name="_template" value="table"/>
+
+    <div class="form-row">
+      <div class="form-field">
+        <label class="form-label">이름 / Name</label>
+        <input class="form-input" type="text" name="name" placeholder="홍길동" required/>
+      </div>
+      <div class="form-field">
+        <label class="form-label">이메일 / Email</label>
+        <input class="form-input" type="email" name="email" placeholder="your@email.com" required/>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-field">
+        <label class="form-label">주문 티어</label>
+        <select class="form-select" name="tier">
+          <option value="">티어 선택</option>
+          <option value="With Love (1장 / ₩35,000)">With Love — 1장 / ₩35,000</option>
+          <option value="My Mama (3장 / ₩105,000)">My Mama — 3장 / ₩105,000</option>
+          <option value="Eternal (5장 / ₩175,000)">Eternal ⭐ — 5장 / ₩175,000</option>
+          <option value="Be My Mama Again VIP (10장 / ₩350,000)">VIP — 10장 / ₩350,000</option>
+          <option value="문의만">문의만</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label class="form-label">배송 국가</label>
+        <input class="form-input" type="text" name="country" placeholder="대한민국 / Japan / USA ..."/>
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label class="form-label">배송 주소 / Shipping Address</label>
+      <input class="form-input" type="text" name="address" placeholder="주소를 입력해주세요 (결제 완료 후)"/>
+    </div>
+
+    <div class="form-field">
+      <label class="form-label">메시지</label>
+      <textarea class="form-textarea" name="message" placeholder="문의 사항, 요청 사항, 결제 완료 여부 등 자유롭게 적어주세요."></textarea>
+    </div>
+
+    <button class="form-submit" type="submit">전송하기 →</button>
+    <div class="form-note">보내주신 내용은 madewellofficial@gmail.com 으로 전달됩니다. 24시간 내 답변드립니다.</div>
+    <div class="form-success" id="form-success">✓ 전달되었습니다. 빠르게 연락드리겠습니다!</div>
+  </form>
+</div>
+
+<!-- FOOTER -->
+<footer class="artist-footer">
+  <div class="footer-brand">MADEWELL</div>
+  <div class="footer-links">
+    <a href="artist-shop.html">← SHOP</a>
+    <a href="https://instagram.com/madewellmusic_official" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>
+      Instagram
+    </a>
+    <a href="index.html">Home</a>
+  </div>
+</footer>
+
+<script>
+/* 프로그레스 바 애니메이션 */
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => { document.getElementById('pg-bar').style.width = '100%'; }, 400);
+});
+
+/* 폼 제출 */
+function handleFormSubmit(e) {
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = '전송 중...';
+  btn.disabled = true;
+  setTimeout(() => {
+    document.getElementById('form-success').style.display = 'block';
+    e.target.reset();
+    btn.textContent = '전송하기 →';
+    btn.disabled = false;
+  }, 1200);
+}
+
+/* 다국어 */
+let currentLang = 'ko';
+
+const TRACKS = {
+  ko: [
+    {num:'01', title:'MAMA', feat:'', dur:'3:24'},
+    {num:'02', title:'후회', feat:'', dur:'3:51'},
+    {num:'03', title:'혼자', feat:'', dur:'4:02'},
+    {num:'04', title:'어머니', feat:'', dur:'3:38'},
+    {num:'05', title:'기억', feat:'', dur:'3:15'},
+  ],
+  en: [
+    {num:'01', title:'MAMA', feat:'', dur:'3:24'},
+    {num:'02', title:'Regret', feat:'', dur:'3:51'},
+    {num:'03', title:'Alone', feat:'', dur:'4:02'},
+    {num:'04', title:'Mother', feat:'', dur:'3:38'},
+    {num:'05', title:'Memory', feat:'', dur:'3:15'},
+  ],
+  ja: [
+    {num:'01', title:'MAMA', feat:'', dur:'3:24'},
+    {num:'02', title:'後悔', feat:'', dur:'3:51'},
+    {num:'03', title:'ひとり', feat:'', dur:'4:02'},
+    {num:'04', title:'母', feat:'', dur:'3:38'},
+    {num:'05', title:'記憶', feat:'', dur:'3:15'},
+  ],
+  zh: [
+    {num:'01', title:'MAMA', feat:'', dur:'3:24'},
+    {num:'02', title:'後悔', feat:'', dur:'3:51'},
+    {num:'03', title:'一個人', feat:'', dur:'4:02'},
+    {num:'04', title:'母親', feat:'', dur:'3:38'},
+    {num:'05', title:'記憶', feat:'', dur:'3:15'},
+  ],
+};
+
+function renderTracklist(lang) {
+  const tl = document.getElementById('tracklist');
+  tl.innerHTML = (TRACKS[lang] || TRACKS.ko).map(t => `
+    <div class="track-item">
+      <div class="track-num">${t.num}</div>
+      <div class="track-title">${t.title}${t.feat ? ` <span class="track-feat">ft. ${t.feat}</span>` : ''}</div>
+      <div class="track-dur">${t.dur}</div>
+    </div>
+  `).join('');
+}
+renderTracklist('ko');
+
+const STRINGS = {
+  'pn':         {ko:'3RD SOLO ALBUM · 2026', en:'3RD SOLO ALBUM · 2026', ja:'3RD SOLO ALBUM · 2026', zh:'第3張個人專輯 · 2026'},
+  'pg-label':   {ko:'🔴 오버판 달성', en:'🔴 OVER 100% SOLD', ja:'🔴 完売超過達成', zh:'🔴 超額完售'},
+  'pg-sub':     {ko:'100장 목표 초과 달성\n주문은 계속 받고 있습니다', en:'Goal exceeded\nOrders still open', ja:'100枚目標達成超過\n引き続きご注文受付中', zh:'超越100張目標\n繼續接受訂單'},
+  'btn-paypal': {ko:'💳 PayPal로 주문하기 →', en:'💳 Order via PayPal →', ja:'💳 PayPalで注文する →', zh:'💳 PayPal 訂購 →'},
+  'btn-booth':  {ko:'🏪 BOOTH で購入する (日本) →', en:'🏪 Buy on BOOTH (Japan) →', ja:'🏪 BOOTHで購入する →', zh:'🏪 BOOTH 購買 (日本) →'},
+  'btn-dm':     {ko:'📱 Instagram DM으로 문의하기', en:'📱 DM on Instagram', ja:'📱 Instagram DMでお問い合わせ', zh:'📱 Instagram DM 詢問'},
+  'pay-note':   {ko:'결제 후 주문자명 · 배송 주소 · 수량을 DM 또는 하단 폼으로 보내주세요.\n배송비: 국가에 따라 별도 청구 · 예상 발송: 2026년 6월 6일', en:'After payment, send your name · address · quantity via DM or the form below.\nShipping cost billed separately · Expected ship date: June 6, 2026', ja:'ご入金後、お名前・配送先・数量をDMまたは下のフォームでお知らせください。\n送料別途・発送予定：2026年6月6日', zh:'付款後，請透過DM或下方表單傳送姓名、地址、數量。\n運費另計 · 預計發貨：2026年6月6日'},
+  'tier-tag':   {ko:'패키지 선택 / Choose Your Tier', en:'Choose Your Tier', ja:'パッケージ選択', zh:'選擇方案'},
+  'tier-title': {ko:'주문 <em>티어</em>', en:'Order <em>Tiers</em>', ja:'注文 <em>ティア</em>', zh:'訂購 <em>方案</em>'},
+  'tl-tag':     {ko:'TRACKLIST', en:'TRACKLIST', ja:'TRACKLIST', zh:'歌曲列表'},
+  'tl-title':   {ko:'수록곡 <em>목록</em>', en:'Track <em>List</em>', ja:'収録曲 <em>一覧</em>', zh:'收錄歌曲'},
+  'gal-tag':    {ko:'GALLERY', en:'GALLERY', ja:'ギャラリー', zh:'相冊'},
+  'gal-title':  {ko:'앨범 <em>이미지</em>', en:'Album <em>Images</em>', ja:'アルバム <em>画像</em>', zh:'專輯 <em>圖片</em>'},
+  'ship-tag':   {ko:'SHIPPING INFO', en:'SHIPPING INFO', ja:'配送情報', zh:'配送資訊'},
+  'ship-title': {ko:'배송 <em>안내</em>', en:'Shipping <em>Info</em>', ja:'配送 <em>案内</em>', zh:'配送 <em>說明</em>'},
+  'ship1-title':{ko:'예상 발송일', en:'Expected Shipping', ja:'発送予定日', zh:'預計發貨日'},
+  'ship1-desc': {ko:'2026년 6월 6일 예정\n주문 순서대로 발송합니다', en:'Estimated June 6, 2026\nShipped in order received', ja:'2026年6月6日予定\n注文順に発送します', zh:'預計2026年6月6日\n依訂單順序發貨'},
+  'ship2-title':{ko:'배송 지역', en:'Shipping Area', ja:'配送地域', zh:'配送地區'},
+  'ship2-desc': {ko:'국내 + 해외 모두 가능\n배송비는 국가별 별도 안내', en:'Domestic & international\nShipping fee varies by country', ja:'国内・海外とも対応\n送料は国別にご案内', zh:'國內外均可\n運費依國家另行通知'},
+  'ship3-title':{ko:'결제 방법', en:'Payment', ja:'お支払い方法', zh:'付款方式'},
+  'ship3-desc': {ko:'PayPal (전 세계)\nBOOTH (일본 팬 추천)', en:'PayPal (worldwide)\nBOOTH (recommended for Japan)', ja:'PayPal（全世界）\nBOOTH（日本のファンにおすすめ）', zh:'PayPal（全球）\nBOOTH（日本粉絲推薦）'},
+  'ship4-title':{ko:'결제 후', en:'After Payment', ja:'ご入金後', zh:'付款後'},
+  'ship4-desc': {ko:'Instagram DM 또는\n하단 폼으로 주문 정보 전달', en:'Send order info via\nInstagram DM or form below', ja:'Instagram DMまたは\n下のフォームで注文情報をお送りください', zh:'透過Instagram DM或\n下方表單傳送訂單資訊'},
+  'inq-tag':    {ko:'Order Info / Inquiry', en:'Order Info / Inquiry', ja:'ご注文情報・お問い合わせ', zh:'訂購資訊 / 詢問'},
+  'inq-title':  {ko:'주문 정보 전달 & <em>문의</em>', en:'Send Order Info & <em>Inquiry</em>', ja:'注文情報の送付 & <em>お問い合わせ</em>', zh:'傳送訂購資訊 & <em>詢問</em>'},
+  'inq-desc':   {ko:'결제 완료 후 주문자 정보를 보내주세요. 구매 전 궁금한 점도 여기서 남겨주시면 됩니다.', en:'Send your order details after payment. Feel free to ask anything before buying too.', ja:'ご入金後に注文情報をお送りください。ご購入前のご質問もこちらからどうぞ。', zh:'付款後請傳送訂購資訊。購買前的問題也可在此提問。'},
+};
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-bar button').forEach(b => b.classList.remove('on'));
+  const map = {ko:0,en:1,ja:2,zh:3};
+  document.querySelectorAll('.lang-bar button')[map[lang]]?.classList.add('on');
+  Object.entries(STRINGS).forEach(([id, vals]) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const v = vals[lang] || vals.ko;
+    el.innerHTML = v.replace(/\n/g, '<br/>');
+  });
+  renderTracklist(lang);
+}
+</script>
+</body>
+</html>
