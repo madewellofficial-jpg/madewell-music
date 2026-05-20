@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>MADEWELL — Pre-Order</title>
-<meta name="description" content="MADEWELL 3RD SOLO ALBUM MAMA 선주문 — 5월 8일 오픈."/>
+<title>MADEWELL — SHOP</title>
+<meta name="description" content="MADEWELL 3RD SOLO ALBUM MAMA — 지금 주문하기."/>
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -231,16 +231,16 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
 <nav class="tab-nav">
   <a class="tab-link" href="artist.html">ABOUT</a>
   <a class="tab-link" href="artist-music.html">MUSIC</a>
-  <a class="tab-link active" href="artist-shop.html">SHOP <span class="tab-badge">● PRE-ORDER</span></a>
+  <a class="tab-link active" href="artist-shop.html">SHOP <span class="tab-badge" style="background:rgba(255,80,80,.12);border-color:rgba(255,80,80,.35);color:rgba(255,130,130,.9)">● 105% SOLD</span></a>
 </nav>
 
-<!-- 선주문 배너 -->
-<div class="preorder-banner">
-  <div class="banner-msg">
-    <div class="banner-dot"></div>
-    <span id="banner-msg">선주문 오픈 — 5월 8일 어버이날</span>
+<!-- 완판 초과 배너 -->
+<div class="preorder-banner" style="background:linear-gradient(90deg,rgba(180,60,60,.12) 0%,rgba(255,80,80,.06) 50%,rgba(180,60,60,.12) 100%);border-color:rgba(255,100,100,.2)">
+  <div class="banner-msg" style="color:rgba(255,150,150,.95)">
+    <div class="banner-dot" style="background:rgba(255,130,130,.9)"></div>
+    <span id="banner-msg">🎉 105% — 완판 초과 달성! 주문은 계속 받습니다</span>
   </div>
-  <div class="banner-date" id="banner-date">PRE-ORDER OPEN · MAY 8 — CLOSE MAY 20</div>
+  <div class="banner-date" id="banner-date">PRE-ORDER CLOSED · NOW TAKING ORDERS VIA DM</div>
 </div>
 
 <!-- ─── ALBUM CATALOG ─── -->
@@ -254,13 +254,13 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
     <!-- 3집 MAMA — 프리오더 -->
     <div class="catalog-card" onclick="document.getElementById('preorder-section').scrollIntoView({behavior:'smooth'})">
       <div class="catalog-cover" style="background-image:url('images/MAMA앨범 컨셉사진들/메인자켓 1.png')">
-        <div class="catalog-status preorder" id="cs1">PRE-ORDER</div>
+        <div class="catalog-status" id="cs1" style="background:rgba(255,80,80,.85);color:#fff;animation:none">105% SOLD</div>
       </div>
       <div class="catalog-info">
         <div class="catalog-num" id="cn1">3RD SOLO ALBUM</div>
         <div class="catalog-title-el" id="ct1">MAMA</div>
         <div class="catalog-year" id="cy1">2026 · MAY 8 – 20</div>
-        <div class="catalog-cta" id="cc1">선주문하기 →</div>
+        <div class="catalog-cta" id="cc1">주문하기 →</div>
       </div>
     </div>
 
@@ -327,11 +327,11 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
   <div class="preorder-hero">
     <div class="preorder-hero-cover" style="background-image:url('images/MAMA앨범 컨셉사진들/메인자켓 1.png')"></div>
     <div>
-      <div class="section-label" id="pre-label">Pre-Order</div>
-      <h2 class="section-title" id="pre-title">선주문 <em>티어</em></h2>
+      <div class="section-label" id="pre-label">Order</div>
+      <h2 class="section-title" id="pre-title">주문 <em>티어</em></h2>
       <p class="section-sub" id="pre-sub">
-        생산 수량 100장 한정. 최소 50장 선주문 확보 후 제작 시작.<br/>
-        선주문 마감 5월 20일 · 발송 6월 6일 예정.<br/>
+        🎉 목표 100장을 초과한 105장 판매 달성. 제작 확정, 6월 6일 발송 예정.<br/>
+        지금도 주문 받고 있습니다 — DM 또는 아래 결제 링크로 주문 가능.<br/>
         <span style="color:rgba(95,200,215,.6);font-size:11px">1장 기준 ₩35,000 (국내) / $25 (해외)</span>
       </p>
     </div>
@@ -349,7 +349,7 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
         <li>자필 미니 레터</li>
         <li>THANKS 보이스 메시지 QR</li>
       </ul>
-      <button class="tier-btn outline" onclick="openPayment(1)" id="tb1">선주문하기</button>
+      <button class="tier-btn outline" onclick="openPayment(1)" id="tb1">주문하기</button>
     </div>
 
     <!-- My Mama — 3장 -->
@@ -364,7 +364,7 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
         <li>자필 미니 레터</li>
         <li>THANKS 보이스 QR</li>
       </ul>
-      <button class="tier-btn outline" onclick="openPayment(2)" id="tb2">선주문하기</button>
+      <button class="tier-btn outline" onclick="openPayment(2)" id="tb2">주문하기</button>
     </div>
 
     <!-- Eternal — 5장 (추천) -->
@@ -381,7 +381,7 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
         <li>개인 보이스 메시지 (2분) QR</li>
         <li>자필 개인 손편지</li>
       </ul>
-      <button class="tier-btn primary" onclick="openPayment(3)" id="tb3">선주문하기</button>
+      <button class="tier-btn primary" onclick="openPayment(3)" id="tb3">주문하기</button>
     </div>
 
     <!-- VIP — 10장 -->
@@ -401,7 +401,7 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
         <li>자필 개인 손편지</li>
         <li class="gold">1ST 솔로 앨범 UNFINISHED 미개봉본<br/>+ 2026 직필 사인 &amp; 메시지</li>
       </ul>
-      <button class="tier-btn outline" onclick="openPayment(4)" id="tb4">선주문하기</button>
+      <button class="tier-btn outline" onclick="openPayment(4)" id="tb4">주문하기</button>
     </div>
 
     <!-- VVIP — 20장 -->
@@ -422,7 +422,7 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
         <li class="gold">1ST 솔로 앨범 UNFINISHED 미개봉본<br/>+ 2026 직필 사인 &amp; 메시지</li>
         <li class="dinner">소규모 디너에 초대합니다<br/>MADEWELL과 함께하는 자리</li>
       </ul>
-      <button class="tier-btn vvip-btn" onclick="openPayment(5)" id="tb5">선주문하기</button>
+      <button class="tier-btn vvip-btn" onclick="openPayment(5)" id="tb5">주문하기</button>
     </div>
 
   </div>
@@ -568,48 +568,54 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
 /* ─────────────────────────────────────────
    ★ 매일 이 숫자 하나만 바꾸고 git push!
    ───────────────────────────────────────── */
-const PREORDER_COUNT = 92;   /* ← 현재 선주문 수량 */
+const PREORDER_COUNT = 105;  /* ← 현재 판매 수량 — 완판 초과! */
 const PREORDER_GOAL  = 100;  /* 총 목표 수량 */
 
 /* ── 단계별 카피 (자동 전환) ─────────────────────────
-   Phase 1  0–49%  : 중립 — 지금 여기
-   Phase 2 50–69%  : 제작 확정! 🔥 — 절반 돌파
-   Phase 3 70–89%  : ⚡ Urgency — 얼마 안 남았어요
-   Phase 4 90–99%  : 🚨 High urgency — 거의 완판
-   Phase 5 100%    : 🎉 완판
+   Phase 0  0–49%  : 중립 — 지금 여기
+   Phase 1 50–69%  : 제작 확정! 🔥 — 절반 돌파
+   Phase 2 70–89%  : ⚡ Urgency — 얼마 안 남았어요
+   Phase 3 90–99%  : 🚨 High urgency — 거의 완판
+   Phase 4 100%    : 🎉 완판
+   Phase 5 100%+   : 🔴 오버판 — 완판 초과
 ─────────────────────────────────────────────────── */
 const PHASE_COPY = {
   ko: [
-    { label:'PRE-ORDER PROGRESS', title:'목표까지 <em>지금 여기</em>',    sub:'매일 업데이트 됩니다. 50% 달성 시 제작 확정.' },
-    { label:'🔥 제작 확정!',       title:'절반 <em>돌파했습니다</em>',     sub:'50% 달성 — 제작이 확정됩니다. 지금 참여해주세요.' },
-    { label:'⚡ 얼마 안 남았어요', title:'자리가 <em>줄어들고 있어요</em>', sub:'이미 많은 분들이 함께하고 있습니다.' },
-    { label:'🚨 거의 완판',        title:'지금 아니면 <em>못 살 수도</em>', sub:'잔여 수량이 거의 없습니다. 서둘러 주세요.' },
-    { label:'🎉 완판',             title:'100% <em>완판되었습니다</em>',    sub:'성원에 감사드립니다. 제작에 들어갑니다.' },
+    { label:'PRE-ORDER PROGRESS', title:'목표까지 <em>지금 여기</em>',         sub:'매일 업데이트 됩니다. 50% 달성 시 제작 확정.' },
+    { label:'🔥 제작 확정!',       title:'절반 <em>돌파했습니다</em>',          sub:'50% 달성 — 제작이 확정됩니다. 지금 참여해주세요.' },
+    { label:'⚡ 얼마 안 남았어요', title:'자리가 <em>줄어들고 있어요</em>',      sub:'이미 많은 분들이 함께하고 있습니다.' },
+    { label:'🚨 거의 완판',        title:'지금 아니면 <em>못 살 수도</em>',      sub:'잔여 수량이 거의 없습니다. 서둘러 주세요.' },
+    { label:'🎉 완판',             title:'100% <em>완판되었습니다</em>',         sub:'성원에 감사드립니다. 제작에 들어갑니다.' },
+    { label:'🔴 오버판 달성!',     title:'105% — 목표를 <em>초과했습니다</em>', sub:'100장 완판을 넘어섰습니다. 주문은 계속 받고 있습니다.' },
   ],
   en: [
-    { label:'PRE-ORDER PROGRESS',  title:'Where We Are <em>Right Now</em>',  sub:'Updated daily. Production confirmed at 50%.' },
-    { label:'🔥 HALFWAY THERE!',   title:'Past the <em>halfway point</em>',   sub:'50% reached — production is now confirmed. Join us.' },
-    { label:'⚡ ALMOST GONE',      title:'Spots are <em>filling up fast</em>', sub:'A lot of people are already in. Don\'t miss out.' },
-    { label:'🚨 NEARLY SOLD OUT',  title:'Last chance <em>to get yours</em>',  sub:'Very limited copies remaining. Act now.' },
-    { label:'🎉 SOLD OUT',         title:'100% <em>Sold Out</em>',             sub:'Thank you all. Production begins now.' },
+    { label:'PRE-ORDER PROGRESS',  title:'Where We Are <em>Right Now</em>',       sub:'Updated daily. Production confirmed at 50%.' },
+    { label:'🔥 HALFWAY THERE!',   title:'Past the <em>halfway point</em>',        sub:'50% reached — production is now confirmed. Join us.' },
+    { label:'⚡ ALMOST GONE',      title:'Spots are <em>filling up fast</em>',     sub:'A lot of people are already in. Don\'t miss out.' },
+    { label:'🚨 NEARLY SOLD OUT',  title:'Last chance <em>to get yours</em>',      sub:'Very limited copies remaining. Act now.' },
+    { label:'🎉 SOLD OUT',         title:'100% <em>Sold Out</em>',                 sub:'Thank you all. Production begins now.' },
+    { label:'🔴 OVER 100%!',       title:'105% — <em>Beyond the goal</em>',       sub:'We exceeded 100 copies. Orders are still open.' },
   ],
   ja: [
-    { label:'PRE-ORDER PROGRESS',  title:'目標まで <em>いまここ</em>',          sub:'毎日更新。50%達成で制作確定。' },
-    { label:'🔥 折り返し達成！',   title:'半分を <em>超えました</em>',           sub:'50%達成 — 制作確定です。今すぐご参加ください。' },
-    { label:'⚡ 残りわずか',        title:'枠が <em>埋まっています</em>',         sub:'多くの方がすでにご参加中です。お見逃しなく。' },
-    { label:'🚨 ほぼ完売',         title:'今が <em>ラストチャンス</em>',          sub:'残り枚数がわずかです。お急ぎください。' },
-    { label:'🎉 完売',             title:'100% <em>完売しました</em>',           sub:'ご支援ありがとうございます。制作に入ります。' },
+    { label:'PRE-ORDER PROGRESS',  title:'目標まで <em>いまここ</em>',             sub:'毎日更新。50%達成で制作確定。' },
+    { label:'🔥 折り返し達成！',   title:'半分を <em>超えました</em>',              sub:'50%達成 — 制作確定です。今すぐご参加ください。' },
+    { label:'⚡ 残りわずか',        title:'枠が <em>埋まっています</em>',            sub:'多くの方がすでにご参加中です。お見逃しなく。' },
+    { label:'🚨 ほぼ完売',         title:'今が <em>ラストチャンス</em>',             sub:'残り枚数がわずかです。お急ぎください。' },
+    { label:'🎉 完売',             title:'100% <em>完売しました</em>',              sub:'ご支援ありがとうございます。制作に入ります。' },
+    { label:'🔴 目標超過!',        title:'105% — 目標を <em>超えました</em>',       sub:'100枚完売を超えました。ご注文は引き続き受け付けています。' },
   ],
   zh: [
-    { label:'PRE-ORDER PROGRESS',  title:'目標進度 <em>目前狀況</em>',          sub:'每日更新。達50%後確定製作。' },
-    { label:'🔥 達成一半！',        title:'突破 <em>一半了</em>',                sub:'50%達成，製作確定！請加入我們。' },
-    { label:'⚡ 快售完了',          title:'名額 <em>快滿了</em>',                sub:'已有很多人加入，不要錯過。' },
-    { label:'🚨 快售罄',           title:'最後機會 <em>把握現在</em>',           sub:'剩餘數量極少，請盡快預購。' },
-    { label:'🎉 售罄',             title:'100% <em>已售罄</em>',                sub:'感謝大家的支持，製作開始。' },
+    { label:'PRE-ORDER PROGRESS',  title:'目標進度 <em>目前狀況</em>',             sub:'每日更新。達50%後確定製作。' },
+    { label:'🔥 達成一半！',        title:'突破 <em>一半了</em>',                   sub:'50%達成，製作確定！請加入我們。' },
+    { label:'⚡ 快售完了',          title:'名額 <em>快滿了</em>',                   sub:'已有很多人加入，不要錯過。' },
+    { label:'🚨 快售罄',           title:'最後機會 <em>把握現在</em>',              sub:'剩餘數量極少，請盡快預購。' },
+    { label:'🎉 售罄',             title:'100% <em>已售罄</em>',                   sub:'感謝大家的支持，製作開始。' },
+    { label:'🔴 超額達成!',        title:'105% — 超越 <em>目標了</em>',            sub:'100張完售後仍持續接受訂單。' },
   ],
 };
 
 function getPhase(pct) {
+  if (pct > 100)  return 5;
   if (pct >= 100) return 4;
   if (pct >= 90)  return 3;
   if (pct >= 70)  return 2;
@@ -618,22 +624,27 @@ function getPhase(pct) {
 }
 
 function initProgress() {
-  const pct      = Math.min(Math.round(PREORDER_COUNT / PREORDER_GOAL * 100), 100);
-  const remaining = Math.max(PREORDER_GOAL - PREORDER_COUNT, 0);
-  const phase    = getPhase(pct);
+  const rawPct   = Math.round(PREORDER_COUNT / PREORDER_GOAL * 100);
+  const barPct   = Math.min(rawPct, 100); /* 바는 최대 100% */
+  const over     = PREORDER_COUNT > PREORDER_GOAL;
+  const phase    = getPhase(rawPct);
   const isHot    = phase >= 2;
 
-  // 퍼센트 & remaining
-  document.getElementById('pg-pct').textContent  = pct;
-  document.getElementById('pg-left').textContent = remaining;
+  // 퍼센트 숫자 표시 (105% 그대로)
+  document.getElementById('pg-pct').textContent = rawPct;
 
-  // remaining 카피 — 70% 이상이면 urgency 어조로
+  // remaining / over 카피
   const remEl = document.getElementById('pg-remaining');
-  const remCopy = {
-    ko: isHot ? `<strong id="pg-left">${remaining}</strong>장밖에 안 남았어요!` : `Remaining <strong id="pg-left">${remaining}</strong> / 100장`,
-    en: isHot ? `Only <strong id="pg-left">${remaining}</strong> copies left!`   : `Remaining <strong id="pg-left">${remaining}</strong> / 100 copies`,
-    ja: isHot ? `残り<strong id="pg-left">${remaining}</strong>枚のみ！`          : `残り<strong id="pg-left">${remaining}</strong> / 100枚`,
-    zh: isHot ? `只剩<strong id="pg-left">${remaining}</strong>張了！`            : `剩餘<strong id="pg-left">${remaining}</strong> / 100張`,
+  const remCopy = over ? {
+    ko: `<strong>${PREORDER_COUNT}</strong> / ${PREORDER_GOAL}장 판매 · 완판 <strong style="color:rgba(255,130,130,.9)">+${PREORDER_COUNT - PREORDER_GOAL} 초과</strong>`,
+    en: `<strong>${PREORDER_COUNT}</strong> / ${PREORDER_GOAL} sold · <strong style="color:rgba(255,130,130,.9)">+${PREORDER_COUNT - PREORDER_GOAL} over goal!</strong>`,
+    ja: `<strong>${PREORDER_COUNT}</strong> / ${PREORDER_GOAL}枚販売 · <strong style="color:rgba(255,130,130,.9)">+${PREORDER_COUNT - PREORDER_GOAL} 超過!</strong>`,
+    zh: `<strong>${PREORDER_COUNT}</strong> / ${PREORDER_GOAL}張 · <strong style="color:rgba(255,130,130,.9)">超額 +${PREORDER_COUNT - PREORDER_GOAL}!</strong>`,
+  } : {
+    ko: isHot ? `<strong>${PREORDER_GOAL - PREORDER_COUNT}</strong>장밖에 안 남았어요!` : `Remaining <strong>${PREORDER_GOAL - PREORDER_COUNT}</strong> / ${PREORDER_GOAL}장`,
+    en: isHot ? `Only <strong>${PREORDER_GOAL - PREORDER_COUNT}</strong> copies left!`   : `Remaining <strong>${PREORDER_GOAL - PREORDER_COUNT}</strong> / ${PREORDER_GOAL} copies`,
+    ja: isHot ? `残り<strong>${PREORDER_GOAL - PREORDER_COUNT}</strong>枚のみ！`          : `残り<strong>${PREORDER_GOAL - PREORDER_COUNT}</strong> / ${PREORDER_GOAL}枚`,
+    zh: isHot ? `只剩<strong>${PREORDER_GOAL - PREORDER_COUNT}</strong>張了！`            : `剩餘<strong>${PREORDER_GOAL - PREORDER_COUNT}</strong> / ${PREORDER_GOAL}張`,
   };
   remEl.innerHTML = remCopy[currentLang] || remCopy.en;
   if (isHot) remEl.classList.add('few'); else remEl.classList.remove('few');
@@ -643,15 +654,24 @@ function initProgress() {
   document.getElementById('pg-label').textContent = copy.label;
   document.getElementById('pg-title').innerHTML   = copy.title;
   document.getElementById('pg-sub').textContent   = copy.sub;
-  if (isHot) {
-    document.getElementById('pg-label').classList.add('urgent');
-    document.getElementById('pg-bar').classList.add('hot');
+
+  // 오버판이면 빨간 계열로 강조
+  const pgLabel = document.getElementById('pg-label');
+  const pgBar   = document.getElementById('pg-bar');
+  if (over) {
+    pgLabel.style.color = 'rgba(255,130,130,.95)';
+    pgBar.style.background = 'linear-gradient(to right,rgba(200,60,60,.8),rgba(255,100,100,1))';
+    pgBar.style.boxShadow = '0 0 18px rgba(255,80,80,.4)';
+    document.getElementById('pg-pct').style.color = 'rgba(255,150,150,.95)';
+  } else if (isHot) {
+    pgLabel.classList.add('urgent');
+    pgBar.classList.add('hot');
   }
 
-  // 바 애니메이션
-  setTimeout(() => { document.getElementById('pg-bar').style.width = pct + '%'; }, 300);
+  // 바 애니메이션 (오버판이어도 바는 100%까지)
+  setTimeout(() => { pgBar.style.width = barPct + '%'; }, 300);
 
-  // 마일스톤
+  // 마일스톤 — 3개 모두 달성
   if (PREORDER_COUNT >= 50)  document.getElementById('ms-a').classList.add('reached');
   if (PREORDER_COUNT >= 70)  document.getElementById('ms-b').classList.add('reached');
   if (PREORDER_COUNT >= 100) document.getElementById('ms-c').classList.add('reached');
@@ -718,7 +738,7 @@ const T = {
     'ms-b-num':'70%','ms-b-desc':'디지털 배경화면 팩','ms-b-perk':'전원 무료 공유',
     'ms-c-num':'100%','ms-c-desc':'레코딩 비하인드 영상','ms-c-perk':'완판 기념 릴리즈',
     'cat-label':'Shop','cat-title':'앨범 <em>둘러보기</em>','cat-sub':'구매하고 싶은 앨범을 선택하세요.',
-    'cs1':'PRE-ORDER','cn1':'3RD SOLO ALBUM','ct1':'MAMA','cy1':'2026 · 5월 8 – 20일','cc1':'선주문하기 →',
+    'cs1':'PRE-ORDER','cn1':'3RD SOLO ALBUM','ct1':'MAMA','cy1':'2026 · 5월 8 – 20일','cc1':'주문하기 →',
     'cs2':'Available','cn2':'2ND SOLO ALBUM','ct2':'Still <em>UNFINISHED</em>','cy2':'2025 · 잔여 수량 한정','cc2':'구매하기 →',
     'banner-msg':'선주문 오픈 — 5월 8일 어버이날',
     'banner-date':'PRE-ORDER OPEN · MAY 8 — CLOSE MAY 20',
@@ -756,7 +776,7 @@ const T = {
     'modal-after-title':'결제 후 아래로 주문 정보를 보내주세요',
     'modal-after-desc':'📱 Instagram DM: <strong style="color:rgba(95,200,215,.8)">@madewellmusic_official</strong><br/>📧 Email: <strong style="color:rgba(95,200,215,.8)">madewellofficial@gmail.com</strong>',
     'modal-info-list':'결제자명 · 결제 금액 · 배송 주소 · 국가<br/><span style="color:rgba(95,200,215,.45)">배송비는 확인 후 별도 링크로 청구됩니다.</span>',
-    'tb1':'선주문하기','tb2':'선주문하기','tb3':'선주문하기','tb4':'선주문하기','tb5':'선주문하기',
+    'tb1':'주문하기','tb2':'주문하기','tb3':'주문하기','tb4':'주문하기','tb5':'주문하기',
   },
   en:{
     'ms-a-num':'50%','ms-a-desc':'Production Confirmed','ms-a-perk':'Official Announcement',
