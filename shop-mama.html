@@ -152,7 +152,7 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 <div class="product-hero">
   <!-- 좌: 갤러리 -->
   <div class="hero-gallery">
-    <img class="hero-main-img" src="images/MAMA앨범 컨셉사진들/메인자켓 1.png" alt="MAMA"/>
+    <img class="hero-main-img" src="images/MAMA앨범 컨셉사진들/MAIN 1.png" alt="MAMA"/>
     <div class="sold-overlay">🔴 105% SOLD · 주문 가능</div>
   </div>
 
@@ -194,7 +194,7 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 
     <div class="note-small" id="pay-note">
       결제 후 주문자명 · 배송 주소 · 수량을 DM 또는 하단 폼으로 보내주세요.<br/>
-      <strong>배송비:</strong> 국가에 따라 별도 청구 · <strong>예상 발송:</strong> 2026년 6월 6일
+      <strong>발송:</strong> 주문 접수 완료 후 3일 이내 발송 · <strong>배송비:</strong> 국가별 별도 안내
     </div>
   </div>
 </div>
@@ -290,7 +290,7 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
   <div class="section-tag" id="gal-tag">GALLERY</div>
   <h2 class="section-h" id="gal-title">앨범 <em>이미지</em></h2>
   <div class="album-gallery">
-    <img class="gallery-img" src="images/MAMA앨범 컨셉사진들/MAIN 1.png" alt="MAMA MAIN"/>
+    <img class="gallery-img" src="images/MAMA앨범 컨셉사진들/MAIN 1.png" alt="MAMA MAIN" style="object-position:center top"/>
     <img class="gallery-img" src="images/MAMA앨범 컨셉사진들/CONCEPT IMAGE.jpg" alt="MAMA Concept"/>
     <img class="gallery-img" src="images/MAMA앨범 컨셉사진들/후회 .png" alt="MAMA 후회"/>
   </div>
@@ -301,13 +301,13 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
   <div class="shipping-grid">
     <div class="shipping-item">
       <div class="ship-icon">📦</div>
-      <div class="ship-title" id="ship1-title">예상 발송일</div>
-      <div class="ship-desc" id="ship1-desc">2026년 6월 6일 예정<br/>주문 순서대로 발송합니다</div>
+      <div class="ship-title" id="ship1-title">발송 안내</div>
+      <div class="ship-desc" id="ship1-desc">주문 접수 완료 후 3일 이내 발송<br/>주문 순서대로 처리합니다</div>
     </div>
     <div class="shipping-item">
       <div class="ship-icon">🌏</div>
       <div class="ship-title" id="ship2-title">배송 지역</div>
-      <div class="ship-desc" id="ship2-desc">국내 + 해외 모두 가능<br/>배송비는 국가별 별도 안내</div>
+      <div class="ship-desc" id="ship2-desc">국내 + 해외 모두 가능<br/>배송비 국가별 상이 — 접수 후 별도 안내</div>
     </div>
     <div class="shipping-item">
       <div class="ship-icon">💳</div>
@@ -418,44 +418,73 @@ let currentLang = 'ko';
 
 const TRACKS = {
   ko: [
-    {num:'01', title:'MAMA', feat:'', dur:'3:24'},
-    {num:'02', title:'후회', feat:'', dur:'3:51'},
-    {num:'03', title:'혼자', feat:'', dur:'4:02'},
-    {num:'04', title:'어머니', feat:'', dur:'3:38'},
-    {num:'05', title:'기억', feat:'', dur:'3:15'},
+    {num:'01', title:'MAMA (Be my mama again)', feat:'Title', dur:''},
+    {num:'02', title:'MAMA (다시 나의 엄마가 되어주길)', feat:'Title', dur:''},
+    {num:'03', title:'Eiffel Tower', feat:'Title', dur:''},
+    {num:'04', title:'Thankful', feat:'', dur:''},
+    {num:'05', title:'Midnight Phonecheck', feat:'', dur:''},
+    {num:'06', title:'Neon', feat:'', dur:''},
+    {num:'07', title:'Kitchen Light Glass', feat:'', dur:''},
+    {num:'08', title:"I'll be there (そばにいるよ)", feat:'JP', dur:''},
+    {num:'09', title:'Beautiful Way', feat:'', dur:''},
+    {num:'10', title:'MAMA', feat:'Inst.', dur:''},
+    {num:'11', title:'Eiffel Tower', feat:'Inst.', dur:''},
   ],
   en: [
-    {num:'01', title:'MAMA', feat:'', dur:'3:24'},
-    {num:'02', title:'Regret', feat:'', dur:'3:51'},
-    {num:'03', title:'Alone', feat:'', dur:'4:02'},
-    {num:'04', title:'Mother', feat:'', dur:'3:38'},
-    {num:'05', title:'Memory', feat:'', dur:'3:15'},
+    {num:'01', title:'MAMA (Be my mama again)', feat:'Title', dur:''},
+    {num:'02', title:'MAMA (Be my mama again once more)', feat:'Title', dur:''},
+    {num:'03', title:'Eiffel Tower', feat:'Title', dur:''},
+    {num:'04', title:'Thankful', feat:'', dur:''},
+    {num:'05', title:'Midnight Phonecheck', feat:'', dur:''},
+    {num:'06', title:'Neon', feat:'', dur:''},
+    {num:'07', title:'Kitchen Light Glass', feat:'', dur:''},
+    {num:'08', title:"I'll be there (そばにいるよ)", feat:'JP', dur:''},
+    {num:'09', title:'Beautiful Way', feat:'', dur:''},
+    {num:'10', title:'MAMA', feat:'Inst.', dur:''},
+    {num:'11', title:'Eiffel Tower', feat:'Inst.', dur:''},
   ],
   ja: [
-    {num:'01', title:'MAMA', feat:'', dur:'3:24'},
-    {num:'02', title:'後悔', feat:'', dur:'3:51'},
-    {num:'03', title:'ひとり', feat:'', dur:'4:02'},
-    {num:'04', title:'母', feat:'', dur:'3:38'},
-    {num:'05', title:'記憶', feat:'', dur:'3:15'},
+    {num:'01', title:'MAMA (Be my mama again)', feat:'Title', dur:''},
+    {num:'02', title:'MAMA (もう一度、私のお母さんになって)', feat:'Title', dur:''},
+    {num:'03', title:'Eiffel Tower', feat:'Title', dur:''},
+    {num:'04', title:'Thankful', feat:'', dur:''},
+    {num:'05', title:'Midnight Phonecheck', feat:'', dur:''},
+    {num:'06', title:'Neon', feat:'', dur:''},
+    {num:'07', title:'Kitchen Light Glass', feat:'', dur:''},
+    {num:'08', title:"I'll be there (そばにいるよ)", feat:'JP', dur:''},
+    {num:'09', title:'Beautiful Way', feat:'', dur:''},
+    {num:'10', title:'MAMA', feat:'Inst.', dur:''},
+    {num:'11', title:'Eiffel Tower', feat:'Inst.', dur:''},
   ],
   zh: [
-    {num:'01', title:'MAMA', feat:'', dur:'3:24'},
-    {num:'02', title:'後悔', feat:'', dur:'3:51'},
-    {num:'03', title:'一個人', feat:'', dur:'4:02'},
-    {num:'04', title:'母親', feat:'', dur:'3:38'},
-    {num:'05', title:'記憶', feat:'', dur:'3:15'},
+    {num:'01', title:'MAMA (Be my mama again)', feat:'Title', dur:''},
+    {num:'02', title:'MAMA (再次成為我的媽媽)', feat:'Title', dur:''},
+    {num:'03', title:'Eiffel Tower', feat:'Title', dur:''},
+    {num:'04', title:'Thankful', feat:'', dur:''},
+    {num:'05', title:'Midnight Phonecheck', feat:'', dur:''},
+    {num:'06', title:'Neon', feat:'', dur:''},
+    {num:'07', title:'Kitchen Light Glass', feat:'', dur:''},
+    {num:'08', title:"I'll be there (そばにいるよ)", feat:'JP', dur:''},
+    {num:'09', title:'Beautiful Way', feat:'', dur:''},
+    {num:'10', title:'MAMA', feat:'Inst.', dur:''},
+    {num:'11', title:'Eiffel Tower', feat:'Inst.', dur:''},
   ],
 };
 
 function renderTracklist(lang) {
   const tl = document.getElementById('tracklist');
-  tl.innerHTML = (TRACKS[lang] || TRACKS.ko).map(t => `
-    <div class="track-item">
+  tl.innerHTML = (TRACKS[lang] || TRACKS.ko).map(t => {
+    let badge = '';
+    if(t.feat === 'Title') badge = `<span class="track-feat" style="color:rgba(95,200,215,.8);font-size:9px;font-weight:700;letter-spacing:.16em;padding:2px 8px;border:1px solid rgba(95,200,215,.3)">TITLE</span>`;
+    else if(t.feat === 'JP') badge = `<span class="track-feat" style="color:rgba(255,200,100,.7);font-size:9px;font-weight:700;letter-spacing:.12em;padding:2px 8px;border:1px solid rgba(255,200,100,.2)">JP</span>`;
+    else if(t.feat === 'Inst.') badge = `<span class="track-feat" style="color:rgba(255,255,255,.25);font-size:9px;font-style:italic;padding:2px 8px;border:1px solid rgba(255,255,255,.1)">INST</span>`;
+    return `<div class="track-item">
       <div class="track-num">${t.num}</div>
-      <div class="track-title">${t.title}${t.feat ? ` <span class="track-feat">ft. ${t.feat}</span>` : ''}</div>
+      <div class="track-title">${t.title}</div>
+      ${badge}
       <div class="track-dur">${t.dur}</div>
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
 }
 renderTracklist('ko');
 
@@ -466,7 +495,7 @@ const STRINGS = {
   'btn-paypal': {ko:'💳 PayPal로 주문하기 →', en:'💳 Order via PayPal →', ja:'💳 PayPalで注文する →', zh:'💳 PayPal 訂購 →'},
   'btn-booth':  {ko:'🏪 BOOTH で購入する (日本) →', en:'🏪 Buy on BOOTH (Japan) →', ja:'🏪 BOOTHで購入する →', zh:'🏪 BOOTH 購買 (日本) →'},
   'btn-dm':     {ko:'📱 Instagram DM으로 문의하기', en:'📱 DM on Instagram', ja:'📱 Instagram DMでお問い合わせ', zh:'📱 Instagram DM 詢問'},
-  'pay-note':   {ko:'결제 후 주문자명 · 배송 주소 · 수량을 DM 또는 하단 폼으로 보내주세요.\n배송비: 국가에 따라 별도 청구 · 예상 발송: 2026년 6월 6일', en:'After payment, send your name · address · quantity via DM or the form below.\nShipping cost billed separately · Expected ship date: June 6, 2026', ja:'ご入金後、お名前・配送先・数量をDMまたは下のフォームでお知らせください。\n送料別途・発送予定：2026年6月6日', zh:'付款後，請透過DM或下方表單傳送姓名、地址、數量。\n運費另計 · 預計發貨：2026年6月6日'},
+  'pay-note':   {ko:'결제 후 주문자명 · 배송 주소 · 수량을 DM 또는 하단 폼으로 보내주세요.\n발송: 주문 접수 완료 후 3일 이내 · 배송비: 국가별 별도 안내', en:'After payment, send your name · address · quantity via DM or the form below.\nShips within 3 days of order confirmation · Shipping fee varies by country', ja:'ご入金後、お名前・配送先・数量をDMまたは下のフォームでお知らせください。\nご注文確定後3日以内に発送 · 送料は国別にご案内', zh:'付款後，請透過DM或下方表單傳送姓名、地址、數量。\n訂單確認後3日內發貨 · 運費依國家另行通知'},
   'tier-tag':   {ko:'패키지 선택 / Choose Your Tier', en:'Choose Your Tier', ja:'パッケージ選択', zh:'選擇方案'},
   'tier-title': {ko:'주문 <em>티어</em>', en:'Order <em>Tiers</em>', ja:'注文 <em>ティア</em>', zh:'訂購 <em>方案</em>'},
   'tl-tag':     {ko:'TRACKLIST', en:'TRACKLIST', ja:'TRACKLIST', zh:'歌曲列表'},
@@ -475,10 +504,10 @@ const STRINGS = {
   'gal-title':  {ko:'앨범 <em>이미지</em>', en:'Album <em>Images</em>', ja:'アルバム <em>画像</em>', zh:'專輯 <em>圖片</em>'},
   'ship-tag':   {ko:'SHIPPING INFO', en:'SHIPPING INFO', ja:'配送情報', zh:'配送資訊'},
   'ship-title': {ko:'배송 <em>안내</em>', en:'Shipping <em>Info</em>', ja:'配送 <em>案内</em>', zh:'配送 <em>說明</em>'},
-  'ship1-title':{ko:'예상 발송일', en:'Expected Shipping', ja:'発送予定日', zh:'預計發貨日'},
-  'ship1-desc': {ko:'2026년 6월 6일 예정\n주문 순서대로 발송합니다', en:'Estimated June 6, 2026\nShipped in order received', ja:'2026年6月6日予定\n注文順に発送します', zh:'預計2026年6月6日\n依訂單順序發貨'},
+  'ship1-title':{ko:'발송 안내', en:'Shipping Notice', ja:'発送案内', zh:'發貨通知'},
+  'ship1-desc': {ko:'주문 접수 완료 후 3일 이내 발송\n주문 순서대로 처리합니다', en:'Ships within 3 days of order confirmation\nProcessed in order received', ja:'ご注文確定後3日以内に発送\n注文順に処理します', zh:'訂單確認後3日內發貨\n依訂單順序處理'},
   'ship2-title':{ko:'배송 지역', en:'Shipping Area', ja:'配送地域', zh:'配送地區'},
-  'ship2-desc': {ko:'국내 + 해외 모두 가능\n배송비는 국가별 별도 안내', en:'Domestic & international\nShipping fee varies by country', ja:'国内・海外とも対応\n送料は国別にご案内', zh:'國內外均可\n運費依國家另行通知'},
+  'ship2-desc': {ko:'국내 + 해외 모두 가능\n배송비 국가별 상이 — 접수 후 별도 안내', en:'Domestic & international\nShipping fee varies — notified after order', ja:'国内・海外とも対応\n送料は国別・ご注文後にご案内', zh:'國內外均可\n運費依國家各異，訂單後另行通知'},
   'ship3-title':{ko:'결제 방법', en:'Payment', ja:'お支払い方法', zh:'付款方式'},
   'ship3-desc': {ko:'PayPal (전 세계)\nBOOTH (일본 팬 추천)', en:'PayPal (worldwide)\nBOOTH (recommended for Japan)', ja:'PayPal（全世界）\nBOOTH（日本のファンにおすすめ）', zh:'PayPal（全球）\nBOOTH（日本粉絲推薦）'},
   'ship4-title':{ko:'결제 후', en:'After Payment', ja:'ご入金後', zh:'付款後'},

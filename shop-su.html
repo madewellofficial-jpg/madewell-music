@@ -132,10 +132,10 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 <!-- HERO -->
 <div class="product-hero">
   <div class="hero-gallery">
-    <img class="hero-main-img" src="images/STILL UNFINIHSED 앨범자료/앨범 앞뒤 표지.jpg" alt="Still UNFINISHED"/>
+    <img class="hero-main-img" src="images/STILL UNFINIHSED 앨범자료/JK MAIN.png" alt="Still UNFINISHED"/>
     <div class="hero-sub-imgs">
-      <img src="images/STILL UNFINIHSED 앨범자료/앨범표지.jpg" alt="표지"/>
-      <img src="images/STILL UNFINIHSED 앨범자료/표지2.jpg" alt="표지2"/>
+      <img src="images/STILL UNFINIHSED 앨범자료/JK SOFA.png" alt="JK SOFA"/>
+      <img src="images/STILL UNFINIHSED 앨범자료/메이드웰_프로필4.jpg" alt="프로필"/>
     </div>
     <div class="limited-overlay" id="lim-badge">⚡ 잔여 수량 한정</div>
   </div>
@@ -169,7 +169,7 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 
     <div class="note-small" id="pay-note">
       결제 후 주문자명 · 배송 주소를 DM 또는 하단 폼으로 보내주세요.<br/>
-      <strong>배송비:</strong> 국가에 따라 별도 청구 · 수량 소진 시 판매 종료
+      <strong>발송:</strong> 주문 접수 완료 후 3일 이내 · <strong>배송비:</strong> 국가별 별도 안내
     </div>
   </div>
 </div>
@@ -181,7 +181,7 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
   <div class="section-tag" id="about-tag">ABOUT THIS ALBUM</div>
   <h2 class="section-h" id="about-title">앨범 <em>소개</em></h2>
   <div class="about-grid">
-    <img class="about-cover" src="images/STILL UNFINIHSED 앨범자료/앨범표지.jpg" alt="Still UNFINISHED"/>
+    <img class="about-cover" src="images/STILL UNFINIHSED 앨범자료/JK SOFA.png" alt="Still UNFINISHED"/>
     <div>
       <div class="about-desc" id="about-desc">
         <p>일본 도쿄, 그 미완성의 감정들. TOKYO TOWER로 시작된 이야기가 담긴 두 번째 솔로 정규앨범.</p>
@@ -227,14 +227,14 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
   <h2 class="section-h">배송 <em>안내</em></h2>
   <div class="shipping-grid">
     <div class="shipping-item">
-      <div class="ship-icon">⚡</div>
-      <div class="ship-title">잔여 수량 한정</div>
-      <div class="ship-desc" id="ship1">수량 소진 시 판매 종료<br/>빠른 주문 추천드립니다</div>
+      <div class="ship-icon">📦</div>
+      <div class="ship-title">발송 안내</div>
+      <div class="ship-desc" id="ship1">주문 접수 완료 후 3일 이내 발송<br/>수량 소진 시 판매 종료</div>
     </div>
     <div class="shipping-item">
       <div class="ship-icon">🌏</div>
       <div class="ship-title">배송 지역</div>
-      <div class="ship-desc" id="ship2">국내 + 해외 모두 가능<br/>배송비는 국가별 별도 안내</div>
+      <div class="ship-desc" id="ship2">국내 + 해외 모두 가능<br/>배송비 국가별 상이 — 접수 후 별도 안내</div>
     </div>
     <div class="shipping-item">
       <div class="ship-icon">💳</div>
@@ -244,7 +244,7 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
     <div class="shipping-item">
       <div class="ship-icon">📱</div>
       <div class="ship-title">결제 후</div>
-      <div class="ship-desc" id="ship4">Instagram DM 또는<br/>하단 폼으로 주문 정보 전달</div>
+      <div class="ship-desc" id="ship4">주문 접수 확인 후 발송 진행<br/>Instagram DM 또는 하단 폼으로 전달</div>
     </div>
   </div>
 
@@ -383,9 +383,9 @@ function setLang(lang) {
     'btn-paypal':  {ko:'💳 PayPal로 구매하기 →', en:'💳 Buy via PayPal →', ja:'💳 PayPalで購入する →', zh:'💳 PayPal 購買 →'},
     'btn-booth':   {ko:'🏪 BOOTH で購入する (日本) →', en:'🏪 Buy on BOOTH (Japan) →', ja:'🏪 BOOTHで購入する →', zh:'🏪 BOOTH 購買 (日本) →'},
     'btn-dm':      {ko:'📱 Instagram DM으로 문의하기', en:'📱 DM on Instagram', ja:'📱 Instagram DMでお問い合わせ', zh:'📱 Instagram DM 詢問'},
-    'pay-note':    {ko:'결제 후 주문자명 · 배송 주소를 DM 또는 하단 폼으로 보내주세요.\n배송비: 국가에 따라 별도 청구 · 수량 소진 시 판매 종료', en:'After payment, send your name & address via DM or the form.\nShipping fee varies · Sales end when stock runs out.', ja:'ご入金後、お名前・配送先をDMまたはフォームでお知らせください。\n送料別途・在庫なくなり次第終了', zh:'付款後請透過DM或表單傳送姓名與地址。\n運費另計 · 售完為止'},
-    'ship1':       {ko:'수량 소진 시 판매 종료\n빠른 주문 추천드립니다', en:'Ends when stock runs out\nOrder soon recommended', ja:'在庫なくなり次第終了\nお早めにどうぞ', zh:'售完為止\n建議盡早訂購'},
-    'ship2':       {ko:'국내 + 해외 모두 가능\n배송비는 국가별 별도 안내', en:'Domestic & international\nShipping fee varies', ja:'国内・海外とも対応\n送料は国別にご案内', zh:'國內外均可\n運費依國家另計'},
+    'pay-note':    {ko:'결제 후 주문자명 · 배송 주소를 DM 또는 하단 폼으로 보내주세요.\n발송: 주문 접수 완료 후 3일 이내 · 배송비: 국가별 별도 안내', en:'After payment, send your name & address via DM or the form.\nShips within 3 days of order confirmation · Shipping fee varies by country', ja:'ご入金後、お名前・配送先をDMまたはフォームでお知らせください。\nご注文確定後3日以内に発送 · 送料は国別にご案内', zh:'付款後請透過DM或表單傳送姓名與地址。\n訂單確認後3日內發貨 · 運費依國家另行通知'},
+    'ship1':       {ko:'주문 접수 완료 후 3일 이내 발송\n수량 소진 시 판매 종료', en:'Ships within 3 days of order confirmation\nSales end when stock runs out', ja:'ご注文確定後3日以内に発送\n在庫なくなり次第終了', zh:'訂單確認後3日內發貨\n售完為止'},
+    'ship2':       {ko:'국내 + 해외 모두 가능\n배송비 국가별 상이 — 접수 후 별도 안내', en:'Domestic & international\nShipping fee varies — notified after order', ja:'国内・海外とも対応\n送料は国別・ご注文後にご案内', zh:'國內外均可\n運費依國家各異，訂單後另行通知'},
     'ship3':       {ko:'PayPal (전 세계)\nBOOTH (일본 팬 추천)', en:'PayPal (worldwide)\nBOOTH (Japan)', ja:'PayPal（全世界）\nBOOTH（日本）', zh:'PayPal（全球）\nBOOTH（日本）'},
     'ship4':       {ko:'Instagram DM 또는\n하단 폼으로 주문 정보 전달', en:'Via Instagram DM\nor form below', ja:'Instagram DMまたは\n下のフォームで', zh:'透過Instagram DM\n或下方表單'},
   };

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>MADEWELL — SHOP</title>
-<meta name="description" content="MADEWELL 공식 샵 — 앨범, 굿즈, 직접 주문."/>
+<title>MADEWELL MUSIC SHOP — Official Store</title>
+<meta name="description" content="MADEWELL MUSIC 공식 샵 — 앨범, 굿즈, 직접 주문."/>
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -61,6 +61,7 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 
 .product-thumb{width:100%;aspect-ratio:1;position:relative;overflow:hidden;background:#0a1c22}
 .product-thumb-img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.product-thumb-img.merch-img{object-fit:contain;object-position:center;padding:12px;background:#0d1e24}
 .product-card:hover .product-thumb-img{transform:scale(1.04)}
 
 /* 플레이스홀더 (이미지 없을 때) */
@@ -153,7 +154,7 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 <!-- SHOP HERO -->
 <div class="shop-hero">
   <div class="shop-hero-label" id="hero-label">Official Store</div>
-  <h1 class="shop-hero-title" id="hero-title">MADEWELL <em>Shop</em></h1>
+  <h1 class="shop-hero-title" id="hero-title">MADEWELL MUSIC <em>SHOP</em></h1>
   <p class="shop-hero-sub" id="hero-sub">앨범, 굿즈 직접 주문 가능합니다. 결제는 PayPal / BOOTH, 문의는 하단 폼 또는 DM.</p>
 </div>
 
@@ -171,7 +172,7 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
     <!-- ① MAMA 3집 -->
     <a class="product-card" href="shop-mama.html" data-cat="album">
       <div class="product-thumb">
-        <img class="product-thumb-img" src="images/MAMA앨범 컨셉사진들/메인자켓 1.png" alt="MAMA"/>
+        <img class="product-thumb-img" src="images/MAMA앨범 컨셉사진들/MAIN 1.png" alt="MAMA"/>
         <div class="product-badge badge-sold">105% SOLD</div>
       </div>
       <div class="product-info">
@@ -188,7 +189,7 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
     <!-- ② Still UNFINISHED 2집 -->
     <a class="product-card" href="shop-su.html" data-cat="album">
       <div class="product-thumb">
-        <img class="product-thumb-img" src="images/STILL UNFINIHSED 앨범자료/앨범표지.jpg" alt="Still UNFINISHED"/>
+        <img class="product-thumb-img" src="images/STILL UNFINIHSED 앨범자료/JK MAIN.png" alt="Still UNFINISHED"/>
         <div class="product-badge badge-limited">잔여 수량 한정</div>
       </div>
       <div class="product-info">
@@ -202,81 +203,56 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
       </div>
     </a>
 
-    <!-- ③ MAMA 반팔 화이트 -->
-    <div class="product-card coming-soon" data-cat="merch">
+    <!-- ③ STILL UNFINISHED — Black Tee -->
+    <a class="product-card" href="https://madewellmusic.booth.pm/" target="_blank" data-cat="merch">
       <div class="product-thumb">
-        <div class="product-thumb-ph">MAMA TEE</div>
-        <div class="product-badge badge-soon">COMING SOON</div>
+        <img class="product-thumb-img merch-img" src="images/BOOTH 1.png" alt="STILL UNFINISHED Black Tee"/>
+        <div class="product-badge badge-available">AVAILABLE</div>
       </div>
       <div class="product-info">
-        <div class="product-cat">MERCH · T-SHIRT</div>
-        <div class="product-name">MAMA <em>White Tee</em></div>
-        <div class="product-price">₩45,000</div>
-        <div class="product-cta-soon" id="cta-soon-1">준비 중</div>
-      </div>
-    </div>
-
-    <!-- ④ MAMA 반팔 블랙 -->
-    <div class="product-card coming-soon" data-cat="merch">
-      <div class="product-thumb">
-        <div class="product-thumb-ph">MAMA TEE</div>
-        <div class="product-badge badge-soon">COMING SOON</div>
-      </div>
-      <div class="product-info">
-        <div class="product-cat">MERCH · T-SHIRT</div>
-        <div class="product-name">MAMA <em>Black Tee</em></div>
-        <div class="product-price">₩45,000</div>
-        <div class="product-cta-soon" id="cta-soon-2">준비 중</div>
-      </div>
-    </div>
-
-    <!-- ⑤ 이전 앨범 반팔 -->
-    <a class="product-card" href="shop-merch.html#prev-tee" data-cat="merch">
-      <div class="product-thumb">
-        <div class="product-thumb-ph">PREV TEE</div>
-        <div class="product-badge badge-limited">한정 재고</div>
-      </div>
-      <div class="product-info">
-        <div class="product-cat">MERCH · T-SHIRT</div>
-        <div class="product-name">Previous Album <em>Tee</em></div>
-        <div class="product-price">₩40,000</div>
-        <div class="product-cta" id="cta-prev-tee">
-          자세히 보기
+        <div class="product-cat">STILL UNFINISHED · T-SHIRT</div>
+        <div class="product-name">Black <em>Tee</em></div>
+        <div class="product-price">₩32,000 <span>/ ¥3,500</span></div>
+        <div class="product-cta" id="cta-su-btee">
+          BOOTH에서 구매
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
         </div>
       </div>
     </a>
 
-    <!-- ⑥ 이전 앨범 후드 -->
-    <a class="product-card" href="shop-merch.html#prev-hood" data-cat="merch">
+    <!-- ④ STILL UNFINISHED — White Tee -->
+    <a class="product-card" href="https://madewellmusic.booth.pm/" target="_blank" data-cat="merch">
       <div class="product-thumb">
-        <div class="product-thumb-ph">HOODIE</div>
-        <div class="product-badge badge-limited">한정 재고</div>
+        <img class="product-thumb-img merch-img" src="images/BOOTH 3.png" alt="STILL UNFINISHED White Tee"/>
+        <div class="product-badge badge-available">AVAILABLE</div>
       </div>
       <div class="product-info">
-        <div class="product-cat">MERCH · HOODIE</div>
-        <div class="product-name">Previous Album <em>Hoodie</em></div>
-        <div class="product-price">₩75,000</div>
-        <div class="product-cta" id="cta-prev-hood">
-          자세히 보기
+        <div class="product-cat">STILL UNFINISHED · T-SHIRT</div>
+        <div class="product-name">White <em>Tee</em></div>
+        <div class="product-price">₩32,000 <span>/ ¥3,500</span></div>
+        <div class="product-cta" id="cta-su-wtee">
+          BOOTH에서 구매
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
         </div>
       </div>
     </a>
 
-    <!-- ⑦ 북클렛 -->
-    <div class="product-card coming-soon" data-cat="merch">
+    <!-- ⑤ STILL UNFINISHED — Black Hoodie -->
+    <a class="product-card" href="https://madewellmusic.booth.pm/" target="_blank" data-cat="merch">
       <div class="product-thumb">
-        <div class="product-thumb-ph">BOOKLET</div>
-        <div class="product-badge badge-soon">COMING SOON</div>
+        <img class="product-thumb-img merch-img" src="images/BOOTH 2.png" alt="STILL UNFINISHED Hoodie"/>
+        <div class="product-badge badge-available">AVAILABLE</div>
       </div>
       <div class="product-info">
-        <div class="product-cat">MERCH · PHOTO BOOK</div>
-        <div class="product-name">MAMA <em>Booklet</em></div>
-        <div class="product-price">미정</div>
-        <div class="product-cta-soon" id="cta-soon-3">준비 중</div>
+        <div class="product-cat">STILL UNFINISHED · HOODIE</div>
+        <div class="product-name">Black <em>Hoodie</em></div>
+        <div class="product-price">₩68,000 <span>/ ¥7,500</span></div>
+        <div class="product-cta" id="cta-su-hood">
+          BOOTH에서 구매
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </div>
       </div>
-    </div>
+    </a>
 
   </div>
 </div>
@@ -315,8 +291,9 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
           <option value="">상품 선택 / Select item</option>
           <option value="MAMA CD (3집)">MAMA CD (3집) — ₩35,000 / $25</option>
           <option value="Still UNFINISHED CD (2집)">Still UNFINISHED CD (2집) — ₩35,000 / $25</option>
-          <option value="이전 앨범 반팔">이전 앨범 반팔</option>
-          <option value="이전 앨범 후드">이전 앨범 후드</option>
+          <option value="STILL UNFINISHED Black Tee">STILL UNFINISHED Black Tee — ₩32,000 / ¥3,500</option>
+          <option value="STILL UNFINISHED White Tee">STILL UNFINISHED White Tee — ₩32,000 / ¥3,500</option>
+          <option value="STILL UNFINISHED Black Hoodie">STILL UNFINISHED Black Hoodie — ₩68,000 / ¥7,500</option>
           <option value="기타 문의">기타 문의</option>
         </select>
       </div>
@@ -389,12 +366,13 @@ function handleFormSubmit(e) {
 let currentLang = 'ko';
 const STRINGS = {
   'hero-label': {ko:'Official Store', en:'Official Store', ja:'公式ストア', zh:'官方商店'},
-  'hero-title': {ko:'MADEWELL <em>Shop</em>', en:'MADEWELL <em>Shop</em>', ja:'MADEWELL <em>Shop</em>', zh:'MADEWELL <em>Shop</em>'},
+  'hero-title': {ko:'MADEWELL MUSIC <em>SHOP</em>', en:'MADEWELL MUSIC <em>SHOP</em>', ja:'MADEWELL MUSIC <em>SHOP</em>', zh:'MADEWELL MUSIC <em>SHOP</em>'},
   'hero-sub':   {ko:'앨범, 굿즈 직접 주문 가능합니다. 결제는 PayPal / BOOTH, 문의는 하단 폼 또는 DM.', en:'Albums & merch available now. Pay via PayPal or BOOTH. Questions? Use the form below or DM.', ja:'アルバムとグッズを直接ご注文いただけます。PayPal / BOOTHでお支払い。お問い合わせはフォームかDMで。', zh:'可直接購買專輯與周邊商品。透過PayPal / BOOTH付款，詢問請用下方表單或DM。'},
   'cta-mama':   {ko:'자세히 보기', en:'View Details', ja:'詳細を見る', zh:'查看詳情'},
   'cta-su':     {ko:'자세히 보기', en:'View Details', ja:'詳細を見る', zh:'查看詳情'},
-  'cta-prev-tee':{ko:'자세히 보기', en:'View Details', ja:'詳細を見る', zh:'查看詳情'},
-  'cta-prev-hood':{ko:'자세히 보기', en:'View Details', ja:'詳細を見る', zh:'查看詳情'},
+  'cta-su-btee':{ko:'BOOTH에서 구매', en:'Buy on BOOTH', ja:'BOOTHで購入', zh:'BOOTH 購買'},
+  'cta-su-wtee':{ko:'BOOTH에서 구매', en:'Buy on BOOTH', ja:'BOOTHで購入', zh:'BOOTH 購買'},
+  'cta-su-hood':{ko:'BOOTH에서 구매', en:'Buy on BOOTH', ja:'BOOTHで購入', zh:'BOOTH 購買'},
   'inq-label':  {ko:'Order Inquiry', en:'Order Inquiry', ja:'ご注文・お問い合わせ', zh:'訂購查詢'},
   'inq-title':  {ko:'문의 & <em>주문 안내</em>', en:'Inquiry & <em>Order Info</em>', ja:'お問い合わせ & <em>ご注文案内</em>', zh:'詢問 & <em>訂購說明</em>'},
   'inq-desc':   {ko:'결제 후 주문 정보를 보내주시거나, 구매 전 궁금한 점을 아래 폼으로 남겨주세요.<br/><strong>Instagram DM @madewellmusic_official</strong> 으로도 바로 문의 가능합니다.', en:'Send your order info after payment, or leave any question below.<br/><strong>Instagram DM @madewellmusic_official</strong> also works anytime.', ja:'ご入金後の注文情報の送付、ご購入前のご質問はフォームからどうぞ。<br/><strong>Instagram DM @madewellmusic_official</strong> でもお気軽にどうぞ。', zh:'付款後請傳送訂單資訊，或在下方表單留下任何問題。<br/>也可透過 <strong>Instagram DM @madewellmusic_official</strong> 直接聯繫。'},
@@ -404,9 +382,6 @@ const STRINGS = {
   'fl-msg':     {ko:'메시지 / Message', en:'Message', ja:'メッセージ', zh:'留言'},
   'fl-submit':  {ko:'문의 보내기 →', en:'Send Inquiry →', ja:'送信する →', zh:'發送詢問 →'},
   'fl-note':    {ko:'보내주신 내용은 madewellofficial@gmail.com 으로 전달됩니다. 보통 24시간 이내 답변드립니다.', en:'Your message will be sent to madewellofficial@gmail.com. Usually replied within 24 hours.', ja:'メッセージはmadewellofficial@gmail.comに送信されます。通常24時間以内にご返信します。', zh:'您的訊息將發送至 madewellofficial@gmail.com。通常在24小時內回覆。'},
-  'cta-soon-1': {ko:'준비 중', en:'Coming Soon', ja:'準備中', zh:'即將推出'},
-  'cta-soon-2': {ko:'준비 중', en:'Coming Soon', ja:'準備中', zh:'即將推出'},
-  'cta-soon-3': {ko:'준비 중', en:'Coming Soon', ja:'準備中', zh:'即將推出'},
 };
 
 function setLang(lang) {
