@@ -203,7 +203,45 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
       </div>
     </a>
 
-    <!-- ③ STILL UNFINISHED — Black Tee -->
+    <!-- ③ MAMA Black Tee -->
+    <a class="product-card" href="shop-mama-tee.html" data-cat="merch">
+      <div class="product-thumb">
+        <img class="product-thumb-img merch-img" src="images/MAMA_TEE_BLK.jpg.png" alt="MAMA Black Tee"
+          onerror="this.style.display='none';this.parentNode.querySelector('.product-thumb-ph').style.display='flex'"/>
+        <div class="product-thumb-ph" style="display:none">MAMA BLACK TEE</div>
+        <div class="product-badge badge-available">NEW</div>
+      </div>
+      <div class="product-info">
+        <div class="product-cat">MAMA : THE ETERNAL LOVE · T-SHIRT</div>
+        <div class="product-name">MAMA <em>Black Tee</em></div>
+        <div class="product-price">₩30,000</div>
+        <div class="product-cta" id="cta-mama-btee">
+          주문 문의하기
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </div>
+      </div>
+    </a>
+
+    <!-- ④ MAMA White Tee -->
+    <a class="product-card" href="shop-mama-tee.html" data-cat="merch">
+      <div class="product-thumb">
+        <img class="product-thumb-img merch-img" src="images/MAMA_TEE_WHT1.jpg.png" alt="MAMA White Tee"
+          onerror="this.style.display='none';this.parentNode.querySelector('.product-thumb-ph').style.display='flex'"/>
+        <div class="product-thumb-ph" style="display:none">MAMA WHITE TEE</div>
+        <div class="product-badge badge-available">NEW</div>
+      </div>
+      <div class="product-info">
+        <div class="product-cat">MAMA : THE ETERNAL LOVE · T-SHIRT</div>
+        <div class="product-name">MAMA <em>White Tee</em></div>
+        <div class="product-price">₩20,000</div>
+        <div class="product-cta" id="cta-mama-wtee">
+          주문 문의하기
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </div>
+      </div>
+    </a>
+
+    <!-- ⑤ STILL UNFINISHED — Black Tee -->
     <a class="product-card" href="https://madewellmusic.booth.pm/" target="_blank" data-cat="merch">
       <div class="product-thumb">
         <img class="product-thumb-img merch-img" src="images/BOOTH 1.png" alt="STILL UNFINISHED Black Tee"/>
@@ -290,6 +328,8 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
         <select class="form-select" name="item">
           <option value="">상품 선택 / Select item</option>
           <option value="MAMA CD (3집)">MAMA CD (3집) — ₩35,000 / $25</option>
+          <option value="MAMA Black Tee">MAMA Black Tee — ₩30,000</option>
+          <option value="MAMA White Tee">MAMA White Tee — ₩20,000</option>
           <option value="Still UNFINISHED CD (2집)">Still UNFINISHED CD (2집) — ₩35,000 / $25</option>
           <option value="STILL UNFINISHED Black Tee">STILL UNFINISHED Black Tee — ₩32,000 / ¥3,500</option>
           <option value="STILL UNFINISHED White Tee">STILL UNFINISHED White Tee — ₩32,000 / ¥3,500</option>
@@ -370,6 +410,8 @@ const STRINGS = {
   'hero-sub':   {ko:'앨범, 굿즈 직접 주문 가능합니다. 결제는 PayPal / BOOTH, 문의는 하단 폼 또는 DM.', en:'Albums & merch available now. Pay via PayPal or BOOTH. Questions? Use the form below or DM.', ja:'アルバムとグッズを直接ご注文いただけます。PayPal / BOOTHでお支払い。お問い合わせはフォームかDMで。', zh:'可直接購買專輯與周邊商品。透過PayPal / BOOTH付款，詢問請用下方表單或DM。'},
   'cta-mama':   {ko:'자세히 보기', en:'View Details', ja:'詳細を見る', zh:'查看詳情'},
   'cta-su':     {ko:'자세히 보기', en:'View Details', ja:'詳細を見る', zh:'查看詳情'},
+  'cta-mama-btee':{ko:'주문 문의하기', en:'Order Inquiry', ja:'ご注文はこちら', zh:'訂購詢問'},
+  'cta-mama-wtee':{ko:'주문 문의하기', en:'Order Inquiry', ja:'ご注文はこちら', zh:'訂購詢問'},
   'cta-su-btee':{ko:'BOOTH에서 구매', en:'Buy on BOOTH', ja:'BOOTHで購入', zh:'BOOTH 購買'},
   'cta-su-wtee':{ko:'BOOTH에서 구매', en:'Buy on BOOTH', ja:'BOOTHで購入', zh:'BOOTH 購買'},
   'cta-su-hood':{ko:'BOOTH에서 구매', en:'Buy on BOOTH', ja:'BOOTHで購入', zh:'BOOTH 購買'},
