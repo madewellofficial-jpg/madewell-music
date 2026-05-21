@@ -206,9 +206,13 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 
     <!-- 주문 버튼 -->
     <div class="buy-btns">
-      <!-- TODO: 정균 - PayPal 링크 교체 필요 (현재 CD 페이지로 연결됨) -->
-      <a class="btn-paypal" href="https://www.paypal.com/ncp/payment/VMV5VZ3UUASTW" target="_blank" id="btn-paypal">
+      <!-- KO/EN/ZH: PayPal 결제 -->
+      <a class="btn-paypal" href="https://www.paypal.com/ncp/payment/4HSUX2SHE7NUL" target="_blank" id="btn-paypal">
         💳 PayPal로 주문하기 →
+      </a>
+      <!-- JP: Booth 결제 (언어 JP 선택 시 표시) -->
+      <a class="btn-paypal" href="https://madewellmusic.booth.pm/items/8387673" target="_blank" id="btn-booth-mama" style="display:none;background:rgba(255,100,130,.85);color:#fff">
+        🛒 Booth で購入する →
       </a>
       <a class="btn-form" href="#order-form" id="btn-form">
         📋 주문 폼 작성하기
@@ -398,6 +402,18 @@ const PRICES = {
   wht: { ko:'₩18,000', ja:'¥1,900', en:'$13' },
 };
 
+/* ── 색상별 결제 링크 (언어별) ── */
+const LINKS = {
+  blk: {
+    paypal: 'https://www.paypal.com/ncp/payment/PNXQYQEZTK268',  // BLACK PayPal
+    booth:  'https://madewellmusic.booth.pm/items/8387673',
+  },
+  wht: {
+    paypal: 'https://www.paypal.com/ncp/payment/4HSUX2SHE7NUL',  // WHITE PayPal
+    booth:  'https://madewellmusic.booth.pm/items/8387711',
+  },
+};
+
 /* ── 색상별 이미지 ── */
 const IMGS = {
   blk: [
@@ -451,6 +467,9 @@ function switchColor(color) {
   // 메인 이미지 + 썸네일
   document.getElementById('main-img').src = IMGS[color][0];
   renderThumbs(color);
+
+  // 결제 링크 업데이트
+  updateBuyBtn();
 }
 
 /* 사이즈 선택 */
@@ -481,6 +500,7 @@ const S = {
   'ol-color':  {ko:'컬러 / COLOR', en:'COLOR', ja:'カラー / COLOR', zh:'顏色 / COLOR'},
   'ol-size':   {ko:'사이즈 / SIZE', en:'SIZE', ja:'サイズ / SIZE', zh:'尺寸 / SIZE'},
   'btn-paypal':{ko:'💳 PayPal로 주문하기 →', en:'💳 Order via PayPal →', ja:'💳 PayPalで注文する →', zh:'💳 PayPal 訂購 →'},
+  'btn-booth-mama':{ko:'🛒 Booth (日本) →', en:'🛒 Booth (Japan) →', ja:'🛒 Boothで購入する →', zh:'🛒 Booth 購買 →'},
   'btn-form':  {ko:'📋 주문 폼 작성하기', en:'📋 Fill Order Form', ja:'📋 注文フォームへ', zh:'📋 填寫訂購表單'},
   'btn-dm':    {ko:'📱 Instagram DM으로 문의하기', en:'📱 DM on Instagram', ja:'📱 Instagram DMでお問い合わせ', zh:'📱 Instagram DM 詢問'},
   'pay-note':  {ko:'사이즈 · 색상 · 수량 선택 후 주문해주세요.\n발송: 주문 접수 완료 후 3일 이내 · 배송비: 국가별 별도 안내', en:'Please select size · color · quantity before ordering.\nShips within 3 days of confirmation · Shipping fee varies by country', ja:'サイズ・カラー・数量を選択してご注文ください。\nご注文確定後3日以内に発送 · 送料は国別にご案内', zh:'請選擇尺寸、顏色、數量後訂購。\n訂單確認後3日內發貨 · 運費依國家另行通知'},
@@ -507,6 +527,22 @@ const S = {
   'form-desc': {ko:'색상 · 사이즈 · 수량을 선택 후 작성해주세요. PayPal 결제 완료 후에도 이 폼으로 주문 정보를 보내주세요.', en:'Please fill in your color, size, and quantity. Also send order info here after PayPal payment.', ja:'カラー・サイズ・数量を選択してご記入ください。PayPalご入金後もこちらで注文情報をお送りください。', zh:'請填寫顏色、尺寸、數量。PayPal付款後也請透過此表單傳送訂購資訊。'},
 };
 
+/* ── 결제 버튼 업데이트 (색상 + 언어 조합) ── */
+function updateBuyBtn() {
+  const isJa = currentLang === 'ja';
+  const ppBtn    = document.getElementById('btn-paypal');
+  const boothBtn = document.getElementById('btn-booth-mama');
+  if (isJa) {
+    ppBtn.style.display    = 'none';
+    boothBtn.style.display = 'flex';
+    boothBtn.href = LINKS[currentColor].booth;
+  } else {
+    ppBtn.style.display    = 'flex';
+    boothBtn.style.display = 'none';
+    ppBtn.href = LINKS[currentColor].paypal;
+  }
+}
+
 function setLang(lang) {
   currentLang = lang;
   document.querySelectorAll('.lang-bar button').forEach(b => b.classList.remove('on'));
@@ -520,6 +556,8 @@ function setLang(lang) {
   });
   // 가격 전환
   document.getElementById('price-main').textContent = PRICES[currentColor][lang] || PRICES[currentColor].ko;
+  // 결제 버튼 전환
+  updateBuyBtn();
 }
 
 // 초기화
