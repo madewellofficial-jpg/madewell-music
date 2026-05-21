@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>MAMA Tee — MADEWELL 3RD SOLO ALBUM MERCH</title>
-<meta name="description" content="MADEWELL 3집 MAMA : THE ETERNAL LOVE 공식 굿즈 티셔츠. Black ₩30,000 / White ₩20,000."/>
+<title>MAMA Tee — MADEWELL 3RD SOLO ALBUM OFFICIAL T-SHIRT</title>
+<meta name="description" content="MADEWELL 3집 MAMA : THE ETERNAL LOVE 공식 굿즈 티셔츠. Black ₩29,000 / ¥2,900 / $18 · White ₩18,000 / ¥1,900 / $13."/>
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -174,10 +174,10 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
   <div class="hero-info">
     <div class="product-label" id="pl">MAMA : THE ETERNAL LOVE · MERCH</div>
     <div class="product-title" id="pt">MAMA <em>Tee</em></div>
-    <div class="product-sub">MADEWELL 3RD SOLO ALBUM</div>
+    <div class="product-sub" id="product-sub">MADEWELL 3RD SOLO ALBUM OFFICIAL T-SHIRT</div>
 
     <div class="price-display">
-      <div class="price-main" id="price-main">₩30,000</div>
+      <div class="price-main" id="price-main">₩29,000</div>
       <div class="price-color-label" id="price-label">BLACK</div>
     </div>
 
@@ -206,6 +206,7 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 
     <!-- 주문 버튼 -->
     <div class="buy-btns">
+      <!-- TODO: 정균 - PayPal 링크 교체 필요 (현재 CD 페이지로 연결됨) -->
       <a class="btn-paypal" href="https://www.paypal.com/ncp/payment/VMV5VZ3UUASTW" target="_blank" id="btn-paypal">
         💳 PayPal로 주문하기 →
       </a>
@@ -330,8 +331,8 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
       <div class="form-field">
         <label class="form-label" id="fl-item">색상 / Color</label>
         <select class="form-select" name="color">
-          <option value="Black (₩30,000)">Black — ₩30,000</option>
-          <option value="White (₩20,000)">White — ₩20,000</option>
+          <option value="Black (₩29,000 / ¥2,900 / $18)">Black — ₩29,000 / ¥2,900 / $18</option>
+          <option value="White (₩18,000 / ¥1,900 / $13)">White — ₩18,000 / ¥1,900 / $13</option>
         </select>
       </div>
       <div class="form-field">
@@ -391,6 +392,12 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 </footer>
 
 <script>
+/* ── 색상별 가격 (언어별) ── */
+const PRICES = {
+  blk: { ko:'₩29,000', ja:'¥2,900', en:'$18' },
+  wht: { ko:'₩18,000', ja:'¥1,900', en:'$13' },
+};
+
 /* ── 색상별 이미지 ── */
 const IMGS = {
   blk: [
@@ -438,7 +445,7 @@ function switchColor(color) {
 
   // 가격 + 라벨
   const isBlk = color === 'blk';
-  document.getElementById('price-main').textContent = isBlk ? '₩30,000' : '₩20,000';
+  document.getElementById('price-main').textContent = PRICES[color][currentLang] || PRICES[color].ko;
   document.getElementById('price-label').textContent = isBlk ? 'BLACK' : 'WHITE';
 
   // 메인 이미지 + 썸네일
@@ -470,6 +477,7 @@ let currentLang = 'ko';
 const S = {
   'pl':        {ko:'MAMA : THE ETERNAL LOVE · MERCH', en:'MAMA : THE ETERNAL LOVE · MERCH', ja:'MAMA : THE ETERNAL LOVE · グッズ', zh:'MAMA : THE ETERNAL LOVE · 周邊'},
   'pt':        {ko:'MAMA <em>Tee</em>', en:'MAMA <em>Tee</em>', ja:'MAMA <em>Tee</em>', zh:'MAMA <em>T恤</em>'},
+  'product-sub':{ko:'MADEWELL 3RD SOLO ALBUM OFFICIAL T-SHIRT', en:'MADEWELL 3RD SOLO ALBUM OFFICIAL T-SHIRT', ja:'MADEWELL 3rdソロアルバム公式Tシャツ', zh:'MADEWELL 第3張專輯官方T恤'},
   'ol-color':  {ko:'컬러 / COLOR', en:'COLOR', ja:'カラー / COLOR', zh:'顏色 / COLOR'},
   'ol-size':   {ko:'사이즈 / SIZE', en:'SIZE', ja:'サイズ / SIZE', zh:'尺寸 / SIZE'},
   'btn-paypal':{ko:'💳 PayPal로 주문하기 →', en:'💳 Order via PayPal →', ja:'💳 PayPalで注文する →', zh:'💳 PayPal 訂購 →'},
@@ -510,6 +518,8 @@ function setLang(lang) {
     const v = vals[lang] || vals.ko;
     el.innerHTML = v.replace(/\n/g,'<br/>');
   });
+  // 가격 전환
+  document.getElementById('price-main').textContent = PRICES[currentColor][lang] || PRICES[currentColor].ko;
 }
 
 // 초기화

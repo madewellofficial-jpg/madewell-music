@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Merch — MADEWELL Official Store</title>
-<meta name="description" content="MADEWELL 공식 굿즈 — 반팔, 후드, 북클렛. 직접 주문."/>
+<meta name="description" content="MADEWELL 공식 굿즈 — 2집 앨범 반팔·후디 한정 재고. Black Tee ¥3,000 / White Tee ¥2,500 / Black Hoodie ¥7,500."/>
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -38,7 +38,8 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 @media(max-width:768px){.item-card{grid-template-columns:1fr}}
 .item-card.coming{opacity:.55}
 .item-img-wrap{position:relative}
-.item-img{width:100%;aspect-ratio:1;object-fit:cover;border:1px solid rgba(255,255,255,.08);background:#0a1c22;display:block}
+.item-img{width:100%;aspect-ratio:1;object-fit:cover;border:1px solid rgba(255,255,255,.08);background:#0a1c22;display:block;cursor:pointer;transition:opacity .2s}
+.item-img:hover{opacity:.9}
 .item-ph{width:100%;aspect-ratio:1;background:#0a1c22;border:1px solid rgba(255,255,255,.07);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
 .item-ph-label{font-family:'Josefin Sans',sans-serif;font-weight:100;font-size:clamp(12px,1.5vw,18px);letter-spacing:.4em;color:rgba(255,255,255,.1);text-transform:uppercase}
 .item-ph-icon{font-size:32px;opacity:.3}
@@ -47,12 +48,18 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 .badge-soon{background:rgba(255,255,255,.08);color:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.12)}
 .badge-available{background:rgba(65,168,182,.85);color:#040e12}
 
+/* 썸네일 스트립 */
+.thumb-strip{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:2px}
+.thumb-strip img{width:100%;aspect-ratio:1;object-fit:cover;border:1px solid rgba(255,255,255,.06);cursor:pointer;opacity:.55;transition:opacity .2s;background:#0a1c22}
+.thumb-strip img:hover{opacity:.85}
+.thumb-strip img.active{opacity:1;border-color:rgba(95,200,215,.4)}
+
 .item-info{padding-top:4px}
 .item-cat{font-size:8.5px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:rgba(95,200,215,.4);margin-bottom:10px}
 .item-name{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(26px,3.5vw,44px);color:#fff;line-height:1.1;margin-bottom:8px}
 .item-name em{font-style:italic;color:rgba(95,200,215,.75)}
 .item-desc{font-size:12px;color:rgba(255,255,255,.32);line-height:2;font-weight:300;margin-bottom:24px;max-width:420px}
-.item-price{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:#fff;margin-bottom:6px}
+.item-price{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:#fff;margin-bottom:6px;transition:all .2s}
 .item-price-note{font-size:10px;color:rgba(255,255,255,.25);margin-bottom:28px;font-weight:300}
 
 /* 사이즈 */
@@ -68,16 +75,6 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 .btn-booth:hover{background:rgba(255,100,130,.06);border-color:rgba(255,100,130,.45)}
 .btn-dm-inline{display:flex;align-items:center;justify-content:center;gap:8px;padding:11px 24px;background:transparent;border:1px solid rgba(255,255,255,.09);color:rgba(255,255,255,.28);font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;transition:all .2s;width:100%}
 .btn-dm-inline:hover{border-color:rgba(255,255,255,.22);color:rgba(255,255,255,.55)}
-.btn-coming{display:block;text-align:center;padding:16px 24px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.2);font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;cursor:default;max-width:360px}
-
-/* 알림 신청 (COMING SOON 아이템) */
-.notify-form{display:flex;gap:0;max-width:360px;margin-top:12px}
-.notify-input{flex:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-right:none;color:#fff;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:300;padding:11px 14px;outline:none;transition:border-color .2s}
-.notify-input:focus{border-color:rgba(95,200,215,.35)}
-.notify-input::placeholder{color:rgba(255,255,255,.2)}
-.notify-submit{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:0 18px;cursor:pointer;transition:all .2s;white-space:nowrap}
-.notify-submit:hover{background:rgba(95,200,215,.15);border-color:rgba(95,200,215,.3);color:rgba(95,200,215,.85)}
-.notify-note{font-size:10px;color:rgba(255,255,255,.18);margin-top:8px;font-weight:300}
 
 /* INQUIRY */
 .inquiry-section{padding:80px 72px;background:rgba(52,138,150,.04);border-top:1px solid rgba(95,200,215,.08);margin-top:72px}
@@ -98,6 +95,17 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 .form-note{font-size:10px;color:rgba(255,255,255,.2);line-height:1.8;margin-top:4px;font-weight:300}
 .form-success{display:none;padding:18px 22px;background:rgba(52,138,150,.12);border:1px solid rgba(95,200,215,.25);font-size:12px;color:rgba(95,200,215,.85);margin-top:8px}
 
+/* MAMA TEE BANNER */
+.mama-banner{margin:0 72px 72px;padding:36px 40px;border:1px solid rgba(95,200,215,.15);background:rgba(52,138,150,.06);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+@media(max-width:768px){.mama-banner{margin:0 28px 72px;padding:28px 24px}}
+.mama-banner-text{}
+.mama-banner-label{font-size:8.5px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:rgba(95,200,215,.5);margin-bottom:8px}
+.mama-banner-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(20px,2.5vw,32px);color:#fff}
+.mama-banner-title em{font-style:italic;color:rgba(95,200,215,.8)}
+.mama-banner-sub{font-size:11px;color:rgba(255,255,255,.3);margin-top:6px;font-weight:300}
+.btn-goto-mama{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:rgba(65,168,182,.9);color:#040e12;font-size:9.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;transition:background .2s;white-space:nowrap}
+.btn-goto-mama:hover{background:rgba(80,185,200,1)}
+
 .artist-footer{padding:60px 72px 48px;border-top:1px solid rgba(255,255,255,.05);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px}
 @media(max-width:640px){.artist-footer{padding:48px 28px;flex-direction:column;text-align:center}}
 .footer-brand{font-family:'Josefin Sans',sans-serif;font-weight:100;font-size:11px;letter-spacing:.44em;color:rgba(255,255,255,.22);text-transform:uppercase}
@@ -116,149 +124,135 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
   <button onclick="setLang('ko')" class="on">KO</button>
   <button onclick="setLang('en')">EN</button>
   <button onclick="setLang('ja')">JP</button>
-  <button onclick="setLang('zh')">ZH</button>
 </div>
 
 <!-- PAGE HEADER -->
 <div class="page-header">
-  <div class="page-label">Official Merch</div>
-  <h1 class="page-title">MADEWELL <em>Goods</em></h1>
-  <p class="page-sub">공식 굿즈 — 한정 수량. 주문은 하단 폼 또는 Instagram DM.</p>
+  <div class="page-label">2ND ALBUM · Official Merch</div>
+  <h1 class="page-title">2집 앨범 <em>Goods</em></h1>
+  <p class="page-sub" id="hdr-sub">공식 굿즈 — 한정 수량. 주문은 하단 폼 또는 Instagram DM.</p>
 </div>
 
-<!-- ① 이전 앨범 반팔 -->
-<div class="merch-section" id="prev-tee">
-  <div class="section-tag">T-SHIRT</div>
-  <h2 class="section-h">이전 앨범 <em>반팔</em></h2>
+<!-- ① 2집 블랙 반팔 -->
+<div class="merch-section" id="blk-tee">
+  <div class="section-tag">2ND ALBUM · T-SHIRT · BLACK</div>
+  <h2 class="section-h">2집 <em>Black Tee</em></h2>
 </div>
 <div style="padding:0 72px 0" class="item-wrap">
   <div class="item-card">
     <div class="item-img-wrap">
-      <!-- ★ 사진 받으면 src 교체: images/merch/prev-tee.jpg -->
-      <div class="item-ph">
-        <div class="item-ph-icon">👕</div>
-        <div class="item-ph-label">사진 준비 중</div>
-      </div>
+      <img class="item-img" id="img-blk-tee" src="images/2nd_BLACK1.jpg" alt="2nd Album Black Tee"/>
       <div class="item-badge badge-limited">한정 재고</div>
+      <div class="thumb-strip">
+        <img src="images/2nd_BLACK1.jpg" class="active" alt="Black Tee 1" onclick="swapImg('img-blk-tee', this)"/>
+        <img src="images/2nd_BLACK2.jpg" alt="Black Tee 2" onclick="swapImg('img-blk-tee', this)"/>
+      </div>
     </div>
     <div class="item-info">
-      <div class="item-cat">T-SHIRT · 이전 앨범 굿즈</div>
-      <div class="item-name">Previous Album <em>Tee</em></div>
-      <div class="item-desc">MADEWELL 이전 앨범 공식 반팔. 한정 수량 재고 판매 중.<br/>사이즈 선택 후 하단 폼 또는 DM으로 주문해주세요.</div>
-      <div class="item-price">₩40,000</div>
-      <div class="item-price-note">/ 배송비 별도</div>
+      <div class="item-cat">T-SHIRT · 2집 앨범 굿즈 · BLACK</div>
+      <div class="item-name">2nd Album <em>Black Tee</em></div>
+      <div class="item-desc" id="desc-blk-tee">MADEWELL 2집 공식 반팔 — 블랙. 한정 수량 재고 판매 중.<br/>사이즈 선택 후 하단 폼 또는 DM으로 주문해주세요.</div>
+      <div class="item-price" data-kr="₩28,000" data-ja="¥3,000" data-en="$20">₩28,000</div>
+      <div class="item-price-note" id="pnote-blk-tee">/ 배송비 별도</div>
       <div class="size-row">
-        <button class="size-chip" onclick="selectSize(this,'prev-tee')">S</button>
-        <button class="size-chip" onclick="selectSize(this,'prev-tee')">M</button>
-        <button class="size-chip" onclick="selectSize(this,'prev-tee')">L</button>
-        <button class="size-chip" onclick="selectSize(this,'prev-tee')">XL</button>
+        <button class="size-chip" onclick="selectSize(this)">S</button>
+        <button class="size-chip" onclick="selectSize(this)">M</button>
+        <button class="size-chip" onclick="selectSize(this)">L</button>
+        <button class="size-chip" onclick="selectSize(this)">XL</button>
       </div>
       <div class="item-btns">
-        <button class="btn-order" onclick="scrollToForm('이전 앨범 반팔')">주문 문의하기 →</button>
+        <button class="btn-order" onclick="scrollToForm('2집 Black Tee')" id="btn-order-blk">주문 문의하기 →</button>
         <a class="btn-dm-inline" href="https://instagram.com/madewellmusic_official" target="_blank">📱 Instagram DM으로 주문</a>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ② 이전 앨범 후드 -->
-<div class="merch-section" id="prev-hood" style="padding-top:0">
-  <div class="section-tag">HOODIE</div>
-  <h2 class="section-h">이전 앨범 <em>후디</em></h2>
-</div>
-<div style="padding:0 72px 0" class="item-wrap">
-  <div class="item-card">
-    <div class="item-img-wrap">
-      <!-- ★ 사진 받으면 src 교체: images/merch/prev-hood.jpg -->
-      <div class="item-ph">
-        <div class="item-ph-icon">🧥</div>
-        <div class="item-ph-label">사진 준비 중</div>
-      </div>
-      <div class="item-badge badge-limited">한정 재고</div>
-    </div>
-    <div class="item-info">
-      <div class="item-cat">HOODIE · 이전 앨범 굿즈</div>
-      <div class="item-name">Previous Album <em>Hoodie</em></div>
-      <div class="item-desc">MADEWELL 이전 앨범 공식 후디. 한정 수량 재고 판매 중.<br/>사이즈 선택 후 하단 폼 또는 DM으로 주문해주세요.</div>
-      <div class="item-price">₩75,000</div>
-      <div class="item-price-note">/ 배송비 별도</div>
-      <div class="size-row">
-        <button class="size-chip" onclick="selectSize(this,'prev-hood')">S</button>
-        <button class="size-chip" onclick="selectSize(this,'prev-hood')">M</button>
-        <button class="size-chip" onclick="selectSize(this,'prev-hood')">L</button>
-        <button class="size-chip" onclick="selectSize(this,'prev-hood')">XL</button>
-      </div>
-      <div class="item-btns">
-        <button class="btn-order" onclick="scrollToForm('이전 앨범 후디')">주문 문의하기 →</button>
-        <a class="btn-dm-inline" href="https://instagram.com/madewellmusic_official" target="_blank">📱 Instagram DM으로 주문</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ③ MAMA 반팔 화이트 (COMING SOON) -->
-<div class="merch-section" id="mama-tee-white" style="padding-top:0">
-  <div class="section-tag">T-SHIRT · NEW</div>
-  <h2 class="section-h">MAMA <em>White Tee</em></h2>
+<!-- ② 2집 화이트 반팔 -->
+<div class="merch-section" id="wht-tee" style="padding-top:0">
+  <div class="section-tag">2ND ALBUM · T-SHIRT · WHITE</div>
+  <h2 class="section-h">2집 <em>White Tee</em></h2>
 </div>
 <div style="padding:0 72px 0">
-  <div class="item-card coming">
+  <div class="item-card">
     <div class="item-img-wrap">
-      <div class="item-ph">
-        <div class="item-ph-icon">👕</div>
-        <div class="item-ph-label">MAMA WHITE TEE</div>
+      <img class="item-img" id="img-wht-tee" src="images/2nd_WHITE1.jpg" alt="2nd Album White Tee"/>
+      <div class="item-badge badge-limited">한정 재고</div>
+      <div class="thumb-strip">
+        <img src="images/2nd_WHITE1.jpg" class="active" alt="White Tee 1" onclick="swapImg('img-wht-tee', this)"/>
+        <img src="images/2nd_WHITE2.jpg" alt="White Tee 2" onclick="swapImg('img-wht-tee', this)"/>
       </div>
-      <div class="item-badge badge-soon">COMING SOON</div>
     </div>
     <div class="item-info">
-      <div class="item-cat">T-SHIRT · MAMA 앨범 굿즈 · 화이트</div>
-      <div class="item-name">MAMA <em>White Tee</em></div>
-      <div class="item-desc">3집 MAMA 공식 반팔 — 화이트 컬러. 출시 예정.<br/>이메일을 남겨주시면 출시 시 바로 알려드립니다.</div>
-      <div class="item-price" style="color:rgba(255,255,255,.3)">₩45,000</div>
-      <div class="item-price-note">준비 중 — 출시 알림 신청</div>
-      <div class="notify-form">
-        <input class="notify-input" type="email" placeholder="이메일 주소" id="notify-white"/>
-        <button class="notify-submit" onclick="submitNotify('notify-white','MAMA White Tee')">알림 신청</button>
+      <div class="item-cat">T-SHIRT · 2집 앨범 굿즈 · WHITE</div>
+      <div class="item-name">2nd Album <em>White Tee</em></div>
+      <div class="item-desc" id="desc-wht-tee">MADEWELL 2집 공식 반팔 — 화이트. 한정 수량 재고 판매 중.<br/>사이즈 선택 후 하단 폼 또는 DM으로 주문해주세요.</div>
+      <div class="item-price" data-kr="₩23,000" data-ja="¥2,500" data-en="$17">₩23,000</div>
+      <div class="item-price-note" id="pnote-wht-tee">/ 배송비 별도</div>
+      <div class="size-row">
+        <button class="size-chip" onclick="selectSize(this)">S</button>
+        <button class="size-chip" onclick="selectSize(this)">M</button>
+        <button class="size-chip" onclick="selectSize(this)">L</button>
+        <button class="size-chip" onclick="selectSize(this)">XL</button>
       </div>
-      <div class="notify-note">출시 시 이메일로 바로 알려드립니다.</div>
+      <div class="item-btns">
+        <button class="btn-order" onclick="scrollToForm('2집 White Tee')" id="btn-order-wht">주문 문의하기 →</button>
+        <a class="btn-dm-inline" href="https://instagram.com/madewellmusic_official" target="_blank">📱 Instagram DM으로 주문</a>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- ④ MAMA 반팔 블랙 (COMING SOON) -->
-<div class="merch-section" id="mama-tee-black" style="padding-top:0">
-  <div class="section-tag">T-SHIRT · NEW</div>
-  <h2 class="section-h">MAMA <em>Black Tee</em></h2>
+<!-- ③ 2집 블랙 후디 -->
+<div class="merch-section" id="blk-hood" style="padding-top:0">
+  <div class="section-tag">2ND ALBUM · HOODIE · BLACK</div>
+  <h2 class="section-h">2집 <em>Black Hoodie</em></h2>
 </div>
-<div style="padding:0 72px 72px">
-  <div class="item-card coming">
+<div style="padding:0 72px 0">
+  <div class="item-card">
     <div class="item-img-wrap">
-      <div class="item-ph" style="background:#0f0f0f">
-        <div class="item-ph-icon">👕</div>
-        <div class="item-ph-label">MAMA BLACK TEE</div>
+      <img class="item-img" id="img-blk-hood" src="images/2nd_BLACKHOOD1.jpg" alt="2nd Album Black Hoodie"/>
+      <div class="item-badge badge-limited">한정 재고</div>
+      <div class="thumb-strip">
+        <img src="images/2nd_BLACKHOOD1.jpg" class="active" alt="Black Hoodie 1" onclick="swapImg('img-blk-hood', this)"/>
+        <img src="images/2nd_BLACKHOOD2.jpg" alt="Black Hoodie 2" onclick="swapImg('img-blk-hood', this)"/>
       </div>
-      <div class="item-badge badge-soon">COMING SOON</div>
     </div>
     <div class="item-info">
-      <div class="item-cat">T-SHIRT · MAMA 앨범 굿즈 · 블랙</div>
-      <div class="item-name">MAMA <em>Black Tee</em></div>
-      <div class="item-desc">3집 MAMA 공식 반팔 — 블랙 컬러. 출시 예정.<br/>이메일을 남겨주시면 출시 시 바로 알려드립니다.</div>
-      <div class="item-price" style="color:rgba(255,255,255,.3)">₩45,000</div>
-      <div class="item-price-note">준비 중 — 출시 알림 신청</div>
-      <div class="notify-form">
-        <input class="notify-input" type="email" placeholder="이메일 주소" id="notify-black"/>
-        <button class="notify-submit" onclick="submitNotify('notify-black','MAMA Black Tee')">알림 신청</button>
+      <div class="item-cat">HOODIE · 2집 앨범 굿즈 · BLACK</div>
+      <div class="item-name">2nd Album <em>Black Hoodie</em></div>
+      <div class="item-desc" id="desc-blk-hood">MADEWELL 2집 공식 후디 — 블랙. 한정 수량 재고 판매 중.<br/>사이즈 선택 후 하단 폼 또는 DM으로 주문해주세요.</div>
+      <div class="item-price" data-kr="₩69,000" data-ja="¥7,500" data-en="$50">₩69,000</div>
+      <div class="item-price-note" id="pnote-blk-hood">/ 배송비 별도</div>
+      <div class="size-row">
+        <button class="size-chip" onclick="selectSize(this)">S</button>
+        <button class="size-chip" onclick="selectSize(this)">M</button>
+        <button class="size-chip" onclick="selectSize(this)">L</button>
+        <button class="size-chip" onclick="selectSize(this)">XL</button>
       </div>
-      <div class="notify-note">출시 시 이메일로 바로 알려드립니다.</div>
+      <div class="item-btns">
+        <button class="btn-order" onclick="scrollToForm('2집 Black Hoodie')" id="btn-order-hood">주문 문의하기 →</button>
+        <a class="btn-dm-inline" href="https://instagram.com/madewellmusic_official" target="_blank">📱 Instagram DM으로 주문</a>
+      </div>
     </div>
   </div>
+</div>
+
+<!-- MAMA Tee 배너 -->
+<div class="mama-banner">
+  <div class="mama-banner-text">
+    <div class="mama-banner-label">3RD ALBUM · NOW AVAILABLE</div>
+    <div class="mama-banner-title">MAMA <em>Tee</em></div>
+    <div class="mama-banner-sub" id="mama-banner-sub">3집 솔로 앨범 "MAMA : THE ETERNAL LOVE" 공식 티셔츠 — Black / White</div>
+  </div>
+  <a class="btn-goto-mama" href="shop-mama-tee.html" id="btn-mama-goto">MAMA Tee 보러가기 →</a>
 </div>
 
 <!-- INQUIRY FORM -->
 <div class="inquiry-section" id="inquiry">
   <div class="section-tag">Order Inquiry</div>
   <h2 class="section-h" style="margin-bottom:16px">굿즈 주문 <em>문의</em></h2>
-  <p style="font-size:12px;color:rgba(255,255,255,.3);line-height:2;font-weight:300;margin-bottom:36px;max-width:500px">
+  <p style="font-size:12px;color:rgba(255,255,255,.3);line-height:2;font-weight:300;margin-bottom:36px;max-width:500px" id="form-intro">
     사이즈, 수량, 배송 국가를 알려주시면 바로 안내드립니다.
   </p>
 
@@ -269,29 +263,28 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 
     <div class="form-row">
       <div class="form-field">
-        <label class="form-label">이름 / Name</label>
+        <label class="form-label" id="fl-name">이름 / Name</label>
         <input class="form-input" type="text" name="name" placeholder="홍길동" required/>
       </div>
       <div class="form-field">
-        <label class="form-label">이메일 / Email</label>
+        <label class="form-label" id="fl-email">이메일 / Email</label>
         <input class="form-input" type="email" name="email" placeholder="your@email.com" required/>
       </div>
     </div>
 
     <div class="form-row">
       <div class="form-field">
-        <label class="form-label">주문 상품</label>
+        <label class="form-label" id="fl-item">주문 상품</label>
         <select class="form-select" name="item" id="form-item-select">
           <option value="">상품 선택</option>
-          <option value="이전 앨범 반팔">이전 앨범 반팔 — ₩40,000</option>
-          <option value="이전 앨범 후디">이전 앨범 후디 — ₩75,000</option>
-          <option value="MAMA White Tee (출시 예정)">MAMA White Tee (출시 예정)</option>
-          <option value="MAMA Black Tee (출시 예정)">MAMA Black Tee (출시 예정)</option>
+          <option value="2집 Black Tee (¥3,000)">2집 Black Tee — ¥3,000 / ₩28,000 / $20</option>
+          <option value="2집 White Tee (¥2,500)">2집 White Tee — ¥2,500 / ₩23,000 / $17</option>
+          <option value="2집 Black Hoodie (¥7,500)">2집 Black Hoodie — ¥7,500 / ₩69,000 / $50</option>
           <option value="기타 문의">기타 문의</option>
         </select>
       </div>
       <div class="form-field">
-        <label class="form-label">사이즈</label>
+        <label class="form-label" id="fl-size">사이즈</label>
         <select class="form-select" name="size">
           <option value="">사이즈 선택</option>
           <option value="S">S</option>
@@ -304,7 +297,7 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 
     <div class="form-row">
       <div class="form-field">
-        <label class="form-label">수량</label>
+        <label class="form-label" id="fl-qty">수량</label>
         <select class="form-select" name="quantity">
           <option value="1">1개</option>
           <option value="2">2개</option>
@@ -312,17 +305,17 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
         </select>
       </div>
       <div class="form-field">
-        <label class="form-label">배송 국가</label>
+        <label class="form-label" id="fl-country">배송 국가</label>
         <input class="form-input" type="text" name="country" placeholder="대한민국 / Japan / USA ..."/>
       </div>
     </div>
 
     <div class="form-field">
-      <label class="form-label">메시지</label>
+      <label class="form-label" id="fl-msg">메시지</label>
       <textarea class="form-textarea" name="message" placeholder="추가 요청 사항, 배송 주소, 기타 문의 등을 적어주세요."></textarea>
     </div>
 
-    <button class="form-submit" type="submit">주문 문의 보내기 →</button>
+    <button class="form-submit" type="submit" id="fl-submit">주문 문의 보내기 →</button>
     <div class="form-note">24시간 내 회신 드립니다. Instagram DM @madewellmusic_official 으로도 문의 가능합니다.</div>
     <div class="form-success" id="form-success">✓ 문의가 전달되었습니다! 빠르게 연락드릴게요.</div>
   </form>
@@ -332,7 +325,7 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
   <div class="footer-brand">MADEWELL</div>
   <div class="footer-links">
     <a href="artist-shop.html">← SHOP</a>
-    <a href="shop-mama.html">MAMA 앨범</a>
+    <a href="shop-mama-tee.html">MAMA Tee</a>
     <a href="shop-su.html">Still UNFINISHED</a>
     <a href="https://instagram.com/madewellmusic_official" target="_blank">Instagram</a>
     <a href="index.html">Home</a>
@@ -340,39 +333,31 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 </footer>
 
 <script>
-function selectSize(btn, item) {
+/* ── 이미지 스왑 ── */
+function swapImg(mainId, thumbEl) {
+  document.getElementById(mainId).src = thumbEl.src;
+  thumbEl.closest('.thumb-strip').querySelectorAll('img').forEach(t => t.classList.remove('active'));
+  thumbEl.classList.add('active');
+}
+
+/* ── 사이즈 선택 ── */
+function selectSize(btn) {
   btn.closest('.size-row').querySelectorAll('.size-chip').forEach(c => c.classList.remove('on'));
   btn.classList.add('on');
 }
 
+/* ── 폼 스크롤 ── */
 function scrollToForm(itemName) {
   document.getElementById('inquiry').scrollIntoView({behavior:'smooth'});
   const sel = document.getElementById('form-item-select');
   if (sel) {
     for (let opt of sel.options) {
-      if (opt.value.includes(itemName.split(' ')[0])) { sel.value = opt.value; break; }
+      if (opt.value.includes(itemName)) { sel.value = opt.value; break; }
     }
   }
 }
 
-function submitNotify(inputId, itemName) {
-  const email = document.getElementById(inputId).value;
-  if (!email || !email.includes('@')) { alert('올바른 이메일을 입력해주세요.'); return; }
-  // Formsubmit으로 알림 신청 이메일 발송
-  const form = document.createElement('form');
-  form.method = 'POST';
-  form.action = 'https://formsubmit.co/madewellofficial@gmail.com';
-  form.style.display = 'none';
-  form.innerHTML = `
-    <input name="_subject" value="[MADEWELL] 출시 알림 신청 — ${itemName}"/>
-    <input name="_captcha" value="false"/>
-    <input name="email" value="${email}"/>
-    <input name="item" value="${itemName} 출시 알림 신청"/>
-  `;
-  document.body.appendChild(form);
-  form.submit();
-}
-
+/* ── 폼 제출 ── */
 function handleFormSubmit(e) {
   const btn = e.target.querySelector('.form-submit');
   btn.textContent = '전송 중...';
@@ -385,12 +370,54 @@ function handleFormSubmit(e) {
   }, 1200);
 }
 
+/* ── 다국어 + 가격 전환 ── */
 let currentLang = 'ko';
+
+const STRINGS = {
+  'hdr-sub':         { ko:'공식 굿즈 — 한정 수량. 주문은 하단 폼 또는 Instagram DM.', en:'Official Merch — Limited Stock. Order via form or Instagram DM.', ja:'公式グッズ — 限定在庫。フォームまたはInstagram DMでご注文。' },
+  'desc-blk-tee':    { ko:'MADEWELL 2집 공식 반팔 — 블랙. 한정 수량 재고 판매 중.<br/>사이즈 선택 후 하단 폼 또는 DM으로 주문해주세요.', en:'MADEWELL 2nd Album Official Tee — Black. Limited stock available.<br/>Select size, then order via the form or DM below.', ja:'MADEWELL 2ndアルバム公式Tシャツ — ブラック。限定在庫あり。<br/>サイズを選び、下のフォームまたはDMでご注文ください。' },
+  'desc-wht-tee':    { ko:'MADEWELL 2집 공식 반팔 — 화이트. 한정 수량 재고 판매 중.<br/>사이즈 선택 후 하단 폼 또는 DM으로 주문해주세요.', en:'MADEWELL 2nd Album Official Tee — White. Limited stock available.<br/>Select size, then order via the form or DM below.', ja:'MADEWELL 2ndアルバム公式Tシャツ — ホワイト。限定在庫あり。<br/>サイズを選び、下のフォームまたはDMでご注文ください。' },
+  'desc-blk-hood':   { ko:'MADEWELL 2집 공식 후디 — 블랙. 한정 수량 재고 판매 중.<br/>사이즈 선택 후 하단 폼 또는 DM으로 주문해주세요.', en:'MADEWELL 2nd Album Official Hoodie — Black. Limited stock available.<br/>Select size, then order via the form or DM below.', ja:'MADEWELL 2ndアルバム公式パーカー — ブラック。限定在庫あり。<br/>サイズを選び、下のフォームまたはDMでご注文ください。' },
+  'pnote-blk-tee':   { ko:'/ 배송비 별도', en:'/ + Shipping fee', ja:'/ 送料別途' },
+  'pnote-wht-tee':   { ko:'/ 배송비 별도', en:'/ + Shipping fee', ja:'/ 送料別途' },
+  'pnote-blk-hood':  { ko:'/ 배송비 별도', en:'/ + Shipping fee', ja:'/ 送料別途' },
+  'mama-banner-sub': { ko:'3집 솔로 앨범 "MAMA : THE ETERNAL LOVE" 공식 티셔츠 — Black / White', en:'3rd Solo Album "MAMA : THE ETERNAL LOVE" Official Tee — Black / White', ja:'3rdソロアルバム「MAMA : THE ETERNAL LOVE」公式Tシャツ — Black / White' },
+  'btn-mama-goto':   { ko:'MAMA Tee 보러가기 →', en:'View MAMA Tee →', ja:'MAMA Teeを見る →' },
+  'form-intro':      { ko:'사이즈, 수량, 배송 국가를 알려주시면 바로 안내드립니다.', en:'Let us know your size, quantity, and country — we\'ll get back to you shortly.', ja:'サイズ・数量・配送先の国をお知らせください。すぐにご案内します。' },
+  'fl-name':         { ko:'이름 / Name', en:'Name', ja:'お名前' },
+  'fl-email':        { ko:'이메일 / Email', en:'Email', ja:'メールアドレス' },
+  'fl-item':         { ko:'주문 상품', en:'Item', ja:'商品' },
+  'fl-size':         { ko:'사이즈', en:'Size', ja:'サイズ' },
+  'fl-qty':          { ko:'수량', en:'Quantity', ja:'数量' },
+  'fl-country':      { ko:'배송 국가', en:'Country', ja:'お届け先国' },
+  'fl-msg':          { ko:'메시지', en:'Message', ja:'メッセージ' },
+  'fl-submit':       { ko:'주문 문의 보내기 →', en:'Send Order Inquiry →', ja:'注文・お問い合わせを送る →' },
+  'btn-order-blk':   { ko:'주문 문의하기 →', en:'Order Inquiry →', ja:'ご注文・お問い合わせ →' },
+  'btn-order-wht':   { ko:'주문 문의하기 →', en:'Order Inquiry →', ja:'ご注文・お問い合わせ →' },
+  'btn-order-hood':  { ko:'주문 문의하기 →', en:'Order Inquiry →', ja:'ご注文・お問い合わせ →' },
+};
+
+/* 가격 전환: data-kr / data-ja / data-en */
+const PRICE_KEY = { ko:'kr', en:'en', ja:'ja' };
+
 function setLang(lang) {
   currentLang = lang;
   document.querySelectorAll('.lang-bar button').forEach(b => b.classList.remove('on'));
-  const map = {ko:0,en:1,ja:2,zh:3};
+  const map = {ko:0,en:1,ja:2};
   document.querySelectorAll('.lang-bar button')[map[lang]]?.classList.add('on');
+
+  // 텍스트 전환
+  Object.entries(STRINGS).forEach(([id, vals]) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.innerHTML = (vals[lang] || vals.ko).replace(/\n/g,'<br/>');
+  });
+
+  // 가격 전환
+  const key = PRICE_KEY[lang] || 'kr';
+  document.querySelectorAll('[data-kr]').forEach(el => {
+    el.textContent = el.dataset[key] || el.dataset.kr;
+  });
 }
 </script>
 </body>
