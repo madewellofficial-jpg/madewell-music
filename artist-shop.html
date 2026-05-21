@@ -30,7 +30,13 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 .tab-link.active{color:rgba(95,200,215,.9);border-bottom-color:rgba(95,200,215,.55)}
 .tab-badge{font-size:7px;font-weight:700;letter-spacing:.1em;padding:2px 8px;border:1px solid}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
-@media(max-width:640px){.tab-link{padding:14px 20px;font-size:8px;letter-spacing:.16em}.tab-badge{display:none}}
+@media(max-width:640px){
+  .tab-link{padding:14px 20px;font-size:8px;letter-spacing:.16em}
+  .tab-badge{display:none}
+  .lang-bar{position:static;background:none;border:none;padding:0 6px 0 0;gap:1px;align-self:center;margin-left:auto}
+  .lang-bar button{padding:4px 6px;font-size:7px;letter-spacing:.06em}
+  .tab-nav{justify-content:flex-start}
+}
 
 /* ── SHOP HERO ── */
 .shop-hero{padding:100px 72px 60px;border-bottom:1px solid rgba(255,255,255,.06)}
@@ -137,18 +143,17 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 3L5 8l5 5"/></svg>
   MADEWELL
 </a>
-<div class="lang-bar">
-  <button onclick="setLang('ko')" class="on">KO</button>
-  <button onclick="setLang('en')">EN</button>
-  <button onclick="setLang('ja')">JP</button>
-  <button onclick="setLang('zh')">ZH</button>
-</div>
-
 <!-- TAB NAV -->
 <nav class="tab-nav">
   <a class="tab-link" href="artist.html">ABOUT</a>
   <a class="tab-link" href="artist-music.html">MUSIC</a>
   <a class="tab-link active" href="artist-shop.html">SHOP <span class="tab-badge" style="background:rgba(255,80,80,.12);border-color:rgba(255,80,80,.35);color:rgba(255,130,130,.9);animation:none">● 105% SOLD</span></a>
+  <div class="lang-bar">
+    <button onclick="setLang('ko')" class="on">KO</button>
+    <button onclick="setLang('en')">EN</button>
+    <button onclick="setLang('ja')">JP</button>
+    <button onclick="setLang('zh')">ZH</button>
+  </div>
 </nav>
 
 <!-- SHOP HERO -->

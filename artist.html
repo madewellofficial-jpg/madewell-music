@@ -17,7 +17,11 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
 .lang-bar button{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.38);background:none;border:none;padding:5px 10px;cursor:pointer;text-transform:uppercase;transition:all .2s;line-height:1}
 .lang-bar button.on{background:rgba(65,168,182,.9);color:#040e12}
 .lang-bar button:hover:not(.on){color:rgba(255,255,255,.8)}
-@media(max-width:640px){.lang-bar{top:14px;right:14px}}
+@media(max-width:640px){
+  .lang-bar{position:static;background:none;border:none;padding:0 6px 0 0;gap:1px;align-self:center;margin-left:auto}
+  .lang-bar button{padding:4px 6px;font-size:7px;letter-spacing:.06em}
+  .tab-nav{justify-content:flex-start}
+}
 
 /* ── BACK NAV ── */
 .nav-back{position:fixed;top:22px;left:28px;z-index:300;font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.3);display:flex;align-items:center;gap:8px;transition:color .2s}
@@ -121,18 +125,17 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 3L5 8l5 5"/></svg>
   MADEWELL
 </a>
-<div class="lang-bar">
-  <button onclick="setLang('ko')" class="on">KO</button>
-  <button onclick="setLang('en')">EN</button>
-  <button onclick="setLang('ja')">JP</button>
-  <button onclick="setLang('zh')">ZH</button>
-</div>
-
 <!-- TAB NAV -->
 <nav class="tab-nav">
   <a class="tab-link active" href="artist.html">ABOUT</a>
   <a class="tab-link" href="artist-music.html">MUSIC</a>
   <a class="tab-link" href="artist-shop.html">SHOP <span class="tab-badge">● PRE-ORDER</span></a>
+  <div class="lang-bar">
+    <button onclick="setLang('ko')" class="on">KO</button>
+    <button onclick="setLang('en')">EN</button>
+    <button onclick="setLang('ja')">JP</button>
+    <button onclick="setLang('zh')">ZH</button>
+  </div>
 </nav>
 
 <!-- HERO -->

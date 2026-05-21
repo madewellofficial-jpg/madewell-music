@@ -551,6 +551,11 @@ body.menu-open{overflow:hidden}
 .lang-toggle-mobile .lang-btn{font-size:11px;padding:8px 16px;border:1px solid rgba(255,255,255,.15)}
 .lang-toggle-mobile .lang-btn.on{background:var(--gold);color:#000;border-color:var(--gold)}
 
+/* ── MOBILE LANG FLOATING BAR ── */
+.lang-float{display:none;position:fixed;top:14px;right:14px;z-index:500;gap:1px;background:rgba(10,10,12,.92);border:1px solid rgba(255,255,255,.12);padding:3px}
+.lang-float .lang-btn{font-size:8px;padding:4px 7px;letter-spacing:.07em}
+@media(max-width:900px){.lang-float{display:flex}}
+
 /* ── LANG VISIBILITY ── */
 .ko-only{display:inline-flex}
 .ko-only.bk-pay-item{display:flex}
@@ -603,6 +608,13 @@ body.menu-open{overflow:hidden}
     </button>
   </div>
 </nav>
+
+<!-- MOBILE FLOATING LANG BAR (always visible on mobile) -->
+<div class="lang-float" id="lang-float">
+  <button class="lang-btn on" onclick="setLang('ko')">KO</button>
+  <button class="lang-btn" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('ja')">JP</button>
+</div>
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobile-menu">
