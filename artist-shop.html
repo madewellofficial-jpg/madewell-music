@@ -35,7 +35,8 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
   .tab-badge{display:none}
   .lang-bar{position:static;background:none;border:none;padding:0 6px 0 0;gap:1px;align-self:center;margin-left:auto}
   .lang-bar button{padding:4px 6px;font-size:7px;letter-spacing:.06em}
-  .tab-nav{justify-content:flex-start}
+  .tab-nav{justify-content:flex-start;padding-left:80px}
+  .nav-back{top:0;left:0;height:48px;padding:0 12px 0 16px;font-size:7.5px;letter-spacing:.16em;background:rgba(5,14,18,.95);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-right:1px solid rgba(255,255,255,.09)}
 }
 
 /* ── SHOP HERO ── */
@@ -57,7 +58,16 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 .product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;background:rgba(255,255,255,.06);margin-bottom:1px}
 .product-grid-wrap{padding:72px;background:#050e12}
 @media(max-width:768px){.product-grid-wrap{padding:40px 20px}}
-@media(max-width:480px){.product-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){
+  .product-grid{grid-template-columns:repeat(3,1fr)}
+  .product-info{padding:10px 10px 14px;gap:3px}
+  .product-cat{font-size:6px;letter-spacing:.18em}
+  .product-name{font-size:13px}
+  .product-price{font-size:9px}
+  .product-price span{font-size:8px}
+  .product-cta{font-size:7.5px;letter-spacing:.14em;padding-top:10px;gap:3px}
+  .product-cta svg{width:9px;height:9px}
+}
 
 /* ── PRODUCT CARD ── */
 .product-card{position:relative;background:#050e12;cursor:pointer;transition:background .25s;display:flex;flex-direction:column}
@@ -66,7 +76,7 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 .product-card.coming-soon:hover{background:#050e12}
 
 .product-thumb{width:100%;aspect-ratio:1;position:relative;overflow:hidden;background:#0a1c22}
-.product-thumb-img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.product-thumb-img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;transition:transform .6s cubic-bezier(.22,1,.36,1)}
 .product-thumb-img.merch-img{object-fit:contain;object-position:center;padding:12px;background:#0d1e24}
 .product-card:hover .product-thumb-img{transform:scale(1.04)}
 
