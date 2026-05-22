@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>STILL UNFINISHED Hoodie — MADEWELL 2ND ALBUM OFFICIAL HOODIE</title>
+<meta name="description" content="MADEWELL 2집 STILL UNFINISHED 공식 후드집업. Black ₩68,000 / ¥7,500."/>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+a{text-decoration:none;color:inherit}
+html{scroll-behavior:smooth}
+body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-height:100vh}
+
+.nav-back{position:fixed;top:22px;left:28px;z-index:300;font-size:9px;font-weight:700;letter-spacing:.28em;color:rgba(255,255,255,.28);text-transform:uppercase;display:flex;align-items:center;gap:8px;transition:color .2s}
+.nav-back:hover{color:rgba(255,255,255,.7)}
+.nav-back svg{width:14px;height:14px}
+.lang-bar{position:fixed;top:22px;right:28px;z-index:300;display:flex;gap:2px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);padding:3px}
+.lang-bar button{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.38);background:none;border:none;padding:5px 10px;cursor:pointer;text-transform:uppercase;transition:all .2s;line-height:1}
+.lang-bar button.on{background:rgba(65,168,182,.9);color:#040e12}
+.lang-bar button:hover:not(.on){color:rgba(255,255,255,.8)}
+
+/* ── PRODUCT HERO ── */
+.product-hero{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;padding-top:64px}
+@media(max-width:768px){.product-hero{grid-template-columns:1fr;min-height:auto}}
+
+/* 갤러리 */
+.hero-gallery{position:relative;background:#0d1e24;display:flex;flex-direction:column}
+.main-img-wrap{flex:1;min-height:480px;overflow:hidden;position:relative}
+.main-img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;padding:20px;transition:opacity .3s}
+.thumb-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(255,255,255,.04);border-top:1px solid rgba(255,255,255,.06)}
+.thumb-btn{aspect-ratio:1;overflow:hidden;cursor:pointer;background:#0a1c22;border:none;padding:0;position:relative;transition:opacity .2s}
+.thumb-btn img{width:100%;height:100%;object-fit:contain;object-position:center;padding:4px}
+.thumb-btn.active::after{content:'';position:absolute;inset:0;border:2px solid rgba(95,200,215,.7)}
+.thumb-btn:hover{opacity:.8}
+
+/* 상품 정보 */
+.hero-info{padding:72px 56px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid rgba(255,255,255,.05);overflow-y:auto}
+@media(max-width:768px){.hero-info{padding:44px 28px;border-left:none;border-top:1px solid rgba(255,255,255,.05)}}
+
+.product-label{font-size:9px;font-weight:700;letter-spacing:.4em;text-transform:uppercase;color:rgba(95,200,215,.45);margin-bottom:12px}
+.product-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(34px,4vw,58px);color:#fff;line-height:1.05;margin-bottom:6px}
+.product-title em{font-style:italic;color:rgba(95,200,215,.8)}
+.product-sub{font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:36px}
+
+/* 가격 */
+.price-display{display:flex;align-items:baseline;gap:14px;margin-bottom:8px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.07)}
+.price-main{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:#fff}
+.price-sub{font-size:16px;font-weight:300;color:rgba(255,255,255,.3);font-family:'Cormorant Garamond',serif}
+
+/* 사이즈 선택 */
+.option-group{margin-bottom:24px}
+.option-label{font-size:8.5px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:10px}
+.size-btns{display:flex;flex-wrap:wrap;gap:8px}
+.size-btn{min-width:44px;padding:8px 12px;font-size:9px;font-weight:700;letter-spacing:.14em;color:rgba(255,255,255,.45);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);cursor:pointer;font-family:'Montserrat',sans-serif;text-transform:uppercase;transition:all .2s}
+.size-btn:hover{border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.75)}
+.size-btn.active{background:rgba(65,168,182,.15);border-color:rgba(65,168,182,.6);color:rgba(95,200,215,.9)}
+
+/* 주문 버튼 */
+.buy-btns{display:flex;flex-direction:column;gap:10px;margin-bottom:24px;margin-top:28px}
+.btn-booth{display:flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;background:rgba(255,100,130,.85);color:#fff;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;transition:background .2s;cursor:pointer;border:none;width:100%;font-family:'Montserrat',sans-serif}
+.btn-booth:hover{background:rgba(255,120,150,1)}
+.btn-form{display:flex;align-items:center;justify-content:center;gap:10px;padding:13px 28px;background:transparent;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.5);font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;transition:all .2s;cursor:pointer;width:100%;font-family:'Montserrat',sans-serif}
+.btn-form:hover{border-color:rgba(255,255,255,.35);color:rgba(255,255,255,.8)}
+.btn-dm{display:flex;align-items:center;justify-content:center;gap:10px;padding:11px 28px;background:transparent;border:1px solid rgba(255,100,130,.2);color:rgba(255,140,160,.6);font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;transition:all .2s;width:100%}
+.btn-dm:hover{border-color:rgba(255,100,130,.4);color:rgba(255,170,190,.9)}
+
+.note-small{font-size:10px;color:rgba(255,255,255,.2);line-height:1.9;font-weight:300}
+.note-small strong{color:rgba(95,200,215,.5);font-weight:500}
+
+/* ── BODY ── */
+.product-body{padding:80px 72px;max-width:1100px}
+@media(max-width:768px){.product-body{padding:56px 28px}}
+.section-tag{font-size:8.5px;font-weight:700;letter-spacing:.36em;text-transform:uppercase;color:rgba(95,200,215,.4);margin-bottom:12px}
+.section-h{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3vw,38px);font-weight:300;color:#fff;margin-bottom:28px;line-height:1.1}
+.section-h em{font-style:italic;color:rgba(95,200,215,.75)}
+
+.desc-text{font-size:13px;color:rgba(255,255,255,.35);line-height:2.2;font-weight:300;max-width:560px;margin-bottom:48px}
+.desc-text p+p{margin-top:14px}
+
+/* 사이즈 표 */
+.size-table{width:100%;border-collapse:collapse;margin-bottom:72px;font-size:11px}
+.size-table th{font-size:8.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.3);padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.08);text-align:left}
+.size-table td{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04);color:rgba(255,255,255,.5);font-weight:300}
+.size-table tr:hover td{background:rgba(255,255,255,.02);color:rgba(255,255,255,.7)}
+.size-table .size-label{color:rgba(95,200,215,.7);font-weight:600;letter-spacing:.1em}
+.size-note{font-size:10px;color:rgba(255,255,255,.2);margin-top:12px;margin-bottom:72px;line-height:1.8;font-weight:300}
+
+/* 갤러리 그리드 */
+.full-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin-bottom:72px}
+.gallery-img{width:100%;aspect-ratio:1;object-fit:contain;object-position:center;border:1px solid rgba(255,255,255,.06);background:#0d1e24;padding:10px}
+
+/* 배송 안내 */
+.shipping-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;border:1px solid rgba(255,255,255,.07);margin-bottom:72px}
+.shipping-item{padding:24px 28px;border-right:1px solid rgba(255,255,255,.07)}
+.shipping-item:last-child{border-right:none}
+@media(max-width:640px){.shipping-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.07)}.shipping-item:last-child{border-bottom:none}}
+.ship-icon{font-size:20px;margin-bottom:10px}
+.ship-title{font-size:9.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:8px}
+.ship-desc{font-size:11px;color:rgba(255,255,255,.28);line-height:1.9;font-weight:300}
+
+/* 문의 폼 */
+.inquiry-section{padding:80px 72px;background:rgba(52,138,150,.04);border-top:1px solid rgba(95,200,215,.08)}
+@media(max-width:768px){.inquiry-section{padding:56px 28px}}
+.inquiry-form{display:flex;flex-direction:column;gap:14px;max-width:580px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:480px){.form-row{grid-template-columns:1fr}}
+.form-field{display:flex;flex-direction:column;gap:6px}
+.form-label{font-size:8.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.25)}
+.form-input,.form-textarea,.form-select{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:#fff;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:300;padding:12px 14px;outline:none;transition:border-color .2s;width:100%}
+.form-input:focus,.form-textarea:focus,.form-select:focus{border-color:rgba(95,200,215,.4)}
+.form-input::placeholder,.form-textarea::placeholder{color:rgba(255,255,255,.18)}
+.form-textarea{resize:vertical;min-height:100px}
+.form-select{cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none' stroke='rgba(255,255,255,.3)' stroke-width='1.5'%3E%3Cpath d='M1 1l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.form-select option{background:#0a1c22;color:#fff}
+.form-submit{background:rgba(65,168,182,.9);color:#040e12;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;padding:16px 32px;border:none;cursor:pointer;transition:background .2s;align-self:flex-start}
+.form-submit:hover{background:rgba(80,185,200,1)}
+.form-note{font-size:10px;color:rgba(255,255,255,.2);line-height:1.8;margin-top:4px;font-weight:300}
+.form-success{display:none;padding:18px 22px;background:rgba(52,138,150,.12);border:1px solid rgba(95,200,215,.25);font-size:12px;color:rgba(95,200,215,.85);line-height:1.8;margin-top:8px}
+
+.artist-footer{padding:60px 72px 48px;border-top:1px solid rgba(255,255,255,.05);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px}
+@media(max-width:640px){.artist-footer{padding:48px 28px;flex-direction:column;text-align:center}}
+.footer-brand{font-family:'Josefin Sans',sans-serif;font-weight:100;font-size:11px;letter-spacing:.44em;color:rgba(255,255,255,.22);text-transform:uppercase}
+.footer-links{display:flex;gap:24px;flex-wrap:wrap;justify-content:center}
+.footer-links a{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.18);transition:color .2s}
+.footer-links a:hover{color:rgba(95,200,215,.7)}
+</style>
+</head>
+<body>
+
+<a class="nav-back" href="artist-shop.html">
+  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 3L5 8l5 5"/></svg>
+  SHOP
+</a>
+<div class="lang-bar">
+  <button onclick="setLang('ko')" class="on">KO</button>
+  <button onclick="setLang('en')">EN</button>
+  <button onclick="setLang('ja')">JP</button>
+  <button onclick="setLang('zh')">ZH</button>
+</div>
+
+<!-- PRODUCT HERO -->
+<div class="product-hero">
+
+  <!-- 좌: 이미지 갤러리 -->
+  <div class="hero-gallery">
+    <div class="main-img-wrap">
+      <img class="main-img" id="main-img" src="images/2nd_BLACKHOOD1.jpg" alt="STILL UNFINISHED Black Hoodie"/>
+    </div>
+    <div class="thumb-strip" id="thumb-strip"></div>
+  </div>
+
+  <!-- 우: 상품 정보 -->
+  <div class="hero-info">
+    <div class="product-label" id="pl">STILL UNFINISHED · MERCH</div>
+    <div class="product-title" id="pt">Black <em>Hoodie</em></div>
+    <div class="product-sub" id="product-sub">MADEWELL 2ND ALBUM OFFICIAL HOODIE</div>
+
+    <div class="price-display">
+      <div class="price-main" id="price-main">₩68,000</div>
+      <div class="price-sub" id="price-sub">/ ¥7,500</div>
+    </div>
+
+    <!-- 사이즈 선택 -->
+    <div class="option-group">
+      <div class="option-label" id="ol-size">사이즈 / SIZE</div>
+      <div class="size-btns">
+        <button class="size-btn" onclick="selectSize(this)">S</button>
+        <button class="size-btn" onclick="selectSize(this)">M</button>
+        <button class="size-btn" onclick="selectSize(this)">L</button>
+        <button class="size-btn" onclick="selectSize(this)">XL</button>
+        <button class="size-btn" onclick="selectSize(this)">2XL</button>
+        <button class="size-btn" onclick="selectSize(this)">3XL</button>
+        <button class="size-btn" onclick="selectSize(this)">4XL</button>
+      </div>
+    </div>
+
+    <!-- 주문 버튼 -->
+    <div class="buy-btns">
+      <a class="btn-booth" href="https://madewellmusic.booth.pm/items/7546185" target="_blank" id="btn-booth">
+        🛒 Booth에서 구매하기 →
+      </a>
+      <a class="btn-form" href="#order-form" id="btn-form">
+        📋 주문 폼 작성하기
+      </a>
+      <a class="btn-dm" href="https://instagram.com/madewellmusic_official" target="_blank" id="btn-dm">
+        📱 Instagram DM으로 문의하기
+      </a>
+    </div>
+
+    <div class="note-small" id="pay-note">
+      사이즈 · 수량 선택 후 주문해주세요.<br/>
+      <strong>발송:</strong> 주문 접수 완료 후 3일 이내 · <strong>배송비:</strong> 국가별 별도 안내
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT BODY -->
+<div class="product-body">
+
+  <div class="section-tag">ABOUT THIS ITEM</div>
+  <h2 class="section-h" id="desc-title">상품 <em>소개</em></h2>
+  <div class="desc-text" id="desc-body">
+    <p>MADEWELL 2집 솔로 앨범 "STILL UNFINISHED" 공식 굿즈 후드집업.</p>
+    <p>앨범의 감성을 담은 블랙 오버핏 후디입니다.</p>
+  </div>
+
+  <div class="section-tag">SIZE GUIDE</div>
+  <h2 class="section-h">사이즈 <em>안내</em></h2>
+  <table class="size-table">
+    <thead>
+      <tr>
+        <th>SIZE</th>
+        <th>총기장 (cm)</th>
+        <th>가슴단면 (cm)</th>
+        <th>어깨 (cm)</th>
+        <th>소매기장 (cm)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="size-label">S</td><td>64</td><td>52</td><td>46</td><td>60</td></tr>
+      <tr><td class="size-label">M</td><td>67</td><td>55</td><td>49</td><td>62</td></tr>
+      <tr><td class="size-label">L</td><td>70</td><td>58</td><td>52</td><td>64</td></tr>
+      <tr><td class="size-label">XL</td><td>73</td><td>61</td><td>55</td><td>66</td></tr>
+      <tr><td class="size-label">2XL</td><td>76</td><td>64</td><td>58</td><td>68</td></tr>
+      <tr><td class="size-label">3XL</td><td>78</td><td>67</td><td>61</td><td>69</td></tr>
+      <tr><td class="size-label">4XL</td><td>80</td><td>70</td><td>64</td><td>70</td></tr>
+    </tbody>
+  </table>
+  <p class="size-note" id="size-note">※ 측정 방법에 따라 1~3cm 오차가 있을 수 있습니다. 넉넉한 오버핏 착용을 원하시면 한 사이즈 업 추천드립니다.</p>
+
+  <div class="section-tag">GALLERY</div>
+  <h2 class="section-h">상품 <em>이미지</em></h2>
+  <div class="full-gallery">
+    <img class="gallery-img" src="images/2nd_BLACKHOOD1.jpg" alt="Black Hoodie Front"/>
+    <img class="gallery-img" src="images/2nd_BLACKHOOD2.jpg" alt="Black Hoodie Detail"/>
+  </div>
+
+  <div class="section-tag">SHIPPING INFO</div>
+  <h2 class="section-h">배송 <em>안내</em></h2>
+  <div class="shipping-grid">
+    <div class="shipping-item">
+      <div class="ship-icon">📦</div>
+      <div class="ship-title" id="ship1-t">발송 안내</div>
+      <div class="ship-desc" id="ship1-d">주문 접수 완료 후 3일 이내 발송<br/>주문 순서대로 처리합니다</div>
+    </div>
+    <div class="shipping-item">
+      <div class="ship-icon">🌏</div>
+      <div class="ship-title" id="ship2-t">배송 지역</div>
+      <div class="ship-desc" id="ship2-d">국내 + 해외 모두 가능<br/>배송비 국가별 상이 — 접수 후 별도 안내</div>
+    </div>
+    <div class="shipping-item">
+      <div class="ship-icon">🛒</div>
+      <div class="ship-title" id="ship3-t">결제 방법</div>
+      <div class="ship-desc" id="ship3-d">Booth (일본 / 해외)<br/>또는 하단 주문 폼 이용</div>
+    </div>
+    <div class="shipping-item">
+      <div class="ship-icon">📱</div>
+      <div class="ship-title" id="ship4-t">결제 후</div>
+      <div class="ship-desc" id="ship4-d">주문 접수 확인 후 발송 진행<br/>Instagram DM 또는 하단 폼으로 전달</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 주문 폼 -->
+<div class="inquiry-section" id="order-form">
+  <div class="section-tag">ORDER / INQUIRY</div>
+  <h2 class="section-h">주문 & <em>문의</em></h2>
+  <p style="font-size:12px;color:rgba(255,255,255,.3);line-height:2;font-weight:300;margin-bottom:36px;max-width:500px" id="form-desc">
+    사이즈 · 수량을 선택 후 작성해주세요. Booth 결제 완료 후에도 이 폼으로 주문 정보를 보내주세요.
+  </p>
+
+  <form class="inquiry-form" action="https://formsubmit.co/madewellofficial@gmail.com" method="POST" onsubmit="handleFormSubmit(event)">
+    <input type="hidden" name="_subject" value="[MADEWELL SHOP] STILL UNFINISHED Hoodie 주문/문의"/>
+    <input type="hidden" name="_captcha" value="false"/>
+    <input type="hidden" name="_template" value="table"/>
+
+    <div class="form-row">
+      <div class="form-field">
+        <label class="form-label" id="fl-name">이름 / Name</label>
+        <input class="form-input" type="text" name="name" placeholder="홍길동" required/>
+      </div>
+      <div class="form-field">
+        <label class="form-label" id="fl-email">이메일 / Email</label>
+        <input class="form-input" type="email" name="email" placeholder="your@email.com" required/>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-field">
+        <label class="form-label" id="fl-size">사이즈 / Size</label>
+        <select class="form-select" name="size">
+          <option value="">사이즈 선택</option>
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+          <option value="2XL">2XL</option>
+          <option value="3XL">3XL</option>
+          <option value="4XL">4XL</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label class="form-label" id="fl-qty">수량 / Quantity</label>
+        <select class="form-select" name="quantity">
+          <option value="1">1장</option>
+          <option value="2">2장</option>
+          <option value="3+">3장 이상 (문의)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-field">
+        <label class="form-label" id="fl-country">배송 국가</label>
+        <input class="form-input" type="text" name="country" placeholder="대한민국 / Japan / USA ..."/>
+      </div>
+      <div class="form-field">
+        <label class="form-label" id="fl-addr">배송 주소 / Shipping Address</label>
+        <input class="form-input" type="text" name="address" placeholder="주소를 입력해주세요"/>
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label class="form-label" id="fl-msg">메시지</label>
+      <textarea class="form-textarea" name="message" placeholder="요청 사항, 결제 완료 여부, 기타 문의 등 자유롭게 적어주세요."></textarea>
+    </div>
+
+    <button class="form-submit" type="submit" id="fl-submit">주문/문의 보내기 →</button>
+    <div class="form-note">보내주신 내용은 madewellofficial@gmail.com 으로 전달됩니다. 24시간 내 답변드립니다.</div>
+    <div class="form-success" id="form-success">✓ 전달되었습니다. 빠르게 연락드리겠습니다!</div>
+  </form>
+</div>
+
+<footer class="artist-footer">
+  <div class="footer-brand">MADEWELL</div>
+  <div class="footer-links">
+    <a href="artist-shop.html">← SHOP</a>
+    <a href="shop-su-tee.html">STILL UNFINISHED Tee</a>
+    <a href="https://instagram.com/madewellmusic_official" target="_blank">Instagram</a>
+    <a href="index.html">Home</a>
+  </div>
+</footer>
+
+<script>
+const IMGS = [
+  'images/2nd_BLACKHOOD1.jpg',
+  'images/2nd_BLACKHOOD2.jpg',
+];
+
+let currentLang = 'ko';
+
+function renderThumbs() {
+  const strip = document.getElementById('thumb-strip');
+  strip.innerHTML = IMGS.map((src, i) => `
+    <button class="thumb-btn${i===0?' active':''}" onclick="setThumb(${i})">
+      <img src="${src}" alt="thumb ${i+1}"/>
+    </button>`).join('');
+}
+
+function setThumb(idx) {
+  document.getElementById('main-img').src = IMGS[idx];
+  document.querySelectorAll('.thumb-btn').forEach((b,i) => b.classList.toggle('active', i===idx));
+}
+
+function selectSize(btn) {
+  document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function handleFormSubmit(e) {
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = '전송 중...';
+  btn.disabled = true;
+  setTimeout(() => {
+    document.getElementById('form-success').style.display = 'block';
+    e.target.reset();
+    btn.textContent = '주문/문의 보내기 →';
+    btn.disabled = false;
+  }, 1200);
+}
+
+const S = {
+  'pl':         {ko:'STILL UNFINISHED · MERCH', en:'STILL UNFINISHED · MERCH', ja:'STILL UNFINISHED · グッズ', zh:'STILL UNFINISHED · 周邊'},
+  'pt':         {ko:'Black <em>Hoodie</em>', en:'Black <em>Hoodie</em>', ja:'Black <em>Hoodie</em>', zh:'黑色 <em>連帽衫</em>'},
+  'product-sub':{ko:'MADEWELL 2ND ALBUM OFFICIAL HOODIE', en:'MADEWELL 2ND ALBUM OFFICIAL HOODIE', ja:'MADEWELL 2ndアルバム公式フーディー', zh:'MADEWELL 第2張專輯官方連帽衫'},
+  'ol-size':    {ko:'사이즈 / SIZE', en:'SIZE', ja:'サイズ / SIZE', zh:'尺寸 / SIZE'},
+  'btn-booth':  {ko:'🛒 Booth에서 구매하기 →', en:'🛒 Buy on Booth →', ja:'🛒 Boothで購入する →', zh:'🛒 Booth 購買 →'},
+  'btn-form':   {ko:'📋 주문 폼 작성하기', en:'📋 Fill Order Form', ja:'📋 注文フォームへ', zh:'📋 填寫訂購表單'},
+  'btn-dm':     {ko:'📱 Instagram DM으로 문의하기', en:'📱 DM on Instagram', ja:'📱 Instagram DMでお問い合わせ', zh:'📱 Instagram DM 詢問'},
+  'pay-note':   {ko:'사이즈 · 수량 선택 후 주문해주세요.\n발송: 주문 접수 완료 후 3일 이내 · 배송비: 국가별 별도 안내', en:'Please select size & quantity before ordering.\nShips within 3 days · Shipping fee varies by country', ja:'サイズと数量を選択してご注文ください。\nご注文確定後3日以内に発送 · 送料は国別にご案内', zh:'請選擇尺寸、數量後訂購。\n訂單確認後3日內發貨 · 運費依國家另行通知'},
+  'desc-title': {ko:'상품 <em>소개</em>', en:'About <em>This Item</em>', ja:'商品 <em>紹介</em>', zh:'商品 <em>介紹</em>'},
+  'desc-body':  {ko:'<p>MADEWELL 2집 솔로 앨범 "STILL UNFINISHED" 공식 굿즈 후드집업.</p><p>앨범의 감성을 담은 블랙 오버핏 후디입니다.</p>', en:'<p>Official merch hoodie for MADEWELL\'s 2nd Solo Album "STILL UNFINISHED".</p><p>Black oversized hoodie capturing the album\'s aesthetic.</p>', ja:'<p>MADEWELL 2ndソロアルバム「STILL UNFINISHED」公式グッズフーディー。</p><p>アルバムの世界観を表現したブラックオーバーフィットフーディーです。</p>', zh:'<p>MADEWELL 第2張個人專輯「STILL UNFINISHED」官方周邊連帽衫。</p><p>呈現專輯美學的黑色寬鬆版型連帽衫。</p>'},
+  'size-note':  {ko:'※ 측정 방법에 따라 1~3cm 오차가 있을 수 있습니다. 넉넉한 오버핏 착용을 원하시면 한 사이즈 업 추천드립니다.', en:'※ Measurements may vary by 1–3cm. Size up for a looser overfit look.', ja:'※ 採寸方法により1〜3cmの誤差が生じる場合があります。', zh:'※ 測量方式不同可能有1~3cm誤差。'},
+  'ship1-t':    {ko:'발송 안내', en:'Shipping Notice', ja:'発送案内', zh:'發貨通知'},
+  'ship1-d':    {ko:'주문 접수 완료 후 3일 이내 발송\n주문 순서대로 처리합니다', en:'Ships within 3 days\nProcessed in order received', ja:'ご注文確定後3日以内に発送', zh:'訂單確認後3日內發貨'},
+  'ship2-t':    {ko:'배송 지역', en:'Shipping Area', ja:'配送地域', zh:'配送地區'},
+  'ship2-d':    {ko:'국내 + 해외 모두 가능\n배송비 국가별 상이', en:'Domestic & international available', ja:'国内・海外とも対応', zh:'國內外均可'},
+  'ship3-t':    {ko:'결제 방법', en:'Payment', ja:'お支払い方法', zh:'付款方式'},
+  'ship3-d':    {ko:'Booth (일본 / 해외)\n또는 하단 주문 폼 이용', en:'Booth (Japan/International)\nor order form below', ja:'Booth または下のフォームから', zh:'Booth 或使用下方訂購表單'},
+  'ship4-t':    {ko:'결제 후', en:'After Payment', ja:'ご入金後', zh:'付款後'},
+  'ship4-d':    {ko:'주문 접수 확인 후 발송 진행', en:'Ships after order is confirmed', ja:'ご注文確認後に発送', zh:'確認訂單後發貨'},
+  'fl-name':    {ko:'이름 / Name', en:'Name', ja:'お名前', zh:'姓名'},
+  'fl-email':   {ko:'이메일 / Email', en:'Email', ja:'メールアドレス', zh:'電子信箱'},
+  'fl-size':    {ko:'사이즈 / Size', en:'Size', ja:'サイズ', zh:'尺寸'},
+  'fl-qty':     {ko:'수량 / Quantity', en:'Quantity', ja:'数量', zh:'數量'},
+  'fl-country': {ko:'배송 국가', en:'Country', ja:'お届け先国', zh:'配送國家'},
+  'fl-addr':    {ko:'배송 주소 / Shipping Address', en:'Shipping Address', ja:'配送先住所', zh:'配送地址'},
+  'fl-msg':     {ko:'메시지', en:'Message', ja:'メッセージ', zh:'留言'},
+  'fl-submit':  {ko:'주문/문의 보내기 →', en:'Send Order/Inquiry →', ja:'送信する →', zh:'送出訂單/詢問 →'},
+  'form-desc':  {ko:'사이즈 · 수량을 선택 후 작성해주세요. Booth 결제 완료 후에도 이 폼으로 주문 정보를 보내주세요.', en:'Fill in size & quantity. Also send info here after Booth payment.', ja:'サイズ・数量を選択してご記入ください。Boothご入金後もこちらで情報をお送りください。', zh:'請填寫尺寸、數量。Booth付款後也請透過此表單傳送資訊。'},
+};
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-bar button').forEach(b => b.classList.remove('on'));
+  const map = {ko:0,en:1,ja:2,zh:3};
+  document.querySelectorAll('.lang-bar button')[map[lang]]?.classList.add('on');
+  Object.entries(S).forEach(([id, vals]) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const v = vals[lang] || vals.ko;
+    el.innerHTML = v.replace(/\n/g,'<br/>');
+  });
+}
+
+renderThumbs();
+</script>
+</body>
+</html>
