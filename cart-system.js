@@ -355,7 +355,7 @@
     paypalLoading = true;
     var sc = document.createElement('script');
     sc.src = 'https://www.paypal.com/sdk/js?client-id=' + PAYPAL_CLIENT_ID +
-             '&currency=USD&disable-funding=card,credit,venmo';
+             '&currency=USD';
     sc.onload = function () {
       paypalLoading = false;
       if (!paypalRendered && cart.length > 0) renderPayPal();

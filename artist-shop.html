@@ -20,7 +20,7 @@
   4. 아래 URL에서 client-id=sb 를 client-id=YOUR_LIVE_CLIENT_ID 로 교체
   ══════════════════════════════════════════════════
 -->
-<script src="https://www.paypal.com/sdk/js?client-id=AZnXhAax6PaJvdcSZvthoGrE6JQr2FPha2jzA5AMX95s5e4qvlXeY3QjOjUIiwZzeGTLxKE1F-XLxPMg&currency=USD&disable-funding=card,credit,venmo"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=AZnXhAax6PaJvdcSZvthoGrE6JQr2FPha2jzA5AMX95s5e4qvlXeY3QjOjUIiwZzeGTLxKE1F-XLxPMg&currency=USD"></script>
 
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -33,12 +33,12 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 .nav-back:hover{color:rgba(255,255,255,.7)}
 .nav-back svg{width:14px;height:14px}
 
-/* ── CART ICON ── */
-.cart-icon-btn{position:fixed;top:13px;right:160px;z-index:310;background:none;border:none;cursor:pointer;color:rgba(255,255,255,.38);padding:8px;transition:color .2s;display:flex;align-items:center;position:fixed}
-.cart-icon-btn:hover{color:rgba(255,255,255,.85)}
-.cart-icon-btn svg{width:19px;height:19px}
-.cart-badge{position:absolute;top:3px;right:1px;width:16px;height:16px;background:rgba(95,200,215,.95);color:#040e12;font-size:7.5px;font-weight:700;border-radius:50%;display:none;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;letter-spacing:0}
-@media(max-width:640px){.cart-icon-btn{top:0;right:46px;height:48px;width:44px;justify-content:center;padding:0}}
+/* ── CART FAB (하단 우측 플로팅 버튼) ── */
+.cart-icon-btn{position:fixed;bottom:32px;right:32px;z-index:350;width:54px;height:54px;border-radius:50%;background:rgba(65,168,182,.92);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(0,0,0,.45);transition:background .2s,transform .2s;color:#040e12;}
+.cart-icon-btn:hover{background:rgba(80,185,200,1);transform:scale(1.07);}
+.cart-icon-btn svg{width:22px;height:22px;stroke:#040e12;}
+.cart-badge{position:absolute;top:-3px;right:-3px;min-width:18px;height:18px;padding:0 4px;border-radius:9px;background:#fff;color:#040e12;font-size:8px;font-weight:700;border:2px solid rgba(65,168,182,.85);display:none;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;letter-spacing:0}
+@media(max-width:640px){.cart-icon-btn{bottom:24px;right:20px;width:50px;height:50px;}}
 
 /* ── LANG BAR ── */
 .lang-bar{position:fixed;top:22px;right:28px;z-index:300;display:flex;gap:2px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);padding:3px}
