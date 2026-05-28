@@ -206,11 +206,11 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 
     <!-- 주문 버튼 -->
     <div class="buy-btns">
-      <!-- KO/EN/ZH: PayPal 결제 -->
-      <a class="btn-paypal" href="https://www.paypal.com/ncp/payment/PNXQYQEZTK268" target="_blank" id="btn-paypal">
-        💳 PayPal로 주문하기 →
-      </a>
-      <!-- JP: Booth 결제 (언어 JP 선택 시 표시) -->
+      <!-- ADD TO CART -->
+      <button class="btn-paypal mw-add-btn" type="button" onclick="pageAddToCart()" id="btn-paypal">
+        🛒 ADD TO CART
+      </button>
+      <!-- Booth (JP) -->
       <a class="btn-paypal" href="https://madewellmusic.booth.pm/items/8387673" target="_blank" id="btn-booth-mama" style="display:none;background:rgba(255,100,130,.85);color:#fff">
         🛒 Booth で購入する →
       </a>
@@ -412,16 +412,21 @@ const PRICES = {
   wht: { ko:'₩18,000', ja:'¥1,900', en:'$13' },
 };
 
-/* ── 색상별 결제 링크 (언어별) ── */
+/* ── 색상 → 상품 ID 매핑 ── */
+const PRODUCT_IDS = { blk: 'mama-btee', wht: 'mama-wtee' };
+
+/* ── ADD TO CART (페이지 전용) ── */
+function pageAddToCart() {
+  const size = document.querySelector('.size-btn.active')?.textContent?.trim();
+  if (!size) { alert('사이즈를 먼저 선택해주세요 / Please select a size first'); return; }
+  const productId = PRODUCT_IDS[currentColor] || 'mama-btee';
+  mwCart.addToCart(productId, size);
+}
+
+/* ── 색상별 결제 링크 (Booth JP용만 유지) ── */
 const LINKS = {
-  blk: {
-    paypal: 'https://www.paypal.com/ncp/payment/PNXQYQEZTK268',  // BLACK PayPal
-    booth:  'https://madewellmusic.booth.pm/items/8387673',
-  },
-  wht: {
-    paypal: 'https://www.paypal.com/ncp/payment/4HSUX2SHE7NUL',  // WHITE PayPal
-    booth:  'https://madewellmusic.booth.pm/items/8387711',
-  },
+  blk: { booth: 'https://madewellmusic.booth.pm/items/8387673' },
+  wht: { booth: 'https://madewellmusic.booth.pm/items/8387711' },
 };
 
 /* ── 색상별 이미지 ── */
@@ -573,5 +578,6 @@ function setLang(lang) {
 // 초기화
 renderThumbs('blk');
 </script>
+<script src="cart-system.js"></script>
 </body>
 </html>

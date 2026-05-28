@@ -207,9 +207,9 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 
     <!-- 주문 버튼 -->
     <div class="buy-btns">
-      <a class="btn-paypal" id="btn-paypal" href="https://www.paypal.com/ncp/payment/CJK5BT4T9C5KC" target="_blank">
-        💳 PayPal로 주문하기 →
-      </a>
+      <button class="btn-paypal" type="button" onclick="pageAddToCart()" id="btn-paypal">
+        🛒 ADD TO CART
+      </button>
       <a class="btn-booth" id="btn-booth" href="https://madewellmusic.booth.pm/items/7546178" target="_blank">
         🛒 Booth에서 구매하기 →
       </a>
@@ -461,14 +461,20 @@ function switchColor(color) {
   document.getElementById('main-img').src = IMGS[color][0];
   renderThumbs(color);
 
-  // PayPal / Booth 링크 업데이트
-  document.getElementById('btn-paypal').href = PAYPAL_LINKS[color];
   document.getElementById('btn-booth').href = BOOTH_LINKS[color];
 }
 
 function selectSize(btn) {
   document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
+}
+
+/* ADD TO CART — 현재 색상/사이즈 읽어서 장바구니 추가 */
+const SU_TEE_IDS = { blk: 'su-btee', wht: 'su-wtee' };
+function pageAddToCart() {
+  const size = document.querySelector('.size-btn.active')?.textContent?.trim();
+  if (!size) { alert('사이즈를 먼저 선택해주세요'); return; }
+  mwCart.addToCart(SU_TEE_IDS[currentColor] || 'su-btee', size);
 }
 
 function handleFormSubmit(e) {
@@ -534,5 +540,6 @@ function setLang(lang) {
 // 초기화
 renderThumbs('blk');
 </script>
+<script src="cart-system.js"></script>
 </body>
 </html>

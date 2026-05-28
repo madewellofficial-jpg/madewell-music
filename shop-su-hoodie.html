@@ -179,9 +179,9 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 
     <!-- 주문 버튼 -->
     <div class="buy-btns">
-      <a class="btn-paypal" href="https://www.paypal.com/ncp/payment/PANV8BC4PUQ7E" target="_blank" id="btn-paypal">
-        💳 PayPal로 주문하기 →
-      </a>
+      <button class="btn-paypal" type="button" onclick="pageAddToCart()" id="btn-paypal">
+        🛒 ADD TO CART
+      </button>
       <a class="btn-booth" href="https://madewellmusic.booth.pm/items/7546185" target="_blank" id="btn-booth">
         🛒 Booth에서 구매하기 →
       </a>
@@ -384,6 +384,12 @@ function selectSize(btn) {
   btn.classList.add('active');
 }
 
+function pageAddToCart() {
+  const size = document.querySelector('.size-btn.active')?.textContent?.trim();
+  if (!size) { alert('사이즈를 먼저 선택해주세요'); return; }
+  mwCart.addToCart('su-hood', size);
+}
+
 function handleFormSubmit(e) {
   const btn = e.target.querySelector('.form-submit');
   btn.textContent = '전송 중...';
@@ -442,5 +448,6 @@ function setLang(lang) {
 
 renderThumbs();
 </script>
+<script src="cart-system.js"></script>
 </body>
 </html>
