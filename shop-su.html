@@ -24,6 +24,7 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 @media(max-width:768px){.product-hero{grid-template-columns:1fr;min-height:auto}}
 .hero-gallery{position:relative;overflow:hidden;background:#0a1c22;display:grid;grid-template-rows:1fr auto}
 .hero-main-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;min-height:520px}
+@media(max-width:768px){.hero-main-img{min-height:0;max-height:360px;object-fit:contain;background:#0a1c22}}
 .hero-sub-imgs{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.06)}
 .hero-sub-imgs img{width:100%;aspect-ratio:1;object-fit:cover;object-position:center;display:block}
 .limited-overlay{position:absolute;bottom:24px;left:24px;background:rgba(255,200,80,.9);color:#1a1000;font-size:8px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;padding:6px 16px}

@@ -58,8 +58,8 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
   .tab-badge{display:none}
   .lang-bar{position:static;background:none;border:none;padding:0 6px 0 0;gap:1px;align-self:center;margin-left:auto}
   .lang-bar button{padding:4px 6px;font-size:7px;letter-spacing:.06em}
-  .tab-nav{justify-content:flex-start;padding-left:80px}
-  .nav-back{top:0;left:0;height:48px;padding:0 12px 0 16px;font-size:7.5px;letter-spacing:.16em;background:rgba(5,14,18,.95);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-right:1px solid rgba(255,255,255,.09)}
+  .tab-nav{justify-content:flex-start;padding-left:110px}
+  .nav-back{top:0;left:0;height:48px;padding:0 10px 0 14px;font-size:7px;letter-spacing:.12em;background:rgba(5,14,18,.95);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-right:1px solid rgba(255,255,255,.09);white-space:nowrap;max-width:108px;overflow:hidden}
 }
 
 /* ── SHOP HERO ── */
@@ -233,8 +233,10 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 .cart-total-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px}
 .cart-total-label{font-size:9px;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:rgba(255,255,255,.3)}
 #cart-total{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:#fff;letter-spacing:.02em}
-#paypal-button-container{min-height:50px}
-.paypal-note{font-size:8.5px;color:rgba(255,255,255,.14);letter-spacing:.1em;text-align:center;margin-top:12px;line-height:1.7}
+#paypal-button-container{min-height:50px;margin-bottom:8px}
+.paypal-reset{display:block;width:100%;background:none;border:1px solid rgba(95,200,215,.2);color:rgba(95,200,215,.55);font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;padding:10px;margin-bottom:4px;font-family:'Montserrat',sans-serif;text-align:center;transition:all .2s}
+.paypal-reset:hover{background:rgba(95,200,215,.08);color:rgba(95,200,215,.9);border-color:rgba(95,200,215,.5)}
+.paypal-note{font-size:8.5px;color:rgba(255,255,255,.14);letter-spacing:.1em;text-align:center;margin-top:8px;line-height:1.7}
 .paypal-loading{font-size:9px;color:rgba(255,255,255,.2);letter-spacing:.2em;text-transform:uppercase;text-align:center;padding:16px 0}
 
 /* ── SIZE MODAL ── */
@@ -306,19 +308,22 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 <div class="product-grid-wrap">
   <div class="product-grid" id="product-grid">
 
-    <!-- ① MAMA 3집 — SOLD OUT -->
+    <!-- ① MAMA 3집 — 추가 주문 가능 -->
     <div class="product-card" data-cat="album">
       <a class="product-thumb-link" href="shop-mama.html">
         <div class="product-thumb">
           <img class="product-thumb-img" src="images/MAMA_MAIN 1.png" alt="MAMA"/>
-          <div class="product-badge badge-sold">105% SOLD</div>
+          <div class="product-badge badge-limited">추가 주문 가능</div>
         </div>
       </a>
       <div class="product-info">
         <div class="product-cat" data-lang='{"ko":"3RD SOLO ALBUM","en":"3RD SOLO ALBUM","ja":"3RD SOLO ALBUM","zh":"第3張專輯"}'>3RD SOLO ALBUM</div>
         <div class="product-name"><em>MAMA</em></div>
         <div class="product-price">₩35,000 <span>/ $25</span></div>
-        <div class="product-cta-soon" id="cta-mama">— SOLD OUT —</div>
+        <button class="btn-add-cart" type="button" onclick="handleAddToCart(event,'mama-cd')" id="cta-mama">
+          ADD TO CART
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.96-1.61L23 6H6"/></svg>
+        </button>
       </div>
     </div>
 
@@ -542,6 +547,7 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
         <span id="cart-total">$0.00</span>
       </div>
       <div id="paypal-button-container"></div>
+      <button class="paypal-reset" onclick="resetPayment()">↩ 결제 방법 다시 선택</button>
       <div class="paypal-note">PayPal · 신용카드 · 직불카드 결제 가능</div>
     </div>
   </div>
@@ -576,6 +582,13 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
    향후 상품 추가 시 여기에만 추가하면 됩니다
 ══════════════════════════════════════════════════ */
 const PRODUCTS = {
+  'mama-cd': {
+    name: 'MAMA',
+    sub: '3RD SOLO ALBUM',
+    usd: 25, krw: 35000,
+    img: 'images/MAMA_MAIN 1.png',
+    hasSize: false
+  },
   'su-cd': {
     name: 'Still UNFINISHED',
     sub: '2ND SOLO ALBUM',
@@ -799,6 +812,14 @@ function removeItem(idx) {
   renderCartItems();
 }
 
+/* 결제 방법 리셋 — 카드 폼 닫고 PayPal 버튼 다시 표시 */
+function resetPayment() {
+  const container = document.getElementById('paypal-button-container');
+  if (container) container.innerHTML = '';
+  paypalRendered = false;
+  renderPayPal();
+}
+
 /* ══════════════════════════════════════════════════
    PAYPAL JS SDK
    createOrder는 버튼 클릭 시마다 현재 장바구니를
@@ -925,7 +946,7 @@ const STRINGS = {
   'hero-label': {ko:'Official Store', en:'Official Store', ja:'公式ストア', zh:'官方商店'},
   'hero-title': {ko:'MADEWELL MUSIC <em>SHOP</em>', en:'MADEWELL MUSIC <em>SHOP</em>', ja:'MADEWELL MUSIC <em>SHOP</em>', zh:'MADEWELL MUSIC <em>SHOP</em>'},
   'hero-sub':   {ko:'앨범, 굿즈를 장바구니에 담고 PayPal로 한번에 결제하세요.', en:'Add albums & merch to cart, then pay once with PayPal.', ja:'カートに入れてPayPalで一括決済できます。', zh:'將商品加入購物車，透過PayPal一次結帳。'},
-  'cta-mama':   {ko:'— SOLD OUT —', en:'— SOLD OUT —', ja:'— SOLD OUT —', zh:'— SOLD OUT —'},
+  'cta-mama':   {ko:'ADD TO CART', en:'ADD TO CART', ja:'カートに追加', zh:'加入購物車'},
   'cta-su':     {ko:'ADD TO CART', en:'ADD TO CART', ja:'カートに追加', zh:'加入購物車'},
   'cta-mama-btee':{ko:'ADD TO CART', en:'ADD TO CART', ja:'カートに追加', zh:'加入購物車'},
   'cta-mama-wtee':{ko:'ADD TO CART', en:'ADD TO CART', ja:'カートに追加', zh:'加入購物車'},

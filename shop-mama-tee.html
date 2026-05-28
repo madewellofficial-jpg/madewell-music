@@ -206,12 +206,12 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 
     <!-- 주문 버튼 -->
     <div class="buy-btns">
-      <!-- ADD TO CART -->
+      <!-- ADD TO CART (PayPal) — 모든 언어 표시 -->
       <button class="btn-paypal mw-add-btn" type="button" onclick="pageAddToCart()" id="btn-paypal">
         🛒 ADD TO CART
       </button>
-      <!-- Booth (JP) -->
-      <a class="btn-paypal" href="https://madewellmusic.booth.pm/items/8387673" target="_blank" id="btn-booth-mama" style="display:none;background:rgba(255,100,130,.85);color:#fff">
+      <!-- Booth — 모든 언어 표시 (JP 사용자 포함) -->
+      <a class="btn-paypal" href="https://madewellmusic.booth.pm/items/8387673" target="_blank" id="btn-booth-mama" style="background:rgba(255,100,130,.85);color:#fff">
         🛒 Booth で購入する →
       </a>
       <a class="btn-form" href="#order-form" id="btn-form">
@@ -514,7 +514,6 @@ const S = {
   'product-sub':{ko:'MADEWELL 3RD SOLO ALBUM OFFICIAL T-SHIRT', en:'MADEWELL 3RD SOLO ALBUM OFFICIAL T-SHIRT', ja:'MADEWELL 3rdソロアルバム公式Tシャツ', zh:'MADEWELL 第3張專輯官方T恤'},
   'ol-color':  {ko:'컬러 / COLOR', en:'COLOR', ja:'カラー / COLOR', zh:'顏色 / COLOR'},
   'ol-size':   {ko:'사이즈 / SIZE', en:'SIZE', ja:'サイズ / SIZE', zh:'尺寸 / SIZE'},
-  'btn-paypal':{ko:'💳 PayPal로 주문하기 →', en:'💳 Order via PayPal →', ja:'💳 PayPalで注文する →', zh:'💳 PayPal 訂購 →'},
   'btn-booth-mama':{ko:'🛒 Booth (日本) →', en:'🛒 Booth (Japan) →', ja:'🛒 Boothで購入する →', zh:'🛒 Booth 購買 →'},
   'btn-form':  {ko:'📋 주문 폼 작성하기', en:'📋 Fill Order Form', ja:'📋 注文フォームへ', zh:'📋 填寫訂購表單'},
   'btn-dm':    {ko:'📱 Instagram DM으로 문의하기', en:'📱 DM on Instagram', ja:'📱 Instagram DMでお問い合わせ', zh:'📱 Instagram DM 詢問'},
@@ -542,20 +541,12 @@ const S = {
   'form-desc': {ko:'색상 · 사이즈 · 수량을 선택 후 작성해주세요. PayPal 결제 완료 후에도 이 폼으로 주문 정보를 보내주세요.', en:'Please fill in your color, size, and quantity. Also send order info here after PayPal payment.', ja:'カラー・サイズ・数量を選択してご記入ください。PayPalご入金後もこちらで注文情報をお送りください。', zh:'請填寫顏色、尺寸、數量。PayPal付款後也請透過此表單傳送訂購資訊。'},
 };
 
-/* ── 결제 버튼 업데이트 (색상 + 언어 조합) ── */
+/* ── 결제 버튼 업데이트 — 모든 언어에서 PayPal+Booth 모두 표시 ── */
 function updateBuyBtn() {
-  const isJa = currentLang === 'ja';
   const ppBtn    = document.getElementById('btn-paypal');
   const boothBtn = document.getElementById('btn-booth-mama');
-  if (isJa) {
-    ppBtn.style.display    = 'none';
-    boothBtn.style.display = 'flex';
-    boothBtn.href = LINKS[currentColor].booth;
-  } else {
-    ppBtn.style.display    = 'flex';
-    boothBtn.style.display = 'none';
-    ppBtn.href = LINKS[currentColor].paypal;
-  }
+  if (ppBtn)    ppBtn.style.display    = 'flex';
+  if (boothBtn) { boothBtn.style.display = 'flex'; boothBtn.href = LINKS[currentColor].booth; }
 }
 
 function setLang(lang) {

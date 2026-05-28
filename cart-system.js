@@ -14,6 +14,7 @@
      PRODUCTS — 상품 추가 시 여기에만 추가
   ══════════════════════════════════════════ */
   var PRODUCTS = {
+    'mama-cd':   { name:'MAMA',             sub:'3RD SOLO ALBUM',          usd:25, krw:35000, img:'images/MAMA_MAIN 1.png' },
     'su-cd':     { name:'Still UNFINISHED', sub:'2ND SOLO ALBUM',         usd:25, krw:35000, img:'images/STILL UNFINIHSED 앨범자료/2nd ALBUM MAIN.jpg' },
     'mama-btee': { name:'MAMA Black Tee',   sub:'MAMA : THE ETERNAL LOVE', usd:18, krw:29000, img:'images/MAMA_TEE_BLK.jpg.png' },
     'mama-wtee': { name:'MAMA White Tee',   sub:'MAMA : THE ETERNAL LOVE', usd:13, krw:18000, img:'images/MAMA_TEE_WHT1.jpg.png' },
@@ -113,10 +114,12 @@
       '#mw-total{font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:300;color:#fff;}',
 
       /* PayPal 버튼 영역 */
-      '#mw-pp{min-height:48px;margin-bottom:12px;}',
-      '.mw-card-note{font-size:9px;color:rgba(255,255,255,.22);letter-spacing:.08em;',
-      'text-align:center;line-height:1.8;padding:0 4px;}',
-      '.mw-card-note strong{color:rgba(95,200,215,.5);font-weight:600;}',
+      '#mw-pp{min-height:48px;margin-bottom:8px;}',
+      '.mw-reset-pay{display:block;width:100%;background:none;border:1px solid rgba(95,200,215,.2);',
+      'color:rgba(95,200,215,.55);font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;',
+      'cursor:pointer;padding:10px;margin-bottom:12px;font-family:Montserrat,sans-serif;',
+      'text-align:center;transition:all .2s;}',
+      '.mw-reset-pay:hover{background:rgba(95,200,215,.08);color:rgba(95,200,215,.9);border-color:rgba(95,200,215,.5);}',
       '.mw-ppload{font-size:9px;color:rgba(255,255,255,.2);letter-spacing:.2em;',
       'text-transform:uppercase;text-align:center;padding:16px 0;}',
 
@@ -195,10 +198,7 @@
       '      <span id="mw-total">$0.00</span>',
       '    </div>',
       '    <div id="mw-pp"></div>',
-      '    <div class="mw-card-note">',
-      '      PayPal 결제창 안에서 <strong>신용 · 직불카드 직접 입력</strong> 가능<br>',
-      '      계정 없이 카드로만 결제하려면 결제창에서 "Pay with Debit or Credit Card" 클릭',
-      '    </div>',
+      '    <button class="mw-reset-pay" onclick="mwCart.resetPayment()">↩ 결제 방법 다시 선택</button>',
       '  </div>',
       '</div>',
     ].join('');
@@ -363,6 +363,13 @@
     document.head.appendChild(sc);
   }
 
+  function resetPayment() {
+    var pp = document.getElementById('mw-pp');
+    if (pp) pp.innerHTML = '';
+    paypalRendered = false;
+    renderPayPal();
+  }
+
   function renderPayPal() {
     var container = document.getElementById('mw-pp');
     if (!container || cart.length === 0) return;
@@ -452,11 +459,12 @@
      PUBLIC API
   ══════════════════════════════════════════ */
   window.mwCart = {
-    open:       open,
-    close:      close,
-    addToCart:  addToCart,
-    changeQty:  changeQty,
-    removeItem: removeItem,
+    open:         open,
+    close:        close,
+    addToCart:    addToCart,
+    changeQty:    changeQty,
+    removeItem:   removeItem,
+    resetPayment: resetPayment,
   };
 
 })();
