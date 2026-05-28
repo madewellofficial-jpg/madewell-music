@@ -70,6 +70,8 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 
 /* 주문 버튼 */
 .buy-btns{display:flex;flex-direction:column;gap:10px;margin-bottom:24px;margin-top:28px}
+.btn-paypal{display:flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;background:rgba(65,168,182,.9);color:#040e12;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;transition:background .2s;cursor:pointer;border:none;width:100%;font-family:'Montserrat',sans-serif}
+.btn-paypal:hover{background:rgba(80,185,200,1)}
 .btn-booth{display:flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;background:rgba(255,100,130,.85);color:#fff;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;transition:background .2s;cursor:pointer;border:none;width:100%;font-family:'Montserrat',sans-serif}
 .btn-booth:hover{background:rgba(255,120,150,1)}
 .btn-form{display:flex;align-items:center;justify-content:center;gap:10px;padding:13px 28px;background:transparent;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.5);font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;transition:all .2s;cursor:pointer;width:100%;font-family:'Montserrat',sans-serif}
@@ -205,6 +207,9 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 
     <!-- 주문 버튼 -->
     <div class="buy-btns">
+      <a class="btn-paypal" id="btn-paypal" href="https://www.paypal.com/ncp/payment/CJK5BT4T9C5KC" target="_blank">
+        💳 PayPal로 주문하기 →
+      </a>
       <a class="btn-booth" id="btn-booth" href="https://madewellmusic.booth.pm/items/7546178" target="_blank">
         🛒 Booth에서 구매하기 →
       </a>
@@ -396,6 +401,12 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 </footer>
 
 <script>
+/* ── 색상별 PayPal 링크 ── */
+const PAYPAL_LINKS = {
+  blk: 'https://www.paypal.com/ncp/payment/CJK5BT4T9C5KC',
+  wht: 'https://www.paypal.com/ncp/payment/XR73V8W2T8GDE',
+};
+
 /* ── 색상별 부스 링크 ── */
 const BOOTH_LINKS = {
   blk: 'https://madewellmusic.booth.pm/items/7546178',
@@ -450,7 +461,8 @@ function switchColor(color) {
   document.getElementById('main-img').src = IMGS[color][0];
   renderThumbs(color);
 
-  // 부스 링크 업데이트
+  // PayPal / Booth 링크 업데이트
+  document.getElementById('btn-paypal').href = PAYPAL_LINKS[color];
   document.getElementById('btn-booth').href = BOOTH_LINKS[color];
 }
 

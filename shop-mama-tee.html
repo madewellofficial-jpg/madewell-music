@@ -207,7 +207,7 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
     <!-- 주문 버튼 -->
     <div class="buy-btns">
       <!-- KO/EN/ZH: PayPal 결제 -->
-      <a class="btn-paypal" href="https://www.paypal.com/ncp/payment/4HSUX2SHE7NUL" target="_blank" id="btn-paypal">
+      <a class="btn-paypal" href="https://www.paypal.com/ncp/payment/PNXQYQEZTK268" target="_blank" id="btn-paypal">
         💳 PayPal로 주문하기 →
       </a>
       <!-- JP: Booth 결제 (언어 JP 선택 시 표시) -->
@@ -224,7 +224,7 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 
     <div class="note-small" id="pay-note">
       사이즈 · 색상 · 수량 선택 후 주문해주세요.<br/>
-      <strong>발송:</strong> 주문 접수 완료 후 3일 이내 · <strong>배송비:</strong> 국가별 별도 안내
+      <strong>발송:</strong> 3집 CD 주문자 → CD와 함께 배송 (추가 배송비 없음) / 그 외 → 주문 후 일주일 이내 · <strong>배송비:</strong> 국가별 별도 안내
     </div>
   </div>
 </div>
@@ -286,7 +286,7 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
     <div class="shipping-item">
       <div class="ship-icon">📦</div>
       <div class="ship-title" id="ship1-t">발송 안내</div>
-      <div class="ship-desc" id="ship1-d">주문 접수 완료 후 3일 이내 발송<br/>주문 순서대로 처리합니다</div>
+      <div class="ship-desc" id="ship1-d">3집 CD 주문자 — CD와 함께 배송<br/>(추가 배송비 없음)<br/>그 외 주문 — 일주일 이내 발송</div>
     </div>
     <div class="shipping-item">
       <div class="ship-icon">🌏</div>
@@ -513,12 +513,12 @@ const S = {
   'btn-booth-mama':{ko:'🛒 Booth (日本) →', en:'🛒 Booth (Japan) →', ja:'🛒 Boothで購入する →', zh:'🛒 Booth 購買 →'},
   'btn-form':  {ko:'📋 주문 폼 작성하기', en:'📋 Fill Order Form', ja:'📋 注文フォームへ', zh:'📋 填寫訂購表單'},
   'btn-dm':    {ko:'📱 Instagram DM으로 문의하기', en:'📱 DM on Instagram', ja:'📱 Instagram DMでお問い合わせ', zh:'📱 Instagram DM 詢問'},
-  'pay-note':  {ko:'사이즈 · 색상 · 수량 선택 후 주문해주세요.\n발송: 주문 접수 완료 후 3일 이내 · 배송비: 국가별 별도 안내', en:'Please select size · color · quantity before ordering.\nShips within 3 days of confirmation · Shipping fee varies by country', ja:'サイズ・カラー・数量を選択してご注文ください。\nご注文確定後3日以内に発送 · 送料は国別にご案内', zh:'請選擇尺寸、顏色、數量後訂購。\n訂單確認後3日內發貨 · 運費依國家另行通知'},
+  'pay-note':  {ko:'사이즈 · 색상 · 수량 선택 후 주문해주세요.\n3집 CD 주문자: CD와 함께 배송 (추가 배송비 없음) / 그 외: 주문 후 일주일 이내 발송 · 배송비: 국가별 별도 안내', en:'Please select size · color · quantity before ordering.\n3rd Album CD orders: shipped together with CD, no extra shipping fee / Others: ships within 1 week · Shipping fee varies by country', ja:'サイズ・カラー・数量を選択してご注文ください。\n3rdアルバムCDご注文の方: CD同梱・追加送料なし / その他: ご注文後1週間以内に発送 · 送料は国別にご案内', zh:'請選擇尺寸、顏色、數量後訂購。\n第3張專輯CD訂購者：與CD一起寄送，無額外運費 / 其他：訂購後一週內發貨 · 運費依國家另行通知'},
   'desc-title':{ko:'상품 <em>소개</em>', en:'About <em>This Item</em>', ja:'商品 <em>紹介</em>', zh:'商品 <em>介紹</em>'},
   'desc-body': {ko:'<p>MADEWELL 3집 솔로 앨범 "MAMA : THE ETERNAL LOVE" 공식 굿즈 티셔츠.</p><p>앞면에는 앨범 로고, 뒷면에는 앨범 컨셉 이미지와 "FOR THE LOVE THAT MADE ME WHO I AM" 문구가 새겨진 오버핏 반팔 티셔츠입니다. 블랙과 화이트 두 가지 색상으로 출시.</p>', en:'<p>Official merch T-shirt for MADEWELL\'s 3rd Solo Album "MAMA : THE ETERNAL LOVE".</p><p>Album logo on the front, concept image and "FOR THE LOVE THAT MADE ME WHO I AM" on the back. Available in Black and White.</p>', ja:'<p>MADEWELL 3rdソロアルバム「MAMA : THE ETERNAL LOVE」公式グッズTシャツ。</p><p>フロントにはアルバムロゴ、バックにはコンセプトイメージと「FOR THE LOVE THAT MADE ME WHO I AM」が入ったオーバーフィットTシャツ。ブラックとホワイトの2色展開。</p>', zh:'<p>MADEWELL 第3張個人專輯「MAMA : THE ETERNAL LOVE」官方周邊T恤。</p><p>正面印有專輯Logo，背面印有概念圖和「FOR THE LOVE THAT MADE ME WHO I AM」文字的寬鬆版型T恤。黑色與白色兩款。</p>'},
   'size-note': {ko:'※ 측정 방법에 따라 1~3cm 오차가 있을 수 있습니다. 넉넉한 오버핏 착용을 원하시면 한 사이즈 업 추천드립니다.', en:'※ Measurements may vary by 1–3cm. Size up for a looser overfit look.', ja:'※ 採寸方法により1〜3cmの誤差が生じる場合があります。ゆったり着たい方は一サイズアップをおすすめします。', zh:'※ 測量方式不同可能有1~3cm誤差。喜歡寬鬆穿搭者建議選大一碼。'},
   'ship1-t':   {ko:'발송 안내', en:'Shipping Notice', ja:'発送案内', zh:'發貨通知'},
-  'ship1-d':   {ko:'주문 접수 완료 후 3일 이내 발송\n주문 순서대로 처리합니다', en:'Ships within 3 days of order confirmation\nProcessed in order received', ja:'ご注文確定後3日以内に発送\n注文順に処理します', zh:'訂單確認後3日內發貨\n依訂單順序處理'},
+  'ship1-d':   {ko:'3집 CD 주문자 — CD와 함께 배송 (추가 배송비 없음)\n그 외 주문 — 주문 후 일주일 이내 발송', en:'3rd Album CD orders — shipped with CD, no extra shipping fee\nAll other orders — ships within 1 week', ja:'3rdアルバムCDご注文の方 — CD同梱・追加送料なし\nその他のご注文 — ご注文後1週間以内に発送', zh:'第3張專輯CD訂購者 — 與CD一起寄送，無額外運費\n其他訂單 — 訂購後一週內發貨'},
   'ship2-t':   {ko:'배송 지역', en:'Shipping Area', ja:'配送地域', zh:'配送地區'},
   'ship2-d':   {ko:'국내 + 해외 모두 가능\n배송비 국가별 상이 — 접수 후 별도 안내', en:'Domestic & international\nShipping fee varies — notified after order', ja:'国内・海外とも対応\n送料は国別・ご注文後にご案内', zh:'國內外均可\n運費依國家各異，訂單後另行通知'},
   'ship3-t':   {ko:'결제 방법', en:'Payment', ja:'お支払い方法', zh:'付款方式'},
