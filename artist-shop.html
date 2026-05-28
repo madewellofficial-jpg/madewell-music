@@ -6,6 +6,22 @@
 <title>MADEWELL MUSIC SHOP — Official Store</title>
 <meta name="description" content="MADEWELL MUSIC 공식 샵 — 앨범, 굿즈, 직접 주문."/>
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+<!--
+  ══════════════════════════════════════════════════
+  PayPal JS SDK
+  ──────────────────────────────────────────────────
+  지금은 sandbox 모드 (client-id=sb) — 실제 결제 없음
+
+  라이브 전환 방법:
+  1. developer.paypal.com 접속 (PayPal 계정으로 로그인)
+  2. My Apps & Credentials → Create App
+  3. Live Client ID 복사
+  4. 아래 URL에서 client-id=sb 를 client-id=YOUR_LIVE_CLIENT_ID 로 교체
+  ══════════════════════════════════════════════════
+-->
+<script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
+
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 a{text-decoration:none;color:inherit}
@@ -16,6 +32,13 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 .nav-back{position:fixed;top:22px;left:28px;z-index:300;font-size:9px;font-weight:700;letter-spacing:.28em;color:rgba(255,255,255,.28);text-transform:uppercase;display:flex;align-items:center;gap:8px;transition:color .2s}
 .nav-back:hover{color:rgba(255,255,255,.7)}
 .nav-back svg{width:14px;height:14px}
+
+/* ── CART ICON ── */
+.cart-icon-btn{position:fixed;top:13px;right:160px;z-index:310;background:none;border:none;cursor:pointer;color:rgba(255,255,255,.38);padding:8px;transition:color .2s;display:flex;align-items:center;position:fixed}
+.cart-icon-btn:hover{color:rgba(255,255,255,.85)}
+.cart-icon-btn svg{width:19px;height:19px}
+.cart-badge{position:absolute;top:3px;right:1px;width:16px;height:16px;background:rgba(95,200,215,.95);color:#040e12;font-size:7.5px;font-weight:700;border-radius:50%;display:none;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;letter-spacing:0}
+@media(max-width:640px){.cart-icon-btn{top:0;right:46px;height:48px;width:44px;justify-content:center;padding:0}}
 
 /* ── LANG BAR ── */
 .lang-bar{position:fixed;top:22px;right:28px;z-index:300;display:flex;gap:2px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);padding:3px}
@@ -65,22 +88,21 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
   .product-name{font-size:13px}
   .product-price{font-size:9px}
   .product-price span{font-size:8px}
-  .product-cta{font-size:7.5px;letter-spacing:.14em;padding-top:10px;gap:3px}
-  .product-cta svg{width:9px;height:9px}
 }
 
 /* ── PRODUCT CARD ── */
-.product-card{position:relative;background:#050e12;cursor:pointer;transition:background .25s;display:flex;flex-direction:column}
+.product-card{position:relative;background:#050e12;transition:background .25s;display:flex;flex-direction:column}
 .product-card:hover{background:#0a1c22}
 .product-card.coming-soon{cursor:default}
 .product-card.coming-soon:hover{background:#050e12}
 
+.product-thumb-link{display:block}
 .product-thumb{width:100%;aspect-ratio:3/4;position:relative;overflow:hidden;background:#0a1c22}
 .product-thumb-img{width:100%;height:100%;object-fit:cover;object-position:50% 15%;transition:transform .6s cubic-bezier(.22,1,.36,1)}
 .product-thumb-img.merch-img{object-fit:contain;object-position:center;padding:16px;background:#0d1e24}
 .product-card:hover .product-thumb-img{transform:scale(1.04)}
 
-/* 플레이스홀더 (이미지 없을 때) */
+/* 플레이스홀더 */
 .product-thumb-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'Josefin Sans',sans-serif;font-weight:100;font-size:clamp(16px,2vw,24px);letter-spacing:.4em;color:rgba(255,255,255,.1);text-transform:uppercase}
 
 /* 상태 배지 */
@@ -98,11 +120,21 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 .product-price{font-size:11px;font-weight:600;color:rgba(255,255,255,.5);margin-top:4px;letter-spacing:.06em}
 .product-price span{color:rgba(255,255,255,.22);font-weight:300;font-size:10px}
 
-.product-cta{display:block;margin-top:auto;padding-top:16px;font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(95,200,215,.6);transition:color .2s;display:flex;align-items:center;gap:6px}
-.product-card:hover .product-cta{color:rgba(95,200,215,1)}
-.product-cta svg{width:12px;height:12px;transition:transform .2s}
-.product-card:hover .product-cta svg{transform:translateX(3px)}
+/* ── ADD TO CART BUTTON ── */
+.btn-add-cart{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:16px;font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(95,200,215,.65);background:none;border:none;cursor:pointer;font-family:'Montserrat',sans-serif;transition:color .2s;width:100%;text-align:left}
+.btn-add-cart:hover{color:rgba(95,200,215,1)}
+.btn-add-cart svg{width:13px;height:13px;transition:transform .2s;flex-shrink:0}
+.btn-add-cart:hover svg{transform:translateX(2px)}
+.product-card:hover .btn-add-cart{color:rgba(95,200,215,.9)}
+.product-cta-link{display:flex;align-items:center;gap:6px;margin-top:auto;padding-top:16px;font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(95,200,215,.6);transition:color .2s}
+.product-cta-link:hover{color:rgba(95,200,215,1)}
+.product-cta-link svg{width:12px;height:12px;transition:transform .2s}
+.product-cta-link:hover svg{transform:translateX(3px)}
 .product-cta-soon{font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.16);padding-top:16px}
+@media(max-width:480px){
+  .btn-add-cart{font-size:7.5px;letter-spacing:.14em;padding-top:10px;gap:3px}
+  .btn-add-cart svg{width:9px;height:9px}
+}
 
 /* ── SECTION DIVIDER LABEL ── */
 .section-divider{padding:32px 72px 20px;border-top:1px solid rgba(255,255,255,.05);margin-top:0}
@@ -144,15 +176,103 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 .footer-links a{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.18);transition:color .2s;display:flex;align-items:center;gap:6px}
 .footer-links a:hover{color:rgba(95,200,215,.7)}
 .footer-links a svg{width:12px;height:12px;opacity:.6}
+
+/* ══════════════════════════════════════════════════
+   CART SYSTEM STYLES
+══════════════════════════════════════════════════ */
+
+/* ── OVERLAY (공통) ── */
+.cart-overlay,.size-overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:400;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.cart-overlay.open,.size-overlay.open{opacity:1;pointer-events:all}
+.size-overlay{z-index:600}
+
+/* ── CART DRAWER ── */
+.cart-drawer{position:fixed;top:0;right:0;bottom:0;width:420px;max-width:100vw;background:#060f14;border-left:1px solid rgba(255,255,255,.08);z-index:500;transform:translateX(100%);transition:transform .42s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column}
+.cart-drawer.open{transform:translateX(0)}
+@media(max-width:480px){.cart-drawer{width:100vw}}
+
+/* DRAWER HEAD */
+.cart-head{display:flex;align-items:center;justify-content:space-between;padding:22px 28px;border-bottom:1px solid rgba(255,255,255,.07);flex-shrink:0}
+.cart-head-left{display:flex;align-items:center;gap:12px}
+.cart-head-title{font-size:10px;font-weight:700;letter-spacing:.36em;text-transform:uppercase;color:rgba(255,255,255,.65)}
+.cart-head-count{font-size:9px;font-weight:600;color:rgba(95,200,215,.6);letter-spacing:.14em}
+.cart-close{background:none;border:none;color:rgba(255,255,255,.28);cursor:pointer;padding:6px;font-size:18px;line-height:1;transition:color .2s}
+.cart-close:hover{color:rgba(255,255,255,.8)}
+
+/* CART ITEMS LIST */
+.cart-items{flex:1;overflow-y:auto;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.08) transparent}
+.cart-items::-webkit-scrollbar{width:3px}
+.cart-items::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1)}
+
+.cart-empty{flex:1;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px}
+.cart-empty-label{font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.12)}
+.cart-empty-sub{font-size:11px;color:rgba(255,255,255,.09);font-weight:300}
+
+/* CART ITEM ROW */
+.cart-item{display:flex;gap:16px;padding:22px 28px;border-bottom:1px solid rgba(255,255,255,.05);align-items:flex-start}
+.cart-item-thumb{width:72px;height:90px;flex-shrink:0;overflow:hidden;background:#0a1c22}
+.cart-item-thumb img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.cart-item-thumb .ci-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:8px;letter-spacing:.2em;color:rgba(255,255,255,.1);font-family:'Josefin Sans',sans-serif;font-weight:100}
+.cart-item-info{flex:1;min-width:0}
+.cart-item-name{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;color:#fff;line-height:1.2;margin-bottom:4px}
+.cart-item-meta{font-size:8px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(95,200,215,.45);margin-bottom:10px}
+.cart-item-price{font-size:12px;font-weight:600;color:rgba(255,255,255,.55);letter-spacing:.05em}
+.cart-item-controls{display:flex;flex-direction:column;align-items:center;gap:7px;flex-shrink:0;padding-top:2px}
+.qty-btn{width:28px;height:28px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.65);cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;transition:background .15s;font-family:'Montserrat',sans-serif;line-height:1}
+.qty-btn:hover{background:rgba(255,255,255,.12)}
+.qty-num{font-size:13px;font-weight:700;color:rgba(255,255,255,.85);min-width:22px;text-align:center}
+.remove-btn{background:none;border:none;cursor:pointer;color:rgba(255,255,255,.15);padding:3px;margin-top:4px;transition:color .2s;display:flex}
+.remove-btn:hover{color:rgba(255,80,80,.65)}
+.remove-btn svg{width:11px;height:11px}
+
+/* CART FOOTER */
+.cart-footer{padding:24px 28px 28px;border-top:1px solid rgba(255,255,255,.07);flex-shrink:0;background:rgba(5,12,16,.9)}
+.cart-shipping{font-size:8.5px;color:rgba(255,255,255,.18);letter-spacing:.14em;line-height:1.9;margin-bottom:18px;font-weight:500;text-transform:uppercase}
+.cart-total-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px}
+.cart-total-label{font-size:9px;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+#cart-total{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:#fff;letter-spacing:.02em}
+#paypal-button-container{min-height:50px}
+.paypal-note{font-size:8.5px;color:rgba(255,255,255,.14);letter-spacing:.1em;text-align:center;margin-top:12px;line-height:1.7}
+.paypal-loading{font-size:9px;color:rgba(255,255,255,.2);letter-spacing:.2em;text-transform:uppercase;text-align:center;padding:16px 0}
+
+/* ── SIZE MODAL ── */
+.size-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-48%) scale(.95);width:360px;max-width:calc(100vw - 48px);background:#0a1c22;border:1px solid rgba(255,255,255,.1);padding:36px 32px;z-index:700;opacity:0;pointer-events:none;transition:all .3s cubic-bezier(.22,1,.36,1)}
+.size-modal.open{opacity:1;pointer-events:all;transform:translate(-50%,-50%) scale(1)}
+.size-modal-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
+.size-modal-sub{font-size:8px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:rgba(95,200,215,.4);margin-bottom:6px}
+.size-modal-name{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;color:#fff;line-height:1.1;margin-bottom:28px}
+.size-modal-close{background:none;border:none;color:rgba(255,255,255,.28);cursor:pointer;font-size:18px;padding:0;line-height:1;flex-shrink:0;margin-top:4px;transition:color .2s}
+.size-modal-close:hover{color:rgba(255,255,255,.8)}
+.size-label{font-size:8px;font-weight:700;letter-spacing:.36em;text-transform:uppercase;color:rgba(95,200,215,.5);margin-bottom:14px}
+.size-btns{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.size-btn{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.18em;padding:11px 18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.6);cursor:pointer;transition:all .18s;text-transform:uppercase}
+.size-btn:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.3);color:#fff}
+.size-btn.active{background:rgba(65,168,182,.9);border-color:transparent;color:#040e12}
+.size-note{font-size:9px;color:rgba(255,255,255,.18);letter-spacing:.1em;line-height:1.8}
+
+/* ── ORDER SUCCESS TOAST ── */
+@keyframes fadeSlide{from{opacity:0;transform:translateX(-50%) translateY(-8px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.order-toast{position:fixed;top:28px;left:50%;transform:translateX(-50%);background:rgba(65,168,182,.96);color:#040e12;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.18em;padding:15px 32px;z-index:9999;text-transform:uppercase;animation:fadeSlide .3s ease;white-space:nowrap}
 </style>
 </head>
 <body>
+
+<!-- CART ICON -->
+<button class="cart-icon-btn" onclick="openCart()" aria-label="장바구니 열기">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+    <line x1="3" y1="6" x2="21" y2="6"/>
+    <path d="M16 10a4 4 0 01-8 0"/>
+  </svg>
+  <span class="cart-badge" id="cart-badge"></span>
+</button>
 
 <!-- NAV BACK -->
 <a class="nav-back" href="index.html">
   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 3L5 8l5 5"/></svg>
   MADEWELL
 </a>
+
 <!-- TAB NAV -->
 <nav class="tab-nav">
   <a class="tab-link" href="artist.html">ABOUT</a>
@@ -170,7 +290,7 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 <div class="shop-hero">
   <div class="shop-hero-label" id="hero-label">Official Store</div>
   <h1 class="shop-hero-title" id="hero-title">MADEWELL MUSIC <em>SHOP</em></h1>
-  <p class="shop-hero-sub" id="hero-sub">앨범, 굿즈 직접 주문 가능합니다. 결제는 PayPal / BOOTH, 문의는 하단 폼 또는 DM.</p>
+  <p class="shop-hero-sub" id="hero-sub">앨범, 굿즈를 장바구니에 담고 PayPal로 한번에 결제하세요.</p>
 </div>
 
 <!-- CATEGORY FILTER -->
@@ -184,128 +304,139 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
 <div class="product-grid-wrap">
   <div class="product-grid" id="product-grid">
 
-    <!-- ① MAMA 3집 -->
-    <a class="product-card" href="shop-mama.html" data-cat="album">
-      <div class="product-thumb">
-        <img class="product-thumb-img" src="images/MAMA_MAIN 1.png" alt="MAMA"/>
-        <div class="product-badge badge-sold">105% SOLD</div>
-      </div>
+    <!-- ① MAMA 3집 — SOLD OUT -->
+    <div class="product-card" data-cat="album">
+      <a class="product-thumb-link" href="shop-mama.html">
+        <div class="product-thumb">
+          <img class="product-thumb-img" src="images/MAMA_MAIN 1.png" alt="MAMA"/>
+          <div class="product-badge badge-sold">105% SOLD</div>
+        </div>
+      </a>
       <div class="product-info">
         <div class="product-cat" data-lang='{"ko":"3RD SOLO ALBUM","en":"3RD SOLO ALBUM","ja":"3RD SOLO ALBUM","zh":"第3張專輯"}'>3RD SOLO ALBUM</div>
         <div class="product-name"><em>MAMA</em></div>
         <div class="product-price">₩35,000 <span>/ $25</span></div>
-        <div class="product-cta" id="cta-mama">
-          자세히 보기
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </div>
+        <div class="product-cta-soon" id="cta-mama">— SOLD OUT —</div>
       </div>
-    </a>
+    </div>
 
     <!-- ② Still UNFINISHED 2집 -->
-    <a class="product-card" href="shop-su.html" data-cat="album">
-      <div class="product-thumb">
-        <img class="product-thumb-img" src="images/STILL UNFINIHSED 앨범자료/2nd ALBUM MAIN.jpg" alt="Still UNFINISHED"/>
-        <div class="product-badge badge-limited">잔여 수량 한정</div>
-      </div>
+    <div class="product-card" data-cat="album">
+      <a class="product-thumb-link" href="shop-su.html">
+        <div class="product-thumb">
+          <img class="product-thumb-img" src="images/STILL UNFINIHSED 앨범자료/2nd ALBUM MAIN.jpg" alt="Still UNFINISHED"/>
+          <div class="product-badge badge-limited">잔여 수량 한정</div>
+        </div>
+      </a>
       <div class="product-info">
         <div class="product-cat" data-lang='{"ko":"2ND SOLO ALBUM","en":"2ND SOLO ALBUM","ja":"2ND SOLO ALBUM","zh":"第2張專輯"}'>2ND SOLO ALBUM</div>
         <div class="product-name">Still <em>UNFINISHED</em></div>
         <div class="product-price">₩35,000 <span>/ $25</span></div>
-        <div class="product-cta" id="cta-su">
-          자세히 보기
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </div>
+        <button class="btn-add-cart" type="button" onclick="handleAddToCart(event,'su-cd')" id="cta-su">
+          ADD TO CART
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.96-1.61L23 6H6"/></svg>
+        </button>
       </div>
-    </a>
+    </div>
 
     <!-- ③ MAMA Black Tee -->
-    <a class="product-card" href="shop-mama-tee.html" data-cat="merch">
-      <div class="product-thumb">
-        <img class="product-thumb-img merch-img" src="images/MAMA_TEE_BLK.jpg.png" alt="MAMA Black Tee"
-          onerror="this.style.display='none';this.parentNode.querySelector('.product-thumb-ph').style.display='flex'"/>
-        <div class="product-thumb-ph" style="display:none">MAMA BLACK TEE</div>
-        <div class="product-badge badge-available">NEW</div>
-      </div>
+    <div class="product-card" data-cat="merch">
+      <a class="product-thumb-link" href="shop-mama-tee.html">
+        <div class="product-thumb">
+          <img class="product-thumb-img merch-img" src="images/MAMA_TEE_BLK.jpg.png" alt="MAMA Black Tee"
+            onerror="this.style.display='none';this.parentNode.querySelector('.product-thumb-ph').style.display='flex'"/>
+          <div class="product-thumb-ph" style="display:none">MAMA BLACK TEE</div>
+          <div class="product-badge badge-available">NEW</div>
+        </div>
+      </a>
       <div class="product-info">
         <div class="product-cat">MAMA : THE ETERNAL LOVE · T-SHIRT</div>
         <div class="product-name">MAMA <em>Black Tee</em></div>
         <div class="product-price">₩29,000 <span>/ ¥2,900 / $18</span></div>
-        <div class="product-cta" id="cta-mama-btee">
-          주문 문의하기
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </div>
+        <button class="btn-add-cart" type="button" onclick="handleAddToCart(event,'mama-btee')" id="cta-mama-btee">
+          ADD TO CART
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.96-1.61L23 6H6"/></svg>
+        </button>
       </div>
-    </a>
+    </div>
 
     <!-- ④ MAMA White Tee -->
-    <a class="product-card" href="shop-mama-tee.html" data-cat="merch">
-      <div class="product-thumb">
-        <img class="product-thumb-img merch-img" src="images/MAMA_TEE_WHT1.jpg.png" alt="MAMA White Tee"
-          onerror="this.style.display='none';this.parentNode.querySelector('.product-thumb-ph').style.display='flex'"/>
-        <div class="product-thumb-ph" style="display:none">MAMA WHITE TEE</div>
-        <div class="product-badge badge-available">NEW</div>
-      </div>
+    <div class="product-card" data-cat="merch">
+      <a class="product-thumb-link" href="shop-mama-tee.html">
+        <div class="product-thumb">
+          <img class="product-thumb-img merch-img" src="images/MAMA_TEE_WHT1.jpg.png" alt="MAMA White Tee"
+            onerror="this.style.display='none';this.parentNode.querySelector('.product-thumb-ph').style.display='flex'"/>
+          <div class="product-thumb-ph" style="display:none">MAMA WHITE TEE</div>
+          <div class="product-badge badge-available">NEW</div>
+        </div>
+      </a>
       <div class="product-info">
         <div class="product-cat">MAMA : THE ETERNAL LOVE · T-SHIRT</div>
         <div class="product-name">MAMA <em>White Tee</em></div>
         <div class="product-price">₩18,000 <span>/ ¥1,900 / $13</span></div>
-        <div class="product-cta" id="cta-mama-wtee">
-          주문 문의하기
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </div>
+        <button class="btn-add-cart" type="button" onclick="handleAddToCart(event,'mama-wtee')" id="cta-mama-wtee">
+          ADD TO CART
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.96-1.61L23 6H6"/></svg>
+        </button>
       </div>
-    </a>
+    </div>
 
-    <!-- ⑤ STILL UNFINISHED — Black Tee -->
-    <a class="product-card" href="shop-su-tee.html" data-cat="merch">
-      <div class="product-thumb">
-        <img class="product-thumb-img merch-img" src="images/2nd_BLACK1.jpg" alt="STILL UNFINISHED Black Tee"/>
-        <div class="product-badge badge-available">AVAILABLE</div>
-      </div>
+    <!-- ⑤ STILL UNFINISHED Black Tee -->
+    <div class="product-card" data-cat="merch">
+      <a class="product-thumb-link" href="shop-su-tee.html">
+        <div class="product-thumb">
+          <img class="product-thumb-img merch-img" src="images/2nd_BLACK1.jpg" alt="STILL UNFINISHED Black Tee"/>
+          <div class="product-badge badge-available">AVAILABLE</div>
+        </div>
+      </a>
       <div class="product-info">
         <div class="product-cat">STILL UNFINISHED · T-SHIRT</div>
         <div class="product-name">Black <em>Tee</em></div>
-        <div class="product-price">₩32,000 <span>/ ¥3,500</span></div>
-        <div class="product-cta" id="cta-su-btee">
-          VIEW DETAILS
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </div>
+        <div class="product-price">₩32,000 <span>/ ¥3,500 / $22</span></div>
+        <button class="btn-add-cart" type="button" onclick="handleAddToCart(event,'su-btee')" id="cta-su-btee">
+          ADD TO CART
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.96-1.61L23 6H6"/></svg>
+        </button>
       </div>
-    </a>
+    </div>
 
-    <!-- ④ STILL UNFINISHED — White Tee -->
-    <a class="product-card" href="shop-su-tee.html" data-cat="merch">
-      <div class="product-thumb">
-        <img class="product-thumb-img merch-img" src="images/2nd_WHITE1.jpg" alt="STILL UNFINISHED White Tee"/>
-        <div class="product-badge badge-available">AVAILABLE</div>
-      </div>
+    <!-- ⑥ STILL UNFINISHED White Tee -->
+    <div class="product-card" data-cat="merch">
+      <a class="product-thumb-link" href="shop-su-tee.html">
+        <div class="product-thumb">
+          <img class="product-thumb-img merch-img" src="images/2nd_WHITE1.jpg" alt="STILL UNFINISHED White Tee"/>
+          <div class="product-badge badge-available">AVAILABLE</div>
+        </div>
+      </a>
       <div class="product-info">
         <div class="product-cat">STILL UNFINISHED · T-SHIRT</div>
         <div class="product-name">White <em>Tee</em></div>
-        <div class="product-price">₩32,000 <span>/ ¥3,500</span></div>
-        <div class="product-cta" id="cta-su-wtee">
-          VIEW DETAILS
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </div>
+        <div class="product-price">₩32,000 <span>/ ¥3,500 / $22</span></div>
+        <button class="btn-add-cart" type="button" onclick="handleAddToCart(event,'su-wtee')" id="cta-su-wtee">
+          ADD TO CART
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.96-1.61L23 6H6"/></svg>
+        </button>
       </div>
-    </a>
+    </div>
 
-    <!-- ⑤ STILL UNFINISHED — Black Hoodie -->
-    <a class="product-card" href="shop-su-hoodie.html" data-cat="merch">
-      <div class="product-thumb">
-        <img class="product-thumb-img merch-img" src="images/2nd_BLACKHOOD1.jpg" alt="STILL UNFINISHED Black Hoodie"/>
-        <div class="product-badge badge-available">AVAILABLE</div>
-      </div>
+    <!-- ⑦ STILL UNFINISHED Black Hoodie -->
+    <div class="product-card" data-cat="merch">
+      <a class="product-thumb-link" href="shop-su-hoodie.html">
+        <div class="product-thumb">
+          <img class="product-thumb-img merch-img" src="images/2nd_BLACKHOOD1.jpg" alt="STILL UNFINISHED Black Hoodie"/>
+          <div class="product-badge badge-available">AVAILABLE</div>
+        </div>
+      </a>
       <div class="product-info">
         <div class="product-cat">STILL UNFINISHED · HOODIE</div>
         <div class="product-name">Black <em>Hoodie</em></div>
-        <div class="product-price">₩68,000 <span>/ ¥7,500</span></div>
-        <div class="product-cta" id="cta-su-hood">
-          VIEW DETAILS
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </div>
+        <div class="product-price">₩68,000 <span>/ ¥7,500 / $47</span></div>
+        <button class="btn-add-cart" type="button" onclick="handleAddToCart(event,'su-hood')" id="cta-su-hood">
+          ADD TO CART
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.96-1.61L23 6H6"/></svg>
+        </button>
       </div>
-    </a>
+    </div>
 
   </div>
 </div>
@@ -316,17 +447,14 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
     <div class="inquiry-label" id="inq-label">Order Inquiry</div>
     <h2 class="inquiry-title" id="inq-title">문의 & <em>주문 안내</em></h2>
     <p class="inquiry-desc" id="inq-desc">
-      결제 후 주문 정보를 보내주시거나, 구매 전 궁금한 점을 아래 폼으로 남겨주세요.<br/>
+      장바구니로 결제하거나, 궁금한 점은 아래 폼으로 남겨주세요.<br/>
       <strong>Instagram DM @madewellmusic_official</strong> 으로도 바로 문의 가능합니다.
     </p>
-
-    <!-- ★ Formsubmit — 첫 제출 시 이메일 인증 한 번 필요 -->
     <form class="inquiry-form" action="https://formsubmit.co/madewellofficial@gmail.com" method="POST" onsubmit="handleFormSubmit(event)">
       <input type="hidden" name="_subject" value="[MADEWELL SHOP] 주문/문의"/>
       <input type="hidden" name="_captcha" value="false"/>
       <input type="hidden" name="_next" value=""/>
       <input type="hidden" name="_template" value="table"/>
-
       <div class="form-row">
         <div class="form-field">
           <label class="form-label" id="fl-name">이름 / Name</label>
@@ -337,27 +465,24 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
           <input class="form-input" type="email" name="email" placeholder="your@email.com" required/>
         </div>
       </div>
-
       <div class="form-field">
         <label class="form-label" id="fl-item">주문 상품</label>
         <select class="form-select" name="item">
           <option value="">상품 선택 / Select item</option>
           <option value="MAMA CD (3집)">MAMA CD (3집) — ₩35,000 / $25</option>
-          <option value="MAMA Black Tee">MAMA Black Tee — ₩30,000</option>
-          <option value="MAMA White Tee">MAMA White Tee — ₩20,000</option>
+          <option value="MAMA Black Tee">MAMA Black Tee — ₩29,000</option>
+          <option value="MAMA White Tee">MAMA White Tee — ₩18,000</option>
           <option value="Still UNFINISHED CD (2집)">Still UNFINISHED CD (2집) — ₩35,000 / $25</option>
-          <option value="STILL UNFINISHED Black Tee">STILL UNFINISHED Black Tee — ₩32,000 / ¥3,500</option>
-          <option value="STILL UNFINISHED White Tee">STILL UNFINISHED White Tee — ₩32,000 / ¥3,500</option>
-          <option value="STILL UNFINISHED Black Hoodie">STILL UNFINISHED Black Hoodie — ₩68,000 / ¥7,500</option>
+          <option value="STILL UNFINISHED Black Tee">STILL UNFINISHED Black Tee — ₩32,000</option>
+          <option value="STILL UNFINISHED White Tee">STILL UNFINISHED White Tee — ₩32,000</option>
+          <option value="STILL UNFINISHED Black Hoodie">STILL UNFINISHED Black Hoodie — ₩68,000</option>
           <option value="기타 문의">기타 문의</option>
         </select>
       </div>
-
       <div class="form-field">
         <label class="form-label" id="fl-msg">메시지 / Message</label>
         <textarea class="form-textarea" name="message" placeholder="주문 수량, 배송지 국가, 사이즈(굿즈), 기타 문의 등을 자유롭게 적어주세요." required></textarea>
       </div>
-
       <button class="form-submit" type="submit" id="fl-submit">문의 보내기 →</button>
       <div class="form-note" id="fl-note">보내주신 내용은 madewellofficial@gmail.com 으로 전달됩니다. 보통 24시간 이내 답변드립니다.</div>
       <div class="form-success" id="form-success">✓ 문의가 전달되었습니다. 빠르게 연락드리겠습니다!</div>
@@ -388,14 +513,384 @@ body{background:#050e12;font-family:'Montserrat',sans-serif;color:#fff;min-heigh
   </div>
 </footer>
 
+<!-- ══ CART DRAWER ══ -->
+<div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-head">
+    <div class="cart-head-left">
+      <div class="cart-head-title">CART</div>
+      <div class="cart-head-count" id="cart-head-count"></div>
+    </div>
+    <button class="cart-close" onclick="closeCart()" aria-label="닫기">✕</button>
+  </div>
+
+  <div class="cart-items" id="cart-items"></div>
+
+  <div class="cart-empty" id="cart-empty">
+    <div class="cart-empty-label">EMPTY</div>
+    <div class="cart-empty-sub">아직 담긴 상품이 없어요</div>
+  </div>
+
+  <div class="cart-footer" id="cart-footer" style="display:none">
+    <div class="cart-shipping">합배송 가능 — 주문 확인 후 배송비를 별도 안내드립니다</div>
+    <div class="cart-total-row">
+      <span class="cart-total-label">TOTAL</span>
+      <span id="cart-total">$0.00</span>
+    </div>
+    <div id="paypal-button-container"></div>
+    <div class="paypal-note">PayPal · 신용카드 · 직불카드 결제 가능</div>
+  </div>
+</div>
+
+<!-- ══ SIZE PICKER MODAL ══ -->
+<div class="size-overlay" id="size-overlay" onclick="closeSizePicker()"></div>
+
+<div class="size-modal" id="size-modal">
+  <div class="size-modal-head">
+    <div>
+      <div class="size-modal-sub" id="size-modal-sub">SELECT SIZE</div>
+      <div class="size-modal-name" id="size-modal-name">Product</div>
+    </div>
+    <button class="size-modal-close" onclick="closeSizePicker()" aria-label="닫기">✕</button>
+  </div>
+  <div class="size-label">SIZE</div>
+  <div class="size-btns">
+    <button class="size-btn" type="button" onclick="selectSize('XS')">XS</button>
+    <button class="size-btn" type="button" onclick="selectSize('S')">S</button>
+    <button class="size-btn" type="button" onclick="selectSize('M')">M</button>
+    <button class="size-btn" type="button" onclick="selectSize('L')">L</button>
+    <button class="size-btn" type="button" onclick="selectSize('XL')">XL</button>
+    <button class="size-btn" type="button" onclick="selectSize('XXL')">XXL</button>
+  </div>
+  <div class="size-note">사이즈가 고민되면 DM @madewellmusic_official</div>
+</div>
+
 <script>
-/* ── 카테고리 필터 ── */
+/* ══════════════════════════════════════════════════
+   PRODUCT DATA
+   향후 상품 추가 시 여기에만 추가하면 됩니다
+══════════════════════════════════════════════════ */
+const PRODUCTS = {
+  'su-cd': {
+    name: 'Still UNFINISHED',
+    sub: '2ND SOLO ALBUM',
+    usd: 25, krw: 35000,
+    img: 'images/STILL UNFINIHSED 앨범자료/2nd ALBUM MAIN.jpg',
+    hasSize: false
+  },
+  'mama-btee': {
+    name: 'MAMA Black Tee',
+    sub: 'MAMA : THE ETERNAL LOVE',
+    usd: 18, krw: 29000,
+    img: 'images/MAMA_TEE_BLK.jpg.png',
+    hasSize: true
+  },
+  'mama-wtee': {
+    name: 'MAMA White Tee',
+    sub: 'MAMA : THE ETERNAL LOVE',
+    usd: 13, krw: 18000,
+    img: 'images/MAMA_TEE_WHT1.jpg.png',
+    hasSize: true
+  },
+  'su-btee': {
+    name: 'SU Black Tee',
+    sub: 'STILL UNFINISHED',
+    usd: 22, krw: 32000,
+    img: 'images/2nd_BLACK1.jpg',
+    hasSize: true
+  },
+  'su-wtee': {
+    name: 'SU White Tee',
+    sub: 'STILL UNFINISHED',
+    usd: 22, krw: 32000,
+    img: 'images/2nd_WHITE1.jpg',
+    hasSize: true
+  },
+  'su-hood': {
+    name: 'SU Black Hoodie',
+    sub: 'STILL UNFINISHED',
+    usd: 47, krw: 68000,
+    img: 'images/2nd_BLACKHOOD1.jpg',
+    hasSize: true
+  }
+};
+
+/* ══════════════════════════════════════════════════
+   CART STATE
+══════════════════════════════════════════════════ */
+let cart = [];
+let pendingProductId = null;
+let paypalRendered = false;
+
+try { cart = JSON.parse(localStorage.getItem('mw_cart') || '[]'); } catch(e) { cart = []; }
+
+function saveCart() {
+  try { localStorage.setItem('mw_cart', JSON.stringify(cart)); } catch(e) {}
+}
+
+/* ══════════════════════════════════════════════════
+   CART ICON BADGE
+══════════════════════════════════════════════════ */
+function updateCartBadge() {
+  const total = cart.reduce((s, i) => s + i.qty, 0);
+  const badge = document.getElementById('cart-badge');
+  if (!badge) return;
+  badge.textContent = total || '';
+  badge.style.display = total > 0 ? 'flex' : 'none';
+}
+
+/* ══════════════════════════════════════════════════
+   OPEN / CLOSE CART DRAWER
+══════════════════════════════════════════════════ */
+function openCart() {
+  document.getElementById('cart-drawer').classList.add('open');
+  document.getElementById('cart-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  renderCartItems();
+}
+
+function closeCart() {
+  document.getElementById('cart-drawer').classList.remove('open');
+  document.getElementById('cart-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ══════════════════════════════════════════════════
+   SIZE PICKER
+══════════════════════════════════════════════════ */
+function openSizePicker(productId) {
+  pendingProductId = productId;
+  const p = PRODUCTS[productId];
+  document.getElementById('size-modal-name').textContent = p.name;
+  document.getElementById('size-modal-sub').textContent = p.sub;
+  document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('size-overlay').classList.add('open');
+  document.getElementById('size-modal').classList.add('open');
+}
+
+function closeSizePicker() {
+  document.getElementById('size-overlay').classList.remove('open');
+  document.getElementById('size-modal').classList.remove('open');
+  pendingProductId = null;
+}
+
+function selectSize(size) {
+  if (!pendingProductId) return;
+  document.querySelectorAll('.size-btn').forEach(b => {
+    b.classList.toggle('active', b.textContent === size);
+  });
+  setTimeout(() => {
+    addToCart(pendingProductId, size);
+    closeSizePicker();
+  }, 200);
+}
+
+/* ══════════════════════════════════════════════════
+   ADD TO CART
+══════════════════════════════════════════════════ */
+function handleAddToCart(e, productId) {
+  e.preventDefault();
+  e.stopPropagation();
+  const p = PRODUCTS[productId];
+  if (!p) return;
+  if (p.hasSize) {
+    openSizePicker(productId);
+  } else {
+    addToCart(productId, null);
+  }
+}
+
+function addToCart(productId, size) {
+  const p = PRODUCTS[productId];
+  if (!p) return;
+  const cartId = size ? `${productId}-${size}` : productId;
+  const existing = cart.find(i => i.cartId === cartId);
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({
+      cartId, productId,
+      name: p.name, sub: p.sub,
+      size: size || null,
+      usd: p.usd, krw: p.krw,
+      img: p.img,
+      qty: 1
+    });
+  }
+  saveCart();
+  updateCartBadge();
+  openCart();
+}
+
+/* ══════════════════════════════════════════════════
+   RENDER CART ITEMS
+══════════════════════════════════════════════════ */
+function renderCartItems() {
+  const itemsEl  = document.getElementById('cart-items');
+  const emptyEl  = document.getElementById('cart-empty');
+  const footerEl = document.getElementById('cart-footer');
+  const countEl  = document.getElementById('cart-head-count');
+
+  const totalQty = cart.reduce((s, i) => s + i.qty, 0);
+  countEl.textContent = totalQty > 0 ? `${totalQty} item${totalQty > 1 ? 's' : ''}` : '';
+
+  if (cart.length === 0) {
+    itemsEl.innerHTML = '';
+    emptyEl.style.display = 'flex';
+    footerEl.style.display = 'none';
+    document.getElementById('paypal-button-container').innerHTML = '';
+    paypalRendered = false;
+    return;
+  }
+
+  emptyEl.style.display = 'none';
+  footerEl.style.display = 'block';
+
+  itemsEl.innerHTML = cart.map((item, idx) => `
+    <div class="cart-item">
+      <div class="cart-item-thumb">
+        <img src="${item.img}" alt="${item.name}"
+          onerror="this.style.display='none';this.parentNode.querySelector('.ci-ph').style.display='flex'"/>
+        <div class="ci-ph" style="display:none">${item.name.substring(0,6).toUpperCase()}</div>
+      </div>
+      <div class="cart-item-info">
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-meta">${item.sub}${item.size ? ' · ' + item.size : ''}</div>
+        <div class="cart-item-price">$${(item.usd * item.qty).toFixed(2)}</div>
+      </div>
+      <div class="cart-item-controls">
+        <button class="qty-btn" type="button" onclick="changeQty(${idx}, 1)">+</button>
+        <span class="qty-num">${item.qty}</span>
+        <button class="qty-btn" type="button" onclick="changeQty(${idx}, -1)">−</button>
+        <button class="remove-btn" type="button" onclick="removeItem(${idx})" aria-label="삭제">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3l10 10M13 3L3 13"/></svg>
+        </button>
+      </div>
+    </div>
+  `).join('');
+
+  updateTotal();
+  if (!paypalRendered) renderPayPal();
+}
+
+function updateTotal() {
+  const total = cart.reduce((s, i) => s + i.usd * i.qty, 0);
+  document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
+}
+
+function changeQty(idx, delta) {
+  if (!cart[idx]) return;
+  cart[idx].qty = Math.max(1, cart[idx].qty + delta);
+  saveCart();
+  updateCartBadge();
+  renderCartItems();
+}
+
+function removeItem(idx) {
+  cart.splice(idx, 1);
+  saveCart();
+  updateCartBadge();
+  paypalRendered = false;
+  renderCartItems();
+}
+
+/* ══════════════════════════════════════════════════
+   PAYPAL JS SDK
+   createOrder는 버튼 클릭 시마다 현재 장바구니를
+   읽어서 실시간으로 주문서를 생성합니다
+══════════════════════════════════════════════════ */
+function renderPayPal() {
+  const container = document.getElementById('paypal-button-container');
+  if (!container || cart.length === 0) return;
+  container.innerHTML = '';
+
+  if (typeof paypal === 'undefined') {
+    container.innerHTML = '<div class="paypal-loading">PayPal 로딩 중...</div>';
+    return;
+  }
+
+  paypal.Buttons({
+    style: {
+      layout: 'vertical',
+      color: 'gold',
+      shape: 'rect',
+      label: 'pay',
+      height: 48
+    },
+
+    /* 결제 버튼 클릭 시 — 현재 장바구니 기반으로 주문서 생성 */
+    createOrder: function(data, actions) {
+      const total = cart.reduce((s, i) => s + i.usd * i.qty, 0);
+      return actions.order.create({
+        purchase_units: [{
+          description: 'MADEWELL MUSIC Official Store',
+          amount: {
+            currency_code: 'USD',
+            value: total.toFixed(2),
+            breakdown: {
+              item_total: { currency_code: 'USD', value: total.toFixed(2) }
+            }
+          },
+          items: cart.map(function(item) {
+            return {
+              name: item.name + (item.size ? ' (' + item.size + ')' : ''),
+              description: item.sub,
+              unit_amount: { currency_code: 'USD', value: item.usd.toFixed(2) },
+              quantity: String(item.qty)
+            };
+          })
+        }]
+      });
+    },
+
+    /* 결제 승인 후 캡처 */
+    onApprove: function(data, actions) {
+      return actions.order.capture().then(function(details) {
+        const name = details.payer && details.payer.name ? details.payer.name.given_name : '';
+        cart = [];
+        saveCart();
+        updateCartBadge();
+        paypalRendered = false;
+        closeCart();
+        showOrderSuccess(name);
+      });
+    },
+
+    onError: function(err) {
+      console.error('PayPal error:', err);
+      alert('결제 중 오류가 발생했습니다. 다시 시도해주세요.');
+    },
+
+    onCancel: function() {
+      /* 취소 시 아무것도 하지 않음 — 장바구니 유지 */
+    }
+
+  }).render('#paypal-button-container');
+
+  paypalRendered = true;
+}
+
+/* ══════════════════════════════════════════════════
+   ORDER SUCCESS
+══════════════════════════════════════════════════ */
+function showOrderSuccess(name) {
+  const toast = document.createElement('div');
+  toast.className = 'order-toast';
+  toast.textContent = `✓ 결제 완료${name ? ' · 감사합니다, ' + name + '님' : ''}`;
+  document.body.appendChild(toast);
+  setTimeout(function() { toast.remove(); }, 5000);
+}
+
+/* ══════════════════════════════════════════════════
+   CATEGORY FILTER
+══════════════════════════════════════════════════ */
 function filterCat(cat) {
   document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
   const btn = cat === 'all' ? document.getElementById('cf-all') :
               cat === 'album' ? document.getElementById('cf-album') :
               document.getElementById('cf-merch');
-  if(btn) btn.classList.add('active');
+  if (btn) btn.classList.add('active');
 
   document.querySelectorAll('.product-card').forEach(card => {
     const c = card.dataset.cat;
@@ -403,13 +898,14 @@ function filterCat(cat) {
   });
 }
 
-/* ── 폼 제출 처리 ── */
+/* ══════════════════════════════════════════════════
+   FORM SUBMIT
+══════════════════════════════════════════════════ */
 function handleFormSubmit(e) {
   const btn = e.target.querySelector('.form-submit');
   btn.textContent = '전송 중...';
   btn.disabled = true;
-  // Formsubmit이 실제로 submit 처리 — AJAX로 하려면 fetch로 교체
-  setTimeout(() => {
+  setTimeout(function() {
     document.getElementById('form-success').style.display = 'block';
     e.target.reset();
     btn.textContent = '문의 보내기 →';
@@ -417,22 +913,24 @@ function handleFormSubmit(e) {
   }, 1200);
 }
 
-/* ── 다국어 ── */
+/* ══════════════════════════════════════════════════
+   MULTILANG
+══════════════════════════════════════════════════ */
 let currentLang = 'ko';
 const STRINGS = {
   'hero-label': {ko:'Official Store', en:'Official Store', ja:'公式ストア', zh:'官方商店'},
   'hero-title': {ko:'MADEWELL MUSIC <em>SHOP</em>', en:'MADEWELL MUSIC <em>SHOP</em>', ja:'MADEWELL MUSIC <em>SHOP</em>', zh:'MADEWELL MUSIC <em>SHOP</em>'},
-  'hero-sub':   {ko:'앨범, 굿즈 직접 주문 가능합니다. 결제는 PayPal / BOOTH, 문의는 하단 폼 또는 DM.', en:'Albums & merch available now. Pay via PayPal or BOOTH. Questions? Use the form below or DM.', ja:'アルバムとグッズを直接ご注文いただけます。PayPal / BOOTHでお支払い。お問い合わせはフォームかDMで。', zh:'可直接購買專輯與周邊商品。透過PayPal / BOOTH付款，詢問請用下方表單或DM。'},
-  'cta-mama':   {ko:'자세히 보기', en:'View Details', ja:'詳細を見る', zh:'查看詳情'},
-  'cta-su':     {ko:'자세히 보기', en:'View Details', ja:'詳細を見る', zh:'查看詳情'},
-  'cta-mama-btee':{ko:'주문 문의하기', en:'Order Inquiry', ja:'ご注文はこちら', zh:'訂購詢問'},
-  'cta-mama-wtee':{ko:'주문 문의하기', en:'Order Inquiry', ja:'ご注文はこちら', zh:'訂購詢問'},
-  'cta-su-btee':{ko:'상세 보기', en:'VIEW DETAILS', ja:'詳細を見る', zh:'查看詳情'},
-  'cta-su-wtee':{ko:'상세 보기', en:'VIEW DETAILS', ja:'詳細を見る', zh:'查看詳情'},
-  'cta-su-hood':{ko:'상세 보기', en:'VIEW DETAILS', ja:'詳細を見る', zh:'查看詳情'},
+  'hero-sub':   {ko:'앨범, 굿즈를 장바구니에 담고 PayPal로 한번에 결제하세요.', en:'Add albums & merch to cart, then pay once with PayPal.', ja:'カートに入れてPayPalで一括決済できます。', zh:'將商品加入購物車，透過PayPal一次結帳。'},
+  'cta-mama':   {ko:'— SOLD OUT —', en:'— SOLD OUT —', ja:'— SOLD OUT —', zh:'— SOLD OUT —'},
+  'cta-su':     {ko:'ADD TO CART', en:'ADD TO CART', ja:'カートに追加', zh:'加入購物車'},
+  'cta-mama-btee':{ko:'ADD TO CART', en:'ADD TO CART', ja:'カートに追加', zh:'加入購物車'},
+  'cta-mama-wtee':{ko:'ADD TO CART', en:'ADD TO CART', ja:'カートに追加', zh:'加入購物車'},
+  'cta-su-btee':{ko:'ADD TO CART', en:'ADD TO CART', ja:'カートに追加', zh:'加入購物車'},
+  'cta-su-wtee':{ko:'ADD TO CART', en:'ADD TO CART', ja:'カートに追加', zh:'加入購物車'},
+  'cta-su-hood':{ko:'ADD TO CART', en:'ADD TO CART', ja:'カートに追加', zh:'加入購物車'},
   'inq-label':  {ko:'Order Inquiry', en:'Order Inquiry', ja:'ご注文・お問い合わせ', zh:'訂購查詢'},
   'inq-title':  {ko:'문의 & <em>주문 안내</em>', en:'Inquiry & <em>Order Info</em>', ja:'お問い合わせ & <em>ご注文案内</em>', zh:'詢問 & <em>訂購說明</em>'},
-  'inq-desc':   {ko:'결제 후 주문 정보를 보내주시거나, 구매 전 궁금한 점을 아래 폼으로 남겨주세요.<br/><strong>Instagram DM @madewellmusic_official</strong> 으로도 바로 문의 가능합니다.', en:'Send your order info after payment, or leave any question below.<br/><strong>Instagram DM @madewellmusic_official</strong> also works anytime.', ja:'ご入金後の注文情報の送付、ご購入前のご質問はフォームからどうぞ。<br/><strong>Instagram DM @madewellmusic_official</strong> でもお気軽にどうぞ。', zh:'付款後請傳送訂單資訊，或在下方表單留下任何問題。<br/>也可透過 <strong>Instagram DM @madewellmusic_official</strong> 直接聯繫。'},
+  'inq-desc':   {ko:'장바구니로 결제하거나, 궁금한 점은 아래 폼으로 남겨주세요.<br/><strong>Instagram DM @madewellmusic_official</strong> 으로도 바로 문의 가능합니다.', en:'Pay via cart checkout, or leave any question below.<br/><strong>Instagram DM @madewellmusic_official</strong> also works anytime.', ja:'カートでお支払いいただくか、ご質問はフォームからどうぞ。<br/><strong>Instagram DM @madewellmusic_official</strong> でもお気軽にどうぞ。', zh:'透過購物車結帳，或在下方留下問題。<br/>也可透過 <strong>Instagram DM @madewellmusic_official</strong> 聯繫。'},
   'fl-name':    {ko:'이름 / Name', en:'Name', ja:'お名前', zh:'姓名'},
   'fl-email':   {ko:'이메일 / Email', en:'Email', ja:'メールアドレス', zh:'電子信箱'},
   'fl-item':    {ko:'주문 상품', en:'Item', ja:'ご注文商品', zh:'訂購商品'},
@@ -444,23 +942,25 @@ const STRINGS = {
 function setLang(lang) {
   currentLang = lang;
   document.querySelectorAll('.lang-bar button').forEach(b => b.classList.remove('on'));
-  const map = {ko:0,en:1,ja:2,zh:3};
+  const map = {ko:0, en:1, ja:2, zh:3};
   document.querySelectorAll('.lang-bar button')[map[lang]]?.classList.add('on');
 
   Object.entries(STRINGS).forEach(([id, vals]) => {
     const el = document.getElementById(id);
-    if(el) el.innerHTML = vals[lang] || vals.ko;
+    if (el) el.innerHTML = vals[lang] || vals.ko;
   });
 
-  // 카테고리 버튼 다국어
   document.querySelectorAll('.cat-btn[data-lang]').forEach(btn => {
-    try { btn.textContent = JSON.parse(btn.dataset.lang)[lang] || btn.textContent; } catch(e){}
+    try { btn.textContent = JSON.parse(btn.dataset.lang)[lang] || btn.textContent; } catch(e) {}
   });
   document.querySelectorAll('[data-lang]').forEach(el => {
-    if(el.classList.contains('cat-btn')) return;
-    try { el.textContent = JSON.parse(el.dataset.lang)[lang] || el.textContent; } catch(e){}
+    if (el.classList.contains('cat-btn')) return;
+    try { el.textContent = JSON.parse(el.dataset.lang)[lang] || el.textContent; } catch(e) {}
   });
 }
+
+/* ── INIT ── */
+updateCartBadge();
 </script>
 </body>
 </html>
